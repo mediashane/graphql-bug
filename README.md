@@ -1,6 +1,6 @@
 # Elizabeth Eakins 2021
 
-## Run it
+## Develop it locally
 
 ```bash
 clone
@@ -8,11 +8,11 @@ npm install
 npm run dev
 ```
 
-[http://localhost:3000]()
+[http://localhost:3000](http://localhost:3000)
 
 ## Deploy it
 
-Whenever changes are pushed to ```main``` the updates are deployed to the Vercel staging app at: [https://elizabeth-eakins-2021-koalition.vercel.app/]()
+Whenever changes are pushed to ```main``` the updates are deployed to the Vercel staging app at: [https://elizabeth-eakins-2021-koalition.vercel.app/](https://elizabeth-eakins-2021-koalition.vercel.app/)
 
 ## Development backend
 
