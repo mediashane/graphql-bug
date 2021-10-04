@@ -13,13 +13,21 @@ function Header({
   description,
 }: Props): JSX.Element {
   const { menuItems } = client.useQuery()
-  let links = menuItems({
+  const wordpressLinks = menuItems({
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
+  let links;
+
+  if (process.browser) {
+    links = wordpressLinks.map(link => {
+      if (link?.url) return `${window.location.origin}/${link.url.split('/')[3]}/`
+      return window.location.origin;
+    })
+  }  
 
   // determine localhost URLs if in development environment
   const environment = process.env.NODE_ENV;
-  const devLinks = links.map(link => {
+  const devLinks = wordpressLinks.map(link => {
     if (link?.url) return `http://localhost:3000/${link.url.split('/')[3]}/`
     return `http://localhost:3000/`
   })
@@ -37,10 +45,10 @@ function Header({
         </div>
         <div className={styles.menu}>
           <ul>
-            {links?.map((link, index) => (
+            {wordpressLinks?.map((link, index) => (
               <li key={`${link.label}$-menu`}>
-                <Link href={environment === 'development' ? devLinks[index] : link.url}>
-                  <a href={environment === 'development' ? devLinks[index] : link.url}>{link.label}</a>
+                <Link href={environment === 'development' ? devLinks[index] : links[index]}>
+                  <a href={environment === 'development' ? devLinks[index] : links[index]}>{link.label}</a>
                 </Link>
               </li>
             ))}
