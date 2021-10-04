@@ -25,6 +25,8 @@ function Header({
     })
   }
 
+  console.log('TESTING DEPLOY');
+
   // determine localhost URLs if in development environment
   const environment = process.env.NODE_ENV;
   const devLinks = wordpressLinks.map(link => {
