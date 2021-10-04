@@ -17,7 +17,7 @@ function Header({
 
   const links = wordpressLinks.map(link => {
       if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}/`
-      return window.location.origin;
+      return 'https://elizabeth-eakins-2021-koalition.vercel.app';
     })
 
   // determine localhost URLs if in development environment
