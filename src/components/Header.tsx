@@ -18,7 +18,7 @@ function Header({
 
   if (typeof window !== 'undefined') {
     links = wordpressLinks.map(link => {
-      if (link?.url) return `${window.location.origin}/${link.url.split('/')[3]}/`
+      if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}/`
       return window.location.origin;
     })
   }
