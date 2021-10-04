@@ -18,12 +18,12 @@ function Header({
   }).nodes;
   let links;
 
-  if (process.browser) {
+  if (typeof window !== 'undefined') {
     links = wordpressLinks.map(link => {
       if (link?.url) return `${window.location.origin}/${link.url.split('/')[3]}/`
       return window.location.origin;
     })
-  }  
+  }
 
   // determine localhost URLs if in development environment
   const environment = process.env.NODE_ENV;
