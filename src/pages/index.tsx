@@ -21,12 +21,11 @@ export default function Page() {
     <>
       <Header
         title={generalSettings.title}
-        description={generalSettings.description}
       />
 
       <Head>
         <title>
-          {generalSettings.title} - {generalSettings.description}
+          {generalSettings.title}
         </title>
       </Head>
 

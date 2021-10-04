@@ -16,7 +16,6 @@ export function PageComponent({ page }: PageProps) {
     <>
       <Header
         title={generalSettings.title}
-        description={generalSettings.description}
       />
 
       <Head>

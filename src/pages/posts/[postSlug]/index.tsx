@@ -16,7 +16,6 @@ export function PostComponent({ post }: PostProps) {
     <>
       <Header
         title={generalSettings.title}
-        description={generalSettings.description}
       />
 
       <Head>
