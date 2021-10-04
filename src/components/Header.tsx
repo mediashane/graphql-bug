@@ -14,14 +14,11 @@ function Header({
   const wordpressLinks = menuItems({
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
-  let links;
 
-  if (typeof window !== 'undefined') {
-    links = wordpressLinks.map(link => {
+  const links = wordpressLinks.map(link => {
       if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}/`
       return window.location.origin;
     })
-  }
 
   // determine localhost URLs if in development environment
   const environment = process.env.NODE_ENV;

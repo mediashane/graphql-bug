@@ -17,8 +17,6 @@ export default function Page() {
     },
   });
 
-  console.log('URL? ', process.env.NEXT_PUBLIC_WORDPRESS_URL);
-
   return (
     <>
       <Header
