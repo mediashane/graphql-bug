@@ -10,7 +10,7 @@ interface Props {
 
 function Header({
   title = 'Elizabeth Eakins',
-  description,
+  description = '',
 }: Props): JSX.Element {
   const { menuItems } = client.useQuery()
   const wordpressLinks = menuItems({
