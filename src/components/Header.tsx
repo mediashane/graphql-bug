@@ -5,7 +5,6 @@ import { client, MenuLocationEnum } from 'client';
 
 interface Props {
   title?: string;
-  description?: string;
 }
 
 function Header({
@@ -40,7 +39,6 @@ function Header({
               <a>{title}</a>
             </Link>
           </p>
-          {description && <p className={styles.description}>{description}</p>}
         </div>
         <div className={styles.menu}>
           <ul>
