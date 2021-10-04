@@ -9,14 +9,21 @@ interface Props {
 }
 
 function Header({
-  title = 'Headless by WP Engine',
+  title = 'Elizabeth Eakins',
   description,
 }: Props): JSX.Element {
   const { menuItems } = client.useQuery()
-  const links = menuItems({
+  let links = menuItems({
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
 
+  // determine localhost URLs if in development environment
+  const environment = process.env.NODE_ENV;
+  const devLinks = links.map(link => {
+    if (link?.url) return `http://localhost:3000/${link.url.split('/')[3]}/`
+    return `http://localhost:3000/`
+  })
+  
   return (
     <header>
       <div className={styles.wrap}>
@@ -30,21 +37,15 @@ function Header({
         </div>
         <div className={styles.menu}>
           <ul>
-            {links?.map((link) => (
+            {links?.map((link, index) => (
               <li key={`${link.label}$-menu`}>
-                <Link href={link.url ?? ''}>
-                  <a href={link.url}>{link.label}</a>
+                <Link href={environment === 'development' ? devLinks[index] : link.url}>
+                  <a href={environment === 'development' ? devLinks[index] : link.url}>{link.label}</a>
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="https://github.com/wpengine/faustjs">
-                <a
-                  className="button"
-                  href="https://github.com/wpengine/faustjs">
-                  GitHub
-                </a>
-              </Link>
+              <span className={styles.hamburgerMenu}></span>
             </li>
           </ul>
         </div>

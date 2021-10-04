@@ -16,23 +16,15 @@ export default function Page() {
       />
 
       <Head>
-        <title>Custom Page - {generalSettings.title}</title>
+        <title>Rugs - {generalSettings.title}</title>
       </Head>
 
-      <Hero title="Custom Page" />
+      <Hero title="Fabric" />
 
       <main className="content content-single">
         <div className="wrap">
           <p>
-            You can still create pages just as you would in{' '}
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              target="_blank"
-              rel="noreferrer">
-              Next.js
-            </a>
-            . Take a look at <code>src/pages/custom-page.tsx</code> for an
-            example.
+            Fabric goes here
           </p>
         </div>
       </main>

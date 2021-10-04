@@ -24,7 +24,7 @@ PW: RMDH3hUZTa
 
 [Faust.js](https://faustjs.org/): headless WordPress framework, with:
 
-- Custom fields with Atlas [Content Modeler](https://developers.wpengine.com/blog/what-is-atlas-content-modeler) ([how-to guide](https://faustjs.org/docs/next/guides/custom-post-types))
+- Custom fields with [Atlas Content Modeler](https://developers.wpengine.com/blog/what-is-atlas-content-modeler) ([how-to guide](https://faustjs.org/docs/next/guides/custom-post-types))
 - GraphQL with [WPGraphQL](https://github.com/wp-graphql/wp-graphql) ([how-to guide](https://faustjs.org/docs/next/guides/fetching-data#using-the-client-to-make-queries))
 
 
