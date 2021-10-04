@@ -10,7 +10,7 @@ export default function Page(): JSX.Element {
     <>
       <Header
         title={generalSettings?.title}
-        description={generalSettings?.description}
+        // description={generalSettings?.description}
       />
       <main className="content content-page">
         <Hero title={`Oops! That page can’t be found.`} />
