@@ -11,11 +11,7 @@ import {
   SchemaObjectTypesNames,
 } from './schema.generated';
 
-export const client = getClient<
-  GeneratedSchema,
-  SchemaObjectTypesNames,
-  SchemaObjectTypes
->({
+export const client = getClient<GeneratedSchema, SchemaObjectTypesNames, SchemaObjectTypes>({
   schema: generatedSchema,
   scalarsEnumsHash,
 });

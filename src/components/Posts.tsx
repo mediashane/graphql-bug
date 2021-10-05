@@ -1,7 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
 import type { Post } from 'client';
+import Link from 'next/link';
 import styles from 'scss/components/Posts.module.scss';
+
 import Heading, { HeadingProps } from './Heading';
 
 interface Props {
@@ -35,10 +36,7 @@ function Posts({
         {intro && <p className={styles.intro}>{intro}</p>}
         <div className="posts">
           {posts.map((post) => (
-            <div
-              className={styles.single}
-              key={post.id ?? ''}
-              id={`post-${post.id}`}>
+            <div className={styles.single} key={post.id ?? ''} id={`post-${post.id}`}>
               <div>
                 <Heading level={postTitleLevel} className={styles.title}>
                   <Link href={`/posts/${post.slug}`}>
@@ -51,9 +49,7 @@ function Posts({
                   dangerouslySetInnerHTML={{ __html: post.excerpt() ?? '' }}
                 />
                 <Link href={`/posts/${post.slug}`}>
-                  <a aria-label={`Read more about ${post.title || 'the post'}`}>
-                    {readMoreText}
-                  </a>
+                  <a aria-label={`Read more about ${post.title || 'the post'}`}>{readMoreText}</a>
                 </Link>
               </div>
             </div>

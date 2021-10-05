@@ -1,3 +1,34 @@
 {
-  "extends": "next"
+  "extends": ["next", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "rules": {
+    "@typescript-eslint/no-empty-interface": ["off"],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "indent": ["off"],
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-extra-boolean-cast": ["error", { "enforceForLogicalOperands": false }],
+    "no-implicit-coercion": "error",
+    "react/display-name": "off",
+    "quotes": ["error", "single", { "avoidEscape": false, "allowTemplateLiterals": true }],
+    "semi": ["error", "always"],
+    "@typescript-eslint/no-empty-function": 1,
+    "no-empty-pattern": 1,
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"],
+          ["^react", "^\\w"],
+          ["^auth0", "^@material-ui"],
+          ["^@generated", "^@"],
+          ["^"],
+          ["^\\.\\."],
+          ["^\\."]
+        ]
+      }
+    ]
+  }
 }

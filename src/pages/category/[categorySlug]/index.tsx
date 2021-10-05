@@ -1,9 +1,10 @@
-import { getNextStaticProps, is404 } from '@faustjs/next';
-import Head from 'next/head';
-import { Header, Footer, Posts, Pagination } from 'components';
-import { GetStaticPropsContext } from 'next';
-import { useRouter } from 'next/router';
 import { client } from 'client';
+import { Footer, Header, Pagination, Posts } from 'components';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import { getNextStaticProps, is404 } from '@faustjs/next';
 
 const POSTS_PER_PAGE = 6;
 
@@ -23,9 +24,7 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-      />
+      <Header title={generalSettings.title} />
 
       <Head>
         <title>Posts - {generalSettings?.title}</title>
@@ -36,10 +35,7 @@ export default function Page() {
           <h2>Category: {category?.name}</h2>
           <Posts posts={posts.nodes} />
 
-          <Pagination
-            pageInfo={posts.pageInfo}
-            basePath={`/category/${categorySlug}`}
-          />
+          <Pagination pageInfo={posts.pageInfo} basePath={`/category/${categorySlug}`} />
         </div>
       </main>
 

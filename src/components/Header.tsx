@@ -1,32 +1,30 @@
 import React from 'react';
-import styles from 'scss/components/Header.module.scss';
-import Link from 'next/link';
 import { client, MenuLocationEnum } from 'client';
+import Link from 'next/link';
+import styles from 'scss/components/Header.module.scss';
 
 interface Props {
   title?: string;
 }
 
-function Header({
-  title = 'Elizabeth Eakins',
-}: Props): JSX.Element {
-  const { menuItems } = client.useQuery()
+function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
+  const { menuItems } = client.useQuery();
   const wordpressLinks = menuItems({
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
 
-  const links = wordpressLinks.map(link => {
-      if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}/`
-      return 'https://elizabeth-eakins-2021-koalition.vercel.app';
-    })
+  const links = wordpressLinks.map((link) => {
+    if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}/`;
+    return 'https://elizabeth-eakins-2021-koalition.vercel.app';
+  });
 
   // determine localhost URLs if in development environment
   const environment = process.env.NODE_ENV;
-  const devLinks = wordpressLinks.map(link => {
-    if (link?.url) return `http://localhost:3000/${link.url.split('/')[3]}/`
-    return `http://localhost:3000/`
-  })
-  
+  const devLinks = wordpressLinks.map((link) => {
+    if (link?.url) return `http://localhost:3000/${link.url.split('/')[3]}/`;
+    return `http://localhost:3000/`;
+  });
+
   return (
     <header>
       <div className={styles.wrap}>

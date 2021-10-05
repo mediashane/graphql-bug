@@ -1,6 +1,7 @@
+import { client } from 'client';
+
 import { PageComponent } from './[...pageUri]';
 import { PostComponent } from './posts/[postSlug]';
-import { client } from 'client';
 
 export default function Preview() {
   const { usePreview } = client.auth;

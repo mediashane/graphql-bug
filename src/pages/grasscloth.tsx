@@ -1,8 +1,9 @@
-import { getNextStaticProps } from '@faustjs/next';
 import { client } from 'client';
 import { Footer, Header, Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+
+import { getNextStaticProps } from '@faustjs/next';
 
 export default function Page() {
   const { useQuery } = client;
@@ -10,9 +11,7 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-      />
+      <Header title={generalSettings.title} />
 
       <Head>
         <title>Rugs - {generalSettings.title}</title>
@@ -22,9 +21,7 @@ export default function Page() {
 
       <main className="content content-single">
         <div className="wrap">
-          <p>
-            Grasscloth goes here
-          </p>
+          <p>Grasscloth goes here</p>
         </div>
       </main>
 

@@ -1,8 +1,9 @@
-import { getNextStaticProps, is404 } from '@faustjs/next';
+import { client, Page as PageType } from 'client';
 import { Footer, Header, Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
-import { client, Page as PageType } from 'client';
+
+import { getNextStaticProps, is404 } from '@faustjs/next';
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
@@ -14,9 +15,7 @@ export function PageComponent({ page }: PageProps) {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-      />
+      <Header title={generalSettings.title} />
 
       <Head>
         <title>
@@ -24,10 +23,7 @@ export function PageComponent({ page }: PageProps) {
         </title>
       </Head>
 
-      <Hero
-        title={page?.title()}
-        bgImage={page?.featuredImage?.node.sourceUrl()}
-      />
+      <Hero title={page?.title()} bgImage={page?.featuredImage?.node.sourceUrl()} />
 
       <main className="content content-single">
         <div className="wrap">

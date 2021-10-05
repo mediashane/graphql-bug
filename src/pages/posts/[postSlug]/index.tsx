@@ -1,8 +1,9 @@
-import { getNextStaticProps, is404 } from '@faustjs/next';
 import { client, Post } from 'client';
 import { Footer, Header, Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+
+import { getNextStaticProps, is404 } from '@faustjs/next';
 
 export interface PostProps {
   post: Post | Post['preview']['node'] | null | undefined;
@@ -14,9 +15,7 @@ export function PostComponent({ post }: PostProps) {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-      />
+      <Header title={generalSettings.title} />
 
       <Head>
         <title>
@@ -24,10 +23,7 @@ export function PostComponent({ post }: PostProps) {
         </title>
       </Head>
 
-      <Hero
-        title={post?.title()}
-        bgImage={post?.featuredImage?.node?.sourceUrl()}
-      />
+      <Hero title={post?.title()} bgImage={post?.featuredImage?.node?.sourceUrl()} />
 
       <main className="content content-single">
         <div className="wrap">

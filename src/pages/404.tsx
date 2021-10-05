@@ -1,6 +1,7 @@
 import React from 'react';
 import { client } from 'client';
-import { Header, Hero, Footer } from '../components';
+
+import { Footer, Header, Hero } from '../components';
 
 export default function Page(): JSX.Element {
   const { useQuery } = client;
@@ -8,18 +9,13 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      <Header
-        title={generalSettings?.title}
-      />
+      <Header title={generalSettings?.title} />
       <main className="content content-page">
         <Hero title={`Oops! That page can’t be found.`} />
         <div className="wrap">
           <div>
             <div>
-              <p>
-                The page you were looking for does not exist or is no longer
-                available.
-              </p>
+              <p>The page you were looking for does not exist or is no longer available.</p>
             </div>
           </div>
         </div>

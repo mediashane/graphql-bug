@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "clean": "rimraf .next node_modules",
-    "lint": "next lint",
+    "lint": "eslint --fix --ext .js,.jsx,.tsx .",
     "generate": "gqty generate",
     "wpe-build": "next build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "eslint": "./node_modules/.bin/eslint ./",
+    "eslint:errors": "./node_modules/.bin/eslint ./ --quiet",
+    "prettier": "./node_modules/.bin/prettier --check src"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -33,10 +36,19 @@
     "@storybook/addon-links": "^6.3.9",
     "@storybook/react": "^6.3.9",
     "@types/react": "^17.0.24",
+    "@typescript-eslint/eslint-plugin": "4.0.1",
+    "@typescript-eslint/parser": "4.0.1",
     "babel-loader": "^8.2.2",
     "dotenv-flow": "3.2.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "2.4.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
   }

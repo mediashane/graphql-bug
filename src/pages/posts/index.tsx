@@ -1,11 +1,12 @@
-import { getNextStaticProps } from '@faustjs/next';
+import React from 'react';
 import { client, OrderEnum, PostObjectsConnectionOrderbyEnum } from 'client';
 import { Footer, Header, Pagination, Posts } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
 import styles from 'scss/pages/posts.module.scss';
+
+import { getNextStaticProps } from '@faustjs/next';
 
 const POSTS_PER_PAGE = 6;
 
@@ -28,24 +29,14 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-      />
+      <Header title={generalSettings.title} />
 
       <Head>
-        <title>
-          {generalSettings.title}
-        </title>
+        <title>{generalSettings.title}</title>
       </Head>
 
       <main className="content content-index">
-        <Posts
-          posts={posts.nodes}
-          heading="Blog Posts"
-          headingLevel="h2"
-          postTitleLevel="h3"
-          id={styles.post_list}
-        />
+        <Posts posts={posts.nodes} heading="Blog Posts" headingLevel="h2" postTitleLevel="h3" id={styles.post_list} />
         <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
       </main>
 

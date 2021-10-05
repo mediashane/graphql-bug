@@ -1,7 +1,9 @@
-import { getNextStaticProps } from '@faustjs/next';
-import { GetStaticPropsContext } from 'next';
-import Page from '..';
 import { client } from 'client';
+import { GetStaticPropsContext } from 'next';
+
+import { getNextStaticProps } from '@faustjs/next';
+
+import Page from '..';
 
 export default Page;
 
