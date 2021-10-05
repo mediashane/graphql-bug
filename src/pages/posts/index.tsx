@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from 'client';
-import { Footer, Header, Pagination, Posts } from 'components';
+import { Footer, Pagination, Posts } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -29,8 +29,6 @@ export default function Page() {
 
   return (
     <>
-      <Header title={generalSettings.title} />
-
       <Head>
         <title>{generalSettings.title}</title>
       </Head>

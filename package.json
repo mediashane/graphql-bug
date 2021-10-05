@@ -21,6 +21,7 @@
     "@emotion/styled": "^11.3.0",
     "@faustjs/core": "^0.11.0",
     "@faustjs/next": "^0.11.0",
+    "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.2",
     "next": "^11.1.2",
     "normalize.css": "^8.0.1",
