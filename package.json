@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "clean": "rimraf .next node_modules",
-    "lint": "eslint --fix --ext .js,.jsx,.tsx .",
+    "lint": "eslint --fix --ext .js,.jsx,.tsx,.ts .",
     "generate": "gqty generate",
     "wpe-build": "next build",
     "storybook": "start-storybook -p 6006",

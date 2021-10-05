@@ -1,5 +1,5 @@
 import React from 'react';
-import { client, OrderEnum, PostObjectsConnectionOrderbyEnum } from 'client';
+import { client } from 'client';
 import { Footer, Header, Pagination, Posts } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';

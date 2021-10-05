@@ -2,11 +2,13 @@
  * GQTY: You can safely modify this file and Query Fetcher based on your needs
  */
 import type { IncomingMessage } from 'http';
+
 import { getClient } from '@faustjs/next';
+
 import {
+  GeneratedSchema,
   generatedSchema,
   scalarsEnumsHash,
-  GeneratedSchema,
   SchemaObjectTypes,
   SchemaObjectTypesNames,
 } from './schema.generated';
