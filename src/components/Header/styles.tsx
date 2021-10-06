@@ -20,13 +20,6 @@ const styles = {
   menuIcon: {
     mr: 2,
     ml: 2,
-    display: {
-      xs: 'flex',
-      sm: 'flex',
-      md: 'none',
-      lg: 'none',
-      xl: 'none',
-    },
   },
 };
 

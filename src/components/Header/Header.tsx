@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { client, MenuLocationEnum } from 'client';
+import DrawerMenu from 'components/MenuDrawer/MenuDrawer';
 import NextLink from 'next/link';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -17,6 +18,7 @@ interface Props {
 }
 
 function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
+  const [menuDrawer, setMenuDrawer] = React.useState(false);
   const { menuItems } = client.useQuery();
   const wordpressLinks = menuItems({
     where: { location: MenuLocationEnum.PRIMARY },
@@ -25,6 +27,12 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   const links = wordpressLinks.map((link) => {
     if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}`;
     return 'https://elizabeth-eakins-2021-koalition.vercel.app';
+  });
+
+  const menuLinks = wordpressLinks.map((link) => {
+    if (!link.label || !link.url || !link.description) return;
+    const { label, url, description } = link;
+    return { label, url, description, submenu: description.includes('submenu') ? true : false, open: false };
   });
 
   // determine localhost URLs if in development environment
@@ -58,11 +66,19 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
               </NextLink>
             ))}
           </Box>
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={styles.menuIcon}>
+          <IconButton
+            onClick={() => setMenuDrawer(!menuDrawer)}
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={styles.menuIcon}
+          >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
+      <DrawerMenu menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} menuLinks={menuLinks} />
     </Box>
   );
 }
