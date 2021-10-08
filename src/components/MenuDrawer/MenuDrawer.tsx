@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { client, MenuLocationEnum } from 'client';
 import NextLink from 'next/link';
 
+import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Box from '@mui/material/Box';
@@ -13,6 +14,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
+import styles from './styles';
 
 type Props = {
   menuDrawer: boolean;
@@ -57,22 +60,42 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
   if (drawerMenu.length === 0 || !drawerMenu[0].url) return null;
 
   const MenuItem = ({ buttonTarget, id, url }: ButtonTarget) => (
-    <List>
-      <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
-        <MUILink color="inherit" variant="inherit" underline="none">
-          <ListItem button key={buttonTarget} onClick={toggleDrawer()} onKeyDown={toggleDrawer()}>
-            <ListItemText primary={buttonTarget} />
-          </ListItem>
-        </MUILink>
-      </NextLink>
+    <>
+      <List sx={{ ...styles.linkUnderline }}>
+        <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
+          <MUILink color="inherit" variant="inherit" underline="none">
+            <ListItem
+              key={buttonTarget}
+              onClick={toggleDrawer()}
+              onKeyDown={toggleDrawer()}
+              sx={{
+                '&.MuiButtonBase-root:hover': {
+                  bgcolor: 'transparent',
+                },
+              }}
+            >
+              <ListItemText primary={buttonTarget} />
+            </ListItem>
+          </MUILink>
+        </NextLink>
+      </List>
       <Divider />
-    </List>
+    </>
   );
 
   const SubmenuItem = ({ buttonTarget, id, url }: ButtonTarget) => (
     <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
-      <MUILink color="inherit" variant="inherit" underline="none">
-        <ListItem button sx={{ pl: 4 }}>
+      <MUILink color="inherit" variant="inherit" underline="hover">
+        <ListItem
+          button
+          disablePadding
+          sx={{
+            '&.MuiButtonBase-root:hover': {
+              bgcolor: 'transparent',
+            },
+            pl: 2,
+          }}
+        >
           <ListItemText primary={buttonTarget} />
         </ListItem>
       </MUILink>
@@ -81,29 +104,43 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
 
   const Submenu = ({ buttonTarget, index, id }: ButtonTarget) => {
     return (
-      <List>
-        <ListItem onClick={() => handleClick(index)} button key={buttonTarget}>
-          <ListItemText primary={buttonTarget} />
-          <ListItemIcon>{submenus[index]?.open ? <ExpandLess /> : <ExpandMore />}</ListItemIcon>
-        </ListItem>
-        <Collapse in={submenus[index]?.open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {drawerMenu.map((link, index) => {
-              if (link.parentId === id) {
-                return (
-                  <SubmenuItem buttonTarget={link.label} key={link.id} index={index} id={link.id} url={link.url} />
-                );
-              }
-            })}
-          </List>
-        </Collapse>
+      <>
+        <List sx={{ ...styles.linkUnderline, pr: 2, pl: 2 }}>
+          <MUILink color="inherit" variant="inherit" underline="none">
+            <ListItem
+              onClick={() => handleClick(index)}
+              key={buttonTarget}
+              sx={{
+                '&.MuiButtonBase-root:hover': {
+                  bgcolor: 'transparent',
+                },
+              }}
+            >
+              <ListItemText disableTypography sx={{ fontSize: '1.5em' }} primary={buttonTarget} />
+              <ListItemIcon sx={{ mr: '-30px' }}>
+                {submenus[index]?.open ? <ExpandLess /> : <ExpandMore />}
+              </ListItemIcon>
+            </ListItem>
+          </MUILink>
+          <Collapse in={submenus[index]?.open} timeout="auto" sx={{ pb: 2 }} unmountOnExit>
+            <List component="div" disablePadding>
+              {drawerMenu.map((link, index) => {
+                if (link.parentId === id) {
+                  return (
+                    <SubmenuItem buttonTarget={link.label} key={link.id} index={index} id={link.id} url={link.url} />
+                  );
+                }
+              })}
+            </List>
+          </Collapse>
+        </List>
         <Divider />
-      </List>
+      </>
     );
   };
 
   const MenuList = () => (
-    <Box sx={{ width: 350 }} role="presentation">
+    <Box sx={{ width: 350, mt: -5 }} role="presentation">
       {drawerMenu.map((link, index) => {
         if (drawerMenu.some((menuItem) => menuItem.parentId === link.id))
           return <Submenu buttonTarget={link.label} key={link.id} index={index} id={link.id} />;
@@ -113,10 +150,27 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
   );
 
   return (
-    <div>
-      <Drawer anchor={'right'} open={menuDrawer} onClose={toggleDrawer()}>
+    <Drawer anchor={'right'} open={menuDrawer} onClose={toggleDrawer()}>
+      <div style={styles.drawerContainer}>
+        <div style={styles.closeContainer}>
+          <CloseIcon sx={styles.close} onClick={() => setMenuDrawer(!menuDrawer)} />
+        </div>
         <MenuList />
-      </Drawer>
-    </div>
+        <MUILink color="inherit" variant="inherit" underline="none">
+          <List>
+            <ListItem
+              button
+              sx={{
+                '&.MuiButtonBase-root:hover': {
+                  bgcolor: 'transparent',
+                },
+              }}
+            >
+              <ListItemText primary={'Book an Appointment'} />
+            </ListItem>
+          </List>
+        </MUILink>
+      </div>
+    </Drawer>
   );
 }
