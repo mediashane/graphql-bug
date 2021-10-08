@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Hero } from 'components';
+import { Footer, Header, Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -11,6 +11,8 @@ export default function Page() {
 
   return (
     <>
+      <Header title={generalSettings.title} />
+
       <Head>
         <title>Rugs - {generalSettings.title}</title>
       </Head>

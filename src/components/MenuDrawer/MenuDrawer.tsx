@@ -1,4 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import { client, MenuLocationEnum } from 'client';
+import NextLink from 'next/link';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -6,6 +8,7 @@ import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
+import MUILink from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,24 +17,30 @@ import ListItemText from '@mui/material/ListItemText';
 type Props = {
   menuDrawer: boolean;
   setMenuDrawer: Dispatch<SetStateAction<boolean>>;
-  menuLinks: { label: string; url: string; description: string; submenu: boolean; open: boolean }[];
 };
 
 type ButtonTarget = {
   buttonTarget: string;
   index?: number;
+  id?: string;
+  url?: string;
 };
 
-export default function DrawerMenu({ menuDrawer, setMenuDrawer, menuLinks }: Props) {
-  const [submenuOpen, setSubmenuOpen] = React.useState(null);
+export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
+  const [submenus, setSubmenus] = React.useState(null);
+  const { menuItems } = client.useQuery();
+  const drawerMenu = menuItems({
+    first: 100,
+    where: { location: MenuLocationEnum.DRAWER },
+  }).nodes;
 
   useEffect(() => {
-    setSubmenuOpen(menuLinks);
-  }, [menuLinks]);
+    setSubmenus(drawerMenu);
+  }, [drawerMenu]);
 
   const handleClick = (index) => {
-    const updateSubmenus = submenuOpen.map((el, i) => (i == index ? { ...el, open: !el.open } : el));
-    setSubmenuOpen(updateSubmenus);
+    const updateSubmenus = submenus.map((submenu, i) => (i == index ? { ...submenu, open: !submenu.open } : submenu));
+    setSubmenus(updateSubmenus);
   };
 
   const toggleDrawer = () => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -45,31 +54,47 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer, menuLinks }: Pro
     setMenuDrawer(!menuDrawer);
   };
 
-  const MenuItem = ({ buttonTarget }: ButtonTarget) => (
+  if (drawerMenu.length === 0 || !drawerMenu[0].url) return null;
+
+  const MenuItem = ({ buttonTarget, id, url }: ButtonTarget) => (
     <List>
-      <ListItem button key={buttonTarget} onClick={toggleDrawer()} onKeyDown={toggleDrawer()}>
-        <ListItemText primary={buttonTarget} />
-      </ListItem>
+      <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
+        <MUILink color="inherit" variant="inherit" underline="none">
+          <ListItem button key={buttonTarget} onClick={toggleDrawer()} onKeyDown={toggleDrawer()}>
+            <ListItemText primary={buttonTarget} />
+          </ListItem>
+        </MUILink>
+      </NextLink>
       <Divider />
     </List>
   );
 
-  const SubmenuItem = ({ buttonTarget }: ButtonTarget) => (
-    <ListItem button sx={{ pl: 4 }}>
-      <ListItemText primary={buttonTarget} />
-    </ListItem>
+  const SubmenuItem = ({ buttonTarget, id, url }: ButtonTarget) => (
+    <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
+      <MUILink color="inherit" variant="inherit" underline="none">
+        <ListItem button sx={{ pl: 4 }}>
+          <ListItemText primary={buttonTarget} />
+        </ListItem>
+      </MUILink>
+    </NextLink>
   );
 
-  const Submenu = ({ buttonTarget, index }: ButtonTarget) => {
+  const Submenu = ({ buttonTarget, index, id }: ButtonTarget) => {
     return (
       <List>
         <ListItem onClick={() => handleClick(index)} button key={buttonTarget}>
           <ListItemText primary={buttonTarget} />
-          <ListItemIcon>{submenuOpen[index]?.open ? <ExpandLess /> : <ExpandMore />}</ListItemIcon>
+          <ListItemIcon>{submenus[index]?.open ? <ExpandLess /> : <ExpandMore />}</ListItemIcon>
         </ListItem>
-        <Collapse in={submenuOpen[index]?.open} timeout="auto" unmountOnExit>
+        <Collapse in={submenus[index]?.open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <SubmenuItem buttonTarget={'All rugs'} />
+            {drawerMenu.map((link, index) => {
+              if (link.parentId === id) {
+                return (
+                  <SubmenuItem buttonTarget={link.label} key={link.id} index={index} id={link.id} url={link.url} />
+                );
+              }
+            })}
           </List>
         </Collapse>
         <Divider />
@@ -77,14 +102,12 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer, menuLinks }: Pro
     );
   };
 
-  if (menuLinks.length === 0 || !menuLinks[0] || !menuLinks[0]?.description) return null;
-
-  const menuList = () => (
+  const MenuList = () => (
     <Box sx={{ width: 350 }} role="presentation">
-      {menuLinks.map((link, index) => {
-        if (link.description.includes('submenu'))
-          return <Submenu buttonTarget={link.label} key={link.label} index={index} />;
-        return <MenuItem buttonTarget={link.label} key={link.label} index={index} />;
+      {drawerMenu.map((link, index) => {
+        if (drawerMenu.some((menuItem) => menuItem.parentId === link.id))
+          return <Submenu buttonTarget={link.label} key={link.id} index={index} id={link.id} />;
+        if (!link.parentId) return <MenuItem buttonTarget={link.label} key={link.id} index={index} url={link.url} />;
       })}
     </Box>
   );
@@ -92,7 +115,7 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer, menuLinks }: Pro
   return (
     <div>
       <Drawer anchor={'right'} open={menuDrawer} onClose={toggleDrawer()}>
-        {menuList()}
+        <MenuList />
       </Drawer>
     </div>
   );

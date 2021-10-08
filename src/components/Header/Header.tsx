@@ -20,27 +20,12 @@ interface Props {
 function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   const [menuDrawer, setMenuDrawer] = React.useState(false);
   const { menuItems } = client.useQuery();
-  const wordpressLinks = menuItems({
+  const mainMenu = menuItems({
+    first: 100,
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
 
-  const links = wordpressLinks.map((link) => {
-    if (link?.url) return `https://elizabeth-eakins-2021-koalition.vercel.app/${link.url.split('/')[3]}`;
-    return 'https://elizabeth-eakins-2021-koalition.vercel.app';
-  });
-
-  const menuLinks = wordpressLinks.map((link) => {
-    if (!link.label || !link.url || !link.description) return;
-    const { label, url, description } = link;
-    return { label, url, description, submenu: description.includes('submenu') ? true : false, open: false };
-  });
-
-  // determine localhost URLs if in development environment
-  const environment = process.env.NODE_ENV;
-  const devLinks = wordpressLinks.map((link) => {
-    if (link?.url) return `http://localhost:3000/${link.url.split('/')[3]}`;
-    return `http://localhost:3000/`;
-  });
+  if (mainMenu.length === 0 || !mainMenu[0].url) return null;
 
   return (
     <Box sx={styles.headerContainer} position="fixed">
@@ -54,12 +39,8 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
             </NextLink>
           </Typography>
           <Box sx={styles.headerLinksBox}>
-            {wordpressLinks?.map((link, index) => (
-              <NextLink
-                href={environment === 'development' ? devLinks[index] : links[index]}
-                passHref
-                key={`${link.label}$-menu`}
-              >
+            {mainMenu?.map((link) => (
+              <NextLink href={`/${link.url.split('/')[3]}`} passHref key={`${link.url}$-menu`}>
                 <MUILink color="inherit" variant="inherit" underline="none">
                   {link.label}
                 </MUILink>
@@ -78,7 +59,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <DrawerMenu menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} menuLinks={menuLinks} />
+      <DrawerMenu menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
     </Box>
   );
 }

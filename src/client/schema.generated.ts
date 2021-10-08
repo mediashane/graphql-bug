@@ -5,17 +5,9 @@
 import { SchemaUnionsKey } from 'gqty';
 
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  {
-    [SubKey in K]?: Maybe<T[SubKey]>;
-  };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  {
-    [SubKey in K]: Maybe<T[SubKey]>;
-  };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export interface Scalars {
   ID: string;
@@ -457,6 +449,8 @@ export enum PostObjectsConnectionOrderbyEnum {
 
 /** The status of the object. */
 export enum PostStatusEnum {
+  /** Objects with the acf-disabled status */
+  ACF_DISABLED = 'ACF_DISABLED',
   /** Objects with the auto-draft status */
   AUTO_DRAFT = 'AUTO_DRAFT',
   /** Objects with the draft status */
@@ -527,8 +521,6 @@ export interface ContentTypeToContentNodeConnectionWhereArgs {
 export enum ContentTypeEnum {
   /** The Type of Content object */
   ATTACHMENT = 'ATTACHMENT',
-  /** The Type of Content object */
-  HUMAN = 'HUMAN',
   /** The Type of Content object */
   PAGE = 'PAGE',
   /** The Type of Content object */
@@ -1984,56 +1976,6 @@ export enum ContentTypeIdTypeEnum {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export enum HumanIdType {
-  /** Identify a resource by the Database ID. */
-  DATABASE_ID = 'DATABASE_ID',
-  /** Identify a resource by the (hashed) Global ID. */
-  ID = 'ID',
-  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
-  SLUG = 'SLUG',
-  /** Identify a resource by the URI. */
-  URI = 'URI',
-}
-
-/** Arguments for filtering the RootQueryToHumanConnection connection */
-export interface RootQueryToHumanConnectionWhereArgs {
-  /** Filter the connection based on dates */
-  dateQuery?: Maybe<DateQueryInput>;
-  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-  hasPassword?: Maybe<Scalars['Boolean']>;
-  /** Specific ID of the object */
-  id?: Maybe<Scalars['Int']>;
-  /** Array of IDs for the objects to retrieve */
-  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** Get objects with a specific mimeType property */
-  mimeType?: Maybe<MimeTypeEnum>;
-  /** Slug / post_name of the object */
-  name?: Maybe<Scalars['String']>;
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** What paramater to use to order the objects by. */
-  orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
-  /** Use ID to return only children. Use 0 to return only top-level items */
-  parent?: Maybe<Scalars['ID']>;
-  /** Specify objects whose parent is in an array */
-  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  /** Show posts with a specific password. */
-  password?: Maybe<Scalars['String']>;
-  /** Show Posts based on a keyword search */
-  search?: Maybe<Scalars['String']>;
-  /** Retrieve posts where post status is in an array. */
-  stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
-  /** Show posts with a specific status. */
-  status?: Maybe<PostStatusEnum>;
-  /** Title of the object */
-  title?: Maybe<Scalars['String']>;
-}
-
-/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum MediaItemIdType {
   /** Identify a resource by the Database ID. */
   DATABASE_ID = 'DATABASE_ID',
@@ -2105,6 +2047,8 @@ export enum MenuNodeIdTypeEnum {
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
+  /** Put the menu in the drawer location */
+  DRAWER = 'DRAWER',
   /** Put the menu in the footer location */
   FOOTER = 'FOOTER',
   /** Put the menu in the primary location */
@@ -2669,22 +2613,6 @@ export interface CreateCommentInput {
   type?: Maybe<Scalars['String']>;
 }
 
-/** Input for the createHuman mutation */
-export interface CreateHumanInput {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
-  date?: Maybe<Scalars['String']>;
-  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
-  menuOrder?: Maybe<Scalars['Int']>;
-  /** The password used to protect the content of the object */
-  password?: Maybe<Scalars['String']>;
-  /** The slug of the object */
-  slug?: Maybe<Scalars['String']>;
-  /** The status of the object */
-  status?: Maybe<PostStatusEnum>;
-}
-
 /** Input for the createMediaItem mutation */
 export interface CreateMediaItemInput {
   /** Alternative text to display when mediaItem is not displayed */
@@ -2941,16 +2869,6 @@ export interface DeleteCommentInput {
   id: Scalars['ID'];
 }
 
-/** Input for the deleteHuman mutation */
-export interface DeleteHumanInput {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** Whether the object should be force deleted instead of being moved to the trash */
-  forceDelete?: Maybe<Scalars['Boolean']>;
-  /** The ID of the human to delete */
-  id: Scalars['ID'];
-}
-
 /** Input for the deleteMediaItem mutation */
 export interface DeleteMediaItemInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -3127,24 +3045,6 @@ export interface UpdateCommentInput {
   parent?: Maybe<Scalars['ID']>;
   /** Type of comment. */
   type?: Maybe<Scalars['String']>;
-}
-
-/** Input for the updateHuman mutation */
-export interface UpdateHumanInput {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
-  date?: Maybe<Scalars['String']>;
-  /** The ID of the human object */
-  id: Scalars['ID'];
-  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
-  menuOrder?: Maybe<Scalars['Int']>;
-  /** The password used to protect the content of the object */
-  password?: Maybe<Scalars['String']>;
-  /** The slug of the object */
-  slug?: Maybe<Scalars['String']>;
-  /** The status of the object */
-  status?: Maybe<PostStatusEnum>;
 }
 
 /** Input for the updateMediaItem mutation */
@@ -3384,7 +3284,6 @@ export const scalarsEnumsHash: import('gqty').ScalarsEnumsHash = {
   CategoryIdType: true,
   ContentNodeIdTypeEnum: true,
   ContentTypeIdTypeEnum: true,
-  HumanIdType: true,
   MediaItemIdType: true,
   MenuNodeIdTypeEnum: true,
   MenuLocationEnum: true,
@@ -3415,10 +3314,7 @@ export const generatedSchema = {
         where: 'RootQueryToCategoryConnectionWhereArgs',
       },
     },
-    category: {
-      __type: 'Category',
-      __args: { id: 'ID!', idType: 'CategoryIdType' },
-    },
+    category: { __type: 'Category', __args: { id: 'ID!', idType: 'CategoryIdType' } },
     comment: { __type: 'Comment', __args: { id: 'ID!' } },
     comments: {
       __type: 'RootQueryToCommentConnection',
@@ -3432,12 +3328,7 @@ export const generatedSchema = {
     },
     contentNode: {
       __type: 'ContentNode',
-      __args: {
-        id: 'ID!',
-        idType: 'ContentNodeIdTypeEnum',
-        contentType: 'ContentTypeEnum',
-        asPreview: 'Boolean',
-      },
+      __args: { id: 'ID!', idType: 'ContentNodeIdTypeEnum', contentType: 'ContentTypeEnum', asPreview: 'Boolean' },
     },
     contentNodes: {
       __type: 'RootQueryToContentNodeConnection',
@@ -3449,42 +3340,15 @@ export const generatedSchema = {
         where: 'RootQueryToContentNodeConnectionWhereArgs',
       },
     },
-    contentType: {
-      __type: 'ContentType',
-      __args: { id: 'ID!', idType: 'ContentTypeIdTypeEnum' },
-    },
+    contentType: { __type: 'ContentType', __args: { id: 'ID!', idType: 'ContentTypeIdTypeEnum' } },
     contentTypes: {
       __type: 'RootQueryToContentTypeConnection',
       __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
     },
     discussionSettings: { __type: 'DiscussionSettings' },
     generalSettings: { __type: 'GeneralSettings' },
-    human: {
-      __type: 'Human',
-      __args: { id: 'ID!', idType: 'HumanIdType', asPreview: 'Boolean' },
-    },
-    humanBy: {
-      __type: 'Human',
-      __args: { id: 'ID', humanId: 'Int', uri: 'String', slug: 'String' },
-    },
-    humans: {
-      __type: 'RootQueryToHumanConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'RootQueryToHumanConnectionWhereArgs',
-      },
-    },
-    mediaItem: {
-      __type: 'MediaItem',
-      __args: { id: 'ID!', idType: 'MediaItemIdType', asPreview: 'Boolean' },
-    },
-    mediaItemBy: {
-      __type: 'MediaItem',
-      __args: { id: 'ID', mediaItemId: 'Int', uri: 'String', slug: 'String' },
-    },
+    mediaItem: { __type: 'MediaItem', __args: { id: 'ID!', idType: 'MediaItemIdType', asPreview: 'Boolean' } },
+    mediaItemBy: { __type: 'MediaItem', __args: { id: 'ID', mediaItemId: 'Int', uri: 'String', slug: 'String' } },
     mediaItems: {
       __type: 'RootQueryToMediaItemConnection',
       __args: {
@@ -3495,14 +3359,8 @@ export const generatedSchema = {
         where: 'RootQueryToMediaItemConnectionWhereArgs',
       },
     },
-    menu: {
-      __type: 'Menu',
-      __args: { id: 'ID!', idType: 'MenuNodeIdTypeEnum' },
-    },
-    menuItem: {
-      __type: 'MenuItem',
-      __args: { id: 'ID!', idType: 'MenuItemNodeIdTypeEnum' },
-    },
+    menu: { __type: 'Menu', __args: { id: 'ID!', idType: 'MenuNodeIdTypeEnum' } },
+    menuItem: { __type: 'MenuItem', __args: { id: 'ID!', idType: 'MenuItemNodeIdTypeEnum' } },
     menuItems: {
       __type: 'RootQueryToMenuItemConnection',
       __args: {
@@ -3524,18 +3382,9 @@ export const generatedSchema = {
       },
     },
     node: { __type: 'Node', __args: { id: 'ID' } },
-    nodeByUri: {
-      __type: 'UniformResourceIdentifiable',
-      __args: { uri: 'String!' },
-    },
-    page: {
-      __type: 'Page',
-      __args: { id: 'ID!', idType: 'PageIdType', asPreview: 'Boolean' },
-    },
-    pageBy: {
-      __type: 'Page',
-      __args: { id: 'ID', pageId: 'Int', uri: 'String' },
-    },
+    nodeByUri: { __type: 'UniformResourceIdentifiable', __args: { uri: 'String!' } },
+    page: { __type: 'Page', __args: { id: 'ID!', idType: 'PageIdType', asPreview: 'Boolean' } },
+    pageBy: { __type: 'Page', __args: { id: 'ID', pageId: 'Int', uri: 'String' } },
     pages: {
       __type: 'RootQueryToPageConnection',
       __args: {
@@ -3551,18 +3400,9 @@ export const generatedSchema = {
       __type: 'RootQueryToPluginConnection',
       __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
     },
-    post: {
-      __type: 'Post',
-      __args: { id: 'ID!', idType: 'PostIdType', asPreview: 'Boolean' },
-    },
-    postBy: {
-      __type: 'Post',
-      __args: { id: 'ID', postId: 'Int', uri: 'String', slug: 'String' },
-    },
-    postFormat: {
-      __type: 'PostFormat',
-      __args: { id: 'ID!', idType: 'PostFormatIdType' },
-    },
+    post: { __type: 'Post', __args: { id: 'ID!', idType: 'PostIdType', asPreview: 'Boolean' } },
+    postBy: { __type: 'Post', __args: { id: 'ID', postId: 'Int', uri: 'String', slug: 'String' } },
+    postFormat: { __type: 'PostFormat', __args: { id: 'ID!', idType: 'PostFormatIdType' } },
     postFormats: {
       __type: 'RootQueryToPostFormatConnection',
       __args: {
@@ -3617,18 +3457,8 @@ export const generatedSchema = {
       __type: 'RootQueryToTaxonomyConnection',
       __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
     },
-    taxonomy: {
-      __type: 'Taxonomy',
-      __args: { id: 'ID!', idType: 'TaxonomyIdTypeEnum' },
-    },
-    termNode: {
-      __type: 'TermNode',
-      __args: {
-        id: 'ID!',
-        idType: 'TermNodeIdTypeEnum',
-        taxonomy: 'TaxonomyEnum',
-      },
-    },
+    taxonomy: { __type: 'Taxonomy', __args: { id: 'ID!', idType: 'TaxonomyIdTypeEnum' } },
+    termNode: { __type: 'TermNode', __args: { id: 'ID!', idType: 'TermNodeIdTypeEnum', taxonomy: 'TaxonomyEnum' } },
     terms: {
       __type: 'RootQueryToTermNodeConnection',
       __args: {
@@ -3644,10 +3474,7 @@ export const generatedSchema = {
       __type: 'RootQueryToThemeConnection',
       __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
     },
-    user: {
-      __type: 'User',
-      __args: { id: 'ID!', idType: 'UserNodeIdTypeEnum' },
-    },
+    user: { __type: 'User', __args: { id: 'ID!', idType: 'UserNodeIdTypeEnum' } },
     userRole: { __type: 'UserRole', __args: { id: 'ID!' } },
     userRoles: {
       __type: 'RootQueryToUserRoleConnection',
@@ -3668,139 +3495,43 @@ export const generatedSchema = {
   },
   mutation: {
     __typename: { __type: 'String!' },
-    createCategory: {
-      __type: 'CreateCategoryPayload',
-      __args: { input: 'CreateCategoryInput!' },
-    },
-    createComment: {
-      __type: 'CreateCommentPayload',
-      __args: { input: 'CreateCommentInput!' },
-    },
-    createHuman: {
-      __type: 'CreateHumanPayload',
-      __args: { input: 'CreateHumanInput!' },
-    },
-    createMediaItem: {
-      __type: 'CreateMediaItemPayload',
-      __args: { input: 'CreateMediaItemInput!' },
-    },
-    createPage: {
-      __type: 'CreatePagePayload',
-      __args: { input: 'CreatePageInput!' },
-    },
-    createPost: {
-      __type: 'CreatePostPayload',
-      __args: { input: 'CreatePostInput!' },
-    },
-    createPostFormat: {
-      __type: 'CreatePostFormatPayload',
-      __args: { input: 'CreatePostFormatInput!' },
-    },
-    createTag: {
-      __type: 'CreateTagPayload',
-      __args: { input: 'CreateTagInput!' },
-    },
-    createUser: {
-      __type: 'CreateUserPayload',
-      __args: { input: 'CreateUserInput!' },
-    },
-    deleteCategory: {
-      __type: 'DeleteCategoryPayload',
-      __args: { input: 'DeleteCategoryInput!' },
-    },
-    deleteComment: {
-      __type: 'DeleteCommentPayload',
-      __args: { input: 'DeleteCommentInput!' },
-    },
-    deleteHuman: {
-      __type: 'DeleteHumanPayload',
-      __args: { input: 'DeleteHumanInput!' },
-    },
-    deleteMediaItem: {
-      __type: 'DeleteMediaItemPayload',
-      __args: { input: 'DeleteMediaItemInput!' },
-    },
-    deletePage: {
-      __type: 'DeletePagePayload',
-      __args: { input: 'DeletePageInput!' },
-    },
-    deletePost: {
-      __type: 'DeletePostPayload',
-      __args: { input: 'DeletePostInput!' },
-    },
-    deletePostFormat: {
-      __type: 'DeletePostFormatPayload',
-      __args: { input: 'DeletePostFormatInput!' },
-    },
-    deleteTag: {
-      __type: 'DeleteTagPayload',
-      __args: { input: 'DeleteTagInput!' },
-    },
-    deleteUser: {
-      __type: 'DeleteUserPayload',
-      __args: { input: 'DeleteUserInput!' },
-    },
+    createCategory: { __type: 'CreateCategoryPayload', __args: { input: 'CreateCategoryInput!' } },
+    createComment: { __type: 'CreateCommentPayload', __args: { input: 'CreateCommentInput!' } },
+    createMediaItem: { __type: 'CreateMediaItemPayload', __args: { input: 'CreateMediaItemInput!' } },
+    createPage: { __type: 'CreatePagePayload', __args: { input: 'CreatePageInput!' } },
+    createPost: { __type: 'CreatePostPayload', __args: { input: 'CreatePostInput!' } },
+    createPostFormat: { __type: 'CreatePostFormatPayload', __args: { input: 'CreatePostFormatInput!' } },
+    createTag: { __type: 'CreateTagPayload', __args: { input: 'CreateTagInput!' } },
+    createUser: { __type: 'CreateUserPayload', __args: { input: 'CreateUserInput!' } },
+    deleteCategory: { __type: 'DeleteCategoryPayload', __args: { input: 'DeleteCategoryInput!' } },
+    deleteComment: { __type: 'DeleteCommentPayload', __args: { input: 'DeleteCommentInput!' } },
+    deleteMediaItem: { __type: 'DeleteMediaItemPayload', __args: { input: 'DeleteMediaItemInput!' } },
+    deletePage: { __type: 'DeletePagePayload', __args: { input: 'DeletePageInput!' } },
+    deletePost: { __type: 'DeletePostPayload', __args: { input: 'DeletePostInput!' } },
+    deletePostFormat: { __type: 'DeletePostFormatPayload', __args: { input: 'DeletePostFormatInput!' } },
+    deleteTag: { __type: 'DeleteTagPayload', __args: { input: 'DeleteTagInput!' } },
+    deleteUser: { __type: 'DeleteUserPayload', __args: { input: 'DeleteUserInput!' } },
     generateAuthorizationCode: {
       __type: 'GenerateAuthorizationCodePayload',
       __args: { input: 'GenerateAuthorizationCodeInput!' },
     },
     increaseCount: { __type: 'Int', __args: { count: 'Int' } },
-    registerUser: {
-      __type: 'RegisterUserPayload',
-      __args: { input: 'RegisterUserInput!' },
-    },
-    resetUserPassword: {
-      __type: 'ResetUserPasswordPayload',
-      __args: { input: 'ResetUserPasswordInput!' },
-    },
-    restoreComment: {
-      __type: 'RestoreCommentPayload',
-      __args: { input: 'RestoreCommentInput!' },
-    },
+    registerUser: { __type: 'RegisterUserPayload', __args: { input: 'RegisterUserInput!' } },
+    resetUserPassword: { __type: 'ResetUserPasswordPayload', __args: { input: 'ResetUserPasswordInput!' } },
+    restoreComment: { __type: 'RestoreCommentPayload', __args: { input: 'RestoreCommentInput!' } },
     sendPasswordResetEmail: {
       __type: 'SendPasswordResetEmailPayload',
       __args: { input: 'SendPasswordResetEmailInput!' },
     },
-    updateCategory: {
-      __type: 'UpdateCategoryPayload',
-      __args: { input: 'UpdateCategoryInput!' },
-    },
-    updateComment: {
-      __type: 'UpdateCommentPayload',
-      __args: { input: 'UpdateCommentInput!' },
-    },
-    updateHuman: {
-      __type: 'UpdateHumanPayload',
-      __args: { input: 'UpdateHumanInput!' },
-    },
-    updateMediaItem: {
-      __type: 'UpdateMediaItemPayload',
-      __args: { input: 'UpdateMediaItemInput!' },
-    },
-    updatePage: {
-      __type: 'UpdatePagePayload',
-      __args: { input: 'UpdatePageInput!' },
-    },
-    updatePost: {
-      __type: 'UpdatePostPayload',
-      __args: { input: 'UpdatePostInput!' },
-    },
-    updatePostFormat: {
-      __type: 'UpdatePostFormatPayload',
-      __args: { input: 'UpdatePostFormatInput!' },
-    },
-    updateSettings: {
-      __type: 'UpdateSettingsPayload',
-      __args: { input: 'UpdateSettingsInput!' },
-    },
-    updateTag: {
-      __type: 'UpdateTagPayload',
-      __args: { input: 'UpdateTagInput!' },
-    },
-    updateUser: {
-      __type: 'UpdateUserPayload',
-      __args: { input: 'UpdateUserInput!' },
-    },
+    updateCategory: { __type: 'UpdateCategoryPayload', __args: { input: 'UpdateCategoryInput!' } },
+    updateComment: { __type: 'UpdateCommentPayload', __args: { input: 'UpdateCommentInput!' } },
+    updateMediaItem: { __type: 'UpdateMediaItemPayload', __args: { input: 'UpdateMediaItemInput!' } },
+    updatePage: { __type: 'UpdatePagePayload', __args: { input: 'UpdatePageInput!' } },
+    updatePost: { __type: 'UpdatePostPayload', __args: { input: 'UpdatePostInput!' } },
+    updatePostFormat: { __type: 'UpdatePostFormatPayload', __args: { input: 'UpdatePostFormatInput!' } },
+    updateSettings: { __type: 'UpdateSettingsPayload', __args: { input: 'UpdateSettingsInput!' } },
+    updateTag: { __type: 'UpdateTagPayload', __args: { input: 'UpdateTagInput!' } },
+    updateUser: { __type: 'UpdateUserPayload', __args: { input: 'UpdateUserInput!' } },
   },
   subscription: {},
   Settings: {
@@ -3919,11 +3650,7 @@ export const generatedSchema = {
     termTaxonomyId: { __type: 'Int' },
     uri: { __type: 'String' },
   },
-  Node: {
-    __typename: { __type: 'String!' },
-    id: { __type: 'ID!' },
-    $on: { __type: '$Node!' },
-  },
+  Node: { __typename: { __type: 'String!' }, id: { __type: 'ID!' }, $on: { __type: '$Node!' } },
   TermNode: {
     __typename: { __type: 'String!' },
     conditionalTags: { __type: 'ConditionalTags' },
@@ -4143,11 +3870,7 @@ export const generatedSchema = {
     week: { __type: 'Int' },
     year: { __type: 'Int' },
   },
-  DateInput: {
-    day: { __type: 'Int' },
-    month: { __type: 'Int' },
-    year: { __type: 'Int' },
-  },
+  DateInput: { day: { __type: 'Int' }, month: { __type: 'Int' }, year: { __type: 'Int' } },
   PostObjectsConnectionOrderbyInput: {
     field: { __type: 'PostObjectsConnectionOrderbyEnum!' },
     order: { __type: 'OrderEnum!' },
@@ -4200,10 +3923,7 @@ export const generatedSchema = {
     uri: { __type: 'String' },
     $on: { __type: '$ContentNode!' },
   },
-  ContentNodeToContentTypeConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'ContentType' },
-  },
+  ContentNodeToContentTypeConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'ContentType' } },
   ContentType: {
     __typename: { __type: 'String!' },
     canExport: { __type: 'Boolean' },
@@ -4367,14 +4087,7 @@ export const generatedSchema = {
   },
   User: {
     __typename: { __type: 'String!' },
-    avatar: {
-      __type: 'Avatar',
-      __args: {
-        size: 'Int',
-        forceDefault: 'Boolean',
-        rating: 'AvatarRatingEnum',
-      },
-    },
+    avatar: { __type: 'Avatar', __args: { size: 'Int', forceDefault: 'Boolean', rating: 'AvatarRatingEnum' } },
     capKey: { __type: 'String' },
     capabilities: { __type: '[String]' },
     comments: {
@@ -4422,23 +4135,11 @@ export const generatedSchema = {
     nickname: { __type: 'String' },
     pages: {
       __type: 'UserToPageConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'UserToPageConnectionWhereArgs',
-      },
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String', where: 'UserToPageConnectionWhereArgs' },
     },
     posts: {
       __type: 'UserToPostConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'UserToPostConnectionWhereArgs',
-      },
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String', where: 'UserToPostConnectionWhereArgs' },
     },
     registeredDate: { __type: 'String' },
     revisions: {
@@ -4536,10 +4237,7 @@ export const generatedSchema = {
     authorIp: { __type: 'String' },
     commentId: { __type: 'Int' },
     commentedOn: { __type: 'CommentToContentNodeConnectionEdge' },
-    content: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -4564,14 +4262,8 @@ export const generatedSchema = {
     },
     type: { __type: 'String' },
   },
-  CommentToCommenterConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Commenter' },
-  },
-  CommentToContentNodeConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'ContentNode' },
-  },
+  CommentToCommenterConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Commenter' } },
+  CommentToContentNodeConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'ContentNode' } },
   CommentToParentCommentConnectionWhereArgs: {
     authorEmail: { __type: 'String' },
     authorIn: { __type: '[ID]' },
@@ -4603,10 +4295,7 @@ export const generatedSchema = {
     status: { __type: 'String' },
     userId: { __type: 'ID' },
   },
-  CommentToParentCommentConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Comment' },
-  },
+  CommentToParentCommentConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Comment' } },
   CommentToCommentConnectionWhereArgs: {
     authorEmail: { __type: 'String' },
     authorIn: { __type: '[ID]' },
@@ -4721,10 +4410,7 @@ export const generatedSchema = {
     author: { __type: 'NodeWithAuthorToUserConnectionEdge' },
     authorDatabaseId: { __type: 'Int' },
     authorId: { __type: 'ID' },
-    caption: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    caption: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     children: {
       __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
       __args: {
@@ -4752,10 +4438,7 @@ export const generatedSchema = {
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
-    description: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    description: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     desiredSlug: { __type: 'String' },
     editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
     enclosure: { __type: 'String' },
@@ -4783,9 +4466,7 @@ export const generatedSchema = {
     mimeType: { __type: 'String' },
     modified: { __type: 'String' },
     modifiedGmt: { __type: 'String' },
-    parent: {
-      __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge',
-    },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
     parentDatabaseId: { __type: 'Int' },
     parentId: { __type: 'ID' },
     previewRevisionDatabaseId: { __type: 'Int' },
@@ -4797,10 +4478,7 @@ export const generatedSchema = {
     status: { __type: 'String' },
     template: { __type: 'ContentTemplate' },
     templates: { __type: '[String]' },
-    title: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     uri: { __type: 'String' },
   },
   NodeWithTemplate: {
@@ -4815,10 +4493,7 @@ export const generatedSchema = {
   },
   NodeWithTitle: {
     __typename: { __type: 'String!' },
-    title: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     $on: { __type: '$NodeWithTitle!' },
   },
   NodeWithAuthor: {
@@ -4828,10 +4503,7 @@ export const generatedSchema = {
     authorId: { __type: 'ID' },
     $on: { __type: '$NodeWithAuthor!' },
   },
-  NodeWithAuthorToUserConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'User' },
-  },
+  NodeWithAuthorToUserConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'User' } },
   NodeWithComments: {
     __typename: { __type: 'String!' },
     commentCount: { __type: 'Int' },
@@ -4860,9 +4532,7 @@ export const generatedSchema = {
         where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
       },
     },
-    parent: {
-      __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge',
-    },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
     parentDatabaseId: { __type: 'Int' },
     parentId: { __type: 'ID' },
     $on: { __type: '$HierarchicalContentNode!' },
@@ -4889,9 +4559,7 @@ export const generatedSchema = {
   },
   HierarchicalContentNodeToContentNodeAncestorsConnection: {
     __typename: { __type: 'String!' },
-    edges: {
-      __type: '[HierarchicalContentNodeToContentNodeAncestorsConnectionEdge]',
-    },
+    edges: { __type: '[HierarchicalContentNodeToContentNodeAncestorsConnectionEdge]' },
     nodes: { __type: '[ContentNode]' },
     pageInfo: { __type: 'WPPageInfo' },
   },
@@ -4922,9 +4590,7 @@ export const generatedSchema = {
   },
   HierarchicalContentNodeToContentNodeChildrenConnection: {
     __typename: { __type: 'String!' },
-    edges: {
-      __type: '[HierarchicalContentNodeToContentNodeChildrenConnectionEdge]',
-    },
+    edges: { __type: '[HierarchicalContentNodeToContentNodeChildrenConnectionEdge]' },
     nodes: { __type: '[ContentNode]' },
     pageInfo: { __type: 'WPPageInfo' },
   },
@@ -5001,10 +4667,7 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'EnqueuedStylesheet' },
   },
-  ContentNodeToEditLastConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'User' },
-  },
+  ContentNodeToEditLastConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'User' } },
   MediaDetails: {
     __typename: { __type: 'String!' },
     file: { __type: 'String' },
@@ -5110,10 +4773,7 @@ export const generatedSchema = {
       },
     },
     conditionalTags: { __type: 'ConditionalTags' },
-    content: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
@@ -5148,9 +4808,7 @@ export const generatedSchema = {
     modified: { __type: 'String' },
     modifiedGmt: { __type: 'String' },
     pageId: { __type: 'Int!' },
-    parent: {
-      __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge',
-    },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
     parentDatabaseId: { __type: 'Int' },
     parentId: { __type: 'ID' },
     preview: { __type: 'PageToPreviewConnectionEdge' },
@@ -5171,18 +4829,12 @@ export const generatedSchema = {
     status: { __type: 'String' },
     template: { __type: 'ContentTemplate' },
     templates: { __type: '[String]' },
-    title: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     uri: { __type: 'String' },
   },
   NodeWithContentEditor: {
     __typename: { __type: 'String!' },
-    content: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     $on: { __type: '$NodeWithContentEditor!' },
   },
   NodeWithFeaturedImage: {
@@ -5225,20 +4877,14 @@ export const generatedSchema = {
     uri: { __type: 'String' },
     $on: { __type: '$NodeWithFeaturedImage!' },
   },
-  NodeWithFeaturedImageToMediaItemConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'MediaItem' },
-  },
+  NodeWithFeaturedImageToMediaItemConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'MediaItem' } },
   NodeWithRevisions: {
     __typename: { __type: 'String!' },
     isRevision: { __type: 'Boolean' },
     revisionOf: { __type: 'NodeWithRevisionsToContentNodeConnectionEdge' },
     $on: { __type: '$NodeWithRevisions!' },
   },
-  NodeWithRevisionsToContentNodeConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'ContentNode' },
-  },
+  NodeWithRevisionsToContentNodeConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'ContentNode' } },
   NodeWithPageAttributes: {
     __typename: { __type: 'String!' },
     menuOrder: { __type: 'Int' },
@@ -5286,10 +4932,7 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'Comment' },
   },
-  PageToPreviewConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Page' },
-  },
+  PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -5396,10 +5039,7 @@ export const generatedSchema = {
       },
     },
     conditionalTags: { __type: 'ConditionalTags' },
-    content: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
@@ -5415,10 +5055,7 @@ export const generatedSchema = {
       __type: 'ContentNodeToEnqueuedStylesheetConnection',
       __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
     },
-    excerpt: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    excerpt: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     featuredImage: { __type: 'NodeWithFeaturedImageToMediaItemConnectionEdge' },
     featuredImageDatabaseId: { __type: 'Int' },
     featuredImageId: { __type: 'ID' },
@@ -5465,13 +5102,7 @@ export const generatedSchema = {
     status: { __type: 'String' },
     tags: {
       __type: 'PostToTagConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'PostToTagConnectionWhereArgs',
-      },
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String', where: 'PostToTagConnectionWhereArgs' },
     },
     template: { __type: 'ContentTemplate' },
     templates: { __type: '[String]' },
@@ -5485,19 +5116,13 @@ export const generatedSchema = {
         where: 'PostToTermNodeConnectionWhereArgs',
       },
     },
-    title: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     toPing: { __type: '[String]' },
     uri: { __type: 'String' },
   },
   NodeWithExcerpt: {
     __typename: { __type: 'String!' },
-    excerpt: {
-      __type: 'String',
-      __args: { format: 'PostObjectFieldFormatEnum' },
-    },
+    excerpt: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     $on: { __type: '$NodeWithExcerpt!' },
   },
   NodeWithTrackbacks: {
@@ -5738,14 +5363,8 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'Post' },
   },
-  PostFormatToTaxonomyConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Taxonomy' },
-  },
-  PostToPreviewConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Post' },
-  },
+  PostFormatToTaxonomyConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Taxonomy' } },
+  PostToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Post' } },
   PostToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -5818,11 +5437,7 @@ export const generatedSchema = {
     nodes: { __type: '[Tag]' },
     pageInfo: { __type: 'WPPageInfo' },
   },
-  PostToTagConnectionEdge: {
-    __typename: { __type: 'String!' },
-    cursor: { __type: 'String' },
-    node: { __type: 'Tag' },
-  },
+  PostToTagConnectionEdge: { __typename: { __type: 'String!' }, cursor: { __type: 'String' }, node: { __type: 'Tag' } },
   Tag: {
     __typename: { __type: 'String!' },
     conditionalTags: { __type: 'ConditionalTags' },
@@ -5855,13 +5470,7 @@ export const generatedSchema = {
     name: { __type: 'String' },
     posts: {
       __type: 'TagToPostConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'TagToPostConnectionWhereArgs',
-      },
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String', where: 'TagToPostConnectionWhereArgs' },
     },
     slug: { __type: 'String' },
     tagId: { __type: 'Int' },
@@ -5946,10 +5555,7 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'Post' },
   },
-  TagToTaxonomyConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Taxonomy' },
-  },
+  TagToTaxonomyConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Taxonomy' } },
   PostToTermNodeConnectionWhereArgs: {
     cacheDomain: { __type: 'String' },
     childOf: { __type: 'Int' },
@@ -6015,10 +5621,7 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'ContentRevisionUnion' },
   },
-  ContentRevisionUnion: {
-    __typename: { __type: 'String!' },
-    $on: { __type: '$ContentRevisionUnion!' },
-  },
+  ContentRevisionUnion: { __typename: { __type: 'String!' }, $on: { __type: '$ContentRevisionUnion!' } },
   UserToUserRoleConnection: {
     __typename: { __type: 'String!' },
     edges: { __type: '[UserToUserRoleConnectionEdge]' },
@@ -6038,10 +5641,7 @@ export const generatedSchema = {
     isRestricted: { __type: 'Boolean' },
     name: { __type: 'String' },
   },
-  CategoryToParentCategoryConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Category' },
-  },
+  CategoryToParentCategoryConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Category' } },
   CategoryToPostConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -6086,10 +5686,7 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'Post' },
   },
-  CategoryToTaxonomyConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Taxonomy' },
-  },
+  CategoryToTaxonomyConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Taxonomy' } },
   RootQueryToCommentConnectionWhereArgs: {
     authorEmail: { __type: 'String' },
     authorIn: { __type: '[ID]' },
@@ -6190,79 +5787,6 @@ export const generatedSchema = {
     timezone: { __type: 'String' },
     title: { __type: 'String' },
     url: { __type: 'String' },
-  },
-  Human: {
-    __typename: { __type: 'String!' },
-    conditionalTags: { __type: 'ConditionalTags' },
-    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
-    databaseId: { __type: 'Int!' },
-    date: { __type: 'String' },
-    dateGmt: { __type: 'String' },
-    desiredSlug: { __type: 'String' },
-    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
-    enclosure: { __type: 'String' },
-    enqueuedScripts: {
-      __type: 'ContentNodeToEnqueuedScriptConnection',
-      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
-    },
-    enqueuedStylesheets: {
-      __type: 'ContentNodeToEnqueuedStylesheetConnection',
-      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
-    },
-    guid: { __type: 'String' },
-    humanId: { __type: 'Int!' },
-    id: { __type: 'ID!' },
-    isContentNode: { __type: 'Boolean!' },
-    isPreview: { __type: 'Boolean' },
-    isRestricted: { __type: 'Boolean' },
-    isTermNode: { __type: 'Boolean!' },
-    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
-    link: { __type: 'String' },
-    modified: { __type: 'String' },
-    modifiedGmt: { __type: 'String' },
-    name: { __type: 'String' },
-    preview: { __type: 'HumanToPreviewConnectionEdge' },
-    previewRevisionDatabaseId: { __type: 'Int' },
-    previewRevisionId: { __type: 'ID' },
-    slug: { __type: 'String' },
-    status: { __type: 'String' },
-    template: { __type: 'ContentTemplate' },
-    templates: { __type: '[String]' },
-    uri: { __type: 'String' },
-  },
-  HumanToPreviewConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Human' },
-  },
-  RootQueryToHumanConnectionWhereArgs: {
-    dateQuery: { __type: 'DateQueryInput' },
-    hasPassword: { __type: 'Boolean' },
-    id: { __type: 'Int' },
-    in: { __type: '[ID]' },
-    mimeType: { __type: 'MimeTypeEnum' },
-    name: { __type: 'String' },
-    nameIn: { __type: '[String]' },
-    notIn: { __type: '[ID]' },
-    orderby: { __type: '[PostObjectsConnectionOrderbyInput]' },
-    parent: { __type: 'ID' },
-    parentIn: { __type: '[ID]' },
-    parentNotIn: { __type: '[ID]' },
-    password: { __type: 'String' },
-    search: { __type: 'String' },
-    stati: { __type: '[PostStatusEnum]' },
-    status: { __type: 'PostStatusEnum' },
-    title: { __type: 'String' },
-  },
-  RootQueryToHumanConnection: {
-    __typename: { __type: 'String!' },
-    edges: { __type: '[RootQueryToHumanConnectionEdge]' },
-    nodes: { __type: '[Human]' },
-    pageInfo: { __type: 'WPPageInfo' },
-  },
-  RootQueryToHumanConnectionEdge: {
-    __typename: { __type: 'String!' },
-    cursor: { __type: 'String' },
-    node: { __type: 'Human' },
   },
   RootQueryToMediaItemConnectionWhereArgs: {
     author: { __type: 'Int' },
@@ -6385,18 +5909,9 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'MenuItem' },
   },
-  MenuItemToMenuItemLinkableConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'MenuItemLinkable' },
-  },
-  MenuItemObjectUnion: {
-    __typename: { __type: 'String!' },
-    $on: { __type: '$MenuItemObjectUnion!' },
-  },
-  MenuItemToMenuConnectionEdge: {
-    __typename: { __type: 'String!' },
-    node: { __type: 'Menu' },
-  },
+  MenuItemToMenuItemLinkableConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'MenuItemLinkable' } },
+  MenuItemObjectUnion: { __typename: { __type: 'String!' }, $on: { __type: '$MenuItemObjectUnion!' } },
+  MenuItemToMenuConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Menu' } },
   RootQueryToMenuItemConnectionWhereArgs: {
     id: { __type: 'Int' },
     location: { __type: 'MenuLocationEnum' },
@@ -6564,10 +6079,7 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'Post' },
   },
-  ReadingSettings: {
-    __typename: { __type: 'String!' },
-    postsPerPage: { __type: 'Int' },
-  },
+  ReadingSettings: { __typename: { __type: 'String!' }, postsPerPage: { __type: 'Int' } },
   RootQueryToEnqueuedScriptConnection: {
     __typename: { __type: 'String!' },
     edges: { __type: '[RootQueryToEnqueuedScriptConnectionEdge]' },
@@ -6752,10 +6264,7 @@ export const generatedSchema = {
     search: { __type: 'String' },
     searchColumns: { __type: '[UsersConnectionSearchColumnEnum]' },
   },
-  UsersConnectionOrderbyInput: {
-    field: { __type: 'UsersConnectionOrderbyEnum!' },
-    order: { __type: 'OrderEnum' },
-  },
+  UsersConnectionOrderbyInput: { field: { __type: 'UsersConnectionOrderbyEnum!' }, order: { __type: 'OrderEnum' } },
   RootQueryToUserConnection: {
     __typename: { __type: 'String!' },
     edges: { __type: '[RootQueryToUserConnectionEdge]' },
@@ -6803,19 +6312,6 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     comment: { __type: 'Comment' },
     success: { __type: 'Boolean' },
-  },
-  CreateHumanInput: {
-    clientMutationId: { __type: 'String' },
-    date: { __type: 'String' },
-    menuOrder: { __type: 'Int' },
-    password: { __type: 'String' },
-    slug: { __type: 'String' },
-    status: { __type: 'PostStatusEnum' },
-  },
-  CreateHumanPayload: {
-    __typename: { __type: 'String!' },
-    clientMutationId: { __type: 'String' },
-    human: { __type: 'Human' },
   },
   CreateMediaItemInput: {
     altText: { __type: 'String' },
@@ -6876,30 +6372,21 @@ export const generatedSchema = {
     title: { __type: 'String' },
     toPing: { __type: '[String]' },
   },
-  PostCategoriesInput: {
-    append: { __type: 'Boolean' },
-    nodes: { __type: '[PostCategoriesNodeInput]' },
-  },
+  PostCategoriesInput: { append: { __type: 'Boolean' }, nodes: { __type: '[PostCategoriesNodeInput]' } },
   PostCategoriesNodeInput: {
     description: { __type: 'String' },
     id: { __type: 'ID' },
     name: { __type: 'String' },
     slug: { __type: 'String' },
   },
-  PostPostFormatsInput: {
-    append: { __type: 'Boolean' },
-    nodes: { __type: '[PostPostFormatsNodeInput]' },
-  },
+  PostPostFormatsInput: { append: { __type: 'Boolean' }, nodes: { __type: '[PostPostFormatsNodeInput]' } },
   PostPostFormatsNodeInput: {
     description: { __type: 'String' },
     id: { __type: 'ID' },
     name: { __type: 'String' },
     slug: { __type: 'String' },
   },
-  PostTagsInput: {
-    append: { __type: 'Boolean' },
-    nodes: { __type: '[PostTagsNodeInput]' },
-  },
+  PostTagsInput: { append: { __type: 'Boolean' }, nodes: { __type: '[PostTagsNodeInput]' } },
   PostTagsNodeInput: {
     description: { __type: 'String' },
     id: { __type: 'ID' },
@@ -6960,10 +6447,7 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     user: { __type: 'User' },
   },
-  DeleteCategoryInput: {
-    clientMutationId: { __type: 'String' },
-    id: { __type: 'ID!' },
-  },
+  DeleteCategoryInput: { clientMutationId: { __type: 'String' }, id: { __type: 'ID!' } },
   DeleteCategoryPayload: {
     __typename: { __type: 'String!' },
     category: { __type: 'Category' },
@@ -6980,17 +6464,6 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     comment: { __type: 'Comment' },
     deletedId: { __type: 'ID' },
-  },
-  DeleteHumanInput: {
-    clientMutationId: { __type: 'String' },
-    forceDelete: { __type: 'Boolean' },
-    id: { __type: 'ID!' },
-  },
-  DeleteHumanPayload: {
-    __typename: { __type: 'String!' },
-    clientMutationId: { __type: 'String' },
-    deletedId: { __type: 'ID' },
-    human: { __type: 'Human' },
   },
   DeleteMediaItemInput: {
     clientMutationId: { __type: 'String' },
@@ -7025,31 +6498,21 @@ export const generatedSchema = {
     deletedId: { __type: 'ID' },
     post: { __type: 'Post' },
   },
-  DeletePostFormatInput: {
-    clientMutationId: { __type: 'String' },
-    id: { __type: 'ID!' },
-  },
+  DeletePostFormatInput: { clientMutationId: { __type: 'String' }, id: { __type: 'ID!' } },
   DeletePostFormatPayload: {
     __typename: { __type: 'String!' },
     clientMutationId: { __type: 'String' },
     deletedId: { __type: 'ID' },
     postFormat: { __type: 'PostFormat' },
   },
-  DeleteTagInput: {
-    clientMutationId: { __type: 'String' },
-    id: { __type: 'ID!' },
-  },
+  DeleteTagInput: { clientMutationId: { __type: 'String' }, id: { __type: 'ID!' } },
   DeleteTagPayload: {
     __typename: { __type: 'String!' },
     clientMutationId: { __type: 'String' },
     deletedId: { __type: 'ID' },
     tag: { __type: 'Tag' },
   },
-  DeleteUserInput: {
-    clientMutationId: { __type: 'String' },
-    id: { __type: 'ID!' },
-    reassignId: { __type: 'ID' },
-  },
+  DeleteUserInput: { clientMutationId: { __type: 'String' }, id: { __type: 'ID!' }, reassignId: { __type: 'ID' } },
   DeleteUserPayload: {
     __typename: { __type: 'String!' },
     clientMutationId: { __type: 'String' },
@@ -7103,20 +6566,14 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     user: { __type: 'User' },
   },
-  RestoreCommentInput: {
-    clientMutationId: { __type: 'String' },
-    id: { __type: 'ID!' },
-  },
+  RestoreCommentInput: { clientMutationId: { __type: 'String' }, id: { __type: 'ID!' } },
   RestoreCommentPayload: {
     __typename: { __type: 'String!' },
     clientMutationId: { __type: 'String' },
     comment: { __type: 'Comment' },
     restoredId: { __type: 'ID' },
   },
-  SendPasswordResetEmailInput: {
-    clientMutationId: { __type: 'String' },
-    username: { __type: 'String!' },
-  },
+  SendPasswordResetEmailInput: { clientMutationId: { __type: 'String' }, username: { __type: 'String!' } },
   SendPasswordResetEmailPayload: {
     __typename: { __type: 'String!' },
     clientMutationId: { __type: 'String' },
@@ -7154,20 +6611,6 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     comment: { __type: 'Comment' },
     success: { __type: 'Boolean' },
-  },
-  UpdateHumanInput: {
-    clientMutationId: { __type: 'String' },
-    date: { __type: 'String' },
-    id: { __type: 'ID!' },
-    menuOrder: { __type: 'Int' },
-    password: { __type: 'String' },
-    slug: { __type: 'String' },
-    status: { __type: 'PostStatusEnum' },
-  },
-  UpdateHumanPayload: {
-    __typename: { __type: 'String!' },
-    clientMutationId: { __type: 'String' },
-    human: { __type: 'Human' },
   },
   UpdateMediaItemInput: {
     altText: { __type: 'String' },
@@ -7323,10 +6766,7 @@ export const generatedSchema = {
     name: { __type: 'String' },
     url: { __type: 'String' },
   },
-  DefaultTemplate: {
-    __typename: { __type: 'String!' },
-    templateName: { __type: 'String' },
-  },
+  DefaultTemplate: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
   [SchemaUnionsKey]: {
     Node: [
       'Category',
@@ -7342,7 +6782,6 @@ export const generatedSchema = {
       'PostFormat',
       'Tag',
       'UserRole',
-      'Human',
       'Menu',
       'MenuItem',
       'Plugin',
@@ -7350,17 +6789,7 @@ export const generatedSchema = {
       'CommentAuthor',
     ],
     TermNode: ['Category', 'PostFormat', 'Tag'],
-    UniformResourceIdentifiable: [
-      'Category',
-      'ContentType',
-      'User',
-      'MediaItem',
-      'Page',
-      'Post',
-      'PostFormat',
-      'Tag',
-      'Human',
-    ],
+    UniformResourceIdentifiable: ['Category', 'ContentType', 'User', 'MediaItem', 'Page', 'Post', 'PostFormat', 'Tag'],
     DatabaseIdentifier: [
       'Category',
       'User',
@@ -7370,7 +6799,6 @@ export const generatedSchema = {
       'Post',
       'PostFormat',
       'Tag',
-      'Human',
       'Menu',
       'MenuItem',
     ],
@@ -7378,8 +6806,8 @@ export const generatedSchema = {
     MenuItemLinkable: ['Category', 'Page', 'Post', 'PostFormat', 'Tag'],
     EnqueuedAsset: ['EnqueuedScript', 'EnqueuedStylesheet'],
     Commenter: ['User', 'CommentAuthor'],
-    ContentNode: ['MediaItem', 'Page', 'Post', 'Human'],
-    NodeWithTemplate: ['MediaItem', 'Page', 'Post', 'Human'],
+    ContentNode: ['MediaItem', 'Page', 'Post'],
+    NodeWithTemplate: ['MediaItem', 'Page', 'Post'],
     NodeWithTitle: ['MediaItem', 'Page', 'Post'],
     NodeWithAuthor: ['MediaItem', 'Page', 'Post'],
     NodeWithComments: ['MediaItem', 'Page', 'Post'],
@@ -7437,24 +6865,6 @@ export interface Query {
   }) => Maybe<RootQueryToContentTypeConnection>;
   discussionSettings?: Maybe<DiscussionSettings>;
   generalSettings?: Maybe<GeneralSettings>;
-  human: (args: {
-    id: Scalars['ID'];
-    idType?: Maybe<HumanIdType>;
-    asPreview?: Maybe<Scalars['Boolean']>;
-  }) => Maybe<Human>;
-  humanBy: (args?: {
-    id?: Maybe<Scalars['ID']>;
-    humanId?: Maybe<Scalars['Int']>;
-    uri?: Maybe<Scalars['String']>;
-    slug?: Maybe<Scalars['String']>;
-  }) => Maybe<Human>;
-  humans: (args?: {
-    first?: Maybe<Scalars['Int']>;
-    last?: Maybe<Scalars['Int']>;
-    after?: Maybe<Scalars['String']>;
-    before?: Maybe<Scalars['String']>;
-    where?: Maybe<RootQueryToHumanConnectionWhereArgs>;
-  }) => Maybe<RootQueryToHumanConnection>;
   mediaItem: (args: {
     id: Scalars['ID'];
     idType?: Maybe<MediaItemIdType>;
@@ -7610,7 +7020,6 @@ export interface Mutation {
   __typename?: 'Mutation';
   createCategory: (args: { input: CreateCategoryInput }) => Maybe<CreateCategoryPayload>;
   createComment: (args: { input: CreateCommentInput }) => Maybe<CreateCommentPayload>;
-  createHuman: (args: { input: CreateHumanInput }) => Maybe<CreateHumanPayload>;
   createMediaItem: (args: { input: CreateMediaItemInput }) => Maybe<CreateMediaItemPayload>;
   createPage: (args: { input: CreatePageInput }) => Maybe<CreatePagePayload>;
   createPost: (args: { input: CreatePostInput }) => Maybe<CreatePostPayload>;
@@ -7619,7 +7028,6 @@ export interface Mutation {
   createUser: (args: { input: CreateUserInput }) => Maybe<CreateUserPayload>;
   deleteCategory: (args: { input: DeleteCategoryInput }) => Maybe<DeleteCategoryPayload>;
   deleteComment: (args: { input: DeleteCommentInput }) => Maybe<DeleteCommentPayload>;
-  deleteHuman: (args: { input: DeleteHumanInput }) => Maybe<DeleteHumanPayload>;
   deleteMediaItem: (args: { input: DeleteMediaItemInput }) => Maybe<DeleteMediaItemPayload>;
   deletePage: (args: { input: DeletePageInput }) => Maybe<DeletePagePayload>;
   deletePost: (args: { input: DeletePostInput }) => Maybe<DeletePostPayload>;
@@ -7636,7 +7044,6 @@ export interface Mutation {
   sendPasswordResetEmail: (args: { input: SendPasswordResetEmailInput }) => Maybe<SendPasswordResetEmailPayload>;
   updateCategory: (args: { input: UpdateCategoryInput }) => Maybe<UpdateCategoryPayload>;
   updateComment: (args: { input: UpdateCommentInput }) => Maybe<UpdateCommentPayload>;
-  updateHuman: (args: { input: UpdateHumanInput }) => Maybe<UpdateHumanPayload>;
   updateMediaItem: (args: { input: UpdateMediaItemInput }) => Maybe<UpdateMediaItemPayload>;
   updatePage: (args: { input: UpdatePageInput }) => Maybe<UpdatePagePayload>;
   updatePost: (args: { input: UpdatePostInput }) => Maybe<UpdatePostPayload>;
@@ -7763,18 +7170,18 @@ export interface Category {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<CategoryToAncestorsCategoryConnection>;
   /**
@@ -7789,22 +7196,22 @@ export interface Category {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<CategoryToCategoryConnectionWhereArgs>;
   }) => Maybe<CategoryToCategoryConnection>;
   conditionalTags?: Maybe<ConditionalTags>;
@@ -7815,22 +7222,22 @@ export interface Category {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<CategoryToContentNodeConnectionWhereArgs>;
   }) => Maybe<CategoryToContentNodeConnection>;
   /**
@@ -7852,18 +7259,18 @@ export interface Category {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedScriptConnection>;
   /**
@@ -7873,18 +7280,18 @@ export interface Category {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
   /**
@@ -7930,22 +7337,22 @@ export interface Category {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<CategoryToPostConnectionWhereArgs>;
   }) => Maybe<CategoryToPostConnection>;
   /**
@@ -7989,7 +7396,6 @@ export interface Node {
     | 'PostFormat'
     | 'Tag'
     | 'UserRole'
-    | 'Human'
     | 'Menu'
     | 'MenuItem'
     | 'Plugin'
@@ -8027,18 +7433,18 @@ export interface TermNode {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedScriptConnection>;
   /**
@@ -8048,18 +7454,18 @@ export interface TermNode {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
   /**
@@ -8110,7 +7516,7 @@ export interface TermNode {
  * Any node that has a URI
  */
 export interface UniformResourceIdentifiable {
-  __typename?: 'Category' | 'ContentType' | 'User' | 'MediaItem' | 'Page' | 'Post' | 'PostFormat' | 'Tag' | 'Human';
+  __typename?: 'Category' | 'ContentType' | 'User' | 'MediaItem' | 'Page' | 'Post' | 'PostFormat' | 'Tag';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * The unique resource identifier path
@@ -8437,7 +7843,6 @@ export interface DatabaseIdentifier {
     | 'Post'
     | 'PostFormat'
     | 'Tag'
-    | 'Human'
     | 'Menu'
     | 'MenuItem';
   /**
@@ -8589,7 +7994,7 @@ export interface CategoryToContentNodeConnectionEdge {
  * Nodes used to manage content
  */
 export interface ContentNode {
-  __typename?: 'MediaItem' | 'Page' | 'Post' | 'Human';
+  __typename?: 'MediaItem' | 'Page' | 'Post';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * Connection between the ContentNode type and the ContentType type
@@ -8626,18 +8031,18 @@ export interface ContentNode {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
   /**
@@ -8647,18 +8052,18 @@ export interface ContentNode {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
   /**
@@ -8757,18 +8162,18 @@ export interface ContentType {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentTypeToTaxonomyConnection>;
   /**
@@ -8778,22 +8183,22 @@ export interface ContentType {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<ContentTypeToContentNodeConnectionWhereArgs>;
   }) => Maybe<ContentTypeToContentNodeConnection>;
   /**
@@ -8961,18 +8366,18 @@ export interface Taxonomy {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TaxonomyToContentTypeConnection>;
   /**
@@ -9256,14 +8661,14 @@ export interface User {
      * The size attribute of the avatar field can be used to fetch avatars of different sizes. The value corresponds to the dimension in pixels to fetch. The default is 96 pixels.
      * @defaultValue `96`
      */
-    size?: Maybe<Scalars['Int']>;
+    size?: Maybe<Scalars['Int']>
     /**
      * Whether to always show the default image, never the Gravatar. Default false
-     */
-    forceDefault?: Maybe<Scalars['Boolean']>;
+     */;
+    forceDefault?: Maybe<Scalars['Boolean']>
     /**
      * The rating level of the avatar.
-     */
+     */;
     rating?: Maybe<AvatarRatingEnum>;
   }) => Maybe<Avatar>;
   /**
@@ -9281,22 +8686,22 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<UserToCommentConnectionWhereArgs>;
   }) => Maybe<UserToCommentConnection>;
   conditionalTags?: Maybe<ConditionalTags>;
@@ -9319,18 +8724,18 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<UserToEnqueuedScriptConnection>;
   /**
@@ -9340,18 +8745,18 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<UserToEnqueuedStylesheetConnection>;
   /**
@@ -9393,22 +8798,22 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<UserToMediaItemConnectionWhereArgs>;
   }) => Maybe<UserToMediaItemConnection>;
   /**
@@ -9430,22 +8835,22 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<UserToPageConnectionWhereArgs>;
   }) => Maybe<UserToPageConnection>;
   /**
@@ -9455,22 +8860,22 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<UserToPostConnectionWhereArgs>;
   }) => Maybe<UserToPostConnection>;
   /**
@@ -9484,22 +8889,22 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<UserToContentRevisionUnionConnectionWhereArgs>;
   }) => Maybe<UserToContentRevisionUnionConnection>;
   /**
@@ -9509,18 +8914,18 @@ export interface User {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<UserToUserRoleConnection>;
   /**
@@ -9751,22 +9156,22 @@ export interface Comment {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<CommentToCommentConnectionWhereArgs>;
   }) => Maybe<CommentToCommentConnection>;
   /**
@@ -9960,22 +9365,22 @@ export interface MediaItem {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
   /**
@@ -10006,22 +9411,22 @@ export interface MediaItem {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
   /**
@@ -10039,22 +9444,22 @@ export interface MediaItem {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<MediaItemToCommentConnectionWhereArgs>;
   }) => Maybe<MediaItemToCommentConnection>;
   conditionalTags?: Maybe<ConditionalTags>;
@@ -10102,18 +9507,18 @@ export interface MediaItem {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
   /**
@@ -10123,18 +9528,18 @@ export interface MediaItem {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
   /**
@@ -10286,7 +9691,7 @@ export interface MediaItem {
  * A node that can have a template associated with it
  */
 export interface NodeWithTemplate {
-  __typename?: 'MediaItem' | 'Page' | 'Post' | 'Human';
+  __typename?: 'MediaItem' | 'Page' | 'Post';
   /**
    * The template assigned to the node
    */
@@ -10382,22 +9787,22 @@ export interface HierarchicalContentNode {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
   /**
@@ -10407,22 +9812,22 @@ export interface HierarchicalContentNode {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
   /**
@@ -10795,22 +10200,22 @@ export interface Page {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
   /**
@@ -10832,22 +10237,22 @@ export interface Page {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
   }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
   /**
@@ -10865,22 +10270,22 @@ export interface Page {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PageToCommentConnectionWhereArgs>;
   }) => Maybe<PageToCommentConnection>;
   conditionalTags?: Maybe<ConditionalTags>;
@@ -10928,18 +10333,18 @@ export interface Page {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
   /**
@@ -10949,18 +10354,18 @@ export interface Page {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
   /**
@@ -11075,22 +10480,22 @@ export interface Page {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PageToRevisionConnectionWhereArgs>;
   }) => Maybe<PageToRevisionConnection>;
   /**
@@ -11179,18 +10584,18 @@ export interface NodeWithFeaturedImage {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
   /**
@@ -11200,18 +10605,18 @@ export interface NodeWithFeaturedImage {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
   /**
@@ -11481,22 +10886,22 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostToCategoryConnectionWhereArgs>;
   }) => Maybe<PostToCategoryConnection>;
   /**
@@ -11514,22 +10919,22 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostToCommentConnectionWhereArgs>;
   }) => Maybe<PostToCommentConnection>;
   conditionalTags?: Maybe<ConditionalTags>;
@@ -11577,18 +10982,18 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
   /**
@@ -11598,18 +11003,18 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
   /**
@@ -11696,22 +11101,22 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostToPostFormatConnectionWhereArgs>;
   }) => Maybe<PostToPostFormatConnection>;
   /**
@@ -11742,22 +11147,22 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostToRevisionConnectionWhereArgs>;
   }) => Maybe<PostToRevisionConnection>;
   /**
@@ -11775,22 +11180,22 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostToTagConnectionWhereArgs>;
   }) => Maybe<PostToTagConnection>;
   /**
@@ -11805,22 +11210,22 @@ export interface Post {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostToTermNodeConnectionWhereArgs>;
   }) => Maybe<PostToTermNodeConnection>;
   /**
@@ -11994,22 +11399,22 @@ export interface PostFormat {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostFormatToContentNodeConnectionWhereArgs>;
   }) => Maybe<PostFormatToContentNodeConnection>;
   /**
@@ -12031,18 +11436,18 @@ export interface PostFormat {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedScriptConnection>;
   /**
@@ -12052,18 +11457,18 @@ export interface PostFormat {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
   /**
@@ -12102,22 +11507,22 @@ export interface PostFormat {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<PostFormatToPostConnectionWhereArgs>;
   }) => Maybe<PostFormatToPostConnection>;
   /**
@@ -12314,22 +11719,22 @@ export interface Tag {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<TagToContentNodeConnectionWhereArgs>;
   }) => Maybe<TagToContentNodeConnection>;
   /**
@@ -12351,18 +11756,18 @@ export interface Tag {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedScriptConnection>;
   /**
@@ -12372,18 +11777,18 @@ export interface Tag {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
+     */;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<TermNodeToEnqueuedStylesheetConnection>;
   /**
@@ -12417,22 +11822,22 @@ export interface Tag {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<TagToPostConnectionWhereArgs>;
   }) => Maybe<TagToPostConnection>;
   /**
@@ -12896,204 +12301,6 @@ export interface GeneralSettings {
 }
 
 /**
- * The human type
- */
-export interface Human {
-  __typename?: 'Human';
-  conditionalTags?: Maybe<ConditionalTags>;
-  /**
-   * Connection between the ContentNode type and the ContentType type
-   */
-  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
-  /**
-   * The unique identifier stored in the database
-   */
-  databaseId: ScalarsEnums['Int'];
-  /**
-   * Post publishing date.
-   */
-  date?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The publishing date set in GMT.
-   */
-  dateGmt?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The desired slug of the post
-   */
-  desiredSlug?: Maybe<ScalarsEnums['String']>;
-  /**
-   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
-   */
-  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
-  /**
-   * The RSS enclosure for the object
-   */
-  enclosure?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Connection between the ContentNode type and the EnqueuedScript type
-   */
-  enqueuedScripts: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>;
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
-  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
-  /**
-   * Connection between the ContentNode type and the EnqueuedStylesheet type
-   */
-  enqueuedStylesheets: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>;
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
-  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
-  /**
-   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
-   */
-  guid?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The id field matches the WP_Post-&gt;ID field.
-   * @deprecated Deprecated in favor of the databaseId field
-   */
-  humanId: ScalarsEnums['Int'];
-  /**
-   * The globally unique identifier of the human object.
-   */
-  id: ScalarsEnums['ID'];
-  /**
-   * Whether the node is a Content Node
-   */
-  isContentNode: ScalarsEnums['Boolean'];
-  /**
-   * Whether the object is a node in the preview state
-   */
-  isPreview?: Maybe<ScalarsEnums['Boolean']>;
-  /**
-   * Whether the object is restricted from the current viewer
-   */
-  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
-  /**
-   * Whether the node is a Term
-   */
-  isTermNode: ScalarsEnums['Boolean'];
-  /**
-   * The user that most recently edited the node
-   */
-  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
-  /**
-   * The permalink of the post
-   */
-  link?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
-   */
-  modified?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
-   */
-  modifiedGmt?: Maybe<ScalarsEnums['String']>;
-  name?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Connection between the human type and the human type
-   */
-  preview?: Maybe<HumanToPreviewConnectionEdge>;
-  /**
-   * The database id of the preview node
-   */
-  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
-  /**
-   * Whether the object is a node in the preview state
-   */
-  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
-  /**
-   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
-   */
-  slug?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The current status of the object
-   */
-  status?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The template assigned to the node
-   */
-  template?: Maybe<ContentTemplate>;
-  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
-  /**
-   * The unique resource identifier path
-   */
-  uri?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Connection between the human type and the human type
- */
-export interface HumanToPreviewConnectionEdge {
-  __typename?: 'HumanToPreviewConnectionEdge';
-  /**
-   * The node of the connection, without the edges
-   */
-  node?: Maybe<Human>;
-}
-
-/**
- * Connection between the RootQuery type and the human type
- */
-export interface RootQueryToHumanConnection {
-  __typename?: 'RootQueryToHumanConnection';
-  /**
-   * Edges for the RootQueryToHumanConnection connection
-   */
-  edges?: Maybe<Array<Maybe<RootQueryToHumanConnectionEdge>>>;
-  /**
-   * The nodes of the connection, without the edges
-   */
-  nodes?: Maybe<Array<Maybe<Human>>>;
-  /**
-   * Information about pagination in a connection.
-   */
-  pageInfo?: Maybe<WPPageInfo>;
-}
-
-/**
- * An edge in a connection
- */
-export interface RootQueryToHumanConnectionEdge {
-  __typename?: 'RootQueryToHumanConnectionEdge';
-  /**
-   * A cursor for use in pagination
-   */
-  cursor?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The item at the end of the edge
-   */
-  node?: Maybe<Human>;
-}
-
-/**
  * Connection between the RootQuery type and the mediaItem type
  */
 export interface RootQueryToMediaItemConnection {
@@ -13164,22 +12371,22 @@ export interface Menu {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<MenuToMenuItemConnectionWhereArgs>;
   }) => Maybe<MenuToMenuItemConnection>;
   /**
@@ -13238,22 +12445,22 @@ export interface MenuItem {
     /**
      * The number of items to return after the referenced "after" cursor
      */
-    first?: Maybe<Scalars['Int']>;
+    first?: Maybe<Scalars['Int']>
     /**
      * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>;
+     */;
+    last?: Maybe<Scalars['Int']>
     /**
      * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>;
+     */;
+    after?: Maybe<Scalars['String']>
     /**
      * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>;
+     */;
+    before?: Maybe<Scalars['String']>
     /**
      * Arguments for filtering the connection
-     */
+     */;
     where?: Maybe<MenuItemToMenuItemConnectionWhereArgs>;
   }) => Maybe<MenuItemToMenuItemConnection>;
   /**
@@ -14069,21 +13276,6 @@ export interface CreateCommentPayload {
 }
 
 /**
- * The payload for the createHuman mutation
- */
-export interface CreateHumanPayload {
-  __typename?: 'CreateHumanPayload';
-  /**
-   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
-   */
-  clientMutationId?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The Post object mutation type.
-   */
-  human?: Maybe<Human>;
-}
-
-/**
  * The payload for the createMediaItem mutation
  */
 export interface CreateMediaItemPayload {
@@ -14209,25 +13401,6 @@ export interface DeleteCommentPayload {
    * The deleted comment ID
    */
   deletedId?: Maybe<ScalarsEnums['ID']>;
-}
-
-/**
- * The payload for the deleteHuman mutation
- */
-export interface DeleteHumanPayload {
-  __typename?: 'DeleteHumanPayload';
-  /**
-   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
-   */
-  clientMutationId?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The ID of the deleted object
-   */
-  deletedId?: Maybe<ScalarsEnums['ID']>;
-  /**
-   * The object before it was deleted
-   */
-  human?: Maybe<Human>;
 }
 
 /**
@@ -14459,21 +13632,6 @@ export interface UpdateCommentPayload {
    * Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache
    */
   success?: Maybe<ScalarsEnums['Boolean']>;
-}
-
-/**
- * The payload for the updateHuman mutation
- */
-export interface UpdateHumanPayload {
-  __typename?: 'UpdateHumanPayload';
-  /**
-   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
-   */
-  clientMutationId?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The Post object mutation type.
-   */
-  human?: Maybe<Human>;
 }
 
 /**
@@ -14760,10 +13918,6 @@ export interface SchemaObjectTypes {
   RootQueryToContentTypeConnectionEdge: RootQueryToContentTypeConnectionEdge;
   DiscussionSettings: DiscussionSettings;
   GeneralSettings: GeneralSettings;
-  Human: Human;
-  HumanToPreviewConnectionEdge: HumanToPreviewConnectionEdge;
-  RootQueryToHumanConnection: RootQueryToHumanConnection;
-  RootQueryToHumanConnectionEdge: RootQueryToHumanConnectionEdge;
   RootQueryToMediaItemConnection: RootQueryToMediaItemConnection;
   RootQueryToMediaItemConnectionEdge: RootQueryToMediaItemConnectionEdge;
   Menu: Menu;
@@ -14810,7 +13964,6 @@ export interface SchemaObjectTypes {
   WritingSettings: WritingSettings;
   CreateCategoryPayload: CreateCategoryPayload;
   CreateCommentPayload: CreateCommentPayload;
-  CreateHumanPayload: CreateHumanPayload;
   CreateMediaItemPayload: CreateMediaItemPayload;
   CreatePagePayload: CreatePagePayload;
   CreatePostPayload: CreatePostPayload;
@@ -14819,7 +13972,6 @@ export interface SchemaObjectTypes {
   CreateUserPayload: CreateUserPayload;
   DeleteCategoryPayload: DeleteCategoryPayload;
   DeleteCommentPayload: DeleteCommentPayload;
-  DeleteHumanPayload: DeleteHumanPayload;
   DeleteMediaItemPayload: DeleteMediaItemPayload;
   DeletePagePayload: DeletePagePayload;
   DeletePostPayload: DeletePostPayload;
@@ -14833,7 +13985,6 @@ export interface SchemaObjectTypes {
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
   UpdateCategoryPayload: UpdateCategoryPayload;
   UpdateCommentPayload: UpdateCommentPayload;
-  UpdateHumanPayload: UpdateHumanPayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
   UpdatePagePayload: UpdatePagePayload;
   UpdatePostPayload: UpdatePostPayload;
@@ -14965,10 +14116,6 @@ export type SchemaObjectTypesNames =
   | 'RootQueryToContentTypeConnectionEdge'
   | 'DiscussionSettings'
   | 'GeneralSettings'
-  | 'Human'
-  | 'HumanToPreviewConnectionEdge'
-  | 'RootQueryToHumanConnection'
-  | 'RootQueryToHumanConnectionEdge'
   | 'RootQueryToMediaItemConnection'
   | 'RootQueryToMediaItemConnectionEdge'
   | 'Menu'
@@ -15015,7 +14162,6 @@ export type SchemaObjectTypesNames =
   | 'WritingSettings'
   | 'CreateCategoryPayload'
   | 'CreateCommentPayload'
-  | 'CreateHumanPayload'
   | 'CreateMediaItemPayload'
   | 'CreatePagePayload'
   | 'CreatePostPayload'
@@ -15024,7 +14170,6 @@ export type SchemaObjectTypesNames =
   | 'CreateUserPayload'
   | 'DeleteCategoryPayload'
   | 'DeleteCommentPayload'
-  | 'DeleteHumanPayload'
   | 'DeleteMediaItemPayload'
   | 'DeletePagePayload'
   | 'DeletePostPayload'
@@ -15038,7 +14183,6 @@ export type SchemaObjectTypesNames =
   | 'SendPasswordResetEmailPayload'
   | 'UpdateCategoryPayload'
   | 'UpdateCommentPayload'
-  | 'UpdateHumanPayload'
   | 'UpdateMediaItemPayload'
   | 'UpdatePagePayload'
   | 'UpdatePostPayload'
@@ -15063,7 +14207,6 @@ export interface $Node {
   PostFormat?: PostFormat;
   Tag?: Tag;
   UserRole?: UserRole;
-  Human?: Human;
   Menu?: Menu;
   MenuItem?: MenuItem;
   Plugin?: Plugin;
@@ -15086,7 +14229,6 @@ export interface $UniformResourceIdentifiable {
   Post?: Post;
   PostFormat?: PostFormat;
   Tag?: Tag;
-  Human?: Human;
 }
 
 export interface $DatabaseIdentifier {
@@ -15098,7 +14240,6 @@ export interface $DatabaseIdentifier {
   Post?: Post;
   PostFormat?: PostFormat;
   Tag?: Tag;
-  Human?: Human;
   Menu?: Menu;
   MenuItem?: MenuItem;
 }
@@ -15129,14 +14270,12 @@ export interface $ContentNode {
   MediaItem?: MediaItem;
   Page?: Page;
   Post?: Post;
-  Human?: Human;
 }
 
 export interface $NodeWithTemplate {
   MediaItem?: MediaItem;
   Page?: Page;
   Post?: Post;
-  Human?: Human;
 }
 
 export interface $NodeWithTitle {
@@ -15236,7 +14375,6 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   CategoryIdType: CategoryIdType | undefined;
   ContentNodeIdTypeEnum: ContentNodeIdTypeEnum | undefined;
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;
-  HumanIdType: HumanIdType | undefined;
   MediaItemIdType: MediaItemIdType | undefined;
   MenuNodeIdTypeEnum: MenuNodeIdTypeEnum | undefined;
   MenuLocationEnum: MenuLocationEnum | undefined;
