@@ -2,6 +2,7 @@ import * as React from 'react';
 import { client, MenuLocationEnum } from 'client';
 import DrawerMenu from 'components/MenuDrawer/MenuDrawer';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
@@ -20,12 +21,26 @@ interface Props {
 function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   const [menuDrawer, setMenuDrawer] = React.useState(false);
   const { menuItems } = client.useQuery();
+  const router = useRouter();
   const mainMenu = menuItems({
     first: 100,
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
+  const drawerMenu = menuItems({
+    first: 100,
+    where: { location: MenuLocationEnum.DRAWER },
+  }).nodes;
 
-  if (mainMenu.length === 0 || !mainMenu[0].url) return null;
+  if (mainMenu.length === 0 || !mainMenu[0].url || drawerMenu.length === 0 || !drawerMenu[0].url) return null;
+
+  const route = (url) => {
+    return `/${url.split('/')[3]}`;
+  };
+
+  const isActive = (url) => {
+    const path = route(url);
+    return router.pathname == path ? 'always' : 'hover';
+  };
 
   return (
     <Box sx={styles.headerContainer} position="fixed">
@@ -40,8 +55,8 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           </Typography>
           <Box sx={styles.headerLinksBox}>
             {mainMenu?.map((link) => (
-              <NextLink href={`/${link.url.split('/')[3]}`} passHref key={`${link.url}$-menu`}>
-                <MUILink color="inherit" variant="inherit" underline="none">
+              <NextLink href={route(link.url)} passHref key={`${link.url}$-menu`}>
+                <MUILink color="inherit" variant="inherit" underline={isActive(link.url)}>
                   {link.label}
                 </MUILink>
               </NextLink>
@@ -49,7 +64,6 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           </Box>
           <IconButton
             onClick={() => setMenuDrawer(!menuDrawer)}
-            size="large"
             edge="start"
             color="inherit"
             aria-label="menu"

@@ -18,8 +18,9 @@ const styles = {
     },
   },
   menuIcon: {
-    mr: 2,
-    ml: 2,
+    ml: 6,
+    pb: 1,
+    transform: 'scale(1.2)',
   },
 };
 
