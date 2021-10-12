@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { client, MenuLocationEnum } from 'client';
-import NextLink from 'next/link';
+import { colorBrandBlue } from 'style';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
@@ -22,18 +22,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
+import MenuItem from './MenuItem';
 import styles from './styles';
+import SubmenuItem from './SubmenuItem';
 
 type Props = {
   menuDrawer: boolean;
   setMenuDrawer: Dispatch<SetStateAction<boolean>>;
-};
-
-type ButtonTarget = {
-  buttonTarget: string;
-  index?: number;
-  id?: string;
-  url?: string;
 };
 
 export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
@@ -75,106 +70,6 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
     setMenuDrawer(!menuDrawer);
   };
 
-  // if (drawerMenu.length === 0 || !drawerMenu[0].url) return null;
-
-  const MenuItem = ({ buttonTarget, id, url }: ButtonTarget) => (
-    <>
-      <List sx={{ ...styles.linkUnderlineLeft }}>
-        <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
-          <MUILink color="inherit" variant="inherit" underline="none">
-            <ListItem
-              key={buttonTarget}
-              onClick={toggleDrawer()}
-              onKeyDown={toggleDrawer()}
-              sx={{
-                color: 'white',
-                '&.MuiButtonBase-root:hover': {
-                  bgcolor: 'transparent',
-                },
-              }}
-            >
-              <ListItemText primary={buttonTarget} />
-            </ListItem>
-          </MUILink>
-        </NextLink>
-      </List>
-      <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.3)' }} />
-    </>
-  );
-
-  const SubmenuItem = ({ buttonTarget, id, url }: ButtonTarget) => (
-    <NextLink href={`/${url.split('/')[3]}`} passHref key={`${id}$-menu`}>
-      <MUILink color="inherit" variant="inherit" underline="hover">
-        <ListItem
-          button
-          disablePadding
-          sx={{
-            color: 'white',
-            '&.MuiButtonBase-root:hover': {
-              bgcolor: 'transparent',
-            },
-            pl: 2,
-          }}
-        >
-          <ListItemText primary={buttonTarget} />
-        </ListItem>
-      </MUILink>
-    </NextLink>
-  );
-
-  const Submenu = ({ buttonTarget, index, id }: ButtonTarget) => (
-    <>
-      <List sx={{ ...styles.linkUnderlineLeft, pr: 2 }}>
-        <MUILink color="inherit" variant="inherit" underline="none">
-          <ListItem
-            onClick={() => handleClick(index)}
-            key={buttonTarget}
-            sx={{
-              color: 'white',
-              '&.MuiButtonBase-root:hover': {
-                bgcolor: 'transparent',
-              },
-            }}
-          >
-            <ListItemText disableTypography sx={{ fontSize: '1.5em' }} primary={buttonTarget} />
-            <ListItemIcon sx={{ mr: '-30px', color: 'white' }}>
-              {submenus[index]?.open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemIcon>
-          </ListItem>
-        </MUILink>
-        <Collapse in={submenus[index]?.open} timeout="auto" sx={{ pb: 2 }} unmountOnExit>
-          <List component="div" disablePadding>
-            {drawerMenu.map((link, index) => {
-              if (link.parentId === id) {
-                return (
-                  <SubmenuItem
-                    buttonTarget={link.label}
-                    key={link.url + link.id}
-                    index={index}
-                    id={link.id}
-                    url={link.url}
-                  />
-                );
-              }
-            })}
-          </List>
-        </Collapse>
-      </List>
-      <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.3)' }} />
-    </>
-  );
-
-  const MenuList = () => (
-    <Box sx={{ width: 350, mt: -5 }} role="presentation">
-      {drawerMenu.map((link, index) => {
-        if (submenus.some((menuItem) => menuItem.parentId === link.id))
-          return <Submenu buttonTarget={link.label} key={link.id + link.id} index={index} id={link.id} />;
-        if (!link.parentId)
-          return <MenuItem buttonTarget={link.label} key={link.url + link.id} index={index} url={link.url} />;
-      })}
-    </Box>
-  );
-
   return (
     <Drawer
       anchor={'right'}
@@ -183,14 +78,74 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
       ModalProps={{
         keepMounted: true,
       }}
+      PaperProps={{ style: { backgroundColor: colorBrandBlue } }}
     >
       <div style={styles.drawerContainer}>
         <div style={styles.closeContainer}>
           <CloseIcon sx={styles.close} onClick={() => setMenuDrawer(!menuDrawer)} />
         </div>
-        <MenuList />
+        <Box sx={{ width: 350, mt: -5 }} role="presentation">
+          {drawerMenu.map((link, index) => {
+            if (submenus.some((menuItem) => menuItem.parentId === link.id))
+              return (
+                <Box key={link.id}>
+                  <List sx={{ ...styles.linkUnderlineLeft, pr: 2 }}>
+                    <MUILink color="inherit" variant="inherit" underline="none">
+                      <ListItem
+                        onClick={() => handleClick(index)}
+                        key={index}
+                        sx={{
+                          color: 'white',
+                          '&.MuiButtonBase-root:hover': {
+                            bgcolor: 'transparent',
+                          },
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <ListItemText
+                          disableTypography
+                          sx={{ fontSize: '1.5em', fontFamily: 'FreightBigPro' }}
+                          primary={link.label}
+                        />
+                        <ListItemIcon sx={{ mr: '-30px', color: 'white' }}>
+                          {submenus[index]?.open ? <ExpandLess /> : <ExpandMore />}
+                        </ListItemIcon>
+                      </ListItem>
+                    </MUILink>
+                    <Collapse in={submenus[index]?.open} timeout="auto" sx={{ pb: 2 }} unmountOnExit>
+                      <List component="div" disablePadding>
+                        {drawerMenu.map((sublink, subindex) => {
+                          if (sublink.parentId === link.id) {
+                            return (
+                              <SubmenuItem
+                                buttonTarget={sublink.label}
+                                key={sublink.id}
+                                index={subindex}
+                                url={sublink.url}
+                              />
+                            );
+                          }
+                        })}
+                      </List>
+                    </Collapse>
+                  </List>
+                  <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.5)' }} />
+                </Box>
+              );
+            if (!link.parentId)
+              return (
+                <MenuItem
+                  buttonTarget={link.label}
+                  key={index}
+                  index={index}
+                  url={link.url}
+                  toggleDrawer={toggleDrawer}
+                />
+              );
+          })}
+        </Box>
         <List>
-          <MUILink color="inherit" variant="inherit" underline="hover">
+          <MUILink sx={styles.drawerLink} color="inherit" variant="inherit" underline="hover">
             <ListItem
               button
               sx={{
@@ -199,12 +154,14 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
                 },
               }}
             >
-              <ListItemText primary={'Book an Appointment'} />
+              <ListItemText sx={{ fontFamily: 'FreightBigPro' }} primary={'Book an Appointment'} disableTypography />
             </ListItem>
           </MUILink>
           <div style={styles.mailingListContainer}>
-            <FormControl sx={{ ml: 1, width: '25ch', borderColor: 'white' }} variant="outlined" fullWidth>
-              <Typography sx={{ m: 1 }}>Join our mailing list</Typography>
+            <FormControl sx={{ width: '100%', borderColor: 'white' }} variant="outlined" fullWidth>
+              <Typography sx={{ ml: 2, mb: 1, fontFamily: 'FreightBigPro', fontSize: '1.1rem' }}>
+                Join our mailing list
+              </Typography>
               <OutlinedInput
                 sx={styles.mailingListInput}
                 id="email-input"
@@ -228,7 +185,8 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
             rel="noopener"
             color="inherit"
             variant="inherit"
-            underline="none"
+            underline="hover"
+            sx={styles.igIcon}
           >
             <InstagramIcon fontSize="large" sx={{ ml: 1.5, mt: 3 }} />
           </MUILink>

@@ -46,18 +46,18 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
     <Box sx={styles.headerContainer} position="fixed">
       <AppBar position="static" color="transparent">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={styles.headerTitle}>
             <NextLink href="/" passHref>
               <MUILink color="inherit" variant="inherit" underline="none">
-                {title}
+                {title ? title.toUpperCase() : null}
               </MUILink>
             </NextLink>
           </Typography>
           <Box sx={styles.headerLinksBox}>
             {mainMenu?.map((link) => (
               <NextLink href={route(link.url)} passHref key={`${link.url}$-menu`}>
-                <MUILink color="inherit" variant="inherit" underline={isActive(link.url)}>
-                  {link.label}
+                <MUILink color="inherit" variant="inherit" underline={isActive(link.url)} sx={{ fontSize: '0.9rem' }}>
+                  {link.label ? link.label.toUpperCase() : null}
                 </MUILink>
               </NextLink>
             ))}

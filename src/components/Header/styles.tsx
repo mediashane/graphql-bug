@@ -1,8 +1,15 @@
+import { colorBrandBrown, colorWhite } from 'style';
+
 const styles = {
   headerContainer: {
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: colorWhite,
     zIndex: 2,
+  },
+  headerTitle: {
+    flexGrow: 1,
+    color: colorBrandBrown,
+    fontFamily: 'FrizQuadrata',
   },
   headerLinksBox: {
     typography: 'body1',

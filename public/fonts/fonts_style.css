@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'FrizQuadrata';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./FrizQuadrata/friz-quadrata.otf');
+}
+
+@font-face {
+    font-family: 'FreightBigPro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./FrizQuadrata/FreightBigProBook.otf');
+}

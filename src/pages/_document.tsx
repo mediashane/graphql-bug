@@ -17,6 +17,7 @@ class MyDocument extends Document {
             type="text/css"
             media="all"
           />
+          <link href="/fonts/fonts_style.css" rel="stylesheet" />
         </Head>
         <body>
           <Main />
