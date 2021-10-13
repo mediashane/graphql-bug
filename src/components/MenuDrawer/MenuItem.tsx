@@ -24,8 +24,8 @@ export default function MenuItem({ buttonTarget, url, index, toggleDrawer }: Lin
           <MUILink color="inherit" variant="inherit" underline="none">
             <ListItem
               key={index}
-              onClick={toggleDrawer()}
-              onKeyDown={toggleDrawer()}
+              onClick={() => toggleDrawer()}
+              onKeyDown={() => toggleDrawer()}
               sx={{
                 color: 'white',
                 '&.MuiButtonBase-root:hover': {
