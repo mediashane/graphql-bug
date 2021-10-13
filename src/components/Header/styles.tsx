@@ -1,15 +1,17 @@
-import { colorBrandBrown, colorWhite } from 'style';
+import { colorBrandBrown, colorWhite, frizQuadrata } from 'style';
 
 const styles = {
   headerContainer: {
     width: '100%',
     backgroundColor: colorWhite,
     zIndex: 2,
+    transition: 'all 1s ease',
   },
   headerTitle: {
     flexGrow: 1,
     color: colorBrandBrown,
-    fontFamily: 'FrizQuadrata',
+    fontFamily: frizQuadrata,
+    textTransform: 'uppercase' as const,
   },
   headerLinksBox: {
     typography: 'body1',
@@ -23,6 +25,10 @@ const styles = {
       lg: 'flex',
       xl: 'flex',
     },
+  },
+  headerLinks: {
+    fontSize: '0.9rem',
+    textTransform: 'uppercase' as const,
   },
   menuIcon: {
     ml: 6,

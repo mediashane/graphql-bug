@@ -1,17 +1,8 @@
-import { colorBrandBlue, colorWhite } from 'style';
+import { colorBrandBlue, colorWhite, freightBigPro } from 'style';
 
 const styles = {
   drawerBackground: {
     backgroundColor: colorBrandBlue,
-  },
-  progressContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '350px',
-    height: '100%',
-    backgroundColor: colorBrandBlue,
-    color: colorWhite,
   },
   drawerContainer: {
     paddingLeft: '16px',
@@ -31,19 +22,50 @@ const styles = {
     height: '50px',
     opacity: '0.7',
     transition: 'all 0.2s ease',
+    cursor: 'pointer',
     zIndex: '2',
 
     '&:hover': {
       opacity: '1',
     },
   },
-  drawerLink: {
+  menuContainer: {
+    marginTop: '-35px',
+    width: '350px',
+  },
+  drawerLinkWrapper: {
     '&:hover': {
       color: colorWhite,
       textDecorationColor: colorWhite,
     },
   },
+  drawerLink: {
+    color: colorWhite,
+    fontFamily: freightBigPro,
+  },
+  drawerSubmenu: {
+    color: colorWhite,
+    fontSize: '1.5em',
+    fontFamily: freightBigPro,
+    cursor: 'pointer',
+  },
+  expandIcon: {
+    marginRight: '-32px',
+    color: colorWhite,
+  },
+  collapse: {
+    paddingBottom: '16px',
+  },
+  drawerSublink: {
+    paddingLeft: '16px',
+    color: colorWhite,
+  },
+  drawerTextButton: {
+    fontFamily: freightBigPro,
+    cursor: 'pointer',
+  },
   linkUnderlineLeft: {
+    paddingRight: '16px',
     color: colorWhite,
     textDecoration: 'none',
 
@@ -71,11 +93,11 @@ const styles = {
   },
   mailingListContainer: {
     paddingTop: '24px',
-    fontFamily: 'FreightBigPro',
+    fontFamily: freightBigPro,
   },
-  mailingListInput: {
+  formInput: {
     color: colorWhite,
-    fontFamily: 'FreightBigPro',
+    fontFamily: freightBigPro,
     input: {
       '&::placeholder': {
         color: colorWhite,
@@ -88,7 +110,24 @@ const styles = {
       borderRadius: 0,
     },
   },
-  igIcon: {
+  divider: {
+    borderColor: 'rgba(255, 255, 255, 0.5)',
+  },
+  formWrapper: {
+    width: '100%',
+    borderColor: colorWhite,
+  },
+  formLabel: {
+    marginLeft: '16px',
+    marginBottom: '8px',
+    fontFamily: freightBigPro,
+    fontSize: '1.1rem',
+  },
+  inputIcon: {
+    color: colorWhite,
+  },
+  igLink: {
+    color: colorWhite,
     opacity: '1',
     transition: 'all 0.2s ease',
 
@@ -96,6 +135,10 @@ const styles = {
       color: colorWhite,
       opacity: '0.7',
     },
+  },
+  igIcon: {
+    marginLeft: '12px',
+    marginTop: '24px',
   },
 };
 

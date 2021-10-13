@@ -1,6 +1,5 @@
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React, { Dispatch, KeyboardEvent, MouseEvent, SetStateAction, useEffect } from 'react';
 import { client, MenuLocationEnum } from 'client';
-import { colorBrandBlue } from 'style';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
@@ -31,9 +30,10 @@ type Props = {
   setMenuDrawer: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
+export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
+  // submenu state object is dynamically created to match WordPress menus
   const [submenus, setSubmenus] = React.useState([]);
-  const [mailingInput, setMailingInput] = React.useState('');
+  const [formInput, setFormInput] = React.useState('');
   const { menuItems } = client.useQuery();
   const drawerMenu = menuItems({
     first: 100,
@@ -51,7 +51,7 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
   };
 
   const submitEmail = () => {
-    alert(`EMAIL SUBMITTED: ${mailingInput}`);
+    alert(`EMAIL SUBMITTED: ${formInput}`);
   };
 
   const handleClick = (index) => {
@@ -59,10 +59,10 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
     setSubmenus(updateSubmenus);
   };
 
-  const toggleDrawer = () => (event: React.KeyboardEvent | React.MouseEvent) => {
+  const toggleDrawer = () => (event: KeyboardEvent | MouseEvent) => {
     if (
       event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
+      ((event as KeyboardEvent).key === 'Tab' || (event as KeyboardEvent).key === 'Shift')
     ) {
       return;
     }
@@ -70,68 +70,69 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
     setMenuDrawer(!menuDrawer);
   };
 
+  const ExpandIcon = ({ index }) => {
+    if (submenus[index]?.open) return <ExpandLess />;
+    return <ExpandMore />;
+  };
+
+  const SubmenuList = ({ link }) => {
+    return (
+      <List component="div" disablePadding>
+        {drawerMenu.map((sublink, subindex) => {
+          if (sublink.parentId === link.id) {
+            return <SubmenuItem buttonTarget={sublink.label} key={subindex} url={sublink.url} />;
+          }
+        })}
+      </List>
+    );
+  };
+
+  const InputIcon = () => {
+    return (
+      <InputAdornment position="end">
+        <IconButton onClick={() => submitEmail()} type="submit" aria-label="join mailer input" edge="end">
+          <ChevronRightIcon sx={{ color: 'white' }} />
+        </IconButton>
+      </InputAdornment>
+    );
+  };
+
   return (
     <Drawer
       anchor={'right'}
       open={menuDrawer}
       onClose={toggleDrawer()}
-      ModalProps={{
-        keepMounted: true,
-      }}
-      PaperProps={{ style: { backgroundColor: colorBrandBlue } }}
+      ModalProps={{ keepMounted: true }}
+      PaperProps={{ style: styles.drawerBackground }}
     >
-      <div style={styles.drawerContainer}>
-        <div style={styles.closeContainer}>
+      <Box style={styles.drawerContainer}>
+        <Box style={styles.closeContainer}>
           <CloseIcon sx={styles.close} onClick={() => setMenuDrawer(!menuDrawer)} />
-        </div>
-        <Box sx={{ width: 350, mt: -5 }} role="presentation">
+        </Box>
+        <Box sx={styles.menuContainer} role="presentation">
           {drawerMenu.map((link, index) => {
+            // if a link has a parentId, make it a sublink of that parent
             if (submenus.some((menuItem) => menuItem.parentId === link.id))
               return (
                 <Box key={index}>
-                  <List sx={{ ...styles.linkUnderlineLeft, pr: 2 }}>
-                    <MUILink color="inherit" variant="inherit" underline="none">
-                      <ListItem
-                        onClick={() => handleClick(index)}
-                        key={index}
-                        sx={{
-                          color: 'white',
-                          '&.MuiButtonBase-root:hover': {
-                            bgcolor: 'transparent',
-                          },
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <ListItemText
-                          disableTypography
-                          sx={{ fontSize: '1.5em', fontFamily: 'FreightBigPro' }}
-                          primary={link.label}
-                        />
-                        <ListItemIcon sx={{ mr: '-30px', color: 'white' }}>
-                          {submenus[index]?.open ? <ExpandLess /> : <ExpandMore />}
+                  <List sx={styles.linkUnderlineLeft}>
+                    <MUILink underline="none">
+                      <ListItem onClick={() => handleClick(index)}>
+                        <ListItemText disableTypography sx={styles.drawerSubmenu} primary={link.label} />
+                        <ListItemIcon sx={styles.expandIcon}>
+                          <ExpandIcon index={index} />
                         </ListItemIcon>
                       </ListItem>
                     </MUILink>
-                    <Collapse in={submenus[index]?.open} timeout="auto" sx={{ pb: 2 }} unmountOnExit>
-                      <List component="div" disablePadding>
-                        {drawerMenu.map((sublink, subindex) => {
-                          if (sublink.parentId === link.id) {
-                            return (
-                              <SubmenuItem
-                                buttonTarget={sublink.label}
-                                key={subindex}
-                                index={subindex}
-                                url={sublink.url}
-                              />
-                            );
-                          }
-                        })}
-                      </List>
+                    {/* Collapse must be in top level return or else the animation stops working, known bug */}
+                    <Collapse in={submenus[index]?.open} timeout="auto" sx={styles.collapse} unmountOnExit>
+                      <SubmenuList link={link} />
                     </Collapse>
                   </List>
-                  <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.5)' }} />
+                  <Divider sx={styles.divider} />
                 </Box>
               );
+            // if the link doesn't have a parent, make it a top level link
             if (!link.parentId)
               return (
                 <MenuItem
@@ -145,53 +146,30 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
           })}
         </Box>
         <List>
-          <MUILink sx={styles.drawerLink} color="inherit" variant="inherit" underline="hover">
-            <ListItem
-              button
-              sx={{
-                '&.MuiButtonBase-root:hover': {
-                  bgcolor: 'transparent',
-                },
-              }}
-            >
-              <ListItemText sx={{ fontFamily: 'FreightBigPro' }} primary={'Book an Appointment'} disableTypography />
+          <MUILink sx={styles.drawerLinkWrapper} color="inherit" variant="inherit" underline="hover">
+            <ListItem>
+              <ListItemText sx={styles.drawerTextButton} primary={'Book an Appointment'} disableTypography />
             </ListItem>
           </MUILink>
-          <div style={styles.mailingListContainer}>
-            <FormControl sx={{ width: '100%', borderColor: 'white' }} variant="outlined" fullWidth>
-              <Typography sx={{ ml: 2, mb: 1, fontFamily: 'FreightBigPro', fontSize: '1.1rem' }}>
-                Join our mailing list
-              </Typography>
+          <Box style={styles.mailingListContainer}>
+            <FormControl sx={styles.formWrapper} variant="outlined" fullWidth>
+              <Typography sx={styles.formLabel}>Join our mailing list</Typography>
               <OutlinedInput
-                sx={styles.mailingListInput}
+                sx={styles.formInput}
                 id="email-input"
                 onKeyPress={onKeyPress}
-                value={mailingInput}
+                value={formInput}
                 placeholder="enter your email"
-                onChange={(event) => setMailingInput(event.target.value)}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => submitEmail()} type="submit" aria-label="join mailer input" edge="end">
-                      <ChevronRightIcon sx={{ color: 'white' }} />
-                    </IconButton>
-                  </InputAdornment>
-                }
+                onChange={(event) => setFormInput(event.target.value)}
+                endAdornment={<InputIcon />}
               />
             </FormControl>
-          </div>
-          <MUILink
-            href="https://instagram.com/elizabetheakins/"
-            target="_blank"
-            rel="noopener"
-            color="inherit"
-            variant="inherit"
-            underline="hover"
-            sx={styles.igIcon}
-          >
-            <InstagramIcon fontSize="large" sx={{ ml: 1.5, mt: 3 }} />
+          </Box>
+          <MUILink href="https://instagram.com/elizabetheakins/" target="_blank" rel="noopener" sx={styles.igLink}>
+            <InstagramIcon sx={styles.igIcon} fontSize="large" />
           </MUILink>
         </List>
-      </div>
+      </Box>
     </Drawer>
   );
 }

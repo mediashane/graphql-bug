@@ -1,4 +1,5 @@
 import React from 'react';
+import getRouteSlug from 'helpers/getRouteSlug';
 import NextLink from 'next/link';
 
 import Divider from '@mui/material/Divider';
@@ -19,26 +20,16 @@ type LinkTarget = {
 export default function MenuItem({ buttonTarget, url, index, toggleDrawer }: LinkTarget) {
   return (
     <>
-      <List sx={{ ...styles.linkUnderlineLeft }}>
-        <NextLink href={`/${url.split('/')[3]}`} passHref key={index}>
-          <MUILink color="inherit" variant="inherit" underline="none">
-            <ListItem
-              key={index}
-              onClick={() => toggleDrawer()}
-              onKeyDown={() => toggleDrawer()}
-              sx={{
-                color: 'white',
-                '&.MuiButtonBase-root:hover': {
-                  bgcolor: 'transparent',
-                },
-              }}
-            >
-              <ListItemText disableTypography sx={{ fontFamily: 'FreightBigPro' }} primary={buttonTarget} />
+      <List sx={styles.linkUnderlineLeft}>
+        <NextLink href={getRouteSlug(url)} passHref key={index}>
+          <MUILink underline="none">
+            <ListItem key={index} onClick={() => toggleDrawer()} onKeyDown={() => toggleDrawer()}>
+              <ListItemText sx={styles.drawerLink} disableTypography primary={buttonTarget} />
             </ListItem>
           </MUILink>
         </NextLink>
       </List>
-      <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.5)' }} />
+      <Divider sx={styles.divider} />
     </>
   );
 }

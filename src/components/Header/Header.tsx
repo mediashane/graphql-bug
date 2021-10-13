@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { client, MenuLocationEnum } from 'client';
-import DrawerMenu from 'components/MenuDrawer/MenuDrawer';
+import MenuDrawer from 'components/MenuDrawer/MenuDrawer';
+import getRouteSlug from 'helpers/getRouteSlug';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -19,7 +20,6 @@ interface Props {
 }
 
 function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
-  const [menusLoaded, setMenusLoaded] = React.useState(false);
   const [menuDrawer, setMenuDrawer] = React.useState(false);
   const { menuItems } = client.useQuery();
   const router = useRouter();
@@ -28,21 +28,28 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
 
-  useEffect(() => {
-    if (mainMenu[0].url) {
-      setMenusLoaded(true);
-    }
-  }, [mainMenu.length, mainMenu]);
-
-  if (!menusLoaded) return null;
-
-  const route = (url) => {
-    return `/${url.split('/')[3]}`;
-  };
+  // while waiting for the response from WordPress backend don't render
+  if (!mainMenu[0].url || !mainMenu[0].label) return null;
 
   const isActive = (url) => {
-    const path = route(url);
-    return router.pathname == path ? 'always' : 'hover';
+    const path = getRouteSlug(url);
+    return `${router.pathname}` == path ? 'always' : 'hover';
+  };
+
+  const HeaderLinks = () => {
+    return (
+      <Box sx={styles.headerLinksBox}>
+        {mainMenu?.map((link, index) => (
+          <Typography sx={styles.headerLinks} key={index}>
+            <NextLink href={getRouteSlug(link.url)} passHref>
+              <MUILink color="inherit" variant="inherit" underline={isActive(link.url)}>
+                {link.label}
+              </MUILink>
+            </NextLink>
+          </Typography>
+        ))}
+      </Box>
+    );
   };
 
   return (
@@ -52,33 +59,23 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           <Typography variant="h6" component="div" sx={styles.headerTitle}>
             <NextLink href="/" passHref>
               <MUILink color="inherit" variant="inherit" underline="none">
-                {title ? title.toUpperCase() : null}
+                {title}
               </MUILink>
             </NextLink>
           </Typography>
-          <Box sx={styles.headerLinksBox}>
-            {mainMenu?.map((link, index) => (
-              <NextLink href={route(link.url)} passHref key={index}>
-                <MUILink color="inherit" variant="inherit" underline={isActive(link.url)} sx={{ fontSize: '0.9rem' }}>
-                  {link.label ? link.label.toUpperCase() : null}
-                </MUILink>
-              </NextLink>
-            ))}
-          </Box>
-          {menusLoaded ? (
-            <IconButton
-              onClick={() => setMenuDrawer(!menuDrawer)}
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={styles.menuIcon}
-            >
-              <MenuIcon />
-            </IconButton>
-          ) : null}
+          <HeaderLinks />
+          <IconButton
+            onClick={() => setMenuDrawer(!menuDrawer)}
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={styles.menuIcon}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
-      <DrawerMenu menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
+      <MenuDrawer menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
     </Box>
   );
 }
