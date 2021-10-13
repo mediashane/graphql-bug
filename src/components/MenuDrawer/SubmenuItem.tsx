@@ -13,9 +13,9 @@ type LinkTarget = {
   url: string;
 };
 
-export default function SubmenuItem({ buttonTarget, url, index }: LinkTarget) {
+export default function SubmenuItem({ buttonTarget, url }: LinkTarget) {
   return (
-    <NextLink href={`/${url.split('/')[3]}`} passHref key={index}>
+    <NextLink href={`/${url.split('/')[3]}`} passHref>
       <MUILink sx={styles.drawerLink} color="inherit" variant="inherit" underline="hover">
         <ListItem
           button

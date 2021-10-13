@@ -88,7 +88,7 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
           {drawerMenu.map((link, index) => {
             if (submenus.some((menuItem) => menuItem.parentId === link.id))
               return (
-                <Box key={link.id}>
+                <Box key={index}>
                   <List sx={{ ...styles.linkUnderlineLeft, pr: 2 }}>
                     <MUILink color="inherit" variant="inherit" underline="none">
                       <ListItem
@@ -119,7 +119,7 @@ export default function DrawerMenu({ menuDrawer, setMenuDrawer }: Props) {
                             return (
                               <SubmenuItem
                                 buttonTarget={sublink.label}
-                                key={sublink.id}
+                                key={subindex}
                                 index={subindex}
                                 url={sublink.url}
                               />

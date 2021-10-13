@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { client, MenuLocationEnum } from 'client';
 import DrawerMenu from 'components/MenuDrawer/MenuDrawer';
 import NextLink from 'next/link';
@@ -19,6 +19,7 @@ interface Props {
 }
 
 function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
+  const [menusLoaded, setMenusLoaded] = React.useState(false);
   const [menuDrawer, setMenuDrawer] = React.useState(false);
   const { menuItems } = client.useQuery();
   const router = useRouter();
@@ -26,12 +27,14 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
     first: 100,
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
-  const drawerMenu = menuItems({
-    first: 100,
-    where: { location: MenuLocationEnum.DRAWER },
-  }).nodes;
 
-  if (mainMenu.length === 0 || !mainMenu[0].url || drawerMenu.length === 0 || !drawerMenu[0].url) return null;
+  useEffect(() => {
+    if (mainMenu[0].url) {
+      setMenusLoaded(true);
+    }
+  }, [mainMenu.length, mainMenu]);
+
+  if (!menusLoaded) return null;
 
   const route = (url) => {
     return `/${url.split('/')[3]}`;
@@ -54,23 +57,25 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
             </NextLink>
           </Typography>
           <Box sx={styles.headerLinksBox}>
-            {mainMenu?.map((link) => (
-              <NextLink href={route(link.url)} passHref key={`${link.url}$-menu`}>
+            {mainMenu?.map((link, index) => (
+              <NextLink href={route(link.url)} passHref key={index}>
                 <MUILink color="inherit" variant="inherit" underline={isActive(link.url)} sx={{ fontSize: '0.9rem' }}>
                   {link.label ? link.label.toUpperCase() : null}
                 </MUILink>
               </NextLink>
             ))}
           </Box>
-          <IconButton
-            onClick={() => setMenuDrawer(!menuDrawer)}
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={styles.menuIcon}
-          >
-            <MenuIcon />
-          </IconButton>
+          {menusLoaded ? (
+            <IconButton
+              onClick={() => setMenuDrawer(!menuDrawer)}
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={styles.menuIcon}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : null}
         </Toolbar>
       </AppBar>
       <DrawerMenu menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
