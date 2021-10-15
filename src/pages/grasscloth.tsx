@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, Hero } from 'components';
+import { Footer, Header, HeroLeftJustified } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -17,7 +17,7 @@ export default function Page() {
         <title>Rugs - {generalSettings.title}</title>
       </Head>
 
-      <Hero title="Grasscloth" />
+      <HeroLeftJustified title="Grasscloth" />
 
       <main className="content content-single">
         <div className="wrap">

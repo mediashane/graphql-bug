@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigPro } from 'style';
+import { colorBrandBlue, colorWhite, freightBigPro } from '../../style';
 
 const styles = {
   drawerBackground: {

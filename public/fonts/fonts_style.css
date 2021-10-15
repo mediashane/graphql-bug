@@ -11,3 +11,10 @@
     font-weight: 400;
     src: url('./FreightBigPro/FreightBigProBook.otf');
 }
+
+@font-face {
+    font-family: 'FreightBigProSemibold';
+    font-style: normal;
+    font-weight: 800;
+    src: url('./FreightBigPro/FreightBigProSemibold.otf');
+}

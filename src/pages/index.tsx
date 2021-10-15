@@ -1,10 +1,13 @@
 import React from 'react';
 import { client } from 'client';
-import { Footer, Header, Hero } from 'components';
+import { Footer, Header, HeroLeftJustified } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
 import { getNextStaticProps } from '@faustjs/next';
+
+const descriptionPlaceholder =
+  'Beloved for their richness, simplicity, and ease of use, the sophisticated colors of Elizabeth Eakins rugs, fabrics, and grasscloth wallpapers evoke the phenomenon of natural light gracing an organic form.';
 
 export default function Page() {
   const { useQuery } = client;
@@ -13,12 +16,16 @@ export default function Page() {
   return (
     <>
       <Header title={generalSettings.title} />
-
       <Head>
         <title>Rugs - {generalSettings.title}</title>
       </Head>
 
-      <Hero title="Home" />
+      <HeroLeftJustified
+        introTitle="Welcome to"
+        title="Elizabeth Eakins"
+        description={descriptionPlaceholder}
+        backgroundImage="images/elizabethWeaving.png"
+      />
 
       <main className="content content-single">
         <div className="wrap">

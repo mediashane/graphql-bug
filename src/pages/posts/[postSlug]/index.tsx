@@ -1,5 +1,5 @@
 import { client, Post } from 'client';
-import { Footer, Header, Hero } from 'components';
+import { Footer, Header, HeroLeftJustified } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -23,7 +23,7 @@ export function PostComponent({ post }: PostProps) {
         </title>
       </Head>
 
-      <Hero title={post?.title()} bgImage={post?.featuredImage?.node?.sourceUrl()} />
+      <HeroLeftJustified title={post?.title()} />
 
       <main className="content content-single">
         <div className="wrap">

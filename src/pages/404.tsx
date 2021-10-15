@@ -1,7 +1,7 @@
 import React from 'react';
 import { client } from 'client';
 
-import { Footer, Hero } from '../components';
+import { Footer, HeroLeftJustified } from '../components';
 
 export default function Page(): JSX.Element {
   const { useQuery } = client;
@@ -10,7 +10,7 @@ export default function Page(): JSX.Element {
   return (
     <>
       <main className="content content-page">
-        <Hero title={`Oops! That page can’t be found.`} />
+        <HeroLeftJustified title={`Oops! That page can’t be found.`} />
         <div className="wrap">
           <div>
             <div>

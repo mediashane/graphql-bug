@@ -1,4 +1,4 @@
-import { colorBrandBrown, colorWhite, frizQuadrata } from 'style';
+import { colorBrandBrown, colorWhite, frizQuadrata } from '../../style';
 
 const styles = {
   headerContainer: {

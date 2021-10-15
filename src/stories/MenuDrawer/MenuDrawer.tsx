@@ -37,11 +37,6 @@ export default function MenuDrawer({ drawerMenu }: Props) {
   // submenu state object is dynamically created to match WordPress menus
   const [submenus, setSubmenus] = React.useState([]);
   const [formInput, setFormInput] = React.useState('');
-  // const { menuItems } = client.useQuery();
-  // const drawerMenu = menuItems({
-  //   first: 100,
-  //   where: { location: MenuLocationEnum.DRAWER },
-  // }).nodes;
 
   useEffect(() => {
     setSubmenus(drawerMenu);
@@ -93,7 +88,6 @@ export default function MenuDrawer({ drawerMenu }: Props) {
     <Drawer
       anchor={'right'}
       open={true}
-      // onClose={toggleDrawer()}
       ModalProps={{ keepMounted: true }}
       PaperProps={{ style: styles.drawerBackground }}
     >
@@ -125,16 +119,7 @@ export default function MenuDrawer({ drawerMenu }: Props) {
                 </Box>
               );
             // if the link doesn't have a parent, make it a top level link
-            if (!link.parentId)
-              return (
-                <MenuItem
-                  buttonTarget={link.label}
-                  key={index}
-                  index={index}
-                  url={link.url}
-                  // toggleDrawer={toggleDrawer}
-                />
-              );
+            if (!link.parentId) return <MenuItem buttonTarget={link.label} key={index} index={index} url={link.url} />;
           })}
         </Box>
         <List>

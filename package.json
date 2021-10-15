@@ -10,7 +10,7 @@
     "lint": "eslint --fix --ext .js,.jsx,.tsx,.ts .",
     "generate": "gqty generate",
     "wpe-build": "next build",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s./public -p 6006",
     "build-storybook": "build-storybook",
     "eslint": "./node_modules/.bin/eslint ./",
     "eslint:errors": "./node_modules/.bin/eslint ./ --quiet",

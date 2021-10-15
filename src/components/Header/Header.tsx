@@ -1,5 +1,6 @@
 import React from 'react';
 import { client, MenuLocationEnum } from 'client';
+import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import MenuDrawer from 'components/MenuDrawer/MenuDrawer';
 import getRouteSlug from 'helpers/getRouteSlug';
 import NextLink from 'next/link';
@@ -53,30 +54,33 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   };
 
   return (
-    <Box sx={styles.headerContainer} position="fixed">
-      <AppBar position="static" color="transparent">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={styles.headerTitle}>
-            <NextLink href="/" passHref>
-              <MUILink color="inherit" variant="inherit" underline="none">
-                {title}
-              </MUILink>
-            </NextLink>
-          </Typography>
-          <HeaderLinks />
-          <IconButton
-            onClick={() => setMenuDrawer(!menuDrawer)}
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={styles.menuIcon}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <MenuDrawer menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
-    </Box>
+    <>
+      <Box sx={styles.headerContainer} position="fixed">
+        <AppBar position="static" color="transparent">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={styles.headerTitle}>
+              <NextLink href="/" passHref>
+                <MUILink color="inherit" variant="inherit" underline="none">
+                  {title}
+                </MUILink>
+              </NextLink>
+            </Typography>
+            <HeaderLinks />
+            <IconButton
+              onClick={() => setMenuDrawer(!menuDrawer)}
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={styles.menuIcon}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <MenuDrawer menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
+      </Box>
+      <HeaderSpacer />
+    </>
   );
 }
 

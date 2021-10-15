@@ -1,5 +1,5 @@
 import { client, Page as PageType } from 'client';
-import { Footer, Header, Hero } from 'components';
+import { Footer, Header, HeroLeftJustified } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -23,7 +23,7 @@ export function PageComponent({ page }: PageProps) {
         </title>
       </Head>
 
-      <Hero title={page?.title()} bgImage={page?.featuredImage?.node.sourceUrl()} />
+      <HeroLeftJustified title={page?.title()} />
 
       <main className="content content-single">
         <div className="wrap">
