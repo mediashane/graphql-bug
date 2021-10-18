@@ -18,3 +18,17 @@
     font-weight: 800;
     src: url('./FreightBigPro/FreightBigProSemibold.otf');
 }
+
+@font-face {
+    font-family: 'FreightBigProMediumItalic';
+    font-style: italic;
+    font-weight: 400;
+    src: url('./FreightBigPro/FreightBigProMediumItalic.otf');
+}
+
+@font-face {
+    font-family: 'ProximaNovaRegular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./ProximaNova/ProximaNovaRegular.otf');
+}

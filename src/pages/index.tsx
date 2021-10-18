@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from 'client';
-import { Footer, Header, HeroLeftJustified } from 'components';
+import { CallToAction, Footer, Header, HeroLeftJustified } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -25,6 +25,13 @@ export default function Page() {
         title="Elizabeth Eakins"
         description={descriptionPlaceholder}
         backgroundImage="images/elizabethWeaving.png"
+      />
+
+      <CallToAction
+        ctaTitle="May Sale 2021"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        ctaButtonLabel="Shop now"
+        backgroundImage="images/ctaSale.png"
       />
 
       <main className="content content-single">

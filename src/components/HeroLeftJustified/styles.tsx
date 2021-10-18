@@ -1,4 +1,4 @@
-import { colorWhite, FreightBigProSemibold } from '../../style';
+import { colorWhite, freightBigProSemibold } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -13,7 +13,7 @@ const styles = {
     height: '50vw',
     minHeight: '620px',
     maxHeight: '830px',
-    backgroundColor: '#989898',
+    backgroundColor: '#ffffff',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '80% top',
@@ -35,7 +35,7 @@ const styles = {
       xl: '62.5%',
     },
     color: colorWhite,
-    fontFamily: FreightBigProSemibold,
+    fontFamily: freightBigProSemibold,
   },
   introTitleText: {
     fontFamily: 'inherit',
