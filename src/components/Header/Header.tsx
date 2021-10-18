@@ -30,7 +30,15 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   }).nodes;
 
   // while waiting for the response from WordPress backend don't render
-  if (!mainMenu[0].url || !mainMenu[0].label) return null;
+  if (!mainMenu[0].url || !mainMenu[0].label) {
+    return (
+      <Box sx={styles.headerContainer} position="fixed">
+        <AppBar position="static" color="transparent">
+          <Toolbar></Toolbar>
+        </AppBar>
+      </Box>
+    );
+  }
 
   const isActive = (url) => {
     const path = getRouteSlug(url);
