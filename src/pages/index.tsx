@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from 'client';
-import { CallToAction, Footer, Header, HeroLeftJustified } from 'components';
+import { CallToAction, Footer, Header, HeroLeftJustified, ThreeImageExplore } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -34,11 +34,17 @@ export default function Page() {
         backgroundImage="images/ctaSale.png"
       />
 
-      <main className="content content-single">
-        <div className="wrap">
-          <p>Home page goes here</p>
-        </div>
-      </main>
+      <ThreeImageExplore
+        backgroundImageOne="images/rugsLink.png"
+        labelOne="Rugs"
+        linkOne="/rugs"
+        backgroundImageTwo="images/fabricLink.png"
+        labelTwo="Fabric"
+        linkTwo="/fabric"
+        backgroundImageThree="images/grassclothLink.png"
+        labelThree="Grasscloth"
+        linkThree="/grasscloth"
+      />
 
       <Footer copyrightHolder={generalSettings.title} />
     </>
