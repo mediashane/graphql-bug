@@ -1,70 +1,61 @@
 import { colorBrandGreen, colorWhite, freightBigProMediumItalic, proximaNova } from '../../style';
 
 const styles = {
-  callToActionContainer: {
+  ctaContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '60px 0',
+    padding: {
+      xs: '0px',
+      sm: '60px 0',
+    },
     width: '100%',
   },
-  callToActionContent: {
+  ctaContent: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: {
       xs: 'center',
       sm: 'center',
       md: 'flex-end',
-      lg: 'flex-end',
-      xl: 'flex-end',
     },
     width: {
       xs: '100%',
       sm: '100%',
       md: '90%',
-      lg: '90%',
-      xl: '90%',
     },
     height: {
       xs: '620px',
       sm: '620px',
       md: '596px',
-      lg: '596px',
-      xl: '596px',
     },
     backgroundColor: colorWhite,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
   },
-  callToActionCard: {
+  ctaCard: {
     display: 'inherit',
     marginRight: {
       xs: '0px',
       sm: '0px',
       md: '65px',
-      lg: '65px',
-      xl: '65px',
     },
-    // padding: '0 40px',
     height: {
       xs: '100%',
-      sm: '80%',
-      md: '80%',
-      lg: '80%',
-      xl: '80%',
+      sm: '77.5%',
     },
     width: {
       xs: '100%',
-      sm: '70%',
-      md: '51%',
-      lg: '40%',
-      xl: '33%',
+      sm: '460px',
+      md: '460px',
+      lg: '460px',
+      xl: '460px',
     },
     color: colorWhite,
     backgroundColor: colorBrandGreen,
   },
-  callToActionTextContainer: {
+  ctaTextContainer: {
     display: 'inherit',
     flexDirection: 'column' as const,
     alignItems: 'center',
@@ -72,16 +63,35 @@ const styles = {
     padding: '0 40px',
     textAlign: 'center' as const,
   },
-  callToActionTitle: {
-    fontSize: '3.75rem',
+  ctaTitle: {
+    fontSize: {
+      xs: '2.5rem',
+      sm: '3.75rem',
+    },
     fontStyle: 'italic' as const,
     fontFamily: freightBigProMediumItalic,
   },
-  callToActionDescription: {
-    marginTop: '-20px',
+  ctaMobileImage: {
+    display: {
+      xs: 'block',
+      sm: 'none',
+    },
+    height: '230px',
+    width: '230px',
+    backgroundColor: colorBrandGreen,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    borderRadius: '50%',
+  },
+  ctaDescription: {
+    marginTop: {
+      xs: '0px',
+      sm: '-20px',
+    },
     fontFamily: proximaNova,
   },
-  callToActionButton: {
+  ctaButton: {
     padding: '15px 50px',
     color: colorWhite,
     backgroundColor: 'transparent',

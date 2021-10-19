@@ -15,15 +15,16 @@ interface Props {
 
 function CallToAction({ ctaTitle, description, ctaButtonLabel, backgroundImage }: Props): JSX.Element {
   return (
-    <Box sx={styles.callToActionContainer}>
-      <Box sx={{ ...styles.callToActionContent, backgroundImage: `url(${backgroundImage})` }}>
-        <Box sx={styles.callToActionCard}>
-          <Box sx={styles.callToActionTextContainer}>
-            <Typography sx={styles.callToActionTitle}>{ctaTitle}</Typography>
-            <Typography variant="subtitle1" sx={styles.callToActionDescription}>
+    <Box sx={styles.ctaContainer}>
+      <Box sx={{ ...styles.ctaContent, backgroundImage: `url(${backgroundImage})` }}>
+        <Box sx={styles.ctaCard}>
+          <Box sx={styles.ctaTextContainer}>
+            <Typography sx={styles.ctaTitle}>{ctaTitle}</Typography>
+            <Box sx={{ ...styles.ctaMobileImage, backgroundImage: `url(${backgroundImage})` }} />
+            <Typography variant="subtitle1" sx={styles.ctaDescription}>
               {description}
             </Typography>
-            <Button variant="outlined" size="large" sx={styles.callToActionButton}>
+            <Button variant="outlined" size="large" sx={styles.ctaButton}>
               {ctaButtonLabel}
             </Button>
           </Box>
