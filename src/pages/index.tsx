@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from 'client';
-import { CallToAction, Footer, Header, HeroLeftJustified, ThreeImageExplore } from 'components';
+import { CallToAction, EmailSubscribe, Footer, Header, HeroLeftJustified, ThreeImageExplore } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -45,6 +45,8 @@ export default function Page() {
         labelThree="Grasscloth"
         linkThree="/grasscloth"
       />
+
+      <EmailSubscribe backgroundImage="images/emailSubscribe.png" />
 
       <Footer copyrightHolder={generalSettings.title} />
     </>
