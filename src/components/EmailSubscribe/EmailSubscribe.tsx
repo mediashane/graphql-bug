@@ -8,10 +8,14 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import styles from './styles';
 
 interface Props {
+  title: string;
+  placeholder: string;
+  buttonLabel: string;
+  subtitle: string;
   backgroundImage: string;
 }
 
-function EmailSubscribe({ backgroundImage }: Props): JSX.Element {
+function EmailSubscribe({ title, placeholder, buttonLabel, subtitle, backgroundImage }: Props): JSX.Element {
   const [formInput, setFormInput] = useState('');
 
   const onKeyPress = (e: any) => {
@@ -30,7 +34,7 @@ function EmailSubscribe({ backgroundImage }: Props): JSX.Element {
         <Box sx={{ ...styles.emailSubscribeImage, backgroundImage: `url(${backgroundImage})` }} />
         <Box sx={styles.emailSubscribeContent}>
           <Box sx={styles.emailSubscribeTitleContainer}>
-            <Typography sx={styles.emailSubscribeTitle}>Get new products and promotions in your inbox</Typography>
+            <Typography sx={styles.emailSubscribeTitle}>{title}</Typography>
           </Box>
           <Box sx={styles.emailSubscribeInputContainer}>
             <OutlinedInput
@@ -38,17 +42,15 @@ function EmailSubscribe({ backgroundImage }: Props): JSX.Element {
               id="email-input"
               onKeyPress={onKeyPress}
               value={formInput}
-              placeholder="Your email"
+              placeholder={placeholder}
               onChange={(event) => setFormInput(event.target.value)}
             />
             <Button onClick={() => submitEmail()} sx={styles.emailSubscribeButton} variant="outlined">
-              Subscribe
+              {buttonLabel}
             </Button>
           </Box>
           <Box sx={styles.emailSubscribeTitleContainer}>
-            <Typography sx={styles.emailSubscribeSubtitle}>
-              Keep up with what we’re up to. Unsubscribe at any time.
-            </Typography>
+            <Typography sx={styles.emailSubscribeSubtitle}>{subtitle}</Typography>
           </Box>
         </Box>
       </Box>

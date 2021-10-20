@@ -1,4 +1,4 @@
-import { colorBrandBrown, colorWhite, frizQuadrata } from '../../style';
+import { colorBrandBrown, colorWhite, frizQuadrata, proximaNova } from '../../style';
 
 const styles = {
   headerContainer: {
@@ -27,6 +27,7 @@ const styles = {
     },
   },
   headerLinks: {
+    fontFamily: proximaNova,
     fontSize: '0.9rem',
     textTransform: 'uppercase' as const,
   },

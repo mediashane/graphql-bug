@@ -46,7 +46,13 @@ export default function Page() {
         linkThree="/grasscloth"
       />
 
-      <EmailSubscribe backgroundImage="images/emailSubscribe.png" />
+      <EmailSubscribe
+        title="Get new products and promotions in your inbox"
+        placeholder="Your email"
+        buttonLabel="Subscribe"
+        subtitle="Keep up with what we’re up to. Unsubscribe at any time."
+        backgroundImage="images/emailSubscribe.png"
+      />
 
       <Footer copyrightHolder={generalSettings.title} />
     </>
