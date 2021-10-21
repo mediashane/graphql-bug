@@ -8,6 +8,7 @@ export const colorBrandBlue = '#587DA9',
   colorDarkGrey = '#333333',
   freightBigPro = 'FreightBigPro',
   freightBigProSemibold = 'FreightBigProSemibold',
+  freightBigProBookItalic = 'FreightBigProBookItalic',
   freightBigProMediumItalic = 'FreightBigProMediumItalic',
   frizQuadrata = 'FrizQuadrata',
   proximaNova = 'ProximaNovaRegular';

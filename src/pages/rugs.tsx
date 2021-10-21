@@ -25,7 +25,7 @@ export default function Page() {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer />
     </>
   );
 }

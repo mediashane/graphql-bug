@@ -1,12 +1,8 @@
 import React from 'react';
-import { client } from 'client';
 
 import { Footer, HeroLeftJustified } from '../components';
 
 export default function Page(): JSX.Element {
-  const { useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
-
   return (
     <>
       <main className="content content-page">
@@ -19,7 +15,7 @@ export default function Page(): JSX.Element {
           </div>
         </div>
       </main>
-      <Footer copyrightHolder={generalSettings?.title} />
+      <Footer />
     </>
   );
 }

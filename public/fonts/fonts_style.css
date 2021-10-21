@@ -20,6 +20,14 @@
 }
 
 @font-face {
+    font-family: 'FreightBigProBookItalic';
+    font-style: italic;
+    font-weight: 400;
+    src: url('./FreightBigPro/FreightBigProBookItalic.otf');
+}
+
+
+@font-face {
     font-family: 'FreightBigProMediumItalic';
     font-style: italic;
     font-weight: 400;

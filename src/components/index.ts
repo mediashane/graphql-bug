@@ -1,6 +1,6 @@
 import CallToAction from './CallToAction/CallToAction';
 import EmailSubscribe from './EmailSubscribe/EmailSubscribe';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import HeroLeftJustified from './HeroLeftJustified/HeroLeftJustified';
 import Pagination from './Pagination';

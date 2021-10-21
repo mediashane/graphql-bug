@@ -72,7 +72,7 @@ export default function Page() {
         descriptionThree="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
       />
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer />
     </>
   );
 }

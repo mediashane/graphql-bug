@@ -31,7 +31,7 @@ export function PostComponent({ post }: PostProps) {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer />
     </>
   );
 }

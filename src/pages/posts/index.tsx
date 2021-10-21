@@ -38,7 +38,7 @@ export default function Page() {
         <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer />
     </>
   );
 }

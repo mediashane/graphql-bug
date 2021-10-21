@@ -31,7 +31,7 @@ export function PageComponent({ page }: PageProps) {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer />
     </>
   );
 }
