@@ -7,6 +7,7 @@ import ImageCard from './ImageCard';
 import styles from './styles';
 
 interface Props {
+  sectionLabel: string;
   backgroundImageOne: string;
   labelOne: string;
   linkOne: string;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 function ThreeImageExplore({
+  sectionLabel,
   backgroundImageOne,
   labelOne,
   linkOne,
@@ -32,7 +34,7 @@ function ThreeImageExplore({
   return (
     <Box sx={styles.threeImageExploreContainer}>
       <Box sx={styles.threeImageExploreContent}>
-        <Typography sx={styles.threeImageExploreTitle}>Explore</Typography>
+        <Typography sx={styles.threeImageExploreTitle}>{sectionLabel}</Typography>
         <Box sx={styles.threeImageExploreCards}>
           <ImageCard backgroundImage={backgroundImageOne} label={labelOne} link={linkOne} />
           <ImageCard backgroundImage={backgroundImageTwo} label={labelTwo} link={linkTwo} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { client } from 'client';
 import { CallToAction, EmailSubscribe, Footer, Header, HeroLeftJustified, ThreeImageExplore } from 'components';
+import ThreeFeatureCards from 'components/ThreeFeatureCards/ThreeFeatureCards';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -35,6 +36,7 @@ export default function Page() {
       />
 
       <ThreeImageExplore
+        sectionLabel="Explore"
         backgroundImageOne="images/rugsLink.png"
         labelOne="Rugs"
         linkOne="/rugs"
@@ -52,6 +54,22 @@ export default function Page() {
         buttonLabel="Subscribe"
         subtitle="Keep up with what we’re up to. Unsubscribe at any time."
         backgroundImage="images/emailSubscribe.png"
+      />
+
+      <ThreeFeatureCards
+        sectionLabel="Values"
+        iconLayout={true}
+        labelColor="#587DA9"
+        textColor="#826C4F"
+        imageOne="images/sustainability.png"
+        labelOne="Sustainability"
+        descriptionOne="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+        imageTwo="images/naturalFibers.png"
+        labelTwo="Natural Fibers"
+        descriptionTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+        imageThree="images/handmade.png"
+        labelThree="Handmade"
+        descriptionThree="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
       />
 
       <Footer copyrightHolder={generalSettings.title} />

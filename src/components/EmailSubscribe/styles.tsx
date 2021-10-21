@@ -1,8 +1,12 @@
-import { freightBigPro, freightBigProSemibold, proximaNova } from '../../style';
+import { colorDarkGrey, freightBigPro, freightBigProSemibold, proximaNova } from '../../style';
 
 const styles = {
   emailSubscribeContainer: {
-    margin: '57px 0',
+    margin: {
+      xs: '57px 0 0 0',
+      sm: '57px 0 0 0',
+      md: '57px 0',
+    },
     width: '100%',
     height: {
       xs: '620px',
@@ -122,7 +126,7 @@ const styles = {
       sm: '138px',
     },
     height: '71px',
-    color: '#333333',
+    color: colorDarkGrey,
     backgroundColor: 'transparent',
     fontSize: '1rem',
     fontFamily: proximaNova,
@@ -144,7 +148,7 @@ const styles = {
     fontFamily: freightBigPro,
     input: {
       '&::placeholder': {
-        color: '#333333',
+        color: colorDarkGrey,
         opacity: '0.7',
         fontSize: '1.1rem',
       },
@@ -170,7 +174,7 @@ const styles = {
     },
   },
   emailSubscribeSubtitle: {
-    color: '#333333',
+    color: colorDarkGrey,
     fontSize: '1rem',
     fontFamily: proximaNova,
     textAlign: 'center' as const,
