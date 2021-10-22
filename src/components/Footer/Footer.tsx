@@ -13,7 +13,39 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 
 import styles from './styles';
 
-function HeaderSpacer(): JSX.Element {
+interface Props {
+  title: string;
+  description: string;
+  address: string;
+  phoneNumber: string;
+  email: string;
+  hours: string;
+  locationTitle: string;
+  locationDescription: string;
+  locationButtonLabel: string;
+  socialTitle: string;
+  socialDescription: string;
+  emailPlaceholder: string;
+  igCta: string;
+  igLink: string;
+}
+
+function Footer({
+  title = '',
+  description = '',
+  address = '',
+  phoneNumber = '',
+  email = '',
+  hours = '',
+  locationTitle = '',
+  locationDescription = '',
+  locationButtonLabel = '',
+  socialTitle = '',
+  socialDescription = '',
+  emailPlaceholder = '',
+  igCta = '',
+  igLink = '',
+}: Props): JSX.Element {
   const [formInput, setFormInput] = useState('');
 
   const onKeyPress = (e: any) => {
@@ -40,44 +72,34 @@ function HeaderSpacer(): JSX.Element {
     <Box sx={styles.footerContainer}>
       <Box sx={styles.footerLeftColumn}>
         <Box sx={styles.footerLeftColumnContent}>
-          <Typography sx={styles.footerTitle}>Elizabeth Eakins Studio</Typography>
+          <Typography sx={styles.footerTitle}>{title}</Typography>
           <Box sx={styles.footerBodyTextContainer}>
-            <Typography sx={styles.footerBodyText}>
-              The Elizabeth Eakins Studio is located in South Norwalk Connecticut and is open Monday through Friday from
-              9am to 5:00pm. Please call or email us to visit and we would be happy to have you come by.
-            </Typography>
+            <Typography sx={styles.footerBodyText}>{description}</Typography>
           </Box>
 
-          <Typography sx={styles.footerBodyText}>5 Taft Street, South Norwalk, CT 06854</Typography>
+          <Typography sx={styles.footerBodyText}>{address}</Typography>
 
-          <Typography sx={styles.footerBodyText}>T: 203.831.9347</Typography>
+          <Typography sx={styles.footerBodyText}>T: {phoneNumber}</Typography>
 
-          <Typography sx={styles.footerBodyText}>Email: Elizabeth.Eakins@elizabetheakins.com</Typography>
+          <Typography sx={styles.footerBodyText}>Email: {email}</Typography>
 
-          <Typography sx={styles.footerBodyText}>Hours: 9:00am to 5:00pm M-F</Typography>
+          <Typography sx={styles.footerBodyText}>Hours: {hours}</Typography>
         </Box>
       </Box>
       <Box sx={styles.footerRightColumn}>
         <Box sx={styles.footerRightContent}>
-          <Typography sx={styles.footerTitle}>Holland & Sherry</Typography>
+          <Typography sx={styles.footerTitle}>{locationTitle}</Typography>
           <Box sx={styles.footerBodyTextContainer}>
-            <Typography sx={styles.footerBodyText}>
-              Elizabeth Eakins is part of Holland & Sherry and available for purchase across their showrooms. Click
-              below to find a location near you.
-            </Typography>
+            <Typography sx={styles.footerBodyText}>{locationDescription}</Typography>
           </Box>
           <Box sx={styles.footerMailingButtonWrapper}>
             <Button variant="outlined" size="large" sx={styles.footerButton}>
-              Find a location near you
+              {locationButtonLabel}
             </Button>
           </Box>
-          <Typography sx={styles.footerTitle}>
-            Follow Elizabeth Eakins on Instagram and join our mailing list
-          </Typography>
+          <Typography sx={styles.footerTitle}>{socialTitle}</Typography>
           <Box sx={styles.footerBodyTextContainer}>
-            <Typography sx={styles.footerBodyText}>
-              Many of our new products and offers we first share in email and instagram. Follow us today
-            </Typography>
+            <Typography sx={styles.footerBodyText}>{socialDescription}</Typography>
           </Box>
           <Box sx={styles.footerMailingButtonWrapper}>
             <Box sx={styles.footerMailingListContainer}>
@@ -87,7 +109,7 @@ function HeaderSpacer(): JSX.Element {
                   id="email-input"
                   onKeyPress={onKeyPress}
                   value={formInput}
-                  placeholder="Enter your email"
+                  placeholder={emailPlaceholder}
                   onChange={(event) => setFormInput(event.target.value)}
                   endAdornment={<InputIcon />}
                 />
@@ -95,14 +117,9 @@ function HeaderSpacer(): JSX.Element {
             </Box>
           </Box>
           <Box sx={styles.footerSocialMediaContainer}>
-            <MUILink
-              href="https://instagram.com/elizabetheakins/"
-              target="_blank"
-              rel="noopener"
-              sx={styles.footerIgLink}
-            >
+            <MUILink href={igLink} target="_blank" rel="noopener" sx={styles.footerIgLink}>
               <InstagramIcon sx={styles.footerIgIcon} fontSize="large" />
-              <Typography sx={styles.footerSocialMediaText}>Follow us on Instagram</Typography>
+              <Typography sx={styles.footerSocialMediaText}>{igCta}</Typography>
             </MUILink>
           </Box>
         </Box>
@@ -111,4 +128,4 @@ function HeaderSpacer(): JSX.Element {
   );
 }
 
-export default HeaderSpacer;
+export default Footer;
