@@ -13,7 +13,7 @@ const styles = {
     height: '50vw',
     minHeight: '620px',
     maxHeight: '830px',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#dedede',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '80% top',
