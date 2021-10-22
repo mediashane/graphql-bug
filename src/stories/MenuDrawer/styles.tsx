@@ -135,6 +135,11 @@ const styles = {
       color: colorWhite,
       opacity: '0.7',
     },
+
+    '&:visited': {
+      color: colorWhite,
+      opacity: '0.9',
+    },
   },
   igIcon: {
     marginLeft: '12px',
