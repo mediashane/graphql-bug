@@ -1,4 +1,4 @@
-import React, { Dispatch, KeyboardEvent, MouseEvent, SetStateAction, useEffect } from 'react';
+import React, { Dispatch, KeyboardEvent, MouseEvent, SetStateAction, useEffect, useState } from 'react';
 import { client, MenuLocationEnum } from 'client';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -32,8 +32,8 @@ type Props = {
 
 export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
   // submenu state object is dynamically created to match WordPress menus
-  const [submenus, setSubmenus] = React.useState([]);
-  const [formInput, setFormInput] = React.useState('');
+  const [submenus, setSubmenus] = useState([]);
+  const [formInput, setFormInput] = useState('');
   const { menuItems } = client.useQuery();
   const drawerMenu = menuItems({
     first: 100,

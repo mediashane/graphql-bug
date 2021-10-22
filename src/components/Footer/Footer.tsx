@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import MUILink from '@mui/material/Link';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 import styles from './styles';
 
 function HeaderSpacer(): JSX.Element {
+  const [formInput, setFormInput] = useState('');
+
+  const onKeyPress = (e: any) => {
+    if (e.which == 13) {
+      submitEmail();
+    }
+  };
+
+  const submitEmail = () => {
+    alert(`EMAIL SUBMITTED: ${formInput}`);
+  };
+
+  const InputIcon = () => {
+    return (
+      <InputAdornment position="end">
+        <IconButton onClick={() => submitEmail()} type="submit" aria-label="join mailer input" edge="end">
+          <ArrowForwardIcon />
+        </IconButton>
+      </InputAdornment>
+    );
+  };
+
   return (
     <Box sx={styles.footerContainer}>
       <Box sx={styles.footerLeftColumn}>
@@ -36,7 +66,11 @@ function HeaderSpacer(): JSX.Element {
               below to find a location near you.
             </Typography>
           </Box>
-          <Typography sx={styles.footerBodyText}>Find a location near you</Typography>
+          <Box sx={styles.footerMailingButtonWrapper}>
+            <Button variant="outlined" size="large" sx={styles.footerButton}>
+              Find a location near you
+            </Button>
+          </Box>
           <Typography sx={styles.footerTitle}>
             Follow Elizabeth Eakins on Instagram and join our mailing list
           </Typography>
@@ -45,8 +79,32 @@ function HeaderSpacer(): JSX.Element {
               Many of our new products and offers we first share in email and instagram. Follow us today
             </Typography>
           </Box>
-          <Typography sx={styles.footerBodyText}>Enter your email</Typography>
-          <Typography sx={styles.footerBodyText}>Follow us on Instagram</Typography>
+          <Box sx={styles.footerMailingButtonWrapper}>
+            <Box sx={styles.footerMailingListContainer}>
+              <FormControl sx={styles.footerFormWrapper} variant="outlined" fullWidth>
+                <OutlinedInput
+                  sx={styles.footerFormInput}
+                  id="email-input"
+                  onKeyPress={onKeyPress}
+                  value={formInput}
+                  placeholder="Enter your email"
+                  onChange={(event) => setFormInput(event.target.value)}
+                  endAdornment={<InputIcon />}
+                />
+              </FormControl>
+            </Box>
+          </Box>
+          <Box sx={styles.footerSocialMediaContainer}>
+            <MUILink
+              href="https://instagram.com/elizabetheakins/"
+              target="_blank"
+              rel="noopener"
+              sx={styles.footerIgLink}
+            >
+              <InstagramIcon sx={styles.footerIgIcon} fontSize="large" />
+              <Typography sx={styles.footerSocialMediaText}>Follow us on Instagram</Typography>
+            </MUILink>
+          </Box>
         </Box>
       </Box>
     </Box>
