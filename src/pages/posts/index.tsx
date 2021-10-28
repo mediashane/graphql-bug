@@ -33,7 +33,14 @@ export default function Page() {
       </Head>
 
       <main className="content content-index">
-        <Posts posts={posts.nodes} heading="Blog Posts" headingLevel="h2" postTitleLevel="h3" id={styles.post_list} />
+        <Posts
+          posts={posts.nodes}
+          heading="Blog Posts"
+          headingLevel="h2"
+          postTitleLevel="h3"
+          // leftover from starter project
+          // id={styles.post_list}
+        />
         <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
       </main>
 
