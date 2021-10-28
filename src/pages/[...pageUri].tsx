@@ -27,7 +27,8 @@ export function PageComponent({ page }: PageProps) {
 
       <main className="content content-single">
         <div className="wrap">
-          <div dangerouslySetInnerHTML={{ __html: page?.content() ?? '' }} />
+          {/* leftover from starter project, leaving as example */}
+          {/* <div dangerouslySetInnerHTML={{ __html: page?.content() ?? '' }} /> */}
         </div>
       </main>
 
