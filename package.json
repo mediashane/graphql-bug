@@ -17,18 +17,16 @@
     "prettier": "./node_modules/.bin/prettier --check src"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
     "@faustjs/core": "^0.11.0",
     "@faustjs/next": "^0.11.0",
     "@mui/icons-material": "^5.0.1",
-    "@mui/material": "^5.0.2",
+    "@mui/material": "^5.0.6",
+    "@mui/styles": "^5.0.2",
     "next": "^11.1.2",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-reveal": "^1.2.2",
-    "sass": "^1.42.1",
     "zustand": "^3.5.13"
   },
   "devDependencies": {
@@ -48,8 +46,8 @@
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "2.4.1",
     "rimraf": "^3.0.2",
