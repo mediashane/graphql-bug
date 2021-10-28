@@ -26,7 +26,7 @@ const styles = {
   },
   threeFeatureCardsContent: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as const,
     alignItems: 'flex-start',
     justifyContent: 'center',
     width: '100%',
@@ -49,9 +49,9 @@ const styles = {
       xl: 'space-between',
     },
     flexDirection: {
-      xs: 'column',
-      sm: 'column',
-      md: 'row',
+      xs: 'column' as const,
+      sm: 'column' as const,
+      md: 'row' as const,
     },
     margin: {
       xs: '80px 0 0 0',
