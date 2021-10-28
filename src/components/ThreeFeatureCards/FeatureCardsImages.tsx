@@ -24,7 +24,7 @@ interface Props {
 
 function FeatureCardImages({
   iconLayout,
-  textColor,
+  // textColor,
   imageOne,
   labelOne,
   descriptionOne,
