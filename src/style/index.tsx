@@ -11,4 +11,6 @@ export const colorBrandBlue = '#587DA9',
   freightBigProBookItalic = 'FreightBigProBookItalic',
   freightBigProMediumItalic = 'FreightBigProMediumItalic',
   frizQuadrata = 'FrizQuadrata',
-  proximaNova = 'ProximaNovaRegular';
+  proximaNova = 'ProximaNovaRegular',
+  paddingMobile = '40px',
+  siteMaxWidth = '400px';

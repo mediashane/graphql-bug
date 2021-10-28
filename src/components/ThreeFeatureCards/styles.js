@@ -1,4 +1,11 @@
-import { colorDarkGrey, colorWhite, freightBigProMediumItalic, freightBigProSemibold, proximaNova } from '../../style';
+import {
+  colorDarkGrey,
+  colorWhite,
+  freightBigPro,
+  freightBigProMediumItalic,
+  freightBigProSemibold,
+  proximaNova,
+} from '../../style';
 
 const styles = {
   threeFeatureCardsContainer: {
@@ -19,15 +26,15 @@ const styles = {
   },
   threeFeatureCardsContent: {
     display: 'flex',
-    flexDirection: 'column' as const,
+    flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    width: '87.5%',
+    width: '100%',
     height: '100%',
   },
   threeFeatureCardsTitle: {
     fontSize: '2.5rem',
-    fontStyle: 'italic' as const,
+    fontStyle: 'italic',
     fontFamily: freightBigProMediumItalic,
     lineHeight: 1,
   },
@@ -42,9 +49,9 @@ const styles = {
       xl: 'space-between',
     },
     flexDirection: {
-      xs: 'column' as const,
-      sm: 'column' as const,
-      md: 'row' as const,
+      xs: 'column',
+      sm: 'column',
+      md: 'row',
     },
     margin: {
       xs: '80px 0 0 0',
@@ -60,7 +67,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    flexDirection: 'column' as const,
+    flexDirection: 'column',
     marginBottom: {
       xs: '100px',
       sm: '100px',
@@ -103,7 +110,24 @@ const styles = {
     color: colorDarkGrey,
     fontSize: '1rem',
     fontFamily: proximaNova,
-    textAlign: 'center' as const,
+    textAlign: 'center',
+  },
+
+  threeFeatureCardsCardImageLabel: {
+    marginTop: '40px',
+    fontFamily: freightBigPro,
+    fontSize: '2rem',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: '40px',
+    textAlign: 'center',
+    letterSpacing: '0.5px',
+  },
+  threeFeatureCardsCardImageDescription: {
+    color: colorDarkGrey,
+    fontFamily: proximaNova,
+    fontSize: '1rem',
+    textAlign: 'center',
   },
 };
 

@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-
-import FeatureCard from './FeatureCard';
-import styles from './styles';
+import FeatureCardsIcons from './FeatureCardsIcons';
+import FeatureCardsImages from './FeatureCardsImages';
 
 interface Props {
   sectionLabel: string;
@@ -22,51 +19,15 @@ interface Props {
   descriptionThree: string;
 }
 
-function ThreeFeatureCards({
-  sectionLabel,
-  iconLayout,
-  labelColor,
-  textColor,
-  imageOne,
-  labelOne,
-  descriptionOne,
-  imageTwo,
-  labelTwo,
-  descriptionTwo,
-  imageThree,
-  labelThree,
-  descriptionThree,
-}: Props): JSX.Element {
-  return (
-    <Box sx={styles.threeFeatureCardsContainer}>
-      <Box sx={styles.threeFeatureCardsContent}>
-        <Typography sx={{ ...styles.threeFeatureCardsTitle, color: labelColor }}>{sectionLabel}</Typography>
-        <Box sx={styles.threeFeatureCardsCards}>
-          <FeatureCard
-            iconLayout={iconLayout}
-            image={imageOne}
-            label={labelOne}
-            description={descriptionOne}
-            textColor={textColor}
-          />
-          <FeatureCard
-            iconLayout={iconLayout}
-            image={imageTwo}
-            label={labelTwo}
-            description={descriptionTwo}
-            textColor={textColor}
-          />
-          <FeatureCard
-            iconLayout={iconLayout}
-            image={imageThree}
-            label={labelThree}
-            description={descriptionThree}
-            textColor={textColor}
-          />
-        </Box>
-      </Box>
-    </Box>
-  );
+function ThreeFeatureCards({ sectionLabel, ...props }: Props): JSX.Element {
+  if (sectionLabel) {
+    return <FeatureCardsIcons sectionLabel={sectionLabel} {...props} />;
+  }
+  if (!sectionLabel) {
+    return <FeatureCardsImages sectionLabel={sectionLabel} {...props} />;
+  }
+
+  return null;
 }
 
 export default ThreeFeatureCards;
