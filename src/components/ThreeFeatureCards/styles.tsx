@@ -67,7 +67,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    flexDirection: 'column',
+    flexDirection: 'column' as const,
     marginBottom: {
       xs: '100px',
       sm: '100px',
@@ -110,7 +110,7 @@ const styles = {
     color: colorDarkGrey,
     fontSize: '1rem',
     fontFamily: proximaNova,
-    textAlign: 'center',
+    textAlign: 'center' as const,
   },
 
   threeFeatureCardsCardImageLabel: {
