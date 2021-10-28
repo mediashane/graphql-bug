@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from 'client';
-import { Footer, Pagination, Posts } from 'components';
+import { Footer, Pagination } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -33,14 +33,6 @@ export default function Page() {
       </Head>
 
       <main className="content content-index">
-        <Posts
-          posts={posts.nodes}
-          heading="Blog Posts"
-          headingLevel="h2"
-          postTitleLevel="h3"
-          // leftover from starter project
-          // id={styles.post_list}
-        />
         <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
       </main>
 
