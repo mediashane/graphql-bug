@@ -965,8 +965,6 @@ export enum MediaItemSizeEnum {
   MEDIUM = 'MEDIUM',
   /** MediaItem with the medium_large size */
   MEDIUM_LARGE = 'MEDIUM_LARGE',
-  /** MediaItem with the post-thumbnail size */
-  POST_THUMBNAIL = 'POST_THUMBNAIL',
   /** MediaItem with the thumbnail size */
   THUMBNAIL = 'THUMBNAIL',
   /** MediaItem with the 1536x1536 size */
@@ -2667,8 +2665,6 @@ export interface CreatePageInput {
   clientMutationId?: Maybe<Scalars['String']>;
   /** The comment status for the object */
   commentStatus?: Maybe<Scalars['String']>;
-  /** The content of the object */
-  content?: Maybe<Scalars['String']>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: Maybe<Scalars['String']>;
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
@@ -3091,8 +3087,6 @@ export interface UpdatePageInput {
   clientMutationId?: Maybe<Scalars['String']>;
   /** The comment status for the object */
   commentStatus?: Maybe<Scalars['String']>;
-  /** The content of the object */
-  content?: Maybe<Scalars['String']>;
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: Maybe<Scalars['String']>;
   /** The ID of the page object */
@@ -4773,7 +4767,6 @@ export const generatedSchema = {
       },
     },
     conditionalTags: { __type: 'ConditionalTags' },
-    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
@@ -4831,11 +4824,6 @@ export const generatedSchema = {
     templates: { __type: '[String]' },
     title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     uri: { __type: 'String' },
-  },
-  NodeWithContentEditor: {
-    __typename: { __type: 'String!' },
-    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
-    $on: { __type: '$NodeWithContentEditor!' },
   },
   NodeWithFeaturedImage: {
     __typename: { __type: 'String!' },
@@ -5119,6 +5107,11 @@ export const generatedSchema = {
     title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     toPing: { __type: '[String]' },
     uri: { __type: 'String' },
+  },
+  NodeWithContentEditor: {
+    __typename: { __type: 'String!' },
+    content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
+    $on: { __type: '$NodeWithContentEditor!' },
   },
   NodeWithExcerpt: {
     __typename: { __type: 'String!' },
@@ -6339,7 +6332,6 @@ export const generatedSchema = {
     authorId: { __type: 'ID' },
     clientMutationId: { __type: 'String' },
     commentStatus: { __type: 'String' },
-    content: { __type: 'String' },
     date: { __type: 'String' },
     menuOrder: { __type: 'Int' },
     parentId: { __type: 'ID' },
@@ -6639,7 +6631,6 @@ export const generatedSchema = {
     authorId: { __type: 'ID' },
     clientMutationId: { __type: 'String' },
     commentStatus: { __type: 'String' },
-    content: { __type: 'String' },
     date: { __type: 'String' },
     id: { __type: 'ID!' },
     menuOrder: { __type: 'Int' },
@@ -6767,6 +6758,7 @@ export const generatedSchema = {
     url: { __type: 'String' },
   },
   DefaultTemplate: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
+  Template_Home: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
   [SchemaUnionsKey]: {
     Node: [
       'Category',
@@ -6803,7 +6795,7 @@ export const generatedSchema = {
       'MenuItem',
     ],
     HierarchicalTermNode: ['Category'],
-    MenuItemLinkable: ['Category', 'Page', 'Post', 'PostFormat', 'Tag'],
+    MenuItemLinkable: ['Category', 'Page', 'Post', 'Tag'],
     EnqueuedAsset: ['EnqueuedScript', 'EnqueuedStylesheet'],
     Commenter: ['User', 'CommentAuthor'],
     ContentNode: ['MediaItem', 'Page', 'Post'],
@@ -6812,15 +6804,15 @@ export const generatedSchema = {
     NodeWithAuthor: ['MediaItem', 'Page', 'Post'],
     NodeWithComments: ['MediaItem', 'Page', 'Post'],
     HierarchicalContentNode: ['MediaItem', 'Page'],
-    NodeWithContentEditor: ['Page', 'Post'],
     NodeWithFeaturedImage: ['Page', 'Post'],
     NodeWithRevisions: ['Page', 'Post'],
     NodeWithPageAttributes: ['Page'],
+    NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
     NodeWithTrackbacks: ['Post'],
     ContentRevisionUnion: ['Post', 'Page'],
-    MenuItemObjectUnion: ['Post', 'Page', 'Category', 'Tag', 'PostFormat'],
-    ContentTemplate: ['DefaultTemplate'],
+    MenuItemObjectUnion: ['Post', 'Page', 'Category', 'Tag'],
+    ContentTemplate: ['DefaultTemplate', 'Template_Home'],
   },
 } as const;
 
@@ -7872,7 +7864,7 @@ export interface HierarchicalTermNode {
  * Nodes that can be linked to as Menu Items
  */
 export interface MenuItemLinkable {
-  __typename?: 'Category' | 'Page' | 'Post' | 'PostFormat' | 'Tag';
+  __typename?: 'Category' | 'Page' | 'Post' | 'Tag';
   /**
    * The unique resource identifier path
    */
@@ -9703,7 +9695,7 @@ export interface NodeWithTemplate {
  * The template assigned to a node of content
  */
 export interface ContentTemplate {
-  __typename?: 'DefaultTemplate';
+  __typename?: 'DefaultTemplate' | 'Template_Home';
   /**
    * The name of the template
    */
@@ -10290,15 +10282,6 @@ export interface Page {
   }) => Maybe<PageToCommentConnection>;
   conditionalTags?: Maybe<ConditionalTags>;
   /**
-   * The content of the post.
-   */
-  content: (args?: {
-    /**
-     * Format of the field output
-     */
-    format?: Maybe<PostObjectFieldFormatEnum>;
-  }) => Maybe<ScalarsEnums['String']>;
-  /**
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
@@ -10524,23 +10507,6 @@ export interface Page {
    * The unique resource identifier path
    */
   uri?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * A node that supports the content editor
- */
-export interface NodeWithContentEditor {
-  __typename?: 'Page' | 'Post';
-  /**
-   * The content of the post.
-   */
-  content: (args?: {
-    /**
-     * Format of the field output
-     */
-    format?: Maybe<PostObjectFieldFormatEnum>;
-  }) => Maybe<ScalarsEnums['String']>;
-  $on: $NodeWithContentEditor;
 }
 
 /**
@@ -11248,6 +11214,23 @@ export interface Post {
 }
 
 /**
+ * A node that supports the content editor
+ */
+export interface NodeWithContentEditor {
+  __typename?: 'Post';
+  /**
+   * The content of the post.
+   */
+  content: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums['String']>;
+  $on: $NodeWithContentEditor;
+}
+
+/**
  * A node that can have an excerpt
  */
 export interface NodeWithExcerpt {
@@ -11422,7 +11405,7 @@ export interface PostFormat {
    */
   count?: Maybe<ScalarsEnums['Int']>;
   /**
-   * The unique resource identifier path
+   * The unique identifier stored in the database
    */
   databaseId: ScalarsEnums['Int'];
   /**
@@ -12592,7 +12575,7 @@ export interface MenuItemToMenuItemLinkableConnectionEdge {
  * Deprecated in favor of MenuItemLinkeable Interface
  */
 export interface MenuItemObjectUnion {
-  __typename?: 'Post' | 'Page' | 'Category' | 'Tag' | 'PostFormat';
+  __typename?: 'Post' | 'Page' | 'Category' | 'Tag';
   $on: $MenuItemObjectUnion;
 }
 
@@ -13797,6 +13780,17 @@ export interface DefaultTemplate {
   templateName?: Maybe<ScalarsEnums['String']>;
 }
 
+/**
+ * The template assigned to the node
+ */
+export interface Template_Home {
+  __typename?: 'Template_Home';
+  /**
+   * The name of the template
+   */
+  templateName?: Maybe<ScalarsEnums['String']>;
+}
+
 export interface SchemaObjectTypes {
   Query: Query;
   Mutation: Mutation;
@@ -13994,6 +13988,7 @@ export interface SchemaObjectTypes {
   UpdateUserPayload: UpdateUserPayload;
   CommentAuthor: CommentAuthor;
   DefaultTemplate: DefaultTemplate;
+  Template_Home: Template_Home;
 }
 export type SchemaObjectTypesNames =
   | 'Query'
@@ -14191,7 +14186,8 @@ export type SchemaObjectTypesNames =
   | 'UpdateTagPayload'
   | 'UpdateUserPayload'
   | 'CommentAuthor'
-  | 'DefaultTemplate';
+  | 'DefaultTemplate'
+  | 'Template_Home';
 
 export interface $Node {
   Category?: Category;
@@ -14252,7 +14248,6 @@ export interface $MenuItemLinkable {
   Category?: Category;
   Page?: Page;
   Post?: Post;
-  PostFormat?: PostFormat;
   Tag?: Tag;
 }
 
@@ -14301,11 +14296,6 @@ export interface $HierarchicalContentNode {
   Page?: Page;
 }
 
-export interface $NodeWithContentEditor {
-  Page?: Page;
-  Post?: Post;
-}
-
 export interface $NodeWithFeaturedImage {
   Page?: Page;
   Post?: Post;
@@ -14318,6 +14308,10 @@ export interface $NodeWithRevisions {
 
 export interface $NodeWithPageAttributes {
   Page?: Page;
+}
+
+export interface $NodeWithContentEditor {
+  Post?: Post;
 }
 
 export interface $NodeWithExcerpt {
@@ -14338,11 +14332,11 @@ export interface $MenuItemObjectUnion {
   Page?: Page;
   Category?: Category;
   Tag?: Tag;
-  PostFormat?: PostFormat;
 }
 
 export interface $ContentTemplate {
   DefaultTemplate?: DefaultTemplate;
+  Template_Home?: Template_Home;
 }
 
 export interface GeneratedSchema {

@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, Pagination, Posts } from 'components';
+import { Footer, Header, Pagination } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -33,7 +33,6 @@ export default function Page() {
       <main className="content content-single">
         <div className="wrap">
           <h2>Category: {category?.name}</h2>
-          <Posts posts={posts.nodes} />
 
           <Pagination pageInfo={posts.pageInfo} basePath={`/category/${categorySlug}`} />
         </div>
