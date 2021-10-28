@@ -120,14 +120,14 @@ const styles = {
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '40px',
-    textAlign: 'center',
+    textAlign: 'center' as const,
     letterSpacing: '0.5px',
   },
   threeFeatureCardsCardImageDescription: {
     color: colorDarkGrey,
     fontFamily: proximaNova,
     fontSize: '1rem',
-    textAlign: 'center',
+    textAlign: 'center' as const,
   },
 };
 
