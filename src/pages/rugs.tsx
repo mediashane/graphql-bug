@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, HeroLeftJustified } from 'components';
+import { Footer, Header, HeroCenterButton } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -17,7 +17,12 @@ export default function Page() {
         <title>Rugs - {generalSettings.title}</title>
       </Head>
 
-      <HeroLeftJustified title="Rugs" />
+      <HeroCenterButton
+        introTitle="Elizabeth Eakins"
+        title="Rugs"
+        description="View the Newest Source Guide"
+        backgroundImage="images/rugsCollection.png"
+      />
 
       <main className="content content-single">
         <div className="wrap">
