@@ -70,7 +70,7 @@ const styles = {
       sm: '331px',
       md: '331px',
       lg: '362px',
-      xl: '362px',
+      xl: '440px',
     },
   },
   heroButton: {
@@ -99,7 +99,8 @@ const styles = {
       xs: '14px',
       sm: '18px',
       md: '18px',
-      lg: '1.5vw',
+      lg: '18px',
+      xl: '1.25vw',
     },
   },
 };
