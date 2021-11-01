@@ -13,14 +13,10 @@ const styles = {
     width: {
       xs: '150px',
       sm: '320px',
-      md: '320px',
-      lg: '320px',
-      xl: '320px',
     },
     height: {
       xs: '315px',
       sm: '400px',
-      md: '400px',
     },
     textAlign: 'center' as const,
   },
@@ -70,9 +66,6 @@ const styles = {
     width: {
       xs: '150px',
       sm: '320px',
-      md: '320px',
-      lg: '320px',
-      xl: '320px',
     },
     height: {
       xs: '150px',

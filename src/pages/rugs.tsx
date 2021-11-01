@@ -59,7 +59,7 @@ const exampleCards = [
     title: 'Woven Textures',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
-    showSticker: false,
+    showSticker: true,
     link: '/',
   },
   {
@@ -75,7 +75,7 @@ const exampleCards = [
     title: 'Hagga',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
-    showSticker: false,
+    showSticker: true,
     link: '/',
   },
   {
@@ -83,7 +83,7 @@ const exampleCards = [
     title: 'Belden',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
-    showSticker: false,
+    showSticker: true,
     link: '/',
   },
   {

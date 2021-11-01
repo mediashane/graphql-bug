@@ -16,7 +16,6 @@ const styles = {
       sm: 'space-around',
       md: 'space-around',
       lg: 'flex-start',
-      xl: 'flex-start',
     },
     width: '100%',
   },
