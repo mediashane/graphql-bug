@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, HeroCenterButton } from 'components';
+import { CenteredText, Footer, Header, HeroCenterButton } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -24,11 +24,10 @@ export default function Page() {
         backgroundImage="images/rugsCollection.png"
       />
 
-      <main className="content content-single">
-        <div className="wrap">
-          <p>Rugs go here</p>
-        </div>
-      </main>
+      <CenteredText
+        text="Beloved for their richness, simplicity, and ease of use, the sophisticated colors of Elizabeth Eakins rugs are
+        meant to evoke the phenomenon of natural light grace annd organic form."
+      />
 
       <Footer
         title="Elizabeth Eakins Studio"
