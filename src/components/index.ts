@@ -1,4 +1,5 @@
 import CallToAction from './CallToAction/CallToAction';
+import CardList from './CardList/CardList';
 import CenteredText from './CenteredText/CenteredText';
 import EmailSubscribe from './EmailSubscribe/EmailSubscribe';
 import Footer from './Footer/Footer';
@@ -15,6 +16,7 @@ export {
   HeroLeftJustified,
   HeroCenterButton,
   CallToAction,
+  CardList,
   CenteredText,
   ThreeImageExplore,
   ThreeFeatureCards,

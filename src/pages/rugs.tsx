@@ -1,9 +1,100 @@
 import { client } from 'client';
-import { CenteredText, Footer, Header, HeroCenterButton } from 'components';
+import { CardList, CenteredText, Footer, Header, HeroCenterButton } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
 import { getNextStaticProps } from '@faustjs/next';
+
+const exampleCards = [
+  {
+    image: 'images/newArrivals.png',
+    title: 'New  Arrivals',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: true,
+    link: '/',
+  },
+  {
+    image: 'images/masterSeriesClassic.png',
+    title: 'Master Series Classic',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/masterSeriesLinenWool.png',
+    title: 'Master Series Linen Wool',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: true,
+    link: '/',
+  },
+  {
+    image: 'images/masterSeriesPrivateReserve.png',
+    title: 'Master Series Private Reserve',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/cotton.png',
+    title: 'Cotton',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: true,
+    link: '/',
+  },
+  {
+    image: 'images/teff.png',
+    title: 'Teff',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/wovenTextures.png',
+    title: 'Woven Textures',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/elizabethsCloth.png',
+    title: 'Elizabeth’s Cloth',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/hagga.png',
+    title: 'Hagga',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/belden.png',
+    title: 'Belden',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+  {
+    image: 'images/handTufted.png',
+    title: 'Hand Tuffed',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    stickerText: 'New',
+    showSticker: false,
+    link: '/',
+  },
+];
 
 export default function Page() {
   const { useQuery } = client;
@@ -28,6 +119,8 @@ export default function Page() {
         text="Beloved for their richness, simplicity, and ease of use, the sophisticated colors of Elizabeth Eakins rugs are
         meant to evoke the phenomenon of natural light grace annd organic form."
       />
+
+      <CardList cards={exampleCards} />
 
       <Footer
         title="Elizabeth Eakins Studio"
