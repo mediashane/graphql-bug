@@ -9,6 +9,7 @@ import HeroLeftJustified from './HeroLeftJustified/HeroLeftJustified';
 import Pagination from './Pagination';
 import ThreeFeatureCards from './ThreeFeatureCards/ThreeFeatureCards';
 import ThreeImageExplore from './ThreeImageExplore/ThreeImageExplore';
+import TwoColumnGallery from './TwoColumnGallery/TwoColumnGallery';
 
 export {
   Footer,
@@ -20,6 +21,7 @@ export {
   CenteredText,
   ThreeImageExplore,
   ThreeFeatureCards,
+  TwoColumnGallery,
   Pagination,
   EmailSubscribe,
 };

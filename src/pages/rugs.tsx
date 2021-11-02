@@ -68,7 +68,7 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: '/elizabeths-cloth',
   },
   {
     image: 'images/hagga.png',
