@@ -13,8 +13,8 @@ const Template: ComponentStory<typeof HeroCenterButton> = (args) => <HeroCenterB
 
 export const CenterJustifedHero = Template.bind({});
 CenterJustifedHero.args = {
-  introTitle: 'Elizabeth Eakins',
-  title: 'Rugs',
-  description: 'View the Newest Source Guide',
-  backgroundImage: 'images/rugsCollection.png',
+  textOverline: 'Elizabeth Eakins',
+  textHeadline: 'Rugs',
+  buttonLabel: 'View the Newest Source Guide',
+  mediaDesktop: 'images/rugsCollection.png',
 };

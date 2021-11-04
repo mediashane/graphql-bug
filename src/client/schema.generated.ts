@@ -4744,6 +4744,7 @@ export const generatedSchema = {
     author: { __type: 'NodeWithAuthorToUserConnectionEdge' },
     authorDatabaseId: { __type: 'Int' },
     authorId: { __type: 'ID' },
+    centeredText: { __type: 'Page_Centeredtext' },
     children: {
       __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
       __args: {
@@ -4877,6 +4878,16 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     menuOrder: { __type: 'Int' },
     $on: { __type: '$NodeWithPageAttributes!' },
+  },
+  Page_Centeredtext: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    paragraphText: { __type: 'String' },
+  },
+  AcfFieldGroup: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    $on: { __type: '$AcfFieldGroup!' },
   },
   PageToCommentConnectionWhereArgs: {
     authorEmail: { __type: 'String' },
@@ -6807,6 +6818,7 @@ export const generatedSchema = {
     NodeWithFeaturedImage: ['Page', 'Post'],
     NodeWithRevisions: ['Page', 'Post'],
     NodeWithPageAttributes: ['Page'],
+    AcfFieldGroup: ['Page_Centeredtext'],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
     NodeWithTrackbacks: ['Post'],
@@ -10223,6 +10235,10 @@ export interface Page {
    */
   authorId?: Maybe<ScalarsEnums['ID']>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Centered Text Module&quot; was set to Show in GraphQL.
+   */
+  centeredText?: Maybe<Page_Centeredtext>;
+  /**
    * Connection between the HierarchicalContentNode type and the ContentNode type
    */
   children: (args?: {
@@ -10713,6 +10729,30 @@ export interface NodeWithPageAttributes {
    */
   menuOrder?: Maybe<ScalarsEnums['Int']>;
   $on: $NodeWithPageAttributes;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Centeredtext {
+  __typename?: 'Page_Centeredtext';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  paragraphText?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * A Field Group registered by ACF
+ */
+export interface AcfFieldGroup {
+  __typename?: 'Page_Centeredtext';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  $on: $AcfFieldGroup;
 }
 
 /**
@@ -13862,6 +13902,7 @@ export interface SchemaObjectTypes {
   Page: Page;
   NodeWithFeaturedImageToMediaItemConnectionEdge: NodeWithFeaturedImageToMediaItemConnectionEdge;
   NodeWithRevisionsToContentNodeConnectionEdge: NodeWithRevisionsToContentNodeConnectionEdge;
+  Page_Centeredtext: Page_Centeredtext;
   PageToCommentConnection: PageToCommentConnection;
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
@@ -14061,6 +14102,7 @@ export type SchemaObjectTypesNames =
   | 'Page'
   | 'NodeWithFeaturedImageToMediaItemConnectionEdge'
   | 'NodeWithRevisionsToContentNodeConnectionEdge'
+  | 'Page_Centeredtext'
   | 'PageToCommentConnection'
   | 'PageToCommentConnectionEdge'
   | 'PageToPreviewConnectionEdge'
@@ -14308,6 +14350,10 @@ export interface $NodeWithRevisions {
 
 export interface $NodeWithPageAttributes {
   Page?: Page;
+}
+
+export interface $AcfFieldGroup {
+  Page_Centeredtext?: Page_Centeredtext;
 }
 
 export interface $NodeWithContentEditor {

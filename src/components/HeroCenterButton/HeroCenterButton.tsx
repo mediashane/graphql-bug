@@ -8,22 +8,27 @@ import Button from '@mui/material/Button';
 import styles from './styles';
 
 interface Props {
-  introTitle?: string;
-  title: string;
-  description?: string;
-  backgroundImage?: string;
+  textOverline?: string;
+  textHeadline: string;
+  buttonLabel?: string;
+  mediaDesktop?: string;
 }
 
-function HeroCenterButton({ introTitle = '', title = '', description = '', backgroundImage }: Props): JSX.Element {
+function HeroCenterButton({
+  textOverline = '',
+  textHeadline = '',
+  buttonLabel = '',
+  mediaDesktop,
+}: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${backgroundImage})` }}>
+    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${mediaDesktop})` }}>
       <Box sx={styles.textContainer}>
         <Fade delay={500}>
-          <Typography sx={styles.introTitleText}>{introTitle}</Typography>
-          <Typography sx={styles.titleText}>{title}</Typography>
+          <Typography sx={styles.introTitleText}>{textOverline}</Typography>
+          <Typography sx={styles.titleText}>{textHeadline}</Typography>
           <Box sx={styles.heroButtonWrapper}>
             <Button variant="outlined" size="large" sx={styles.heroButton}>
-              <Typography sx={styles.heroButtonText}>{description}</Typography>
+              <Typography sx={styles.heroButtonText}>{buttonLabel}</Typography>
             </Button>
           </Box>
         </Fade>

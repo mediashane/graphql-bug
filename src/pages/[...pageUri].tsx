@@ -12,6 +12,10 @@ export interface PageProps {
 export function PageComponent({ page }: PageProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
+  const { usePage } = client;
+  const pageData = usePage();
+
+  console.log('PAGE? ', pageData);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { client } from 'client';
+import { client, PageIdType } from 'client';
 import { CardList, CenteredText, Footer, Header, HeroCenterButton } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -99,6 +99,13 @@ const exampleCards = [
 export default function Page() {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
+  const { usePage } = client;
+  const pageData = usePage({
+    id: '/rugs',
+    idType: PageIdType.URI,
+  });
+
+  console.log('ACF MODULE DATA ', pageData.centeredText.paragraphText);
 
   return (
     <>
@@ -109,16 +116,13 @@ export default function Page() {
       </Head>
 
       <HeroCenterButton
-        introTitle="Elizabeth Eakins"
-        title="Rugs"
-        description="View the Newest Source Guide"
-        backgroundImage="images/rugsCollection.png"
+        textOverline="Elizabeth Eakins"
+        textHeadline="Rugs"
+        buttonLabel="View the Newest Source Guide"
+        mediaDesktop="images/rugsCollection.png"
       />
 
-      <CenteredText
-        text="Beloved for their richness, simplicity, and ease of use, the sophisticated colors of Elizabeth Eakins rugs are
-        meant to evoke the phenomenon of natural light grace annd organic form."
-      />
+      <CenteredText text={pageData.centeredText.paragraphText ?? ''} />
 
       <CardList cards={exampleCards} />
 
