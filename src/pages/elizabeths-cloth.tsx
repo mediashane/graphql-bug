@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, TwoColumnGallery } from 'components';
+import { Footer, FourFeatureTags, Header, TwoColumnGallery } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { colorBrandBrown, colorDarkGrey } from 'style';
@@ -62,6 +62,18 @@ export default function Page() {
         textAlign="left"
         images={galleryImages}
         listItems={galleryListItems}
+      />
+
+      <FourFeatureTags
+        textColor="#587DA9"
+        imageOne="images/handmadeIcon.png"
+        labelOne="Handmade"
+        imageTwo="images/customizableIcon.png"
+        labelTwo="Customizable"
+        imageThree="images/naturalFibersIcon.png"
+        labelThree="Natural Fibers"
+        imageFour="images/durableIcon.png"
+        labelFour="Durable"
       />
 
       <Footer
