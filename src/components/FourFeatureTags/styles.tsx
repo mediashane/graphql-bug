@@ -19,11 +19,6 @@ const styles = {
   },
   fourFeatureTagsContent: {
     display: 'flex',
-    // flexDirection: 'column' as const, {
-    //   xs: 'column' as const,
-    //   sm: 'column' as const,
-    //   md: 'row' as const,
-    // },
     alignItems: 'flex-start',
     justifyContent: 'center',
     width: '100%',
@@ -40,11 +35,6 @@ const styles = {
     },
     flexDirection: 'row' as const,
     flexWrap: 'wrap' as const,
-    // margin: {
-    //   xs: '80px 0 0 0',
-    //   sm: '80px 0 0 0',
-    //   md: '40px 0 40px 0',
-    // },
     width: '100%',
     height: {
       xs: '25%',
@@ -56,11 +46,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // marginBottom: {
-    //   xs: '100px',
-    //   sm: '100px',
-    //   md: '0',
-    // },
     height: {
       xs: '100%',
       sm: '100%',
