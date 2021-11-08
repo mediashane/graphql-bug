@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import Box from '@mui/material/Box';
 import MUILink from '@mui/material/Link';
 
+import CardSticker from './CategoryCardSticker';
 import styles from './styles';
 
 interface Props {
@@ -25,14 +26,6 @@ function CategoryCard({
 }: Props): JSX.Element {
   const [overlay, setOverlay] = useState(0);
 
-  const Sticker = () => {
-    if (showSticker) {
-      return <Box sx={styles.categoryCardSticker}>{stickerText}</Box>;
-    }
-
-    return null;
-  };
-
   return (
     <NextLink href={link} passHref>
       <MUILink
@@ -44,7 +37,7 @@ function CategoryCard({
         onMouseLeave={() => setOverlay(0)}
       >
         <Box sx={styles.categoryCardContainer}>
-          <Sticker />
+          <CardSticker stickerText={stickerText} showSticker={showSticker} />
           <Box
             sx={{
               ...styles.categoryCardImage,

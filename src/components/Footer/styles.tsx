@@ -12,7 +12,7 @@ const styles = {
     },
     width: '100%',
     height: {
-      xs: '960px',
+      xs: '1060px',
       sm: '960px',
       md: '670px',
       lg: '570px',

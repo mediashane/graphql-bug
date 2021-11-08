@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, FourFeatureTags, Header, TwoColumnGallery } from 'components';
+import { Footer, FourCardsRow, FourFeatureTags, Header, TwoColumnGallery } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { colorBrandBrown, colorDarkGrey } from 'style';
@@ -74,6 +74,30 @@ export default function Page() {
         labelThree="Natural Fibers"
         imageFour="images/durableIcon.png"
         labelFour="Durable"
+      />
+
+      <FourCardsRow
+        textColor="#333333"
+        imageOne="images/checkeredBoxInLoop.png"
+        labelOne="Checkered Box in Loop"
+        linkOne="/"
+        showStickerOne={true}
+        stickerTextOne="New"
+        imageTwo="images/vectorCrossLoop.png"
+        labelTwo="Vector Cross Loop"
+        linkTwo="/"
+        showStickerTwo={false}
+        stickerTextTwo="New"
+        imageThree="images/zigZagInLoop.png"
+        labelThree="Zig Zag in Loop"
+        linkThree="/"
+        showStickerThree={true}
+        stickerTextThree="New"
+        imageFour="images/latticeWithFlowers.png"
+        labelFour="Lattice with Flowers"
+        linkFour="/"
+        showStickerFour={false}
+        stickerTextFour="New"
       />
 
       <Footer

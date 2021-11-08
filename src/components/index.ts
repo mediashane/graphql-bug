@@ -3,6 +3,7 @@ import CardList from './CardList/CardList';
 import CenteredText from './CenteredText/CenteredText';
 import EmailSubscribe from './EmailSubscribe/EmailSubscribe';
 import Footer from './Footer/Footer';
+import FourCardsRow from './FourCardsRow/FourCardsRow';
 import FourFeatureTags from './FourFeatureTags/FourFeatureTags';
 import Header from './Header/Header';
 import HeroCenterButton from './HeroCenterButton/HeroCenterButton';
@@ -20,6 +21,7 @@ export {
   CallToAction,
   CardList,
   CenteredText,
+  FourCardsRow,
   FourFeatureTags,
   ThreeImageExplore,
   ThreeFeatureCards,
