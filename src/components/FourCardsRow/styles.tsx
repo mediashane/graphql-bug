@@ -7,16 +7,16 @@ const styles = {
     justifyContent: 'center',
     margin: {
       xs: '60px 0 0 0',
-      sm: '7.5vw 0 7.5vw 0',
+      sm: '7.5vw 0 00',
       md: '60px 0 60px 0',
       lg: '80px 0 80px 0',
     },
     width: '100%',
     height: {
       xs: '100%',
-      sm: '700px',
+      sm: '100%',
       md: '30vw',
-      lg: '335px',
+      lg: '360px',
     },
   },
   fourCardsRowContent: {
@@ -28,26 +28,16 @@ const styles = {
   },
   fourCardsCards: {
     display: 'flex',
-    alignItems: {
-      xs: 'flex-start',
-      sm: 'flex-start',
-      md: 'center',
-    },
-    justifyContent: {
-      xs: 'space-evenly',
-      sm: 'space-evenly',
-      md: 'space-evenly',
-      lg: 'space-around',
-    },
+    alignItems: 'flex-start',
+    justifyContent: 'space-evenly',
     flexDirection: 'row' as const,
     flexWrap: 'wrap' as const,
     width: '100%',
-    height: '100%',
   },
   fourCardsCardContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     flexDirection: 'column' as const,
     marginBottom: {
       xs: '60px',
@@ -58,6 +48,11 @@ const styles = {
       xs: '40%',
       sm: '40%',
       md: 'auto',
+    },
+    height: {
+      xs: '100%',
+      sm: '100%',
+      md: '360px',
     },
     cursor: 'pointer',
   },
@@ -81,6 +76,7 @@ const styles = {
   },
   fourCardsLabelContainer: {
     display: 'flex',
+    flexDirection: 'column' as const,
     alignItems: 'flex-start',
     marginTop: '15px',
     width: {
@@ -90,12 +86,21 @@ const styles = {
     },
     maxWidth: '280px',
   },
-  fourCardsLabel: {
+  fourCardsTitle: {
     fontSize: {
       xs: '3vw',
       sm: '1.25rem',
       md: '1.25rem',
       lg: '1.5rem',
+    },
+    fontFamily: proximaNova,
+  },
+  fourCardsSubtitle: {
+    fontSize: {
+      xs: '2.5vw',
+      sm: '1rem',
+      md: '1rem',
+      lg: '1.25rem',
     },
     fontFamily: proximaNova,
   },
@@ -105,10 +110,10 @@ const styles = {
     justifyContent: 'center',
     position: 'absolute' as const,
     marginTop: {
-      xs: '-45%',
-      sm: '-290px',
-      md: '-20vw',
-      lg: '-270px',
+      xs: '-2%',
+      sm: '-15px',
+      md: '-1.5vw',
+      lg: '-15px',
     },
     marginLeft: {
       xs: '37.5%',

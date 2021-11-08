@@ -10,14 +10,15 @@ import styles from './styles';
 
 interface Props {
   image: string;
-  label: string;
+  title: string;
+  subtitle: string;
   textColor: string;
   link: string;
   showSticker: boolean;
   stickerText: string;
 }
 
-function FourCard({ image, label, textColor, link, showSticker, stickerText }: Props): JSX.Element {
+function FourCard({ image, title, subtitle, textColor, link, showSticker, stickerText }: Props): JSX.Element {
   const [overlay, setOverlay] = useState(0);
 
   const CardImage = () => {
@@ -31,6 +32,14 @@ function FourCard({ image, label, textColor, link, showSticker, stickerText }: P
     );
   };
 
+  const Subtitle = () => {
+    if (subtitle) {
+      return <Typography sx={{ ...styles.fourCardsSubtitle, color: textColor }}>Test</Typography>;
+    }
+
+    return null;
+  };
+
   return (
     <Box onMouseEnter={() => setOverlay(0.1)} onMouseLeave={() => setOverlay(0)} sx={styles.fourCardsCardContainer}>
       <FourCardSticker stickerText={stickerText} showSticker={showSticker} />
@@ -38,7 +47,8 @@ function FourCard({ image, label, textColor, link, showSticker, stickerText }: P
         <MUILink color="inherit" variant="inherit" underline={overlay === 0 ? 'none' : 'always'}>
           <CardImage />
           <Box sx={styles.fourCardsLabelContainer}>
-            <Typography sx={{ ...styles.fourCardsLabel, color: textColor }}>{label}</Typography>
+            <Typography sx={{ ...styles.fourCardsTitle, color: textColor }}>{title}</Typography>
+            <Subtitle />
           </Box>
         </MUILink>
       </NextLink>

@@ -8,22 +8,26 @@ import styles from './styles';
 interface Props {
   textColor: string;
   imageOne: string;
-  labelOne: string;
+  titleOne: string;
+  subtitleOne?: string;
   linkOne: string;
   showStickerOne: boolean;
   stickerTextOne: string;
   imageTwo: string;
-  labelTwo: string;
+  titleTwo: string;
+  subtitleTwo?: string;
   linkTwo: string;
   showStickerTwo: boolean;
   stickerTextTwo: string;
   imageThree: string;
-  labelThree: string;
+  titleThree: string;
+  subtitleThree?: string;
   linkThree: string;
   showStickerThree: boolean;
   stickerTextThree: string;
   imageFour: string;
-  labelFour: string;
+  titleFour: string;
+  subtitleFour?: string;
   linkFour: string;
   showStickerFour: boolean;
   stickerTextFour: string;
@@ -32,22 +36,26 @@ interface Props {
 function FeatureTagIcons({
   textColor,
   imageOne,
-  labelOne,
+  titleOne,
+  subtitleOne,
   linkOne,
   showStickerOne,
   stickerTextOne,
   imageTwo,
-  labelTwo,
+  titleTwo,
+  subtitleTwo,
   linkTwo,
   showStickerTwo,
   stickerTextTwo,
   imageThree,
-  labelThree,
+  titleThree,
+  subtitleThree,
   linkThree,
   showStickerThree,
   stickerTextThree,
   imageFour,
-  labelFour,
+  titleFour,
+  subtitleFour,
   linkFour,
   showStickerFour,
   stickerTextFour,
@@ -58,7 +66,8 @@ function FeatureTagIcons({
         <Box sx={styles.fourCardsCards}>
           <FourCard
             image={imageOne}
-            label={labelOne}
+            title={titleOne}
+            subtitle={subtitleOne}
             textColor={textColor}
             showSticker={showStickerOne}
             stickerText={stickerTextOne}
@@ -66,7 +75,8 @@ function FeatureTagIcons({
           />
           <FourCard
             image={imageTwo}
-            label={labelTwo}
+            title={titleTwo}
+            subtitle={subtitleTwo}
             textColor={textColor}
             showSticker={showStickerTwo}
             stickerText={stickerTextTwo}
@@ -74,7 +84,8 @@ function FeatureTagIcons({
           />
           <FourCard
             image={imageThree}
-            label={labelThree}
+            title={titleThree}
+            subtitle={subtitleThree}
             textColor={textColor}
             showSticker={showStickerThree}
             stickerText={stickerTextThree}
@@ -82,7 +93,8 @@ function FeatureTagIcons({
           />
           <FourCard
             image={imageFour}
-            label={labelFour}
+            title={titleFour}
+            subtitle={subtitleFour}
             textColor={textColor}
             showSticker={showStickerFour}
             stickerText={stickerTextFour}
