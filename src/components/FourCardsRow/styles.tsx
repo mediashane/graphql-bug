@@ -8,8 +8,8 @@ const styles = {
     margin: {
       xs: '60px 0 0 0',
       sm: '7.5vw 0 00',
-      md: '60px 0 60px 0',
-      lg: '80px 0 80px 0',
+      md: '60px 0 0 0',
+      lg: '80px 0 60px 0',
     },
     width: '100%',
     height: {
