@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, FourCardsRow, FourFeatureTags, Header, TwoColumnGallery } from 'components';
+import { Footer, FourCardsRow, FourCardsWithPrompt, FourFeatureTags, Header, TwoColumnGallery } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { colorBrandBrown, colorDarkGrey } from 'style';
@@ -99,6 +99,34 @@ export default function Page() {
         imageFour="images/latticeWithFlowers.png"
         titleFour="Lattice with Flowers"
         subtitleFour=""
+        linkFour="/"
+        showStickerFour={false}
+        stickerTextFour="New"
+      />
+
+      <FourCardsWithPrompt
+        textColor="#333333"
+        imageOne="images/checkeredBoxInLoop.png"
+        titleOne="Checkered Box in Loop"
+        subtitleOne="Test"
+        linkOne="/"
+        showStickerOne={true}
+        stickerTextOne="New"
+        imageTwo="images/vectorCrossLoop.png"
+        titleTwo="Vector Cross Loop"
+        subtitleTwo="Test"
+        linkTwo="/"
+        showStickerTwo={false}
+        stickerTextTwo="New"
+        imageThree="images/zigZagInLoop.png"
+        titleThree="Zig Zag in Loop"
+        subtitleThree="Test"
+        linkThree="/"
+        showStickerThree={true}
+        stickerTextThree="New"
+        imageFour="images/latticeWithFlowers.png"
+        titleFour="Lattice with Flowers"
+        subtitleFour="Test"
         linkFour="/"
         showStickerFour={false}
         stickerTextFour="New"

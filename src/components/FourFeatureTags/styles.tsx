@@ -3,7 +3,11 @@ import { colorWhite, freightBigProSemibold } from '../../style';
 const styles = {
   fourFeatureTagsContainer: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: {
+      xs: 'flex-start',
+      sm: 'flex-start',
+      md: 'center',
+    },
     justifyContent: 'center',
     margin: {
       xs: '0 0 60px 0',
@@ -12,7 +16,7 @@ const styles = {
     },
     width: '100%',
     height: {
-      xs: '350px',
+      xs: '250px',
       sm: '150px',
       md: '50px',
     },
