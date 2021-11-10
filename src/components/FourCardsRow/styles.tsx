@@ -5,18 +5,15 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: {
-      xs: '60px 0 0 0',
-      sm: '7.5vw 0 00',
-      md: '60px 0 0 0',
-      lg: '80px 0 60px 0',
-    },
     width: '100%',
     height: {
       xs: '100%',
       sm: '100%',
-      md: '30vw',
-      lg: '360px',
+      md: '25vw',
+      lg: '25vw',
+    },
+    maxHeight: {
+      md: '360px',
     },
   },
   fourCardsRowContent: {
@@ -29,7 +26,11 @@ const styles = {
   fourCardsCards: {
     display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'space-evenly',
+    justifyContent: {
+      xs: 'space-evenly',
+      sm: 'space-evenly',
+      md: 'space-around',
+    },
     flexDirection: 'row' as const,
     flexWrap: 'wrap' as const,
     width: '100%',
@@ -90,8 +91,8 @@ const styles = {
     fontSize: {
       xs: '3vw',
       sm: '1.25rem',
-      md: '1.25rem',
-      lg: '1.5rem',
+      md: '1.5vw',
+      lg: '1.5vw',
     },
     fontFamily: proximaNova,
   },

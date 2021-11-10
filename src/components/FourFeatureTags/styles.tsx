@@ -77,7 +77,7 @@ const styles = {
     fontFamily: freightBigProSemibold,
   },
   fourFeatureTagsDivider: {
-    margin: '0 0 20px 0',
+    margin: '0 0 60px 0',
     height: '1px',
     width: '100%',
     backgroundColor: '#D89582',

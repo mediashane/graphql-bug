@@ -973,6 +973,62 @@ export enum MediaItemSizeEnum {
   _2048X2048 = '_2048X2048',
 }
 
+/** Arguments for filtering the MediaItemToTermNodeConnection connection */
+export interface MediaItemToTermNodeConnectionWhereArgs {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: Maybe<Scalars['String']>;
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: Maybe<Scalars['Int']>;
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: Maybe<Scalars['Boolean']>;
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: Maybe<Scalars['String']>;
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: Maybe<Scalars['Boolean']>;
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: Maybe<Scalars['Boolean']>;
+  /** Array of term ids to include. Default empty array. */
+  include?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Array of names to return term(s) for. Default empty. */
+  name?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: Maybe<Scalars['String']>;
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Direction the connection should be ordered in */
+  order?: Maybe<OrderEnum>;
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: Maybe<TermObjectsConnectionOrderbyEnum>;
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: Maybe<Scalars['Boolean']>;
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: Maybe<Scalars['Int']>;
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: Maybe<Scalars['String']>;
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** The Taxonomy to filter terms by */
+  taxonomies?: Maybe<Array<Maybe<TaxonomyEnum>>>;
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: Maybe<Scalars['Boolean']>;
+}
+
+/** Allowed taxonomies */
+export enum TaxonomyEnum {
+  /** Taxonomy enum category */
+  CATEGORY = 'CATEGORY',
+  /** Taxonomy enum post_format */
+  POSTFORMAT = 'POSTFORMAT',
+  /** Taxonomy enum post_tag */
+  TAG = 'TAG',
+}
+
 /** Arguments for filtering the UserToPageConnection connection */
 export interface UserToPageConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -1721,16 +1777,6 @@ export interface PostToTermNodeConnectionWhereArgs {
   termTaxonomId?: Maybe<Array<Maybe<Scalars['ID']>>>;
   /** Whether to prime meta caches for matched terms. Default true. */
   updateTermMetaCache?: Maybe<Scalars['Boolean']>;
-}
-
-/** Allowed taxonomies */
-export enum TaxonomyEnum {
-  /** Taxonomy enum category */
-  CATEGORY = 'CATEGORY',
-  /** Taxonomy enum post_format */
-  POSTFORMAT = 'POSTFORMAT',
-  /** Taxonomy enum post_tag */
-  TAG = 'TAG',
 }
 
 /** Arguments for filtering the UserToContentRevisionUnionConnection connection */
@@ -3272,9 +3318,9 @@ export const scalarsEnumsHash: import('gqty').ScalarsEnumsHash = {
   PostObjectFieldFormatEnum: true,
   MediaItemSizeEnum: true,
   Float: true,
+  TaxonomyEnum: true,
   ContentTypesOfPostFormatEnum: true,
   ContentTypesOfTagEnum: true,
-  TaxonomyEnum: true,
   CategoryIdType: true,
   ContentNodeIdTypeEnum: true,
   ContentTypeIdTypeEnum: true,
@@ -4472,6 +4518,16 @@ export const generatedSchema = {
     status: { __type: 'String' },
     template: { __type: 'ContentTemplate' },
     templates: { __type: '[String]' },
+    terms: {
+      __type: 'MediaItemToTermNodeConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'MediaItemToTermNodeConnectionWhereArgs',
+      },
+    },
     title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     uri: { __type: 'String' },
   },
@@ -4695,6 +4751,40 @@ export const generatedSchema = {
     sourceUrl: { __type: 'String' },
     width: { __type: 'String' },
   },
+  MediaItemToTermNodeConnectionWhereArgs: {
+    cacheDomain: { __type: 'String' },
+    childOf: { __type: 'Int' },
+    childless: { __type: 'Boolean' },
+    descriptionLike: { __type: 'String' },
+    exclude: { __type: '[ID]' },
+    excludeTree: { __type: '[ID]' },
+    hideEmpty: { __type: 'Boolean' },
+    hierarchical: { __type: 'Boolean' },
+    include: { __type: '[ID]' },
+    name: { __type: '[String]' },
+    nameLike: { __type: 'String' },
+    objectIds: { __type: '[ID]' },
+    order: { __type: 'OrderEnum' },
+    orderby: { __type: 'TermObjectsConnectionOrderbyEnum' },
+    padCounts: { __type: 'Boolean' },
+    parent: { __type: 'Int' },
+    search: { __type: 'String' },
+    slug: { __type: '[String]' },
+    taxonomies: { __type: '[TaxonomyEnum]' },
+    termTaxonomId: { __type: '[ID]' },
+    updateTermMetaCache: { __type: 'Boolean' },
+  },
+  MediaItemToTermNodeConnection: {
+    __typename: { __type: 'String!' },
+    edges: { __type: '[MediaItemToTermNodeConnectionEdge]' },
+    nodes: { __type: '[TermNode]' },
+    pageInfo: { __type: 'WPPageInfo' },
+  },
+  MediaItemToTermNodeConnectionEdge: {
+    __typename: { __type: 'String!' },
+    cursor: { __type: 'String' },
+    node: { __type: 'TermNode' },
+  },
   UserToPageConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -4731,6 +4821,7 @@ export const generatedSchema = {
   },
   Page: {
     __typename: { __type: 'String!' },
+    acf: { __type: 'Page_Acf' },
     ancestors: {
       __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
       __args: {
@@ -4879,15 +4970,34 @@ export const generatedSchema = {
     menuOrder: { __type: 'Int' },
     $on: { __type: '$NodeWithPageAttributes!' },
   },
-  Page_Centeredtext: {
+  Page_Acf: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
-    paragraphText: { __type: 'String' },
+    modules: { __type: '[Page_Acf_Modules]' },
   },
   AcfFieldGroup: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
     $on: { __type: '$AcfFieldGroup!' },
+  },
+  Page_Acf_Modules: { __typename: { __type: 'String!' }, $on: { __type: '$Page_Acf_Modules!' } },
+  Page_Acf_Modules_HeroMain: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    imageDesktop: { __type: 'MediaItem' },
+    subtitle: { __type: 'String' },
+    text: { __type: 'String' },
+    title: { __type: 'String' },
+  },
+  Page_Acf_Modules_CenteredTextModule: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    paragraphText: { __type: 'String' },
+  },
+  Page_Centeredtext: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    paragraphText: { __type: 'String' },
   },
   PageToCommentConnectionWhereArgs: {
     authorEmail: { __type: 'String' },
@@ -6818,7 +6928,13 @@ export const generatedSchema = {
     NodeWithFeaturedImage: ['Page', 'Post'],
     NodeWithRevisions: ['Page', 'Post'],
     NodeWithPageAttributes: ['Page'],
-    AcfFieldGroup: ['Page_Centeredtext'],
+    AcfFieldGroup: [
+      'Page_Acf',
+      'Page_Acf_Modules_HeroMain',
+      'Page_Acf_Modules_CenteredTextModule',
+      'Page_Centeredtext',
+    ],
+    Page_Acf_Modules: ['Page_Acf_Modules_HeroMain', 'Page_Acf_Modules_CenteredTextModule'],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
     NodeWithTrackbacks: ['Post'],
@@ -9677,6 +9793,31 @@ export interface MediaItem {
   template?: Maybe<ContentTemplate>;
   templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
   /**
+   * Connection between the mediaItem type and the TermNode type
+   */
+  terms: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<MediaItemToTermNodeConnectionWhereArgs>;
+  }) => Maybe<MediaItemToTermNodeConnection>;
+  /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
   title: (args?: {
@@ -10159,6 +10300,40 @@ export interface MediaSize {
 }
 
 /**
+ * Connection between the mediaItem type and the TermNode type
+ */
+export interface MediaItemToTermNodeConnection {
+  __typename?: 'MediaItemToTermNodeConnection';
+  /**
+   * Edges for the MediaItemToTermNodeConnection connection
+   */
+  edges?: Maybe<Array<Maybe<MediaItemToTermNodeConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<TermNode>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface MediaItemToTermNodeConnectionEdge {
+  __typename?: 'MediaItemToTermNodeConnectionEdge';
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<TermNode>;
+}
+
+/**
  * Connection between the User type and the page type
  */
 export interface UserToPageConnection {
@@ -10197,6 +10372,10 @@ export interface UserToPageConnectionEdge {
  */
 export interface Page {
   __typename?: 'Page';
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;0 - Home Modules&quot; was set to Show in GraphQL.
+   */
+  acf?: Maybe<Page_Acf>;
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -10734,8 +10913,52 @@ export interface NodeWithPageAttributes {
 /**
  * Field Group
  */
-export interface Page_Centeredtext {
-  __typename?: 'Page_Centeredtext';
+export interface Page_Acf {
+  __typename?: 'Page_Acf';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  modules?: Maybe<Array<Maybe<Page_Acf_Modules>>>;
+}
+
+/**
+ * A Field Group registered by ACF
+ */
+export interface AcfFieldGroup {
+  __typename?: 'Page_Acf' | 'Page_Acf_Modules_HeroMain' | 'Page_Acf_Modules_CenteredTextModule' | 'Page_Centeredtext';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  $on: $AcfFieldGroup;
+}
+
+export interface Page_Acf_Modules {
+  __typename?: 'Page_Acf_Modules_HeroMain' | 'Page_Acf_Modules_CenteredTextModule';
+  $on: $Page_Acf_Modules;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Acf_Modules_HeroMain {
+  __typename?: 'Page_Acf_Modules_HeroMain';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  imageDesktop?: Maybe<MediaItem>;
+  subtitle?: Maybe<ScalarsEnums['String']>;
+  text?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Acf_Modules_CenteredTextModule {
+  __typename?: 'Page_Acf_Modules_CenteredTextModule';
   /**
    * The name of the ACF Field Group
    */
@@ -10744,15 +10967,15 @@ export interface Page_Centeredtext {
 }
 
 /**
- * A Field Group registered by ACF
+ * Field Group
  */
-export interface AcfFieldGroup {
+export interface Page_Centeredtext {
   __typename?: 'Page_Centeredtext';
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  $on: $AcfFieldGroup;
+  paragraphText?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -13897,11 +14120,16 @@ export interface SchemaObjectTypes {
   MediaDetails: MediaDetails;
   MediaItemMeta: MediaItemMeta;
   MediaSize: MediaSize;
+  MediaItemToTermNodeConnection: MediaItemToTermNodeConnection;
+  MediaItemToTermNodeConnectionEdge: MediaItemToTermNodeConnectionEdge;
   UserToPageConnection: UserToPageConnection;
   UserToPageConnectionEdge: UserToPageConnectionEdge;
   Page: Page;
   NodeWithFeaturedImageToMediaItemConnectionEdge: NodeWithFeaturedImageToMediaItemConnectionEdge;
   NodeWithRevisionsToContentNodeConnectionEdge: NodeWithRevisionsToContentNodeConnectionEdge;
+  Page_Acf: Page_Acf;
+  Page_Acf_Modules_HeroMain: Page_Acf_Modules_HeroMain;
+  Page_Acf_Modules_CenteredTextModule: Page_Acf_Modules_CenteredTextModule;
   Page_Centeredtext: Page_Centeredtext;
   PageToCommentConnection: PageToCommentConnection;
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
@@ -14097,11 +14325,16 @@ export type SchemaObjectTypesNames =
   | 'MediaDetails'
   | 'MediaItemMeta'
   | 'MediaSize'
+  | 'MediaItemToTermNodeConnection'
+  | 'MediaItemToTermNodeConnectionEdge'
   | 'UserToPageConnection'
   | 'UserToPageConnectionEdge'
   | 'Page'
   | 'NodeWithFeaturedImageToMediaItemConnectionEdge'
   | 'NodeWithRevisionsToContentNodeConnectionEdge'
+  | 'Page_Acf'
+  | 'Page_Acf_Modules_HeroMain'
+  | 'Page_Acf_Modules_CenteredTextModule'
   | 'Page_Centeredtext'
   | 'PageToCommentConnection'
   | 'PageToCommentConnectionEdge'
@@ -14353,7 +14586,15 @@ export interface $NodeWithPageAttributes {
 }
 
 export interface $AcfFieldGroup {
+  Page_Acf?: Page_Acf;
+  Page_Acf_Modules_HeroMain?: Page_Acf_Modules_HeroMain;
+  Page_Acf_Modules_CenteredTextModule?: Page_Acf_Modules_CenteredTextModule;
   Page_Centeredtext?: Page_Centeredtext;
+}
+
+export interface $Page_Acf_Modules {
+  Page_Acf_Modules_HeroMain?: Page_Acf_Modules_HeroMain;
+  Page_Acf_Modules_CenteredTextModule?: Page_Acf_Modules_CenteredTextModule;
 }
 
 export interface $NodeWithContentEditor {
@@ -14409,9 +14650,9 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   CommentsConnectionOrderbyEnum: CommentsConnectionOrderbyEnum | undefined;
   PostObjectFieldFormatEnum: PostObjectFieldFormatEnum | undefined;
   MediaItemSizeEnum: MediaItemSizeEnum | undefined;
+  TaxonomyEnum: TaxonomyEnum | undefined;
   ContentTypesOfPostFormatEnum: ContentTypesOfPostFormatEnum | undefined;
   ContentTypesOfTagEnum: ContentTypesOfTagEnum | undefined;
-  TaxonomyEnum: TaxonomyEnum | undefined;
   CategoryIdType: CategoryIdType | undefined;
   ContentNodeIdTypeEnum: ContentNodeIdTypeEnum | undefined;
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;

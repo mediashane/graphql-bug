@@ -42,11 +42,7 @@ const styles = {
     alignItems: 'flex-start',
     justifyContent: 'center',
     width: '100%',
-    height: {
-      xs: '100%',
-      sm: '100%',
-      md: '100%',
-    },
+    height: '100%',
   },
   fourCardsPromptContainer: {
     display: 'flex',
@@ -81,6 +77,8 @@ const styles = {
       xs: '100%',
       sm: '100%',
       md: '90%',
+      lg: '85%',
+      xl: '80%',
     },
     height: {
       xs: '100%',
@@ -92,14 +90,9 @@ const styles = {
   fourCardsPromptInnerWrapper: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     flexDirection: 'column' as const,
-    width: {
-      xs: '80%',
-      sm: '70%',
-      md: '70%',
-      lg: '60%',
-    },
+    width: '80%',
     height: '100%',
   },
   fourCardsCards: {
@@ -142,11 +135,7 @@ const styles = {
       sm: '60px',
       md: '0',
     },
-    width: {
-      xs: '40%',
-      sm: '40%',
-      md: '40%',
-    },
+    width: '40%',
     height: {
       xs: 'auto',
       sm: '360px',
@@ -184,6 +173,22 @@ const styles = {
     fontFamily: freightBigPro,
     textAlign: 'center' as const,
   },
+  fourCardsPromptBottomline: {
+    color: colorBrandOrange,
+    fontSize: {
+      xs: '20px',
+      sm: '28px',
+      md: '28px',
+    },
+    fontFamily: freightBigPro,
+    textAlign: 'center' as const,
+  },
+  fourCardsPromptParagraph: {
+    color: colorDarkGrey,
+    fontSize: '14px',
+    fontFamily: proximaNova,
+    textAlign: 'center' as const,
+  },
   fourCardsPromptImage: {
     width: {
       xs: '250px',
@@ -204,11 +209,7 @@ const styles = {
     borderRadius: '50%',
   },
   fourCardsPromptButton: {
-    margin: {
-      xs: '20px 0 40px 0',
-      sm: '20px 0 40px 0',
-      md: '0 0 40px 0',
-    },
+    margin: '20px 0 40px 0',
     padding: '15px 50px',
     color: colorBrandBrown,
     backgroundColor: colorWhite,
@@ -249,8 +250,8 @@ const styles = {
     fontSize: {
       xs: '3vw',
       sm: '1.25rem',
-      md: '1.25rem',
-      lg: '1.5rem',
+      md: '1.5vw',
+      lg: '1.5vw',
     },
     fontFamily: proximaNova,
   },

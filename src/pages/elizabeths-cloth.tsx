@@ -105,27 +105,97 @@ export default function Page() {
       />
 
       <FourCardsWithPrompt
+        flexDirection="row"
+        withButton={true}
+        buttonLabel="Book an appointment"
+        promptOverline="Questions? want to know more?"
+        promptTopline="Book a virtual or in person appointment."
+        promptParagraph=""
         textColor="#333333"
-        imageOne="images/checkeredBoxInLoop.png"
-        titleOne="Checkered Box in Loop"
+        imageOne="images/latticeLoop.png"
+        titleOne="Lattice Loop"
         subtitleOne=""
         linkOne="/"
         showStickerOne={true}
         stickerTextOne="New"
-        imageTwo="images/vectorCrossLoop.png"
-        titleTwo="Vector Cross Loop"
+        imageTwo="images/circlesConnectingInCutVelvet.png"
+        titleTwo="Circles Connecting in Cut Velvet"
         subtitleTwo=""
         linkTwo="/"
         showStickerTwo={false}
         stickerTextTwo="New"
-        imageThree="images/zigZagInLoop.png"
-        titleThree="Zig Zag in Loop"
+        imageThree="images/interlockingDiamondCross.png"
+        titleThree="Interlocking Diamond Cross"
         subtitleThree=""
         linkThree="/"
         showStickerThree={true}
         stickerTextThree="New"
-        imageFour="images/latticeWithFlowers.png"
-        titleFour="Lattice with Flowers"
+        imageFour="images/circlesConnectingInLoop.png"
+        titleFour="Circles Connecting in Loop"
+        subtitleFour=""
+        linkFour="/"
+        showStickerFour={false}
+        stickerTextFour="New"
+      />
+
+      <FourCardsRow
+        textColor="#333333"
+        imageOne="images/shumak.png"
+        titleOne="Shumak"
+        subtitleOne=""
+        linkOne="/"
+        showStickerOne={true}
+        stickerTextOne="New"
+        imageTwo="images/diamondZigZagInLoop.png"
+        titleTwo="Diamond Zig Zag in Loop"
+        subtitleTwo=""
+        linkTwo="/"
+        showStickerTwo={false}
+        stickerTextTwo="New"
+        imageThree="images/interconnectedDiamond.png"
+        titleThree="Interconnected Diamond"
+        subtitleThree=""
+        linkThree="/"
+        showStickerThree={true}
+        stickerTextThree="New"
+        imageFour="images/largeDiamondInLoop.png"
+        titleFour="Large Diamond in Loop"
+        subtitleFour=""
+        linkFour="/"
+        showStickerFour={false}
+        stickerTextFour="New"
+      />
+
+      <FourCardsWithPrompt
+        flexDirection="row-reverse"
+        withButton={false}
+        buttonLabel="Book an appointment"
+        promptOverline="Designed with you in mind"
+        promptTopline="Every pattern is customizable in color, shape, and size"
+        promptParagraph="Our collections feature a broad range of patterns and styles that are fully customizable in color and pattern.
+        You can create a truly unique piece by choosing color combinations that reflect your home’s personality. The
+        possibilities are endless."
+        textColor="#333333"
+        imageOne="images/sb154.png"
+        titleOne="SB 154"
+        subtitleOne=""
+        linkOne="/"
+        showStickerOne={true}
+        stickerTextOne="New"
+        imageTwo="images/diamondCutPile.png"
+        titleTwo="Diamond Cut Pile"
+        subtitleTwo=""
+        linkTwo="/"
+        showStickerTwo={false}
+        stickerTextTwo="New"
+        imageThree="images/diamondCutPileGreen.png"
+        titleThree="Diamond Cut Pile"
+        subtitleThree=""
+        linkThree="/"
+        showStickerThree={true}
+        stickerTextThree="New"
+        imageFour="images/frameWithRib.png"
+        titleFour="Frame with Rib"
         subtitleFour=""
         linkFour="/"
         showStickerFour={false}

@@ -3,6 +3,12 @@ import React from 'react';
 import FourCardsWithPromptComponent from './FourCardsWithPromptComponent';
 
 interface Props {
+  flexDirection?: string;
+  withButton: boolean;
+  buttonLabel: string;
+  promptOverline: string;
+  promptTopline: string;
+  promptParagraph: string;
   textColor: string;
   imageOne: string;
   titleOne: string;

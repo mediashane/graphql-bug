@@ -8,6 +8,12 @@ import FourCard from './FourCard';
 import styles from './styles';
 
 interface Props {
+  flexDirection?: string;
+  withButton: boolean;
+  buttonLabel: string;
+  promptOverline: string;
+  promptTopline: string;
+  promptParagraph: string;
   textColor: string;
   imageOne: string;
   titleOne: string;
@@ -36,7 +42,13 @@ interface Props {
 }
 
 function FeatureTagIcons({
+  flexDirection = 'row',
+  withButton,
   textColor,
+  buttonLabel,
+  promptOverline,
+  promptTopline,
+  promptParagraph,
   imageOne,
   titleOne,
   subtitleOne,
@@ -62,20 +74,53 @@ function FeatureTagIcons({
   showStickerFour,
   stickerTextFour,
 }: Props): JSX.Element {
+  const PromptTop = () => {
+    if (withButton) {
+      return (
+        <>
+          <Typography sx={styles.fourCardsPromptOverline}>{promptOverline}</Typography>
+          <Typography sx={styles.fourCardsPromptTopline}>{promptTopline}</Typography>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <>
+          <Typography sx={styles.fourCardsPromptOverline}>{promptOverline}</Typography>
+        </>
+      </>
+    );
+  };
+
+  const PromptBottom = () => {
+    if (withButton) {
+      return (
+        <Box sx={styles.fourCardsPromptButtonWrapper}>
+          <Button variant="outlined" size="large" sx={styles.fourCardsPromptButton}>
+            {buttonLabel}
+          </Button>
+        </Box>
+      );
+    }
+
+    return (
+      <>
+        <Typography sx={styles.fourCardsPromptBottomline}>{promptTopline}</Typography>
+        <Typography sx={styles.fourCardsPromptParagraph}>{promptParagraph}</Typography>
+      </>
+    );
+  };
+
   return (
     <Box sx={styles.fourCardsWithPromptContainer}>
-      <Box sx={styles.fourCardsWithPromptContent}>
+      <Box sx={{ ...styles.fourCardsWithPromptContent, flexDirection: flexDirection as any }}>
         <Box sx={styles.fourCardsPromptContainer}>
           <Box sx={styles.fourCardsPrompt}>
             <Box sx={styles.fourCardsPromptInnerWrapper}>
-              <Typography sx={styles.fourCardsPromptOverline}>Questions? want to know more?</Typography>
-              <Typography sx={styles.fourCardsPromptTopline}>Book a virtual or in person appointment.</Typography>
+              <PromptTop />
               <Box sx={{ ...styles.fourCardsPromptImage, backgroundImage: `url(images/bookVirtualAppointment.png)` }} />
-              <Box sx={styles.fourCardsPromptButtonWrapper}>
-                <Button variant="outlined" size="large" sx={styles.fourCardsPromptButton}>
-                  Book an appointment
-                </Button>
-              </Box>
+              <PromptBottom />
             </Box>
           </Box>
         </Box>
