@@ -1,33 +1,15 @@
-import CallToAction from './CallToAction/CallToAction';
-import CardList from './CardList/CardList';
-import CenteredText from './CenteredText/CenteredText';
-import EmailSubscribe from './EmailSubscribe/EmailSubscribe';
-import Footer from './Footer/Footer';
-import FourCardsRow from './FourCardsRow/FourCardsRow';
-import FourCardsWithPrompt from './FourCardsWithPrompt/FourCardsWithPrompt';
-import FourFeatureTags from './FourFeatureTags/FourFeatureTags';
-import Header from './Header/Header';
-import HeroCenterButton from './HeroCenterButton/HeroCenterButton';
-import HeroLeftJustified from './HeroLeftJustified/HeroLeftJustified';
-import Pagination from './Pagination';
-import ThreeFeatureCards from './ThreeFeatureCards/ThreeFeatureCards';
-import ThreeImageExplore from './ThreeImageExplore/ThreeImageExplore';
-import TwoColumnGallery from './TwoColumnGallery/TwoColumnGallery';
-
-export {
-  Footer,
-  Header,
-  HeroLeftJustified,
-  HeroCenterButton,
-  CallToAction,
-  CardList,
-  CenteredText,
-  FourCardsRow,
-  FourCardsWithPrompt,
-  FourFeatureTags,
-  ThreeImageExplore,
-  ThreeFeatureCards,
-  TwoColumnGallery,
-  Pagination,
-  EmailSubscribe,
-};
+export { default as CallToAction } from './CallToAction/CallToAction';
+export { default as CardList } from './CardList/CardList';
+export { default as CenteredText } from './CenteredText/CenteredText';
+export { default as EmailSubscribe } from './EmailSubscribe/EmailSubscribe';
+export { default as Footer } from './Footer/Footer';
+export { default as FourCardsRow } from './FourCardsRow/FourCardsRow';
+export { default as FourCardsWithPrompt } from './FourCardsWithPrompt/FourCardsWithPrompt';
+export { default as FourFeatureTags } from './FourFeatureTags/FourFeatureTags';
+export { default as Header } from './Header/Header';
+export { default as HeroCenterButton } from './HeroCenterButton/HeroCenterButton';
+export { default as HeroLeftJustified } from './HeroLeftJustified/HeroLeftJustified';
+export { default as Pagination } from './Pagination';
+export { default as ThreeFeatureCards } from './ThreeFeatureCards/ThreeFeatureCards';
+export { default as ThreeImageExplore } from './ThreeImageExplore/ThreeImageExplore';
+export { default as TwoColumnGallery } from './TwoColumnGallery/TwoColumnGallery';
