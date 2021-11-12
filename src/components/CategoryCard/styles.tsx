@@ -1,4 +1,4 @@
-import { colorDarkGrey, colorWhite, freightBigProSemibold, proximaNova } from 'style';
+import { colorDarkGrey, colorWhite, freightBigProSemibold, proximaNova } from '../../style';
 
 const styles = {
   categoryCardContainer: {

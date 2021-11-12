@@ -1,4 +1,4 @@
-import { colorDarkGrey, freightBigProSemibold } from 'style';
+import { colorDarkGrey, freightBigProSemibold } from '../../style';
 
 const styles = {
   centeredTextContainer: {

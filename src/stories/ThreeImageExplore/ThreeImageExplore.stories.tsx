@@ -4,6 +4,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ThreeImageExplore from '../../components/ThreeImageExplore/ThreeImageExplore';
 
+import fabricLink from './fabricLink.png';
+import grassclothLink from './grassclothLink.png';
+import rugsLink from './rugsLink.png';
+
 export default {
   title: 'Three Image Explore',
   component: ThreeImageExplore,
@@ -13,13 +17,13 @@ const Template: ComponentStory<typeof ThreeImageExplore> = (args) => <ThreeImage
 
 export const ThreeImageExploreSection = Template.bind({});
 ThreeImageExploreSection.args = {
-  backgroundImageOne: 'images/rugsLink.png',
+  backgroundImageOne: rugsLink,
   labelOne: 'Rugs',
   linkOne: '/rugs',
-  backgroundImageTwo: 'images/fabricLink.png',
+  backgroundImageTwo: fabricLink,
   labelTwo: 'Fabric',
   linkTwo: '/fabric',
-  backgroundImageThree: 'images/grassclothLink.png',
+  backgroundImageThree: grassclothLink,
   labelThree: 'Grasscloth',
   linkThree: '/grasscloth',
 };

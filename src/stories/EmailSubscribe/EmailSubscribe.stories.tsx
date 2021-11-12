@@ -4,6 +4,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import EmailSubscribe from '../../components/EmailSubscribe/EmailSubscribe';
 
+import emailSubscribe from './emailSubscribe.png';
+
 export default {
   title: 'Email Subscribe',
   component: EmailSubscribe,
@@ -17,5 +19,5 @@ EmailSubscribeSection.args = {
   placeholder: 'Your email',
   buttonLabel: 'Subscribe',
   subtitle: 'Keep up with what we’re up to. Unsubscribe at any time.',
-  backgroundImage: 'images/emailSubscribe.png',
+  backgroundImage: emailSubscribe,
 };

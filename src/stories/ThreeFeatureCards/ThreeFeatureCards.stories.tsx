@@ -5,7 +5,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ThreeFeatureCards from '../../components/ThreeFeatureCards/ThreeFeatureCards';
 
 import thirdImage from './CloseUpBnW.png';
+import handmade from './handmade.png';
+import naturalFibers from './naturalFibers.png';
 import secondImage from './PiledRugs.png';
+import sustainability from './sustainability.png';
 import firstImage from './WomanWeaving.jpg';
 
 export default {
@@ -21,15 +24,15 @@ ThreeFeatureCardsSectionIcons.args = {
   iconLayout: true,
   labelColor: '#587DA9',
   textColor: '#826C4F',
-  imageOne: 'images/sustainability.png',
+  imageOne: sustainability,
   labelOne: 'Sustainability',
   descriptionOne:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla.',
-  imageTwo: 'images/naturalFibers.png',
+  imageTwo: naturalFibers,
   labelTwo: 'Natural Fibers',
   descriptionTwo:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla.',
-  imageThree: 'images/handmade.png',
+  imageThree: handmade,
   labelThree: 'Handmade',
   descriptionThree:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla.',

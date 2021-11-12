@@ -4,6 +4,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import CallToAction from '../../components/CallToAction/CallToAction';
 
+import ctaSale from './ctaSale.png';
+
 export default {
   title: 'Call to Action',
   component: CallToAction,
@@ -17,5 +19,5 @@ CallToActionSection.args = {
   ctaButtonLabel: 'Shop Now',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  backgroundImage: 'images/ctaSale.png',
+  backgroundImage: ctaSale,
 };

@@ -1,7 +1,8 @@
 import React from 'react';
-import CategoryCard from 'components/CategoryCard/CategoryCard';
 
 import Box from '@mui/material/Box';
+
+import CategoryCard from '../CategoryCard/CategoryCard';
 
 import styles from './styles';
 

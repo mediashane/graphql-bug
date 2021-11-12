@@ -4,6 +4,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import HeroCenterButton from '../../components/HeroCenterButton/HeroCenterButton';
 
+import rugsCollection from './rugsCollection.png';
+
 export default {
   title: 'Center Justified Hero',
   component: HeroCenterButton,
@@ -16,5 +18,5 @@ CenterJustifedHero.args = {
   textOverline: 'Elizabeth Eakins',
   textHeadline: 'Rugs',
   buttonLabel: 'View the Newest Source Guide',
-  mediaDesktop: 'images/rugsCollection.png',
+  mediaDesktop: rugsCollection,
 };

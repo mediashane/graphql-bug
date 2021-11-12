@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { colorBrandBlue, colorWhite } from 'style';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { IconButton, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+
+import { colorBrandBlue, colorWhite } from '../../style';
 
 import styles from './styles';
 
