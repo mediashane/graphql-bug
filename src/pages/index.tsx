@@ -1,5 +1,5 @@
 import React from 'react';
-import { client } from 'client';
+import { client, PageIdType } from 'client';
 import { CallToAction, EmailSubscribe, Footer, Header, HeroLeftJustified, ThreeImageExplore } from 'components';
 import ThreeFeatureCards from 'components/ThreeFeatureCards/ThreeFeatureCards';
 import { GetStaticPropsContext } from 'next';
@@ -7,12 +7,19 @@ import Head from 'next/head';
 
 import { getNextStaticProps } from '@faustjs/next';
 
-const descriptionPlaceholder =
-  'Beloved for their richness, simplicity, and ease of use, the sophisticated colors of Elizabeth Eakins rugs, fabrics, and grasscloth wallpapers evoke the phenomenon of natural light gracing an organic form.';
-
 export default function Page() {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
+
+  const { usePage } = client;
+  const pageData = usePage({
+    id: '/',
+    idType: PageIdType.URI,
+  });
+
+  const { textOverline, textHeadline, textParagraph, mediaDesktop } =
+    pageData.pageBuilder.modules[0].$on.Page_Pagebuilder_Modules_HeroLeftJustified;
+  const { mediaItemUrl } = mediaDesktop;
 
   return (
     <>
@@ -22,10 +29,10 @@ export default function Page() {
       </Head>
 
       <HeroLeftJustified
-        introTitle="Welcome to"
-        title="Elizabeth Eakins"
-        description={descriptionPlaceholder}
-        backgroundImage="images/elizabethWeaving.png"
+        introTitle={textOverline}
+        title={textHeadline}
+        description={textParagraph}
+        backgroundImage={mediaItemUrl}
       />
 
       <CallToAction

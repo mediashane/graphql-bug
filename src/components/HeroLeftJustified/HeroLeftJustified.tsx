@@ -13,7 +13,12 @@ interface Props {
   backgroundImage?: string;
 }
 
-function HeroLeftJustified({ introTitle = '', title = '', description = '', backgroundImage }: Props): JSX.Element {
+function HeroLeftJustified({
+  introTitle = '',
+  title = '',
+  description = '',
+  backgroundImage = '',
+}: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${backgroundImage})` }}>
       <Box sx={styles.textContainer}>
