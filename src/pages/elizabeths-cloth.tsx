@@ -65,6 +65,7 @@ export default function Page() {
         images={galleryImages}
         listItems={galleryListItems}
         listItemsLarge={false}
+        withIconButtons={false}
       />
 
       <FourFeatureTags

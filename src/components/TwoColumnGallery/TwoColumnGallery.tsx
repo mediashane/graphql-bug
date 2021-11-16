@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import NextLink from 'next/link';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { IconButton, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import MUILink from '@mui/material/Link';
 
 import { colorBrandBlue, colorWhite } from '../../style';
 
@@ -27,6 +29,17 @@ interface Props {
   images?: string[];
   withButton?: boolean;
   buttonLabel?: string;
+  withIconButtons?: boolean;
+  iconButtonsHeadline?: string;
+  iconButtonOneImage?: string;
+  iconButtonOneLink?: string;
+  iconButtonOneLabel?: string;
+  iconButtonTwoImage?: string;
+  iconButtonTwoLink?: string;
+  iconButtonTwoLabel?: string;
+  iconButtonThreeImage?: string;
+  iconButtonThreeLink?: string;
+  iconButtonThreeLabel?: string;
 }
 
 function TwoColumnGallery({
@@ -42,6 +55,17 @@ function TwoColumnGallery({
   images,
   withButton = false,
   buttonLabel = '',
+  withIconButtons = false,
+  iconButtonsHeadline = '',
+  iconButtonOneImage = '',
+  iconButtonOneLink = '',
+  iconButtonOneLabel = '',
+  iconButtonTwoImage = '',
+  iconButtonTwoLink = '',
+  iconButtonTwoLabel = '',
+  iconButtonThreeImage = '',
+  iconButtonThreeLink = '',
+  iconButtonThreeLabel = '',
 }: Props): JSX.Element {
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -70,6 +94,44 @@ function TwoColumnGallery({
           <Button variant="outlined" size="large" sx={styles.ctaPromptButton}>
             {buttonLabel}
           </Button>
+        </Box>
+      );
+    }
+
+    return null;
+  };
+
+  const IconButtons = () => {
+    if (withIconButtons) {
+      return (
+        <Box sx={styles.iconButtonsContainer}>
+          <Typography sx={styles.iconButtonsHeadline}>{iconButtonsHeadline}</Typography>
+          <Box sx={styles.iconButtonsGroup}>
+            <NextLink href={iconButtonOneLink} passHref>
+              <MUILink color="inherit" variant="inherit" underline="none">
+                <Box sx={styles.iconButtonWrapper}>
+                  <Box sx={{ ...styles.iconButton, backgroundImage: `url(${iconButtonOneImage})` }}></Box>
+                  <Typography sx={styles.iconButtonLabel}>{iconButtonOneLabel}</Typography>
+                </Box>
+              </MUILink>
+            </NextLink>
+            <NextLink href={iconButtonTwoLink} passHref>
+              <MUILink color="inherit" variant="inherit" underline="none">
+                <Box sx={styles.iconButtonWrapper}>
+                  <Box sx={{ ...styles.iconButton, backgroundImage: `url(${iconButtonTwoImage})` }}></Box>
+                  <Typography sx={styles.iconButtonLabel}>{iconButtonTwoLabel}</Typography>
+                </Box>
+              </MUILink>
+            </NextLink>
+            <NextLink href={iconButtonThreeLink} passHref>
+              <MUILink color="inherit" variant="inherit" underline="none">
+                <Box sx={styles.iconButtonWrapper}>
+                  <Box sx={{ ...styles.iconButton, backgroundImage: `url(${iconButtonThreeImage})` }}></Box>
+                  <Typography sx={styles.iconButtonLabel}>{iconButtonThreeLabel}</Typography>
+                </Box>
+              </MUILink>
+            </NextLink>
+          </Box>
         </Box>
       );
     }
@@ -124,23 +186,7 @@ function TwoColumnGallery({
             return <ListItems item={item} key={index} />;
           })}
           <CtaButton />
-          <Box sx={styles.iconButtonsContainer}>
-            <Typography sx={styles.iconButtonsHeadline}>No question is too small. Contact us today.</Typography>
-            <Box sx={styles.iconButtonsGroup}>
-              <Box sx={styles.iconButtonWrapper}>
-                <Box sx={{ ...styles.iconButton, backgroundImage: `url(images/callUs.png)` }}></Box>
-                <Typography sx={styles.iconButtonLabel}>Call us</Typography>
-              </Box>
-              <Box sx={styles.iconButtonWrapper}>
-                <Box sx={{ ...styles.iconButton, backgroundImage: `url(images/emailUs.png)` }}></Box>
-                <Typography sx={styles.iconButtonLabel}>Email us</Typography>
-              </Box>
-              <Box sx={styles.iconButtonWrapper}>
-                <Box sx={{ ...styles.iconButton, backgroundImage: `url(images/visitUs.png)` }}></Box>
-                <Typography sx={styles.iconButtonLabel}>Visit us</Typography>
-              </Box>
-            </Box>
-          </Box>
+          <IconButtons />
         </Box>
       </Box>
       <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex]})` }}>

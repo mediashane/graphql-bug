@@ -50,6 +50,17 @@ export default function Page() {
         listItemsLarge={true}
         withButton={true}
         buttonLabel="Book an Appointment"
+        withIconButtons={true}
+        iconButtonsHeadline="No question is too small. Contact us today."
+        iconButtonOneImage="images/callUs.png"
+        iconButtonOneLink="/"
+        iconButtonOneLabel="Call us"
+        iconButtonTwoImage="images/emailUs.png"
+        iconButtonTwoLink="/"
+        iconButtonTwoLabel="Email us"
+        iconButtonThreeImage="images/visitUs.png"
+        iconButtonThreeLink="/"
+        iconButtonThreeLabel="Visit us"
       />
 
       <Footer

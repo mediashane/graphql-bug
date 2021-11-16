@@ -210,10 +210,16 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column' as const,
+    cursor: 'pointer',
+    transition: 'margin 0.1s ease-in-out',
+
+    '&:hover': {
+      marginTop: -2,
+    },
   },
   iconButton: {
-    height: '35px',
-    width: '35px',
+    height: '32px',
+    width: '32px',
     marginBottom: '20px',
     overflow: 'show',
     backgroundSize: 'contain',
