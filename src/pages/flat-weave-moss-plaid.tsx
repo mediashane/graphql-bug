@@ -1,0 +1,80 @@
+import { client } from 'client';
+import { Footer, Header, TwoColumnGallery } from 'components';
+import { GetStaticPropsContext } from 'next';
+import Head from 'next/head';
+import { colorBrandBrown, colorDarkGrey } from 'style';
+
+import { getNextStaticProps } from '@faustjs/next';
+
+const galleryListItems = [
+  {
+    textHeadline: 'Pricing & Samples',
+    textParagraph: 'Pricing is determined by size and customization. We are happy to discuss the options.',
+  },
+  {
+    textHeadline: 'Timing',
+    textParagraph: 'Most fabric is stocked or immediate delivery. Contact us today to learn more.',
+  },
+];
+
+const galleryImages = [
+  'images/flatWeaveMossPlaid.png',
+  'images/elizabethsCloth.png',
+  'images/newArrivals.png',
+  'images/rugsLink.png',
+];
+
+export default function Page() {
+  const { useQuery } = client;
+  const generalSettings = useQuery().generalSettings;
+
+  return (
+    <>
+      <Header title={generalSettings.title} />
+
+      <Head>
+        <title>{generalSettings.title}</title>
+      </Head>
+
+      <TwoColumnGallery
+        textOverline="RUGS/Elizabeth's Cloth"
+        textHeadline="Flat Weave Ross Plaid"
+        textParagraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales."
+        paragraphFont="ProximaNovaRegular"
+        textColorPrimary={colorDarkGrey}
+        textColorSecondary={colorBrandBrown}
+        textAlign="left"
+        withDivider={false}
+        images={galleryImages}
+        listItems={galleryListItems}
+        listItemsLarge={true}
+        withButton={true}
+        buttonLabel="Book an Appointment"
+      />
+
+      <Footer
+        title="Elizabeth Eakins Studio"
+        description="The Elizabeth Eakins Studio is located in South Norwalk Connecticut and is open Monday through Friday from 9am to 5:00pm. Please call or email us to visit and we would be happy to have you come by."
+        address="5 Taft Street, South Norwalk, CT 06854"
+        phoneNumber="203.831.9347"
+        email="Elizabeth.Eakins@elizabetheakins.com"
+        hours="9:00am to 5:00pm M-F"
+        locationTitle="Holland & Sherry"
+        locationDescription="Elizabeth Eakins is part of Holland & Sherry and available for purchase across their showrooms. Click below to find a location near you."
+        locationButtonLabel="Find a location near you"
+        socialTitle="Follow Elizabeth Eakins on Instagram and join our mailing list"
+        socialDescription="Many of our new products and offers we first share in email and instagram. Follow us today"
+        emailPlaceholder="Enter your email"
+        igCta="Follow us on Instagram"
+        igLink="https://instagram.com/elizabetheakins/"
+      />
+    </>
+  );
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return getNextStaticProps(context, {
+    Page,
+    client,
+  });
+}

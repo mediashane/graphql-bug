@@ -1,10 +1,11 @@
 import {
   colorBrandBlue,
+  colorBrandBrown,
   colorDarkGrey,
   colorLightGrey,
   colorWhite,
+  freightBigPro,
   freightBigProMediumItalic,
-  freightBigProSemibold,
   proximaNova,
 } from '../../style';
 
@@ -19,7 +20,6 @@ const styles = {
     },
     height: '100%',
     width: '100%',
-    // minHeight: '620px',
   },
   imageSliderContainer: {
     display: 'flex',
@@ -68,7 +68,6 @@ const styles = {
     paddingBottom: '10px',
     fontSize: '18px',
     fontFamily: proximaNova,
-    textTransform: 'uppercase' as const,
   },
   textHeadline: {
     paddingBottom: '10px',
@@ -88,7 +87,6 @@ const styles = {
       lg: '18px',
       xl: '20px',
     },
-    fontFamily: freightBigProSemibold,
   },
   textDivider: {
     margin: {
@@ -102,15 +100,71 @@ const styles = {
     width: '100%',
     backgroundColor: '#D89582',
   },
+  textSpacer: {
+    margin: '10px 0',
+    height: '1px',
+    width: '100%',
+    backgroundColor: 'transparent',
+  },
   textListItemHeadline: {
     fontSize: '14px',
     fontFamily: proximaNova,
-    textTransform: 'uppercase' as const,
+  },
+  textListItemHeadlineLarge: {
+    fontSize: {
+      xs: '20px',
+      sm: '20px',
+      md: '16px',
+      lg: '18px',
+      xl: '20px',
+    },
+    fontFamily: proximaNova,
   },
   textListItemParagraph: {
     paddingBottom: '20px',
     fontSize: '14px',
     fontFamily: proximaNova,
+  },
+  textListItemParagraphLarge: {
+    paddingBottom: '20px',
+    fontSize: {
+      xs: '20px',
+      sm: '20px',
+      md: '16px',
+      lg: '18px',
+      xl: '20px',
+    },
+    fontFamily: proximaNova,
+  },
+  ctaPromptButton: {
+    margin: '20px 0 40px 0',
+    padding: '15px 50px',
+    color: colorBrandBrown,
+    backgroundColor: colorWhite,
+    fontFamily: proximaNova,
+    fontWeight: '100',
+    fontSize: '1rem',
+    textTransform: 'none' as const,
+    borderWidth: '1px',
+    borderColor: colorBrandBrown,
+    borderRadius: 0,
+    transition: 'all 0.25s ease',
+
+    '&:hover': {
+      color: colorWhite,
+      backgroundColor: colorBrandBrown,
+      borderWidth: '1px',
+      borderColor: colorBrandBrown,
+    },
+  },
+  ctaButtonWrapper: {
+    display: 'flex',
+    justifyContent: {
+      xs: 'center',
+      sm: 'center',
+      md: 'flex-start',
+    },
+    width: '100%',
   },
   controlsContainer: {
     display: 'flex',
@@ -118,7 +172,60 @@ const styles = {
     width: '100%',
     overflow: 'hidden',
   },
-  buttonContainer: {
+  iconButtonsContainer: {
+    display: 'flex',
+    alignItems: {
+      xs: 'center',
+      sm: 'center',
+      md: 'flex-start',
+    },
+    justifyContent: {
+      xs: 'center',
+      sm: 'center',
+      md: 'flex-start',
+    },
+    flexDirection: 'column' as const,
+    height: '100%',
+    width: '100%',
+  },
+  iconButtonsGroup: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginTop: '40px',
+    height: '100%',
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '60%',
+    },
+  },
+  iconButtonsHeadline: {
+    fontSize: '32px',
+    fontFamily: freightBigPro,
+    color: colorBrandBrown,
+  },
+  iconButtonWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column' as const,
+  },
+  iconButton: {
+    height: '35px',
+    width: '35px',
+    marginBottom: '20px',
+    overflow: 'show',
+    backgroundSize: 'contain',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+  },
+  iconButtonLabel: {
+    fontSize: '14px',
+    color: colorBrandBrown,
+    fontFamily: proximaNova,
+  },
+  arrowButtonContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
