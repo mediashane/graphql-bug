@@ -10,7 +10,7 @@ interface Props {
   textSize?: string;
 }
 
-function CenteredText({ text = '', backgroundColor = 'transparent', textSize = '16px' }: Props): JSX.Element {
+function CenteredText({ text = '', backgroundColor = 'transparent', textSize = '25px' }: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }}>
       <Box sx={{ ...styles.centeredTextWrapper, fontSize: textSize }}>{text}</Box>
