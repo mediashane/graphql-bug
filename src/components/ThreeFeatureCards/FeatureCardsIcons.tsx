@@ -8,10 +8,10 @@ import FeatureCard from './FeatureCardIcon';
 import styles from './styles';
 
 interface Props {
-  sectionLabel: string;
+  sectionLabel?: string;
   iconLayout: boolean;
   textColor: string;
-  labelColor: string;
+  labelColor?: string;
   imageOne: string;
   labelOne: string;
   descriptionOne: string;

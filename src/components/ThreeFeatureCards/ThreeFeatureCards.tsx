@@ -4,10 +4,10 @@ import FeatureCardsIcons from './FeatureCardsIcons';
 import FeatureCardsImages from './FeatureCardsImages';
 
 interface Props {
-  sectionLabel: string;
+  sectionLabel?: string;
   iconLayout: boolean;
   textColor: string;
-  labelColor: string;
+  labelColor?: string;
   imageOne: string;
   labelOne: string;
   descriptionOne: string;
@@ -19,12 +19,12 @@ interface Props {
   descriptionThree: string;
 }
 
-function ThreeFeatureCards({ sectionLabel, ...props }: Props): JSX.Element {
-  if (sectionLabel) {
-    return <FeatureCardsIcons sectionLabel={sectionLabel} {...props} />;
+function ThreeFeatureCards({ iconLayout = false, ...props }: Props): JSX.Element {
+  if (iconLayout) {
+    return <FeatureCardsIcons iconLayout={iconLayout} {...props} />;
   }
-  if (!sectionLabel) {
-    return <FeatureCardsImages sectionLabel={sectionLabel} {...props} />;
+  if (!iconLayout) {
+    return <FeatureCardsImages iconLayout={iconLayout} {...props} />;
   }
 
   return null;

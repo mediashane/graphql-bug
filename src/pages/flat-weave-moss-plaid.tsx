@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, TwoColumnGallery } from 'components';
+import { CenteredText, Footer, Header, ThreeFeatureCards, TwoColumnGallery } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { colorBrandBrown, colorDarkGrey } from 'style';
@@ -61,6 +61,42 @@ export default function Page() {
         iconButtonThreeImage="images/visitUs.png"
         iconButtonThreeLink="/"
         iconButtonThreeLabel="Visit us"
+      />
+
+      <ThreeFeatureCards
+        sectionLabel="Values"
+        iconLayout={true}
+        labelColor="#826C4F"
+        textColor="#587DA9"
+        imageOne="images/naturalFibersBlue.png"
+        labelOne="100% Natural fibers"
+        descriptionOne="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+        imageTwo="images/customizable.png"
+        labelTwo="Customizable in Color, Shape and Size"
+        descriptionTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+        imageThree="images/durable.png"
+        labelThree="Durability"
+        descriptionThree="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+      />
+
+      <CenteredText
+        text="Every rug is handmade and customized from color to size.  Also, don’t for get to explore our inventory, we have many options ready for delivery."
+        backgroundColor="#F7F7F7"
+        textSize="32px"
+      />
+
+      <ThreeFeatureCards
+        iconLayout={false}
+        textColor="#333333"
+        imageOne="images/tour.png"
+        labelOne="Tour our Facility"
+        descriptionOne="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+        imageTwo="images/explore.png"
+        labelTwo="Explore our Inventory"
+        descriptionTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+        imageThree="images/expectations.png"
+        labelThree="Lead Time Expectations"
+        descriptionThree="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
       />
 
       <Footer

@@ -7,10 +7,10 @@ import FeatureCard from './FeatureCardImage';
 import styles from './styles';
 
 interface Props {
-  sectionLabel: string;
+  sectionLabel?: string;
   iconLayout: boolean;
   textColor: string;
-  labelColor: string;
+  labelColor?: string;
   imageOne: string;
   labelOne: string;
   descriptionOne: string;
@@ -24,7 +24,6 @@ interface Props {
 
 function FeatureCardImages({
   iconLayout,
-  // textColor,
   imageOne,
   labelOne,
   descriptionOne,

@@ -25,7 +25,7 @@ function ImageCard({ iconLayout, image, label, description, textColor }: Props):
         ></Box>
       );
 
-    return <Box>Todo: photo layout version</Box>;
+    return null;
   };
 
   return (

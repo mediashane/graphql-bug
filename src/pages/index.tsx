@@ -71,7 +71,7 @@ export default function Page() {
         imageOne="images/sustainability.png"
         labelOne="Sustainability"
         descriptionOne="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
-        imageTwo="images/naturalFibers.png"
+        imageTwo="images/naturalFibersBrown.png"
         labelTwo="Natural Fibers"
         descriptionTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
         imageThree="images/handmade.png"

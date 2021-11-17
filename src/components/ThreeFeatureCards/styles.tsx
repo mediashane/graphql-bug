@@ -21,7 +21,7 @@ const styles = {
     height: {
       xs: '1200px',
       sm: '1200px',
-      md: '500px',
+      md: '600px',
     },
   },
   threeFeatureCardsContent: {
@@ -33,6 +33,7 @@ const styles = {
     height: '100%',
   },
   threeFeatureCardsTitle: {
+    marginTop: '20px',
     fontSize: '2.5rem',
     fontStyle: 'italic',
     fontFamily: freightBigProMediumItalic,
@@ -57,8 +58,6 @@ const styles = {
       xs: '80px 0 0 0',
       sm: '80px 0 0 0',
       md: '40px 0 40px 0',
-      lg: '40px 0 40px 0',
-      xl: '40px 0 40px 0',
     },
     width: '100%',
     height: '100%',
@@ -98,13 +97,14 @@ const styles = {
       xl: '95px',
     },
     backgroundColor: colorWhite,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
   },
   threeFeatureCardsCardLabel: {
     fontSize: '2rem',
     fontFamily: freightBigProSemibold,
+    textAlign: 'center' as const,
   },
   threeFeatureCardsCardDescription: {
     color: colorDarkGrey,

@@ -5,7 +5,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '40px 0',
+    padding: '60px 0',
     width: '100%',
     minHeight: '20x',
   },

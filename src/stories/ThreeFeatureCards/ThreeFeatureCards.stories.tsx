@@ -6,7 +6,7 @@ import ThreeFeatureCards from '../../components/ThreeFeatureCards/ThreeFeatureCa
 
 import thirdImage from './CloseUpBnW.png';
 import handmade from './handmade.png';
-import naturalFibers from './naturalFibers.png';
+import naturalFibersBrown from './naturalFibersBrown.png';
 import secondImage from './PiledRugs.png';
 import sustainability from './sustainability.png';
 import firstImage from './WomanWeaving.jpg';
@@ -28,7 +28,7 @@ ThreeFeatureCardsSectionIcons.args = {
   labelOne: 'Sustainability',
   descriptionOne:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla.',
-  imageTwo: naturalFibers,
+  imageTwo: naturalFibersBrown,
   labelTwo: 'Natural Fibers',
   descriptionTwo:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla.',
