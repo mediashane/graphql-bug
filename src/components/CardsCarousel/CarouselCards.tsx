@@ -52,11 +52,12 @@ function CarouselCards({ textColor, sectionLabel, labelColor, cards }: Props): J
 
   return (
     <>
-      <Box sx={styles.cardsCarouselLabelContainer}>
-        <Container maxWidth="xl">
+      <Container maxWidth="xl">
+        <Box sx={styles.cardsCarouselLabelContainer}>
           <Typography sx={{ ...styles.cardsCarouselLabel, color: labelColor }}>{sectionLabel}</Typography>
-        </Container>
-      </Box>
+          <Typography sx={{ ...styles.cardsCarouselTextLink }}>See all &gt;</Typography>
+        </Box>
+      </Container>
       <Box sx={styles.cardsCarouselContainer}>
         <Box sx={styles.cardsCarouselContent}>
           <Box sx={styles.cardsCarouselControlsWrapper}>

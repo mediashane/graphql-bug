@@ -66,6 +66,10 @@ const styles = {
     color: colorDarkGrey,
   },
   cardsCarouselLabelContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row' as const,
     margin: '60px 0 60px 0',
   },
   cardsCarouselLabel: {
@@ -73,6 +77,12 @@ const styles = {
     fontStyle: 'italic',
     fontFamily: freightBigProMediumItalic,
     lineHeight: 1,
+  },
+  cardsCarouselTextLink: {
+    color: colorDarkGrey,
+    fontSize: '1rem',
+    fontFamily: proximaNova,
+    textTransform: 'uppercase' as const,
   },
   carouselCardContainer: {
     display: 'flex',
