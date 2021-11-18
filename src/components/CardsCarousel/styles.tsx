@@ -7,15 +7,7 @@ const styles = {
     justifyContent: 'center',
     flexDirection: 'column' as const,
     width: '100%',
-    height: {
-      xs: '100%',
-      sm: '100%',
-      md: '100%',
-      lg: '100%',
-    },
-    // maxHeight: {
-    //   md: '360px',
-    // },
+    height: '100%',
   },
   cardsCarouselContent: {
     display: 'flex',
@@ -27,7 +19,6 @@ const styles = {
   carouselCards: {
     display: 'flex',
     alignItems: 'flex-start',
-    // justifyContent: 'space-evenly',
     flexDirection: 'row' as const,
     flexWrap: 'nowrap' as const,
     position: 'relative' as const,
@@ -52,7 +43,6 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'absolute' as const,
-    // marginTop: '7.5%',
     width: '100%',
     overflow: 'hidden',
     zIndex: 2,
@@ -110,13 +100,11 @@ const styles = {
     width: {
       xs: '230px',
       sm: '280px',
-      md: '280px',
     },
     maxWidth: '280px',
     height: {
       xs: '230px',
       sm: '280px',
-      md: '280px',
     },
     maxHeight: '280px',
     backgroundColor: colorWhite,
@@ -137,21 +125,11 @@ const styles = {
     maxWidth: '280px',
   },
   carouselCardTitle: {
-    fontSize: {
-      xs: '16px',
-      sm: '1.25rem',
-      md: '1.5vw',
-      lg: '1.5vw',
-    },
+    fontSize: '20px',
     fontFamily: proximaNova,
   },
   carouselCardSubtitle: {
-    fontSize: {
-      xs: '12px',
-      sm: '1rem',
-      md: '1rem',
-      lg: '1.25rem',
-    },
+    fontSize: '16px',
     fontFamily: proximaNova,
   },
   carouselCardSticker: {
@@ -169,7 +147,6 @@ const styles = {
       xs: '200px',
       sm: '230px',
       md: '220px',
-      lg: '220px',
     },
     width: {
       xs: '40px',
