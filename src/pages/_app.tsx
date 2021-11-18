@@ -11,7 +11,7 @@ import markerSDK from '@marker.io/browser';
 export default function KoaApp({ Component, pageProps }: AppProps) {
   const fetchWidget = async () => {
     const widget = await markerSDK.loadWidget({
-      destination: `${process.env.NEXT_PUBLIC_MARKER_ID}`,
+      destination: `617c0b2163614c5811dc57a8`,
     });
     console.log('Marker.io widget loaded: ', widget.isVisible);
   };
