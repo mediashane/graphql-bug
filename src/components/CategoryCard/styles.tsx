@@ -10,13 +10,22 @@ const styles = {
       sm: 'center',
       md: 'center',
     },
+    flex: '0 0 33%',
+    marginBottom: {
+      xs: '60px',
+      sm: '80px',
+      md: '140px',
+    },
     width: {
       xs: '150px',
       sm: '320px',
+      xl: '400px',
     },
     height: {
-      xs: '315px',
-      sm: '400px',
+      xs: '335px',
+      sm: '450px',
+      lg: '490px',
+      xl: '520px',
     },
     textAlign: 'center' as const,
   },
@@ -24,12 +33,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    flex: '0 0 33%',
-    marginBottom: {
-      xs: '60px',
-      sm: '80px',
-      md: '140px',
-    },
+    flexDirection: 'column' as const,
   },
   categoryCardSticker: {
     display: 'flex',
@@ -38,11 +42,17 @@ const styles = {
     position: 'absolute' as const,
     marginTop: {
       xs: '-10px',
-      sm: '-350px',
+      sm: '-370px',
+      md: '-370px',
+      lg: '-415px',
+      xl: '-435px',
     },
     marginLeft: {
       xs: '120px',
-      sm: '250px',
+      sm: '260px',
+      md: '255px',
+      lg: '295px',
+      xl: '340px',
     },
     width: {
       xs: '40px',
@@ -66,15 +76,26 @@ const styles = {
     width: {
       xs: '150px',
       sm: '320px',
+      lg: '360px',
+      xl: '400px',
     },
     height: {
       xs: '150px',
       sm: '320px',
+      lg: '360px',
       xl: '400px',
     },
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
+  },
+  categoryCardTextContainer: {
+    width: {
+      xs: '150px',
+      sm: '320px',
+      lg: '360px',
+      xl: '400px',
+    },
   },
   categoryCardTitle: {
     paddingTop: '30px',

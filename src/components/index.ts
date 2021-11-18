@@ -9,6 +9,7 @@ export { default as FourCardsWithPrompt } from './FourCardsWithPrompt/FourCardsW
 export { default as FourFeatureTags } from './FourFeatureTags/FourFeatureTags';
 export { default as Header } from './Header/Header';
 export { default as HeroCenterButton } from './HeroCenterButton/HeroCenterButton';
+export { default as HeroCenterTop } from './HeroCenterTop/HeroCenterTop';
 export { default as HeroLeftJustified } from './HeroLeftJustified/HeroLeftJustified';
 export { default as Pagination } from './Pagination';
 export { default as ThreeFeatureCards } from './ThreeFeatureCards/ThreeFeatureCards';

@@ -27,28 +27,25 @@ function CategoryCard({
   const [overlay, setOverlay] = useState(0);
 
   return (
-    <NextLink href={link} passHref>
-      <MUILink
-        sx={styles.categoryCardWrapper}
-        color="inherit"
-        variant="inherit"
-        underline="none"
-        onMouseEnter={() => setOverlay(0.1)}
-        onMouseLeave={() => setOverlay(0)}
-      >
-        <Box sx={styles.categoryCardContainer}>
-          <CardSticker stickerText={stickerText} showSticker={showSticker} />
-          <Box
-            sx={{
-              ...styles.categoryCardImage,
-              backgroundImage: `linear-gradient( rgba(0, 0, 0, ${overlay}), rgba(0, 0, 0, ${overlay}) ), url(${image})`,
-            }}
-          />
-          <Box sx={styles.categoryCardTitle}>{title}</Box>
-          <Box sx={styles.categoryCardDescription}>{description}</Box>
-        </Box>
-      </MUILink>
-    </NextLink>
+    <Box sx={styles.categoryCardContainer}>
+      <CardSticker stickerText={stickerText} showSticker={showSticker} />
+      <NextLink href={link} passHref>
+        <MUILink color="inherit" variant="inherit" underline="none">
+          <Box sx={styles.categoryCardWrapper} onMouseEnter={() => setOverlay(0.1)} onMouseLeave={() => setOverlay(0)}>
+            <Box
+              sx={{
+                ...styles.categoryCardImage,
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, ${overlay}), rgba(0, 0, 0, ${overlay}) ), url(${image})`,
+              }}
+            />
+            <Box sx={styles.categoryCardTextContainer}>
+              <Box sx={styles.categoryCardTitle}>{title}</Box>
+              <Box sx={styles.categoryCardDescription}>{description}</Box>
+            </Box>
+          </Box>
+        </MUILink>
+      </NextLink>
+    </Box>
   );
 }
 

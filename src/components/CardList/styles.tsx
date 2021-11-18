@@ -11,12 +11,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap' as const,
     alignItems: 'center',
-    justifyContent: {
-      xs: 'space-around',
-      sm: 'space-around',
-      md: 'space-around',
-      lg: 'flex-start',
-    },
+    justifyContent: 'space-evenly',
     width: '100%',
   },
 };
