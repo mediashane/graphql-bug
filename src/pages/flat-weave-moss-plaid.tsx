@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { CenteredText, Footer, Header, ThreeFeatureCards, TwoColumnGallery } from 'components';
+import { CardsCarousel, CenteredText, Footer, Header, ThreeFeatureCards, TwoColumnGallery } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { colorBrandBrown, colorDarkGrey } from 'style';
@@ -24,6 +24,89 @@ const galleryImages = [
   'images/rugsLink.png',
 ];
 
+const cards = [
+  {
+    image: 'images/checkeredBoxInLoop.png',
+    title: 'Checkered Box in Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: true,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/vectorCrossLoop.png',
+    title: 'Vector Cross Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: false,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/zigZagInLoop.png',
+    title: 'Zig Zag in Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: true,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/latticeWithFlowers.png',
+    title: 'Lattice with Flowers',
+    subtitle: '',
+    link: '/',
+    showSticker: false,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/latticeLoop.png',
+    title: 'Lattice Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: true,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/checkeredBoxInLoop.png',
+    title: 'Checkered Box in Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: false,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/vectorCrossLoop.png',
+    title: 'Vector Cross Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: false,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/zigZagInLoop.png',
+    title: 'Zig Zag in Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: true,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/latticeWithFlowers.png',
+    title: 'Lattice with Flowers',
+    subtitle: '',
+    link: '/',
+    showSticker: false,
+    stickerText: 'New',
+  },
+  {
+    image: 'images/latticeLoop.png',
+    title: 'Lattice Loop',
+    subtitle: '',
+    link: '/',
+    showSticker: true,
+    stickerText: 'New',
+  },
+];
+
 export default function Page() {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
@@ -41,6 +124,7 @@ export default function Page() {
         textHeadline="Flat Weave Ross Plaid"
         textParagraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales."
         paragraphFont="ProximaNovaRegular"
+        backgroundColor="#F7F7F7"
         textColorPrimary={colorDarkGrey}
         textColorSecondary={colorBrandBrown}
         textAlign="left"
@@ -97,6 +181,13 @@ export default function Page() {
         imageThree="images/expectations.png"
         labelThree="Lead Time Expectations"
         descriptionThree="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo leo, aliquam vitae bibendum ut, dictum sed nulla."
+      />
+
+      <CardsCarousel
+        cards={cards}
+        labelColor="#826C4F"
+        textColor="#333333"
+        sectionLabel="More from Elizabeth’s Cloth"
       />
 
       <Footer

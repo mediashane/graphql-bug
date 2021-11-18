@@ -19,8 +19,8 @@ const styles = {
     },
     width: '100%',
     height: {
-      xs: '1200px',
-      sm: '1200px',
+      xs: '100%',
+      sm: '100%',
       md: '600px',
     },
   },
@@ -33,7 +33,7 @@ const styles = {
     height: '100%',
   },
   threeFeatureCardsTitle: {
-    marginTop: '20px',
+    marginTop: '60px',
     fontSize: '2.5rem',
     fontStyle: 'italic',
     fontFamily: freightBigProMediumItalic,
@@ -68,8 +68,8 @@ const styles = {
     justifyContent: 'space-evenly',
     flexDirection: 'column' as const,
     marginBottom: {
-      xs: '100px',
-      sm: '100px',
+      xs: '60px',
+      sm: '60px',
       md: '0',
     },
     height: '100%',

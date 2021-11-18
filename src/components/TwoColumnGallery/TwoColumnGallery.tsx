@@ -17,6 +17,7 @@ interface Props {
   textHeadline: string;
   textParagraph?: string;
   paragraphFont?: string;
+  backgroundColor?: string;
   textColorPrimary?: string;
   textColorSecondary?: string;
   textAlign?: string;
@@ -47,6 +48,7 @@ function TwoColumnGallery({
   textHeadline = '',
   textParagraph = '',
   paragraphFont = '',
+  backgroundColor = 'transparent',
   textColorPrimary = '',
   textColorSecondary = '',
   withDivider = false,
@@ -173,7 +175,7 @@ function TwoColumnGallery({
   };
 
   return (
-    <Box sx={styles.galleryContainer}>
+    <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>
       <Box sx={styles.textContainer}>
         <Box sx={styles.textWrapper}>
           <Typography sx={{ ...styles.textOverline, color: textColorPrimary }}>{textOverline}</Typography>
