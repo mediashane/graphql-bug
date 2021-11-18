@@ -194,12 +194,22 @@ function TwoColumnGallery({
       <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex]})` }}>
         <Box sx={styles.controlsContainer}>
           <Box sx={styles.arrowButtonContainer}>
-            <IconButton onClick={() => decrementImageIndex()} disableFocusRipple disableRipple>
+            <IconButton
+              onClick={() => decrementImageIndex()}
+              sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
+              disableFocusRipple
+              disableRipple
+            >
               <ChevronLeftIcon sx={styles.arrowButton} />
             </IconButton>
           </Box>
           <Box sx={styles.arrowButtonContainer}>
-            <IconButton onClick={() => incrementImageIndex()} disableFocusRipple disableRipple>
+            <IconButton
+              onClick={() => incrementImageIndex()}
+              sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
+              disableFocusRipple
+              disableRipple
+            >
               <ChevronRightIcon sx={styles.arrowButton} />
             </IconButton>
           </Box>
