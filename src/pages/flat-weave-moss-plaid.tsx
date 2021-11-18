@@ -187,6 +187,8 @@ export default function Page() {
         cards={cards}
         labelColor="#826C4F"
         textColor="#333333"
+        textLinkLabel="See all &gt;"
+        textLinkUrl="/elizabeths-cloth"
         sectionLabel="More from Elizabeth’s Cloth"
       />
 

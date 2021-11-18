@@ -1,10 +1,12 @@
 import React from 'react';
+import NextLink from 'next/link';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Container } from '@mui/material';
 import { IconButton } from '@mui/material';
 import Box from '@mui/material/Box';
+import MUILink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import CarouselCard from './CarouselCard';
@@ -13,7 +15,9 @@ import styles from './styles';
 interface Props {
   textColor: string;
   labelColor: string;
-  sectionLabel: string;
+  sectionLabel?: string;
+  textLinkUrl?: string;
+  textLinkLabel?: string;
   cards: {
     image: string;
     title: string;
@@ -24,7 +28,7 @@ interface Props {
   }[];
 }
 
-function CarouselCards({ textColor, sectionLabel, labelColor, cards }: Props): JSX.Element {
+function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textLinkLabel, cards }: Props): JSX.Element {
   const prevElement = () => {
     document.getElementById('carousel').scrollLeft -= 200;
   };
@@ -37,12 +41,22 @@ function CarouselCards({ textColor, sectionLabel, labelColor, cards }: Props): J
     return (
       <Box sx={styles.cardsCarouselControlsContainer}>
         <Box sx={styles.cardsCarouselArrowButtonContainer}>
-          <IconButton onClick={() => prevElement()} disableFocusRipple disableRipple>
+          <IconButton
+            onClick={() => prevElement()}
+            sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
+            disableFocusRipple
+            disableRipple
+          >
             <ChevronLeftIcon sx={styles.cardsCarouselArrowButton} />
           </IconButton>
         </Box>
         <Box sx={styles.cardsCarouselArrowButtonContainer}>
-          <IconButton onClick={() => nextElement()} disableFocusRipple disableRipple>
+          <IconButton
+            onClick={() => nextElement()}
+            sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
+            disableFocusRipple
+            disableRipple
+          >
             <ChevronRightIcon sx={styles.cardsCarouselArrowButton} />
           </IconButton>
         </Box>
@@ -55,7 +69,11 @@ function CarouselCards({ textColor, sectionLabel, labelColor, cards }: Props): J
       <Container maxWidth="xl">
         <Box sx={styles.cardsCarouselLabelContainer}>
           <Typography sx={{ ...styles.cardsCarouselLabel, color: labelColor }}>{sectionLabel}</Typography>
-          <Typography sx={{ ...styles.cardsCarouselTextLink }}>See all &gt;</Typography>
+          <NextLink href={textLinkUrl} passHref>
+            <MUILink color="inherit" variant="inherit" underline="hover">
+              <Typography sx={{ ...styles.cardsCarouselTextLink, color: textColor }}>{textLinkLabel}</Typography>
+            </MUILink>
+          </NextLink>
         </Box>
       </Container>
       <Box sx={styles.cardsCarouselContainer}>

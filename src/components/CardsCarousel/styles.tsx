@@ -69,16 +69,30 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    flexDirection: 'row' as const,
-    margin: '60px 0 60px 0',
+    flexDirection: {
+      xs: 'column' as const,
+      sm: 'row' as const,
+      md: 'row' as const,
+    },
+    margin: {
+      xs: '60px 0 40px 0',
+      sm: '60px 0 60px 0',
+    },
   },
   cardsCarouselLabel: {
-    fontSize: '2.5rem',
+    fontSize: {
+      xs: '2rem',
+      sm: '2.5rem',
+    },
     fontStyle: 'italic',
     fontFamily: freightBigProMediumItalic,
     lineHeight: 1,
   },
   cardsCarouselTextLink: {
+    marginTop: {
+      xs: '20px',
+      sm: '0',
+    },
     color: colorDarkGrey,
     fontSize: '1rem',
     fontFamily: proximaNova,

@@ -6,6 +6,8 @@ interface Props {
   textColor: string;
   labelColor: string;
   sectionLabel: string;
+  textLinkUrl?: string;
+  textLinkLabel?: string;
   cards: {
     image: string;
     title: string;
