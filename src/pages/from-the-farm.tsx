@@ -81,7 +81,7 @@ export default function Page() {
         mediaDesktop="images/fromTheFarmHero.png"
       />
 
-      <CardList cards={exampleCards} />
+      <CardList cards={exampleCards} mobileSizeWide={true} />
 
       <Footer
         title="Elizabeth Eakins Studio"

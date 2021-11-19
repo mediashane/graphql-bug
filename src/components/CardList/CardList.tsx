@@ -15,9 +15,10 @@ interface Props {
     showSticker?: boolean;
     link?: string;
   }[];
+  mobileSizeWide?: boolean;
 }
 
-function CardList({ cards = [] }: Props): JSX.Element {
+function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
   return (
     <Box sx={styles.cardListContainer}>
       <Box sx={styles.cardListWrapper}>
@@ -32,6 +33,7 @@ function CardList({ cards = [] }: Props): JSX.Element {
               showSticker={showSticker}
               link={link}
               key={index}
+              mobileSizeWide={mobileSizeWide}
             />
           );
         })}

@@ -16,6 +16,9 @@ const styles = {
       sm: '80px',
       md: '140px',
     },
+    textAlign: 'center' as const,
+  },
+  categoryCardNarrow: {
     width: {
       xs: '150px',
       sm: '320px',
@@ -27,7 +30,19 @@ const styles = {
       lg: '490px',
       xl: '520px',
     },
-    textAlign: 'center' as const,
+  },
+  categoryCardWide: {
+    width: {
+      xs: '320px',
+      sm: '360px',
+      xl: '400px',
+    },
+    height: {
+      xs: '450px',
+      sm: '450px',
+      lg: '490px',
+      xl: '520px',
+    },
   },
   categoryCardWrapper: {
     display: 'flex',
@@ -72,7 +87,7 @@ const styles = {
       sm: '18px',
     },
   },
-  categoryCardImage: {
+  categoryCardImageNarrow: {
     width: {
       xs: '150px',
       sm: '320px',
@@ -89,10 +104,35 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
   },
-  categoryCardTextContainer: {
+  categoryCardImageWide: {
+    width: {
+      xs: '320px',
+      sm: '360px',
+      lg: '360px',
+      xl: '400px',
+    },
+    height: {
+      xs: '320px',
+      sm: '360px',
+      lg: '360px',
+      xl: '400px',
+    },
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+  },
+  categoryCardTextNarrow: {
     width: {
       xs: '150px',
       sm: '320px',
+      lg: '360px',
+      xl: '400px',
+    },
+  },
+  categoryCardTextWide: {
+    width: {
+      xs: '320px',
+      sm: '360px',
       lg: '360px',
       xl: '400px',
     },
