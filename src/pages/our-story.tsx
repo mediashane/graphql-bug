@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, HeroLeftJustified } from 'components';
+import { Footer, Header, HeroRightJustified } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -14,16 +14,16 @@ export default function Page() {
       <Header title={generalSettings.title} />
 
       <Head>
-        <title>Our Story - {generalSettings.title}</title>
+        <title>{generalSettings.title}</title>
       </Head>
 
-      <HeroLeftJustified title="Our Story" />
-
-      <main className="content content-single">
-        <div className="wrap">
-          <p>Story will go here</p>
-        </div>
-      </main>
+      <HeroRightJustified
+        textColor="#FFFFFF"
+        textHeadline="It begins in 1978 with one woman who had a talent for textile design and believed in the discipline of doing things by hand."
+        textMediaLabel="Watch Portraits in Creativity"
+        textSubline="A special look into Elizabeth Eakins’ process, passion and work. Directed by Gael Towey with cinematography by Victoria Pearson."
+        mediaDesktop="images/AnalogPortrait.png"
+      />
 
       <Footer
         title="Elizabeth Eakins Studio"

@@ -40,3 +40,10 @@
     font-weight: 400;
     src: url('./ProximaNova/ProximaNovaRegular.otf');
 }
+
+@font-face {
+    font-family: 'ProximaNovaThin';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./ProximaNova/ProximaNovaThin.otf');
+}
