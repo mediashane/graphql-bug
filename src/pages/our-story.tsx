@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, HeroRightJustified } from 'components';
+import { Footer, Header, HeroRightJustified, TwoColumnContent } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -23,6 +23,13 @@ export default function Page() {
         textMediaLabel="Watch Portraits in Creativity"
         textSubline="A special look into Elizabeth Eakins’ process, passion and work. Directed by Gael Towey with cinematography by Victoria Pearson."
         mediaDesktop="images/AnalogPortrait.png"
+      />
+
+      <TwoColumnContent
+        textHeadline="Living with Elizabeth Eakins rugs is an intimate experience. "
+        textParagraph="Handmade with an indelible care for natural fibers, each rug is an artifact with its own history, designed to endure."
+        headlineColor="#826C4F"
+        paragraphColor="#333333"
       />
 
       <Footer

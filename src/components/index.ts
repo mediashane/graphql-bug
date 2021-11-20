@@ -15,4 +15,5 @@ export { default as HeroRightJustified } from './HeroRightJustified/HeroRightJus
 export { default as Pagination } from './Pagination';
 export { default as ThreeFeatureCards } from './ThreeFeatureCards/ThreeFeatureCards';
 export { default as ThreeImageExplore } from './ThreeImageExplore/ThreeImageExplore';
+export { default as TwoColumnContent } from './TwoColumnContent/TwoColumnContent';
 export { default as TwoColumnGallery } from './TwoColumnGallery/TwoColumnGallery';

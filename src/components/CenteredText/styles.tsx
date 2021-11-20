@@ -7,7 +7,7 @@ const styles = {
     justifyContent: 'center',
     padding: '60px 0',
     width: '100%',
-    minHeight: '20x',
+    minHeight: '20px',
   },
   centeredTextWrapper: {
     display: 'flex',
