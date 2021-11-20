@@ -10,7 +10,7 @@ const styles = {
       sm: 'column' as const,
       md: 'row' as const,
     },
-    padding: '40px',
+    padding: '40px 0',
     width: '100%',
   },
   twoColumnImageWrapper: {
