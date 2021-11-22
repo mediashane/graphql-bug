@@ -1,4 +1,4 @@
-import { HeroLeftJustified } from 'components';
+import { CallToAction, HeroLeftJustified } from 'components';
 
 export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
@@ -16,6 +16,34 @@ export default function netteamRenderComponent(componentName, componentData, ind
             textParagraph={textParagraph}
             media={mediaItemUrl}
             textColor={textColor}
+          />
+        );
+      }
+      case 'CallToAction': {
+        const {
+          textHeadline,
+          textParagraph,
+          textColor,
+          cardBackgroundColor,
+          buttonLabel,
+          media,
+          buttonUrl,
+          buttonTextColor,
+          buttonBackgroundColor,
+        } = componentData;
+        const { mediaItemUrl } = media;
+        return (
+          <CallToAction
+            key={`${componentName}_${index}`}
+            textHeadline={textHeadline}
+            textParagraph={textParagraph}
+            media={mediaItemUrl}
+            textColor={textColor}
+            cardBackgroundColor={cardBackgroundColor}
+            buttonLabel={buttonLabel}
+            buttonUrl={buttonUrl}
+            buttonTextColor={buttonTextColor}
+            buttonBackgroundColor={buttonBackgroundColor}
           />
         );
       }

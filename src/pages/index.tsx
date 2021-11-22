@@ -36,10 +36,15 @@ export default function Page() {
       />
 
       <CallToAction
-        ctaTitle="May Sale 2021"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        ctaButtonLabel="Shop now"
-        backgroundImage="images/ctaSale.png"
+        textHeadline="May Sale 2022"
+        textParagraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        buttonLabel="Shop now"
+        textColor="#ffffff"
+        cardBackgroundColor="#6AC283"
+        media="images/ctaSale.png"
+        buttonUrl="/rugs"
+        buttonTextColor="#ffffff"
+        buttonBackgroundColor="transparent"
       />
 
       <ThreeImageExplore

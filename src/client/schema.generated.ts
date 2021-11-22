@@ -4955,11 +4955,9 @@ export const generatedSchema = {
     buttonUrl: { __type: 'AcfLink' },
     cardBackgroundColor: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
-    mediaDesktop: { __type: 'MediaItem' },
-    mediaMobile: { __type: 'MediaItem' },
+    media: { __type: 'MediaItem' },
     textColor: { __type: 'String' },
     textHeadline: { __type: 'String' },
-    textOverline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
   AcfLink: {
@@ -6836,11 +6834,9 @@ export const generatedSchema = {
     buttonUrl: { __type: 'AcfLink' },
     cardBackgroundColor: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
-    mediaDesktop: { __type: 'MediaItem' },
-    mediaMobile: { __type: 'MediaItem' },
+    media: { __type: 'MediaItem' },
     textColor: { __type: 'String' },
     textHeadline: { __type: 'String' },
-    textOverline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
   Template_Home: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
@@ -10934,11 +10930,9 @@ export interface Page_Pagebuilder_Modules_CallToAction {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  mediaDesktop?: Maybe<MediaItem>;
-  mediaMobile?: Maybe<MediaItem>;
+  media?: Maybe<MediaItem>;
   textColor?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
-  textOverline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
 }
 
@@ -14045,11 +14039,9 @@ export interface DefaultTemplate_Pagebuilder_Modules_CallToAction {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  mediaDesktop?: Maybe<MediaItem>;
-  mediaMobile?: Maybe<MediaItem>;
+  media?: Maybe<MediaItem>;
   textColor?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
-  textOverline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
 }
 

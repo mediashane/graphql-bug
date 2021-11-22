@@ -55,7 +55,6 @@ const styles = {
       lg: '460px',
       xl: '460px',
     },
-    color: colorWhite,
     backgroundColor: colorBrandGreen,
   },
   ctaTextContainer: {
@@ -66,7 +65,7 @@ const styles = {
     padding: '0 40px',
     textAlign: 'center' as const,
   },
-  ctaTitle: {
+  ctaTextHeadline: {
     fontSize: {
       xs: '2.5rem',
       sm: '3.75rem',
@@ -87,7 +86,7 @@ const styles = {
     backgroundPosition: 'center center',
     borderRadius: '50%',
   },
-  ctaDescription: {
+  ctaTextParagraph: {
     marginTop: {
       xs: '0px',
       sm: '-20px',
@@ -96,7 +95,6 @@ const styles = {
   },
   ctaButton: {
     padding: '15px 50px',
-    color: colorWhite,
     backgroundColor: 'transparent',
     fontFamily: proximaNova,
     fontWeight: '600',
@@ -105,13 +103,6 @@ const styles = {
     borderColor: colorWhite,
     borderRadius: 0,
     transition: 'all 0.25s ease',
-
-    '&:hover': {
-      color: colorBrandGreen,
-      backgroundColor: colorWhite,
-      borderWidth: '2px',
-      borderColor: colorWhite,
-    },
   },
 };
 
