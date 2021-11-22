@@ -17,7 +17,7 @@ export default function Page() {
         <title>Rugs - {generalSettings.title}</title>
       </Head>
 
-      <HeroLeftJustified title="Fabric" />
+      <HeroLeftJustified textHeadline="Fabric" />
 
       <main className="content content-single">
         <div className="wrap">

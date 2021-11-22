@@ -6,7 +6,7 @@ export default function Page(): JSX.Element {
   return (
     <>
       <main className="content content-page">
-        <HeroLeftJustified title={`Oops! That page can’t be found.`} />
+        <HeroLeftJustified textHeadline={`Oops! That page can’t be found.`} />
         <div className="wrap">
           <div>
             <div>

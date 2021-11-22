@@ -37,7 +37,7 @@ const styles = {
     color: colorWhite,
     fontFamily: freightBigProSemibold,
   },
-  introTitleText: {
+  textOverline: {
     fontFamily: 'inherit',
     fontSize: {
       xs: '5.5vw',
@@ -47,7 +47,7 @@ const styles = {
       xl: '3vw',
     },
   },
-  titleText: {
+  textHeadline: {
     fontFamily: 'inherit',
     fontSize: {
       xs: '9.5vw',
@@ -57,7 +57,7 @@ const styles = {
       xl: '7.5vw',
     },
   },
-  descriptionText: {
+  textParagraph: {
     fontFamily: 'inherit',
     fontSize: {
       xs: '4vw',

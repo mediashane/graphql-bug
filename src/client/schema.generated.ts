@@ -4941,8 +4941,7 @@ export const generatedSchema = {
   Page_Pagebuilder_Modules_HeroLeftJustified: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
-    mediaDesktop: { __type: 'MediaItem' },
-    mediaMobile: { __type: 'MediaItem' },
+    media: { __type: 'MediaItem' },
     textColor: { __type: 'String' },
     textHeadline: { __type: 'String' },
     textOverline: { __type: 'String' },
@@ -6823,8 +6822,7 @@ export const generatedSchema = {
   DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
-    mediaDesktop: { __type: 'MediaItem' },
-    mediaMobile: { __type: 'MediaItem' },
+    media: { __type: 'MediaItem' },
     textColor: { __type: 'String' },
     textHeadline: { __type: 'String' },
     textOverline: { __type: 'String' },
@@ -10915,8 +10913,7 @@ export interface Page_Pagebuilder_Modules_HeroLeftJustified {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  mediaDesktop?: Maybe<MediaItem>;
-  mediaMobile?: Maybe<MediaItem>;
+  media?: Maybe<MediaItem>;
   textColor?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textOverline?: Maybe<ScalarsEnums['String']>;
@@ -14027,8 +14024,7 @@ export interface DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  mediaDesktop?: Maybe<MediaItem>;
-  mediaMobile?: Maybe<MediaItem>;
+  media?: Maybe<MediaItem>;
   textColor?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textOverline?: Maybe<ScalarsEnums['String']>;

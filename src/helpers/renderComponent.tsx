@@ -6,15 +6,16 @@ export default function netteamRenderComponent(componentName, componentData, ind
 
     switch (componentName) {
       case 'HeroLeftJustified': {
-        const { textOverline, textHeadline, textParagraph, mediaDesktop } = componentData;
-        const { mediaItemUrl } = mediaDesktop;
+        const { textOverline, textHeadline, textParagraph, media, textColor } = componentData;
+        const { mediaItemUrl } = media;
         return (
           <HeroLeftJustified
             key={`${componentName}_${index}`}
-            introTitle={textOverline}
-            title={textHeadline}
-            description={textParagraph}
-            backgroundImage={mediaItemUrl}
+            textOverline={textOverline}
+            textHeadline={textHeadline}
+            textParagraph={textParagraph}
+            media={mediaItemUrl}
+            textColor={textColor}
           />
         );
       }

@@ -15,9 +15,9 @@ const Template: ComponentStory<typeof HeroLeftJustified> = (args) => <HeroLeftJu
 
 export const LeftJustifedHero = Template.bind({});
 LeftJustifedHero.args = {
-  introTitle: 'Welcome to',
-  title: 'Elizabeth Eakins',
-  description:
+  textOverline: 'Welcome to',
+  textHeadline: 'Elizabeth Eakins',
+  textParagraph:
     'Beloved for their richness, simplicity, and ease of use, the sophisticated colors of Elizabeth Eakins rugs, fabrics, and grasscloth wallpapers evoke the phenomenon of natural light gracing an organic form.',
-  backgroundImage: elizabethWeaving,
+  media: elizabethWeaving,
 };

@@ -17,9 +17,9 @@ export default function Page() {
     idType: PageIdType.URI,
   });
 
-  const { textOverline, textHeadline, textParagraph, mediaDesktop } =
+  const { textOverline, textHeadline, textParagraph, media } =
     pageData.pageBuilder.modules[0].$on.Page_Pagebuilder_Modules_HeroLeftJustified;
-  const { mediaItemUrl } = mediaDesktop;
+  const { mediaItemUrl } = media;
 
   return (
     <>
@@ -29,10 +29,10 @@ export default function Page() {
       </Head>
 
       <HeroLeftJustified
-        introTitle={textOverline}
-        title={textHeadline}
-        description={textParagraph}
-        backgroundImage={mediaItemUrl}
+        textOverline={textOverline}
+        textHeadline={textHeadline}
+        textParagraph={textParagraph}
+        media={mediaItemUrl}
       />
 
       <CallToAction

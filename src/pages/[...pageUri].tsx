@@ -27,7 +27,7 @@ export function PageComponent({ page }: PageProps) {
         </title>
       </Head>
 
-      <HeroLeftJustified title={page?.title()} />
+      <HeroLeftJustified textHeadline={page?.title()} />
 
       <main className="content content-single">
         <div className="wrap">

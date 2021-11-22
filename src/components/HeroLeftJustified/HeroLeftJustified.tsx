@@ -7,25 +7,27 @@ import Box from '@mui/material/Box';
 import styles from './styles';
 
 interface Props {
-  introTitle?: string;
-  title: string;
-  description?: string;
-  backgroundImage?: string;
+  textOverline?: string;
+  textHeadline: string;
+  textParagraph?: string;
+  media?: string;
+  textColor?: string;
 }
 
 function HeroLeftJustified({
-  introTitle = '',
-  title = '',
-  description = '',
-  backgroundImage = '',
+  textOverline = '',
+  textHeadline = '',
+  textParagraph = '',
+  media = '',
+  textColor = '',
 }: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${backgroundImage})` }}>
+    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
       <Box sx={styles.textContainer}>
         <Fade delay={500}>
-          <Typography sx={styles.introTitleText}>{introTitle}</Typography>
-          <Typography sx={styles.titleText}>{title}</Typography>
-          <Typography sx={styles.descriptionText}>{description}</Typography>
+          <Typography sx={{ ...styles.textOverline, color: textColor }}>{textOverline}</Typography>
+          <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>
+          <Typography sx={{ ...styles.textParagraph, color: textColor }}>{textParagraph}</Typography>
         </Fade>
       </Box>
     </Box>

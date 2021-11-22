@@ -17,7 +17,7 @@ export default function Page() {
         <title>Rugs - {generalSettings.title}</title>
       </Head>
 
-      <HeroLeftJustified title="Contact us" />
+      <HeroLeftJustified textHeadline="Contact us" />
 
       <main className="content content-single">
         <div className="wrap">

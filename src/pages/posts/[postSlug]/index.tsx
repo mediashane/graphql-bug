@@ -23,7 +23,7 @@ export function PostComponent({ post }: PostProps) {
         </title>
       </Head>
 
-      <HeroLeftJustified title={post?.title()} />
+      <HeroLeftJustified textHeadline={post?.title()} />
 
       <main className="content content-single">
         <div className="wrap">
