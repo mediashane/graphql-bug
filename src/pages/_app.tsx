@@ -1,11 +1,12 @@
 import 'faust.config';
+import 'koa.config';
 import 'normalize.css/normalize.css';
 
 import React, { useEffect } from 'react';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
 
-import { HeadlessProvider } from '@faustjs/next';
+import { FaustProvider } from '@faustjs/next';
 import markerSDK from '@marker.io/browser';
 
 export default function KoaApp({ Component, pageProps }: AppProps) {
@@ -22,9 +23,9 @@ export default function KoaApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <HeadlessProvider client={client} pageProps={pageProps}>
+      <FaustProvider client={client} pageProps={pageProps}>
         <Component {...pageProps} />
-      </HeadlessProvider>
+      </FaustProvider>
     </>
   );
 }

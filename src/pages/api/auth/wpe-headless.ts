@@ -1,5 +1,5 @@
 import 'faust.config';
 
-import { authorizeHandler } from '@faustjs/core';
+import { apiRouter } from '@faustjs/core/api';
 
-export default authorizeHandler;
+export default apiRouter;

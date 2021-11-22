@@ -1,4 +1,4 @@
-import { headlessConfig } from '@faustjs/core';
+import { config as headlessConfig } from '@faustjs/core';
 
 if (!process.env.NEXT_PUBLIC_WORDPRESS_URL) {
   console.error(
