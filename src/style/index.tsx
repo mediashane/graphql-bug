@@ -18,3 +18,15 @@ export const colorBrandBlue = '#587DA9',
   proximaNovaThin = 'ProximaNovaThin',
   paddingMobile = '40px',
   siteMaxWidth = '400px';
+
+export const breakpoints = {
+  xs: 0,
+  sm: 600,
+  md: 900,
+  lg: 1200,
+  xl: 1440,
+};
+
+export const commons = {
+  flex: { display: 'flex', width: '100%', height: '100%' },
+};
