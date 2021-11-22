@@ -1,4 +1,4 @@
-import { Config } from '../../config/config';
+import { Config } from '../config/config';
 
 const styles = (config: Config) => {
   const { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_MOBILE } = config.headerConfig;
