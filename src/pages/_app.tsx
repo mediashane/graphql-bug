@@ -5,9 +5,11 @@ import 'normalize.css/normalize.css';
 import React, { useEffect } from 'react';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
+import theme from 'style/theme';
 
 import { FaustProvider } from '@faustjs/next';
 import markerSDK from '@marker.io/browser';
+import { ThemeProvider } from '@mui/material';
 
 export default function KoaApp({ Component, pageProps }: AppProps) {
   const fetchWidget = async () => {
@@ -22,10 +24,10 @@ export default function KoaApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <FaustProvider client={client} pageProps={pageProps}>
         <Component {...pageProps} />
       </FaustProvider>
-    </>
+    </ThemeProvider>
   );
 }
