@@ -1,4 +1,4 @@
-import { CallToAction, HeroLeftJustified } from 'components';
+import { CallToAction, HeroLeftJustified, ThreeImageButtons } from 'components';
 
 export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
@@ -44,6 +44,46 @@ export default function netteamRenderComponent(componentName, componentData, ind
             buttonUrl={buttonUrl}
             buttonTextColor={buttonTextColor}
             buttonBackgroundColor={buttonBackgroundColor}
+          />
+        );
+      }
+      case 'ThreeImageButtons': {
+        const {
+          sectionLabel,
+          labelTextColor,
+          textColor,
+          buttonImageOne,
+          labelOne,
+          linkOne,
+          buttonImageTwo,
+          labelTwo,
+          linkTwo,
+          buttonImageThree,
+          labelThree,
+          linkThree,
+        } = componentData;
+        const { mediaItemUrl: imageOne } = buttonImageOne;
+        const { mediaItemUrl: imageTwo } = buttonImageTwo;
+        const { mediaItemUrl: imageThree } = buttonImageThree;
+        const { url: buttonLinkOne } = linkOne;
+        const { url: buttonLinkTwo } = linkTwo;
+        const { url: buttonLinkThree } = linkThree;
+
+        return (
+          <ThreeImageButtons
+            key={`${componentName}_${index}`}
+            sectionLabel={sectionLabel}
+            labelTextColor={labelTextColor}
+            textColor={textColor}
+            buttonImageOne={imageOne}
+            labelOne={labelOne}
+            linkOne={buttonLinkOne}
+            buttonImageTwo={imageTwo}
+            labelTwo={labelTwo}
+            linkTwo={buttonLinkTwo}
+            buttonImageThree={imageThree}
+            labelThree={labelThree}
+            linkThree={buttonLinkThree}
           />
         );
       }

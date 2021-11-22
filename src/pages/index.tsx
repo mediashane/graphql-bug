@@ -1,6 +1,6 @@
 import React from 'react';
 import { client, PageIdType } from 'client';
-import { CallToAction, EmailSubscribe, Footer, Header, HeroLeftJustified, ThreeImageExplore } from 'components';
+import { CallToAction, EmailSubscribe, Footer, Header, HeroLeftJustified, ThreeImageButtons } from 'components';
 import ThreeFeatureCards from 'components/ThreeFeatureCards/ThreeFeatureCards';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -47,15 +47,17 @@ export default function Page() {
         buttonBackgroundColor="transparent"
       />
 
-      <ThreeImageExplore
+      <ThreeImageButtons
         sectionLabel="Explore"
-        backgroundImageOne="images/rugsLink.png"
+        labelTextColor="#587DA9"
+        textColor="#ffffff"
+        buttonImageOne="images/rugsLink.png"
         labelOne="Rugs"
         linkOne="/rugs"
-        backgroundImageTwo="images/fabricLink.png"
+        buttonImageTwo="images/fabricLink.png"
         labelTwo="Fabric"
         linkTwo="/fabric"
-        backgroundImageThree="images/grassclothLink.png"
+        buttonImageThree="images/grassclothLink.png"
         labelThree="Grasscloth"
         linkThree="/grasscloth"
       />

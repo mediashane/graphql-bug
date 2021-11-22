@@ -15,9 +15,14 @@ const Template: ComponentStory<typeof CallToAction> = (args) => <CallToAction {.
 
 export const CallToActionSection = Template.bind({});
 CallToActionSection.args = {
-  textHeadline: 'May Sale 2021',
-  ctaButtonLabel: 'Shop Now',
+  textHeadline: 'May Sale 2022',
   textParagraph:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  buttonLabel: 'Shop now',
+  textColor: '#ffffff',
+  cardBackgroundColor: '#6AC283',
   media: ctaSale,
+  buttonUrl: '/rugs',
+  buttonTextColor: '#ffffff',
+  buttonBackgroundColor: 'transparent',
 };

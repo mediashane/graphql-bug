@@ -1,7 +1,7 @@
 import { colorBrandBlue, colorWhite, freightBigProMediumItalic, freightBigProSemibold } from '../../style';
 
 const styles = {
-  threeImageExploreContainer: {
+  threeImageButtonsContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -14,7 +14,7 @@ const styles = {
       xl: '563px',
     },
   },
-  threeImageExploreContent: {
+  threeImageButtonsContent: {
     display: 'flex',
     flexDirection: 'column' as const,
     alignItems: 'flex-start',
@@ -22,14 +22,14 @@ const styles = {
     width: '87.5%',
     height: '100%',
   },
-  threeImageExploreTitle: {
+  threeImageButtonsTitle: {
     color: colorBrandBlue,
     fontSize: '2.5rem',
     fontStyle: 'italic' as const,
     fontFamily: freightBigProMediumItalic,
     lineHeight: 1,
   },
-  threeImageExploreCards: {
+  threeImageButtonsCards: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: {
@@ -54,7 +54,7 @@ const styles = {
     width: '100%',
     height: '70%',
   },
-  threeImageExploreCard: {
+  threeImageButtonsCard: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -83,7 +83,7 @@ const styles = {
     backgroundPosition: 'center center',
     cursor: 'pointer',
   },
-  threeImageExploreCardLabel: {
+  threeImageButtonsCardLabel: {
     color: colorWhite,
     fontSize: '3rem',
     fontFamily: freightBigProSemibold,
