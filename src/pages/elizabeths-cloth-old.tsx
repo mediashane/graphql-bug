@@ -35,10 +35,34 @@ const galleryListItems = [
 ];
 
 const galleryImages = [
-  'images/elizabethsClothDetails.png',
-  'images/elizabethsCloth.png',
-  'images/newArrivals.png',
-  'images/rugsLink.png',
+  {
+    __typename: 'Type Name',
+    fieldGroupName: 'TwoColumnGalleryImages',
+    image: {
+      mediaItemUrl: 'images/elizabethsClothDetails.png',
+    },
+  },
+  {
+    __typename: 'Type Name',
+    fieldGroupName: 'TwoColumnGalleryImages',
+    image: {
+      mediaItemUrl: 'images/elizabethsCloth.png',
+    },
+  },
+  {
+    __typename: 'Type Name',
+    fieldGroupName: 'TwoColumnGalleryImages',
+    image: {
+      mediaItemUrl: 'images/newArrivals.png',
+    },
+  },
+  {
+    __typename: 'Type Name',
+    fieldGroupName: 'TwoColumnGalleryImages',
+    image: {
+      mediaItemUrl: 'images/rugsLink.png',
+    },
+  },
 ];
 
 export default function Page() {
