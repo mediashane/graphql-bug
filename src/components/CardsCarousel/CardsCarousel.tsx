@@ -12,7 +12,12 @@ interface Props {
     image: string;
     title: string;
     subtitle?: string;
-    link: string;
+    link?: {
+      url?: string;
+      target?: string;
+      title?: string;
+      __typename?: string;
+    };
     showSticker: boolean;
     stickerText: string;
   }[];
