@@ -12,10 +12,20 @@ interface Props {
   placeholder: string;
   buttonLabel: string;
   subtitle: string;
+  textColor: string;
   backgroundImage: string;
+  backgroundColor: string;
 }
 
-function EmailSubscribe({ title, placeholder, buttonLabel, subtitle, backgroundImage }: Props): JSX.Element {
+function EmailSubscribe({
+  title = '',
+  placeholder = '',
+  buttonLabel = '',
+  subtitle = '',
+  textColor = '',
+  backgroundImage = '',
+  backgroundColor = '',
+}: Props): JSX.Element {
   const [formInput, setFormInput] = useState('');
 
   const onKeyPress = (e: any) => {
@@ -29,12 +39,12 @@ function EmailSubscribe({ title, placeholder, buttonLabel, subtitle, backgroundI
   };
 
   return (
-    <Box sx={styles.emailSubscribeContainer}>
+    <Box sx={{ ...styles.emailSubscribeContainer, backgroundColor: backgroundColor }}>
       <Box sx={styles.emailSubscribeWrapper}>
         <Box sx={{ ...styles.emailSubscribeImage, backgroundImage: `url(${backgroundImage})` }} />
         <Box sx={styles.emailSubscribeContent}>
           <Box sx={styles.emailSubscribeTitleContainer}>
-            <Typography sx={styles.emailSubscribeTitle}>{title}</Typography>
+            <Typography sx={{ ...styles.emailSubscribeTitle, color: textColor }}>{title}</Typography>
           </Box>
           <Box sx={styles.emailSubscribeInputContainer}>
             <OutlinedInput
@@ -45,12 +55,16 @@ function EmailSubscribe({ title, placeholder, buttonLabel, subtitle, backgroundI
               placeholder={placeholder}
               onChange={(event) => setFormInput(event.target.value)}
             />
-            <Button onClick={() => submitEmail()} sx={styles.emailSubscribeButton} variant="outlined">
+            <Button
+              onClick={() => submitEmail()}
+              sx={{ ...styles.emailSubscribeButton, color: textColor }}
+              variant="outlined"
+            >
               {buttonLabel}
             </Button>
           </Box>
           <Box sx={styles.emailSubscribeTitleContainer}>
-            <Typography sx={styles.emailSubscribeSubtitle}>{subtitle}</Typography>
+            <Typography sx={{ ...styles.emailSubscribeSubtitle, color: textColor }}>{subtitle}</Typography>
           </Box>
         </Box>
       </Box>

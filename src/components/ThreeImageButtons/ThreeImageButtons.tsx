@@ -35,7 +35,6 @@ function ThreeImageButtons({
   labelThree = '',
   linkThree = '',
 }: Props): JSX.Element {
-  console.log('LINK? ', linkOne);
   return (
     <Box sx={styles.threeImageButtonsContainer}>
       <Box sx={styles.threeImageButtonsContent}>

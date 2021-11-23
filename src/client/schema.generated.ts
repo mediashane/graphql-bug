@@ -4982,6 +4982,34 @@ export const generatedSchema = {
     sectionLabel: { __type: 'String' },
     textColor: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_ThreeFeatureCards: {
+    __typename: { __type: 'String!' },
+    descriptionOne: { __type: 'String' },
+    descriptionThree: { __type: 'String' },
+    descriptionTwo: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    iconLayout: { __type: 'Boolean' },
+    imageOne: { __type: 'MediaItem' },
+    imageThree: { __type: 'MediaItem' },
+    imageTwo: { __type: 'MediaItem' },
+    labelOne: { __type: 'String' },
+    labelTextColor: { __type: 'String' },
+    labelThree: { __type: 'String' },
+    labelTwo: { __type: 'String' },
+    sectionLabel: { __type: 'String' },
+    textColor: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_EmailSubscribe: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    backgroundImage: { __type: 'MediaItem' },
+    buttonLabel: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    placeholder: { __type: 'String' },
+    subtitle: { __type: 'String' },
+    textColor: { __type: 'String' },
+    title: { __type: 'String' },
+  },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
@@ -6871,6 +6899,34 @@ export const generatedSchema = {
     sectionLabel: { __type: 'String' },
     textColor: { __type: 'String' },
   },
+  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards: {
+    __typename: { __type: 'String!' },
+    descriptionOne: { __type: 'String' },
+    descriptionThree: { __type: 'String' },
+    descriptionTwo: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    iconLayout: { __type: 'Boolean' },
+    imageOne: { __type: 'MediaItem' },
+    imageThree: { __type: 'MediaItem' },
+    imageTwo: { __type: 'MediaItem' },
+    labelOne: { __type: 'String' },
+    labelTextColor: { __type: 'String' },
+    labelThree: { __type: 'String' },
+    labelTwo: { __type: 'String' },
+    sectionLabel: { __type: 'String' },
+    textColor: { __type: 'String' },
+  },
+  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    backgroundImage: { __type: 'MediaItem' },
+    buttonLabel: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    placeholder: { __type: 'String' },
+    subtitle: { __type: 'String' },
+    textColor: { __type: 'String' },
+    title: { __type: 'String' },
+  },
   Template_Home: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
   [SchemaUnionsKey]: {
     Node: [
@@ -6926,15 +6982,21 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_HeroLeftJustified',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
+      'Page_Pagebuilder_Modules_ThreeFeatureCards',
+      'Page_Pagebuilder_Modules_EmailSubscribe',
       'DefaultTemplate_Pagebuilder',
       'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified',
       'DefaultTemplate_Pagebuilder_Modules_CallToAction',
       'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons',
+      'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards',
+      'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
+      'Page_Pagebuilder_Modules_ThreeFeatureCards',
+      'Page_Pagebuilder_Modules_EmailSubscribe',
     ],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
@@ -6946,6 +7008,8 @@ export const generatedSchema = {
       'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified',
       'DefaultTemplate_Pagebuilder_Modules_CallToAction',
       'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons',
+      'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards',
+      'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe',
     ],
   },
 } as const;
@@ -10879,10 +10943,14 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
+    | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
+    | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'DefaultTemplate_Pagebuilder'
     | 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified'
     | 'DefaultTemplate_Pagebuilder_Modules_CallToAction'
-    | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons';
+    | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons'
+    | 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards'
+    | 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe';
   /**
    * The name of the ACF Field Group
    */
@@ -10940,7 +11008,9 @@ export interface Page_Pagebuilder_Modules {
   __typename?:
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
     | 'Page_Pagebuilder_Modules_CallToAction'
-    | 'Page_Pagebuilder_Modules_ThreeImageButtons';
+    | 'Page_Pagebuilder_Modules_ThreeImageButtons'
+    | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
+    | 'Page_Pagebuilder_Modules_EmailSubscribe';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -11020,6 +11090,51 @@ export interface Page_Pagebuilder_Modules_ThreeImageButtons {
   linkTwo?: Maybe<AcfLink>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_ThreeFeatureCards {
+  __typename?: 'Page_Pagebuilder_Modules_ThreeFeatureCards';
+  descriptionOne?: Maybe<ScalarsEnums['String']>;
+  descriptionThree?: Maybe<ScalarsEnums['String']>;
+  descriptionTwo?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Set to true is using icons instead of photo images.
+   */
+  iconLayout?: Maybe<ScalarsEnums['Boolean']>;
+  imageOne?: Maybe<MediaItem>;
+  imageThree?: Maybe<MediaItem>;
+  imageTwo?: Maybe<MediaItem>;
+  labelOne?: Maybe<ScalarsEnums['String']>;
+  labelTextColor?: Maybe<ScalarsEnums['String']>;
+  labelThree?: Maybe<ScalarsEnums['String']>;
+  labelTwo?: Maybe<ScalarsEnums['String']>;
+  sectionLabel?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_EmailSubscribe {
+  __typename?: 'Page_Pagebuilder_Modules_EmailSubscribe';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  backgroundImage?: Maybe<MediaItem>;
+  buttonLabel?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  placeholder?: Maybe<ScalarsEnums['String']>;
+  subtitle?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14073,7 +14188,9 @@ export interface DefaultTemplate_Pagebuilder_Modules {
   __typename?:
     | 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified'
     | 'DefaultTemplate_Pagebuilder_Modules_CallToAction'
-    | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons';
+    | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons'
+    | 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards'
+    | 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe';
   $on: $DefaultTemplate_Pagebuilder_Modules;
 }
 
@@ -14134,6 +14251,51 @@ export interface DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons {
   linkTwo?: Maybe<AcfLink>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards {
+  __typename?: 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards';
+  descriptionOne?: Maybe<ScalarsEnums['String']>;
+  descriptionThree?: Maybe<ScalarsEnums['String']>;
+  descriptionTwo?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Set to true is using icons instead of photo images.
+   */
+  iconLayout?: Maybe<ScalarsEnums['Boolean']>;
+  imageOne?: Maybe<MediaItem>;
+  imageThree?: Maybe<MediaItem>;
+  imageTwo?: Maybe<MediaItem>;
+  labelOne?: Maybe<ScalarsEnums['String']>;
+  labelTextColor?: Maybe<ScalarsEnums['String']>;
+  labelThree?: Maybe<ScalarsEnums['String']>;
+  labelTwo?: Maybe<ScalarsEnums['String']>;
+  sectionLabel?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface DefaultTemplate_Pagebuilder_Modules_EmailSubscribe {
+  __typename?: 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  backgroundImage?: Maybe<MediaItem>;
+  buttonLabel?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  placeholder?: Maybe<ScalarsEnums['String']>;
+  subtitle?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14226,6 +14388,8 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_CallToAction: Page_Pagebuilder_Modules_CallToAction;
   AcfLink: AcfLink;
   Page_Pagebuilder_Modules_ThreeImageButtons: Page_Pagebuilder_Modules_ThreeImageButtons;
+  Page_Pagebuilder_Modules_ThreeFeatureCards: Page_Pagebuilder_Modules_ThreeFeatureCards;
+  Page_Pagebuilder_Modules_EmailSubscribe: Page_Pagebuilder_Modules_EmailSubscribe;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -14354,6 +14518,8 @@ export interface SchemaObjectTypes {
   DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified: DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified;
   DefaultTemplate_Pagebuilder_Modules_CallToAction: DefaultTemplate_Pagebuilder_Modules_CallToAction;
   DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons: DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons;
+  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards: DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards;
+  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe: DefaultTemplate_Pagebuilder_Modules_EmailSubscribe;
   Template_Home: Template_Home;
 }
 export type SchemaObjectTypesNames =
@@ -14435,6 +14601,8 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_CallToAction'
   | 'AcfLink'
   | 'Page_Pagebuilder_Modules_ThreeImageButtons'
+  | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
+  | 'Page_Pagebuilder_Modules_EmailSubscribe'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -14563,6 +14731,8 @@ export type SchemaObjectTypesNames =
   | 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified'
   | 'DefaultTemplate_Pagebuilder_Modules_CallToAction'
   | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons'
+  | 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards'
+  | 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe'
   | 'Template_Home';
 
 export interface $Node {
@@ -14692,16 +14862,22 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
+  Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
+  Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
   DefaultTemplate_Pagebuilder?: DefaultTemplate_Pagebuilder;
   DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified?: DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified;
   DefaultTemplate_Pagebuilder_Modules_CallToAction?: DefaultTemplate_Pagebuilder_Modules_CallToAction;
   DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons?: DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons;
+  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards?: DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards;
+  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe?: DefaultTemplate_Pagebuilder_Modules_EmailSubscribe;
 }
 
 export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
+  Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
+  Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
 }
 
 export interface $NodeWithContentEditor {
@@ -14737,6 +14913,8 @@ export interface $DefaultTemplate_Pagebuilder_Modules {
   DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified?: DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified;
   DefaultTemplate_Pagebuilder_Modules_CallToAction?: DefaultTemplate_Pagebuilder_Modules_CallToAction;
   DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons?: DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons;
+  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards?: DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards;
+  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe?: DefaultTemplate_Pagebuilder_Modules_EmailSubscribe;
 }
 
 export interface GeneratedSchema {

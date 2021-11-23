@@ -15,7 +15,6 @@ const styles = {
       lg: '440px',
       xl: '440px',
     },
-    backgroundColor: '#F7F7F7',
   },
   emailSubscribeWrapper: {
     display: 'flex',
@@ -126,7 +125,6 @@ const styles = {
       sm: '138px',
     },
     height: '71px',
-    color: colorDarkGrey,
     backgroundColor: 'transparent',
     fontSize: '1rem',
     fontFamily: proximaNova,
@@ -174,7 +172,6 @@ const styles = {
     },
   },
   emailSubscribeSubtitle: {
-    color: colorDarkGrey,
     fontSize: '1rem',
     fontFamily: proximaNova,
     textAlign: 'center' as const,

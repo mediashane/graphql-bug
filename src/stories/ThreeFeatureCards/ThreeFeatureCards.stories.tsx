@@ -22,7 +22,7 @@ export const ThreeFeatureCardsSectionIcons = Template.bind({});
 ThreeFeatureCardsSectionIcons.args = {
   sectionLabel: 'Values',
   iconLayout: true,
-  labelColor: '#587DA9',
+  labelTextColor: '#587DA9',
   textColor: '#826C4F',
   imageOne: sustainability,
   labelOne: 'Sustainability',

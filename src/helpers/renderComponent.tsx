@@ -1,4 +1,4 @@
-import { CallToAction, HeroLeftJustified, ThreeImageButtons } from 'components';
+import { CallToAction, EmailSubscribe, HeroLeftJustified, ThreeFeatureCards, ThreeImageButtons } from 'components';
 
 export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
@@ -84,6 +84,62 @@ export default function netteamRenderComponent(componentName, componentData, ind
             buttonImageThree={imageThree}
             labelThree={labelThree}
             linkThree={buttonLinkThree}
+          />
+        );
+      }
+      case 'EmailSubscribe': {
+        const { title, placeholder, buttonLabel, subtitle, textColor, backgroundImage, backgroundColor } =
+          componentData;
+        const { mediaItemUrl } = backgroundImage;
+        return (
+          <EmailSubscribe
+            key={`${componentName}_${index}`}
+            title={title}
+            placeholder={placeholder}
+            buttonLabel={buttonLabel}
+            subtitle={subtitle}
+            textColor={textColor}
+            backgroundImage={mediaItemUrl}
+            backgroundColor={backgroundColor}
+          />
+        );
+      }
+      case 'ThreeFeatureCards': {
+        const {
+          sectionLabel,
+          iconLayout,
+          textColor,
+          labelTextColor,
+          imageOne,
+          labelOne,
+          descriptionOne,
+          imageTwo,
+          labelTwo,
+          descriptionTwo,
+          imageThree,
+          labelThree,
+          descriptionThree,
+        } = componentData;
+        const { mediaItemUrl: cardImageOne } = imageOne;
+        const { mediaItemUrl: cardImageTwo } = imageTwo;
+        const { mediaItemUrl: cardImageThree } = imageThree;
+
+        return (
+          <ThreeFeatureCards
+            key={`${componentName}_${index}`}
+            sectionLabel={sectionLabel}
+            iconLayout={iconLayout}
+            textColor={textColor}
+            labelTextColor={labelTextColor}
+            imageOne={cardImageOne}
+            labelOne={labelOne}
+            descriptionOne={descriptionOne}
+            imageTwo={cardImageTwo}
+            labelTwo={labelTwo}
+            descriptionTwo={descriptionTwo}
+            imageThree={cardImageThree}
+            labelThree={labelThree}
+            descriptionThree={descriptionThree}
           />
         );
       }
