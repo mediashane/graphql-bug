@@ -1,4 +1,4 @@
-import { client } from 'client';
+import { client, Page as PageType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -7,9 +7,12 @@ import { getNextStaticProps, is404 } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 
-export default function Page() {
-  const { usePage, useQuery } = client;
-  const pageData = usePage();
+export interface PageProps {
+  page: PageType | PageType['preview']['node'] | null | undefined;
+}
+
+export function PageComponent({ page }: PageProps) {
+  const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
   const headerSection = (
@@ -39,7 +42,14 @@ export default function Page() {
     />
   );
 
-  return <ComponentsPage header={headerSection} modules={pageData?.pageBuilder?.modules} footer={footerSection} />;
+  return <ComponentsPage header={headerSection} modules={page?.pageBuilder?.modules} footer={footerSection} />;
+}
+
+export default function Page() {
+  const { usePage } = client;
+  const page = usePage();
+
+  return <PageComponent page={page} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
