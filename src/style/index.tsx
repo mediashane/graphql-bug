@@ -19,6 +19,8 @@ export const colorBrandBlue = '#587DA9',
   paddingMobile = '40px',
   siteMaxWidth = '400px';
 
+// Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+
 export const breakpoints = {
   xs: 0,
   sm: 600,

@@ -5044,6 +5044,45 @@ export const generatedSchema = {
     stickerText: { __type: 'String' },
     title: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_TwoColumnGallery: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    buttonLabel: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    iconButtonOneImage: { __type: 'MediaItem' },
+    iconButtonOneLabel: { __type: 'String' },
+    iconButtonOneLink: { __type: 'AcfLink' },
+    iconButtonThreeImage: { __type: 'MediaItem' },
+    iconButtonThreeLabel: { __type: 'String' },
+    iconButtonThreeLink: { __type: 'AcfLink' },
+    iconButtonTwoImage: { __type: 'MediaItem' },
+    iconButtonTwoLabel: { __type: 'String' },
+    iconButtonsHeadline: { __type: 'String' },
+    images: { __type: '[Page_Pagebuilder_Modules_TwoColumnGallery_images]' },
+    listItems: { __type: '[Page_Pagebuilder_Modules_TwoColumnGallery_listItems]' },
+    listItemsLarge: { __type: 'Boolean' },
+    paragraphFont: { __type: 'String' },
+    textAlign: { __type: 'String' },
+    textColorPrimary: { __type: 'String' },
+    textColorSecondary: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textOverline: { __type: 'String' },
+    textParagraph: { __type: 'String' },
+    withButton: { __type: 'Boolean' },
+    withDivider: { __type: 'Boolean' },
+    withIconButtons: { __type: 'Boolean' },
+  },
+  Page_Pagebuilder_Modules_TwoColumnGallery_images: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+  },
+  Page_Pagebuilder_Modules_TwoColumnGallery_listItems: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textParagraph: { __type: 'String' },
+  },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
@@ -6943,6 +6982,9 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_CenteredText',
       'Page_Pagebuilder_Modules_RugCollections',
       'Page_Pagebuilder_Modules_RugCollections_collections',
+      'Page_Pagebuilder_Modules_TwoColumnGallery',
+      'Page_Pagebuilder_Modules_TwoColumnGallery_images',
+      'Page_Pagebuilder_Modules_TwoColumnGallery_listItems',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
@@ -6953,6 +6995,7 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_EmailSubscribe',
       'Page_Pagebuilder_Modules_CenteredText',
       'Page_Pagebuilder_Modules_RugCollections',
+      'Page_Pagebuilder_Modules_TwoColumnGallery',
     ],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
@@ -10897,7 +10940,10 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'Page_Pagebuilder_Modules_CenteredText'
     | 'Page_Pagebuilder_Modules_RugCollections'
-    | 'Page_Pagebuilder_Modules_RugCollections_collections';
+    | 'Page_Pagebuilder_Modules_RugCollections_collections'
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery'
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems';
   /**
    * The name of the ACF Field Group
    */
@@ -10960,7 +11006,8 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
     | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'Page_Pagebuilder_Modules_CenteredText'
-    | 'Page_Pagebuilder_Modules_RugCollections';
+    | 'Page_Pagebuilder_Modules_RugCollections'
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -11153,6 +11200,84 @@ export interface Page_Pagebuilder_Modules_RugCollections_collections {
   showSticker?: Maybe<ScalarsEnums['Boolean']>;
   stickerText?: Maybe<ScalarsEnums['String']>;
   title?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_TwoColumnGallery {
+  __typename?: 'Page_Pagebuilder_Modules_TwoColumnGallery';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  buttonLabel?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  iconButtonOneImage?: Maybe<MediaItem>;
+  iconButtonOneLabel?: Maybe<ScalarsEnums['String']>;
+  iconButtonOneLink?: Maybe<AcfLink>;
+  iconButtonThreeImage?: Maybe<MediaItem>;
+  iconButtonThreeLabel?: Maybe<ScalarsEnums['String']>;
+  iconButtonThreeLink?: Maybe<AcfLink>;
+  iconButtonTwoImage?: Maybe<MediaItem>;
+  iconButtonTwoLabel?: Maybe<ScalarsEnums['String']>;
+  iconButtonsHeadline?: Maybe<ScalarsEnums['String']>;
+  images?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_TwoColumnGallery_images>>>;
+  listItems?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_TwoColumnGallery_listItems>>>;
+  /**
+   * If true, list items will appear in a larger font and take up more space
+   */
+  listItemsLarge?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   */
+  paragraphFont?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Options include: left, right, center
+   */
+  textAlign?: Maybe<ScalarsEnums['String']>;
+  textColorPrimary?: Maybe<ScalarsEnums['String']>;
+  textColorSecondary?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textOverline?: Maybe<ScalarsEnums['String']>;
+  textParagraph?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If true, will include a large button after the paragraph.
+   */
+  withButton?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Will insert a horizontal divider after paragraph if true
+   */
+  withDivider?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, a section of three icon buttons will be included in the section
+   */
+  withIconButtons?: Maybe<ScalarsEnums['Boolean']>;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Pagebuilder_Modules_TwoColumnGallery_images {
+  __typename?: 'Page_Pagebuilder_Modules_TwoColumnGallery_images';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Pagebuilder_Modules_TwoColumnGallery_listItems {
+  __typename?: 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textParagraph?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14282,6 +14407,9 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_CenteredText: Page_Pagebuilder_Modules_CenteredText;
   Page_Pagebuilder_Modules_RugCollections: Page_Pagebuilder_Modules_RugCollections;
   Page_Pagebuilder_Modules_RugCollections_collections: Page_Pagebuilder_Modules_RugCollections_collections;
+  Page_Pagebuilder_Modules_TwoColumnGallery: Page_Pagebuilder_Modules_TwoColumnGallery;
+  Page_Pagebuilder_Modules_TwoColumnGallery_images: Page_Pagebuilder_Modules_TwoColumnGallery_images;
+  Page_Pagebuilder_Modules_TwoColumnGallery_listItems: Page_Pagebuilder_Modules_TwoColumnGallery_listItems;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -14493,6 +14621,9 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_CenteredText'
   | 'Page_Pagebuilder_Modules_RugCollections'
   | 'Page_Pagebuilder_Modules_RugCollections_collections'
+  | 'Page_Pagebuilder_Modules_TwoColumnGallery'
+  | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
+  | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -14752,6 +14883,9 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
   Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
   Page_Pagebuilder_Modules_RugCollections_collections?: Page_Pagebuilder_Modules_RugCollections_collections;
+  Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
+  Page_Pagebuilder_Modules_TwoColumnGallery_images?: Page_Pagebuilder_Modules_TwoColumnGallery_images;
+  Page_Pagebuilder_Modules_TwoColumnGallery_listItems?: Page_Pagebuilder_Modules_TwoColumnGallery_listItems;
 }
 
 export interface $Page_Pagebuilder_Modules {
@@ -14763,6 +14897,7 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
   Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
   Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
+  Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
 }
 
 export interface $NodeWithContentEditor {

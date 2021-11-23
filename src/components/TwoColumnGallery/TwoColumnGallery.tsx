@@ -27,7 +27,11 @@ interface Props {
     textParagraph?: string;
   }[];
   listItemsLarge?: boolean;
-  images?: string[];
+  images?: {
+    __typename?: string;
+    fieldGroupName?: string;
+    image?: any;
+  }[];
   withButton?: boolean;
   buttonLabel?: string;
   withIconButtons?: boolean;
@@ -174,6 +178,8 @@ function TwoColumnGallery({
     );
   };
 
+  console.log('IMAGES? ', images[imageIndex].image.mediaItemUrl);
+
   return (
     <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>
       <Box sx={styles.textContainer}>
@@ -191,7 +197,7 @@ function TwoColumnGallery({
           <IconButtons />
         </Box>
       </Box>
-      <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex]})` }}>
+      <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex].image.mediaItemUrl})` }}>
         <Box sx={styles.controlsContainer}>
           <Box sx={styles.arrowButtonContainer}>
             <IconButton

@@ -7,6 +7,7 @@ import {
   HeroLeftJustified,
   ThreeFeatureCards,
   ThreeImageButtons,
+  TwoColumnGallery,
 } from 'components';
 
 export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
@@ -14,6 +15,63 @@ export default function netteamRenderComponent(componentName, componentData, ind
     // console.log('[KOA]', 'Rendering', componentName, componentData);
 
     switch (componentName) {
+      case 'TwoColumnGallery': {
+        const {
+          textOverline,
+          textHeadline,
+          textParagraph,
+          backgroundColor,
+          textColorPrimary,
+          textColorSecondary,
+          textAlign,
+          withDivider,
+          images,
+          listItems,
+          listItemsLarge,
+          withButton,
+          buttonLabel,
+          withIconButtons,
+          iconButtonsHeadline,
+          iconButtonOneImage,
+          iconButtonOneLink,
+          iconButtonOneLabel,
+          iconButtonTwoImage,
+          iconButtonTwoLink,
+          iconButtonTwoLabel,
+          iconButtonThreeImage,
+          iconButtonThreeLink,
+          iconButtonThreeLabel,
+        } = componentData;
+        return (
+          <TwoColumnGallery
+            key={`${componentName}_${index}`}
+            textOverline={textOverline}
+            textHeadline={textHeadline}
+            textParagraph={textParagraph}
+            backgroundColor={backgroundColor}
+            textColorPrimary={textColorPrimary}
+            textColorSecondary={textColorSecondary}
+            textAlign={textAlign}
+            withDivider={withDivider}
+            images={images}
+            listItems={listItems}
+            listItemsLarge={listItemsLarge}
+            withButton={withButton}
+            buttonLabel={buttonLabel}
+            withIconButtons={withIconButtons}
+            iconButtonsHeadline={iconButtonsHeadline}
+            iconButtonOneImage={iconButtonOneImage}
+            iconButtonOneLink={iconButtonOneLink}
+            iconButtonOneLabel={iconButtonOneLabel}
+            iconButtonTwoImage={iconButtonTwoImage}
+            iconButtonTwoLink={iconButtonTwoLink}
+            iconButtonTwoLabel={iconButtonTwoLabel}
+            iconButtonThreeImage={iconButtonThreeImage}
+            iconButtonThreeLink={iconButtonThreeLink}
+            iconButtonThreeLabel={iconButtonThreeLabel}
+          />
+        );
+      }
       case 'RugCollections': {
         const { collections, mobileSizeWide } = componentData;
         return <CardList key={`${componentName}_${index}`} cards={collections} mobileSizeWide={mobileSizeWide} />;
