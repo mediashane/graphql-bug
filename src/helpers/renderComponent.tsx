@@ -1,4 +1,11 @@
-import { CallToAction, EmailSubscribe, HeroLeftJustified, ThreeFeatureCards, ThreeImageButtons } from 'components';
+import {
+  CallToAction,
+  EmailSubscribe,
+  HeroCenterButton,
+  HeroLeftJustified,
+  ThreeFeatureCards,
+  ThreeImageButtons,
+} from 'components';
 
 export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
@@ -16,6 +23,21 @@ export default function netteamRenderComponent(componentName, componentData, ind
             textParagraph={textParagraph}
             media={mediaItemUrl}
             textColor={textColor}
+          />
+        );
+      }
+      case 'HeroCenterButton': {
+        const { textOverline, textHeadline, buttonLabel, media, textColor, hoverTextColor } = componentData;
+        const { mediaItemUrl } = media;
+        return (
+          <HeroCenterButton
+            key={`${componentName}_${index}`}
+            textOverline={textOverline}
+            textHeadline={textHeadline}
+            buttonLabel={buttonLabel}
+            textColor={textColor}
+            hoverTextColor={hoverTextColor}
+            media={mediaItemUrl}
           />
         );
       }

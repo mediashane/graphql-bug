@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigProSemibold, proximaNova } from '../../style';
+import { colorWhite, freightBigProSemibold, proximaNova } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -33,7 +33,6 @@ const styles = {
     },
     width: '100%',
     height: '100%',
-    color: colorWhite,
     fontFamily: freightBigProSemibold,
   },
   introTitleText: {
@@ -75,7 +74,6 @@ const styles = {
   },
   heroButton: {
     padding: '10px 25px',
-    color: colorWhite,
     backgroundColor: 'transparent',
     fontFamily: proximaNova,
     fontWeight: '100',
@@ -85,13 +83,6 @@ const styles = {
     borderColor: colorWhite,
     borderRadius: '2%',
     transition: 'all 0.25s ease',
-
-    '&:hover': {
-      color: colorBrandBlue,
-      backgroundColor: colorWhite,
-      borderWidth: '2px',
-      borderColor: colorWhite,
-    },
   },
   heroButtonText: {
     fontFamily: proximaNova,

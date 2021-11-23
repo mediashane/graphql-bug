@@ -119,7 +119,9 @@ export default function Page() {
         textOverline="Elizabeth Eakins"
         textHeadline="Rugs"
         buttonLabel="View the Newest Source Guide"
-        mediaDesktop="images/rugsCollection.png"
+        media="images/rugsCollection.png"
+        textColor="#ffffff"
+        hoverTextColor="#587DA9"
       />
 
       <CenteredText text={pageData.centeredText.paragraphText ?? ''} />

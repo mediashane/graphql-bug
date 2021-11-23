@@ -4947,6 +4947,16 @@ export const generatedSchema = {
     textOverline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_HeroCenterButton: {
+    __typename: { __type: 'String!' },
+    buttonLabel: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    hoverTextColor: { __type: 'String' },
+    media: { __type: 'MediaItem' },
+    textColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textOverline: { __type: 'String' },
+  },
   Page_Pagebuilder_Modules_CallToAction: {
     __typename: { __type: 'String!' },
     buttonBackgroundColor: { __type: 'String' },
@@ -6847,86 +6857,7 @@ export const generatedSchema = {
     name: { __type: 'String' },
     url: { __type: 'String' },
   },
-  DefaultTemplate: {
-    __typename: { __type: 'String!' },
-    pageBuilder: { __type: 'DefaultTemplate_Pagebuilder' },
-    templateName: { __type: 'String' },
-  },
-  DefaultTemplate_Pagebuilder: {
-    __typename: { __type: 'String!' },
-    fieldGroupName: { __type: 'String' },
-    modules: { __type: '[DefaultTemplate_Pagebuilder_Modules]' },
-  },
-  DefaultTemplate_Pagebuilder_Modules: {
-    __typename: { __type: 'String!' },
-    $on: { __type: '$DefaultTemplate_Pagebuilder_Modules!' },
-  },
-  DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified: {
-    __typename: { __type: 'String!' },
-    fieldGroupName: { __type: 'String' },
-    media: { __type: 'MediaItem' },
-    textColor: { __type: 'String' },
-    textHeadline: { __type: 'String' },
-    textOverline: { __type: 'String' },
-    textParagraph: { __type: 'String' },
-  },
-  DefaultTemplate_Pagebuilder_Modules_CallToAction: {
-    __typename: { __type: 'String!' },
-    buttonBackgroundColor: { __type: 'String' },
-    buttonLabel: { __type: 'String' },
-    buttonTextColor: { __type: 'String' },
-    buttonUrl: { __type: 'AcfLink' },
-    cardBackgroundColor: { __type: 'String' },
-    fieldGroupName: { __type: 'String' },
-    media: { __type: 'MediaItem' },
-    textColor: { __type: 'String' },
-    textHeadline: { __type: 'String' },
-    textParagraph: { __type: 'String' },
-  },
-  DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons: {
-    __typename: { __type: 'String!' },
-    buttonImageOne: { __type: 'MediaItem' },
-    buttonImageThree: { __type: 'MediaItem' },
-    buttonImageTwo: { __type: 'MediaItem' },
-    fieldGroupName: { __type: 'String' },
-    labelOne: { __type: 'String' },
-    labelTextColor: { __type: 'String' },
-    labelThree: { __type: 'String' },
-    labelTwo: { __type: 'String' },
-    linkOne: { __type: 'AcfLink' },
-    linkThree: { __type: 'AcfLink' },
-    linkTwo: { __type: 'AcfLink' },
-    sectionLabel: { __type: 'String' },
-    textColor: { __type: 'String' },
-  },
-  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards: {
-    __typename: { __type: 'String!' },
-    descriptionOne: { __type: 'String' },
-    descriptionThree: { __type: 'String' },
-    descriptionTwo: { __type: 'String' },
-    fieldGroupName: { __type: 'String' },
-    iconLayout: { __type: 'Boolean' },
-    imageOne: { __type: 'MediaItem' },
-    imageThree: { __type: 'MediaItem' },
-    imageTwo: { __type: 'MediaItem' },
-    labelOne: { __type: 'String' },
-    labelTextColor: { __type: 'String' },
-    labelThree: { __type: 'String' },
-    labelTwo: { __type: 'String' },
-    sectionLabel: { __type: 'String' },
-    textColor: { __type: 'String' },
-  },
-  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe: {
-    __typename: { __type: 'String!' },
-    backgroundColor: { __type: 'String' },
-    backgroundImage: { __type: 'MediaItem' },
-    buttonLabel: { __type: 'String' },
-    fieldGroupName: { __type: 'String' },
-    placeholder: { __type: 'String' },
-    subtitle: { __type: 'String' },
-    textColor: { __type: 'String' },
-    title: { __type: 'String' },
-  },
+  DefaultTemplate: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
   Template_Home: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
   [SchemaUnionsKey]: {
     Node: [
@@ -6980,19 +6911,15 @@ export const generatedSchema = {
       'Page_Centeredtext',
       'Page_Pagebuilder',
       'Page_Pagebuilder_Modules_HeroLeftJustified',
+      'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
       'Page_Pagebuilder_Modules_EmailSubscribe',
-      'DefaultTemplate_Pagebuilder',
-      'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified',
-      'DefaultTemplate_Pagebuilder_Modules_CallToAction',
-      'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons',
-      'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards',
-      'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
+      'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
@@ -7004,13 +6931,6 @@ export const generatedSchema = {
     ContentRevisionUnion: ['Post', 'Page'],
     MenuItemObjectUnion: ['Post', 'Page', 'Category', 'Tag'],
     ContentTemplate: ['DefaultTemplate', 'Template_Home'],
-    DefaultTemplate_Pagebuilder_Modules: [
-      'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified',
-      'DefaultTemplate_Pagebuilder_Modules_CallToAction',
-      'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons',
-      'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards',
-      'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe',
-    ],
   },
 } as const;
 
@@ -10941,16 +10861,11 @@ export interface AcfFieldGroup {
     | 'Page_Centeredtext'
     | 'Page_Pagebuilder'
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
-    | 'Page_Pagebuilder_Modules_EmailSubscribe'
-    | 'DefaultTemplate_Pagebuilder'
-    | 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified'
-    | 'DefaultTemplate_Pagebuilder_Modules_CallToAction'
-    | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons'
-    | 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards'
-    | 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe';
+    | 'Page_Pagebuilder_Modules_EmailSubscribe';
   /**
    * The name of the ACF Field Group
    */
@@ -11007,6 +10922,7 @@ export interface Page_Pagebuilder {
 export interface Page_Pagebuilder_Modules {
   __typename?:
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
@@ -11028,6 +10944,23 @@ export interface Page_Pagebuilder_Modules_HeroLeftJustified {
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textOverline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_HeroCenterButton {
+  __typename?: 'Page_Pagebuilder_Modules_HeroCenterButton';
+  buttonLabel?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  hoverTextColor?: Maybe<ScalarsEnums['String']>;
+  media?: Maybe<MediaItem>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textOverline?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14163,139 +14096,9 @@ export interface CommentAuthor {
 export interface DefaultTemplate {
   __typename?: 'DefaultTemplate';
   /**
-   * Added to the GraphQL Schema because the ACF Field Group &quot;Page Builder&quot; was set to Show in GraphQL.
-   */
-  pageBuilder?: Maybe<DefaultTemplate_Pagebuilder>;
-  /**
    * The name of the template
    */
   templateName?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Field Group
- */
-export interface DefaultTemplate_Pagebuilder {
-  __typename?: 'DefaultTemplate_Pagebuilder';
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  modules?: Maybe<Array<Maybe<DefaultTemplate_Pagebuilder_Modules>>>;
-}
-
-export interface DefaultTemplate_Pagebuilder_Modules {
-  __typename?:
-    | 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified'
-    | 'DefaultTemplate_Pagebuilder_Modules_CallToAction'
-    | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons'
-    | 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards'
-    | 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe';
-  $on: $DefaultTemplate_Pagebuilder_Modules;
-}
-
-/**
- * Group within the flex field
- */
-export interface DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified {
-  __typename?: 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified';
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  media?: Maybe<MediaItem>;
-  textColor?: Maybe<ScalarsEnums['String']>;
-  textHeadline?: Maybe<ScalarsEnums['String']>;
-  textOverline?: Maybe<ScalarsEnums['String']>;
-  textParagraph?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Group within the flex field
- */
-export interface DefaultTemplate_Pagebuilder_Modules_CallToAction {
-  __typename?: 'DefaultTemplate_Pagebuilder_Modules_CallToAction';
-  buttonBackgroundColor?: Maybe<ScalarsEnums['String']>;
-  buttonLabel?: Maybe<ScalarsEnums['String']>;
-  buttonTextColor?: Maybe<ScalarsEnums['String']>;
-  buttonUrl?: Maybe<AcfLink>;
-  cardBackgroundColor?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  media?: Maybe<MediaItem>;
-  textColor?: Maybe<ScalarsEnums['String']>;
-  textHeadline?: Maybe<ScalarsEnums['String']>;
-  textParagraph?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Group within the flex field
- */
-export interface DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons {
-  __typename?: 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons';
-  buttonImageOne?: Maybe<MediaItem>;
-  buttonImageThree?: Maybe<MediaItem>;
-  buttonImageTwo?: Maybe<MediaItem>;
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  labelOne?: Maybe<ScalarsEnums['String']>;
-  labelTextColor?: Maybe<ScalarsEnums['String']>;
-  labelThree?: Maybe<ScalarsEnums['String']>;
-  labelTwo?: Maybe<ScalarsEnums['String']>;
-  linkOne?: Maybe<AcfLink>;
-  linkThree?: Maybe<AcfLink>;
-  linkTwo?: Maybe<AcfLink>;
-  sectionLabel?: Maybe<ScalarsEnums['String']>;
-  textColor?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Group within the flex field
- */
-export interface DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards {
-  __typename?: 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards';
-  descriptionOne?: Maybe<ScalarsEnums['String']>;
-  descriptionThree?: Maybe<ScalarsEnums['String']>;
-  descriptionTwo?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Set to true is using icons instead of photo images.
-   */
-  iconLayout?: Maybe<ScalarsEnums['Boolean']>;
-  imageOne?: Maybe<MediaItem>;
-  imageThree?: Maybe<MediaItem>;
-  imageTwo?: Maybe<MediaItem>;
-  labelOne?: Maybe<ScalarsEnums['String']>;
-  labelTextColor?: Maybe<ScalarsEnums['String']>;
-  labelThree?: Maybe<ScalarsEnums['String']>;
-  labelTwo?: Maybe<ScalarsEnums['String']>;
-  sectionLabel?: Maybe<ScalarsEnums['String']>;
-  textColor?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Group within the flex field
- */
-export interface DefaultTemplate_Pagebuilder_Modules_EmailSubscribe {
-  __typename?: 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe';
-  backgroundColor?: Maybe<ScalarsEnums['String']>;
-  backgroundImage?: Maybe<MediaItem>;
-  buttonLabel?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  placeholder?: Maybe<ScalarsEnums['String']>;
-  subtitle?: Maybe<ScalarsEnums['String']>;
-  textColor?: Maybe<ScalarsEnums['String']>;
-  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14385,6 +14188,7 @@ export interface SchemaObjectTypes {
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
   Page_Pagebuilder: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroCenterButton: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction: Page_Pagebuilder_Modules_CallToAction;
   AcfLink: AcfLink;
   Page_Pagebuilder_Modules_ThreeImageButtons: Page_Pagebuilder_Modules_ThreeImageButtons;
@@ -14514,12 +14318,6 @@ export interface SchemaObjectTypes {
   UpdateUserPayload: UpdateUserPayload;
   CommentAuthor: CommentAuthor;
   DefaultTemplate: DefaultTemplate;
-  DefaultTemplate_Pagebuilder: DefaultTemplate_Pagebuilder;
-  DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified: DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified;
-  DefaultTemplate_Pagebuilder_Modules_CallToAction: DefaultTemplate_Pagebuilder_Modules_CallToAction;
-  DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons: DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons;
-  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards: DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards;
-  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe: DefaultTemplate_Pagebuilder_Modules_EmailSubscribe;
   Template_Home: Template_Home;
 }
 export type SchemaObjectTypesNames =
@@ -14598,6 +14396,7 @@ export type SchemaObjectTypesNames =
   | 'PageToCommentConnectionEdge'
   | 'Page_Pagebuilder'
   | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+  | 'Page_Pagebuilder_Modules_HeroCenterButton'
   | 'Page_Pagebuilder_Modules_CallToAction'
   | 'AcfLink'
   | 'Page_Pagebuilder_Modules_ThreeImageButtons'
@@ -14727,12 +14526,6 @@ export type SchemaObjectTypesNames =
   | 'UpdateUserPayload'
   | 'CommentAuthor'
   | 'DefaultTemplate'
-  | 'DefaultTemplate_Pagebuilder'
-  | 'DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified'
-  | 'DefaultTemplate_Pagebuilder_Modules_CallToAction'
-  | 'DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons'
-  | 'DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards'
-  | 'DefaultTemplate_Pagebuilder_Modules_EmailSubscribe'
   | 'Template_Home';
 
 export interface $Node {
@@ -14860,20 +14653,16 @@ export interface $AcfFieldGroup {
   Page_Centeredtext?: Page_Centeredtext;
   Page_Pagebuilder?: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
-  DefaultTemplate_Pagebuilder?: DefaultTemplate_Pagebuilder;
-  DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified?: DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified;
-  DefaultTemplate_Pagebuilder_Modules_CallToAction?: DefaultTemplate_Pagebuilder_Modules_CallToAction;
-  DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons?: DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons;
-  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards?: DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards;
-  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe?: DefaultTemplate_Pagebuilder_Modules_EmailSubscribe;
 }
 
 export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
@@ -14907,14 +14696,6 @@ export interface $MenuItemObjectUnion {
 export interface $ContentTemplate {
   DefaultTemplate?: DefaultTemplate;
   Template_Home?: Template_Home;
-}
-
-export interface $DefaultTemplate_Pagebuilder_Modules {
-  DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified?: DefaultTemplate_Pagebuilder_Modules_HeroLeftJustified;
-  DefaultTemplate_Pagebuilder_Modules_CallToAction?: DefaultTemplate_Pagebuilder_Modules_CallToAction;
-  DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons?: DefaultTemplate_Pagebuilder_Modules_ThreeImageButtons;
-  DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards?: DefaultTemplate_Pagebuilder_Modules_ThreeFeatureCards;
-  DefaultTemplate_Pagebuilder_Modules_EmailSubscribe?: DefaultTemplate_Pagebuilder_Modules_EmailSubscribe;
 }
 
 export interface GeneratedSchema {
