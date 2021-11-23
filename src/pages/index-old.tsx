@@ -53,13 +53,28 @@ export default function Page() {
         textColor="#ffffff"
         buttonImageOne="images/rugsLink.png"
         labelOne="Rugs"
-        linkOne="/rugs"
+        linkOne={{
+          url: '/rugs',
+          target: '_blank',
+          title: 'Rug Link',
+          __typename: 'Type Name',
+        }}
         buttonImageTwo="images/fabricLink.png"
         labelTwo="Fabric"
-        linkTwo="/fabric"
+        linkTwo={{
+          url: '/fabric',
+          target: '_blank',
+          title: 'Rug Link',
+          __typename: 'Type Name',
+        }}
         buttonImageThree="images/grassclothLink.png"
         labelThree="Grasscloth"
-        linkThree="/grasscloth"
+        linkThree={{
+          url: '/grasscloth',
+          target: '_blank',
+          title: 'Rug Link',
+          __typename: 'Type Name',
+        }}
       />
 
       <EmailSubscribe
