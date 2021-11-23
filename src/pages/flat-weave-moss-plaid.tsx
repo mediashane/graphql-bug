@@ -150,7 +150,7 @@ export default function Page() {
       <ThreeFeatureCards
         sectionLabel="Values"
         iconLayout={true}
-        labelColor="#826C4F"
+        labelTextColor="#826C4F"
         textColor="#587DA9"
         imageOne="images/naturalFibersBlue.png"
         labelOne="100% Natural fibers"
