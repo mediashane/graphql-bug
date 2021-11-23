@@ -1,4 +1,4 @@
-import { colorDarkGrey, freightBigProSemibold } from '../../style';
+import { freightBigProSemibold } from '../../style';
 
 const styles = {
   centeredTextContainer: {
@@ -20,9 +20,7 @@ const styles = {
       lg: '70%',
       xl: '70%',
     },
-    color: colorDarkGrey,
     fontFamily: freightBigProSemibold,
-    fontSize: '22px',
     textAlign: 'center' as const,
   },
 };

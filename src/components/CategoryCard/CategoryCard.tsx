@@ -14,6 +14,7 @@ interface Props {
   stickerText?: string;
   showSticker?: boolean;
   link?: string;
+  target?: string;
   mobileSizeWide?: boolean;
 }
 
@@ -24,6 +25,7 @@ function CategoryCard({
   stickerText = '',
   showSticker = false,
   link = '/',
+  target = '_blank',
   mobileSizeWide = false,
 }: Props): JSX.Element {
   const [overlay, setOverlay] = useState(0);
@@ -48,7 +50,7 @@ function CategoryCard({
     <Box sx={cardContainer}>
       <CardSticker stickerText={stickerText} showSticker={showSticker} />
       <NextLink href={link} passHref>
-        <MUILink color="inherit" variant="inherit" underline="none">
+        <MUILink color="inherit" variant="inherit" underline="none" target={target}>
           <Box sx={styles.categoryCardWrapper} onMouseEnter={() => setOverlay(0.1)} onMouseLeave={() => setOverlay(0)}>
             <Box sx={cardImage} />
             <Box sx={cardText}>

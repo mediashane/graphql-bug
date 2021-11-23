@@ -12,7 +12,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/masterSeriesClassic.png',
@@ -20,7 +25,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/masterSeriesLinenWool.png',
@@ -28,7 +38,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/masterSeriesPrivateReserve.png',
@@ -36,7 +51,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/cotton.png',
@@ -44,7 +64,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/teff.png',
@@ -52,7 +77,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/wovenTextures.png',
@@ -60,7 +90,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/elizabethsCloth.png',
@@ -68,7 +103,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: false,
-    link: '/elizabeths-cloth',
+    link: {
+      url: '/elizabeths-cloth',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/hagga.png',
@@ -76,7 +116,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/belden.png',
@@ -84,7 +129,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
   {
     image: 'images/handTufted.png',
@@ -92,7 +142,12 @@ const exampleCards = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: {
+      url: '/',
+      target: '_blank',
+      title: 'Rug Link',
+      __typename: 'Type Name',
+    },
   },
 ];
 

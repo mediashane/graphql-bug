@@ -5020,6 +5020,30 @@ export const generatedSchema = {
     textColor: { __type: 'String' },
     title: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_CenteredText: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    text: { __type: 'String' },
+    textColor: { __type: 'String' },
+    textSize: { __type: 'Float' },
+  },
+  Page_Pagebuilder_Modules_RugCollections: {
+    __typename: { __type: 'String!' },
+    collections: { __type: '[Page_Pagebuilder_Modules_RugCollections_collections]' },
+    fieldGroupName: { __type: 'String' },
+    mobileSizeWide: { __type: 'Boolean' },
+  },
+  Page_Pagebuilder_Modules_RugCollections_collections: {
+    __typename: { __type: 'String!' },
+    description: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    link: { __type: 'AcfLink' },
+    showSticker: { __type: 'Boolean' },
+    stickerText: { __type: 'String' },
+    title: { __type: 'String' },
+  },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
@@ -6916,6 +6940,9 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_ThreeImageButtons',
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
       'Page_Pagebuilder_Modules_EmailSubscribe',
+      'Page_Pagebuilder_Modules_CenteredText',
+      'Page_Pagebuilder_Modules_RugCollections',
+      'Page_Pagebuilder_Modules_RugCollections_collections',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
@@ -6924,6 +6951,8 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_ThreeImageButtons',
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
       'Page_Pagebuilder_Modules_EmailSubscribe',
+      'Page_Pagebuilder_Modules_CenteredText',
+      'Page_Pagebuilder_Modules_RugCollections',
     ],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
@@ -10865,7 +10894,10 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
-    | 'Page_Pagebuilder_Modules_EmailSubscribe';
+    | 'Page_Pagebuilder_Modules_EmailSubscribe'
+    | 'Page_Pagebuilder_Modules_CenteredText'
+    | 'Page_Pagebuilder_Modules_RugCollections'
+    | 'Page_Pagebuilder_Modules_RugCollections_collections';
   /**
    * The name of the ACF Field Group
    */
@@ -10926,7 +10958,9 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
-    | 'Page_Pagebuilder_Modules_EmailSubscribe';
+    | 'Page_Pagebuilder_Modules_EmailSubscribe'
+    | 'Page_Pagebuilder_Modules_CenteredText'
+    | 'Page_Pagebuilder_Modules_RugCollections';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -11067,6 +11101,57 @@ export interface Page_Pagebuilder_Modules_EmailSubscribe {
   placeholder?: Maybe<ScalarsEnums['String']>;
   subtitle?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_CenteredText {
+  __typename?: 'Page_Pagebuilder_Modules_CenteredText';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  text?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Enter a whole number
+   */
+  textSize?: Maybe<ScalarsEnums['Float']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_RugCollections {
+  __typename?: 'Page_Pagebuilder_Modules_RugCollections';
+  collections?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_RugCollections_collections>>>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Turn on if you want the cards to be full width on mobile resolutions
+   */
+  mobileSizeWide?: Maybe<ScalarsEnums['Boolean']>;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Pagebuilder_Modules_RugCollections_collections {
+  __typename?: 'Page_Pagebuilder_Modules_RugCollections_collections';
+  description?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  link?: Maybe<AcfLink>;
+  showSticker?: Maybe<ScalarsEnums['Boolean']>;
+  stickerText?: Maybe<ScalarsEnums['String']>;
   title?: Maybe<ScalarsEnums['String']>;
 }
 
@@ -14194,6 +14279,9 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_ThreeImageButtons: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe: Page_Pagebuilder_Modules_EmailSubscribe;
+  Page_Pagebuilder_Modules_CenteredText: Page_Pagebuilder_Modules_CenteredText;
+  Page_Pagebuilder_Modules_RugCollections: Page_Pagebuilder_Modules_RugCollections;
+  Page_Pagebuilder_Modules_RugCollections_collections: Page_Pagebuilder_Modules_RugCollections_collections;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -14402,6 +14490,9 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_ThreeImageButtons'
   | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
   | 'Page_Pagebuilder_Modules_EmailSubscribe'
+  | 'Page_Pagebuilder_Modules_CenteredText'
+  | 'Page_Pagebuilder_Modules_RugCollections'
+  | 'Page_Pagebuilder_Modules_RugCollections_collections'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -14658,6 +14749,9 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
+  Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
+  Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
+  Page_Pagebuilder_Modules_RugCollections_collections?: Page_Pagebuilder_Modules_RugCollections_collections;
 }
 
 export interface $Page_Pagebuilder_Modules {
@@ -14667,6 +14761,8 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
+  Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
+  Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
 }
 
 export interface $NodeWithContentEditor {

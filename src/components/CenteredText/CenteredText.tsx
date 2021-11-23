@@ -7,13 +7,19 @@ import styles from './styles';
 interface Props {
   text: string;
   backgroundColor?: string;
+  textColor?: string;
   textSize?: string;
 }
 
-function CenteredText({ text = '', backgroundColor = 'transparent', textSize = '25px' }: Props): JSX.Element {
+function CenteredText({
+  text = '',
+  textColor = '#333333',
+  backgroundColor = 'transparent',
+  textSize = '25px',
+}: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }}>
-      <Box sx={{ ...styles.centeredTextWrapper, fontSize: textSize }}>{text}</Box>
+      <Box sx={{ ...styles.centeredTextWrapper, fontSize: `${textSize}px`, color: textColor }}>{text}</Box>
     </Box>
   );
 }

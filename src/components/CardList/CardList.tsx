@@ -8,12 +8,17 @@ import styles from './styles';
 
 interface Props {
   cards: {
-    image: string;
+    image: any;
     title: string;
     description?: string;
     stickerText?: string;
     showSticker?: boolean;
-    link?: string;
+    link?: {
+      url?: string;
+      target?: string;
+      title?: string;
+      __typename?: string;
+    };
   }[];
   mobileSizeWide?: boolean;
 }
@@ -24,14 +29,18 @@ function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
       <Box sx={styles.cardListWrapper}>
         {cards.map((card, index) => {
           const { image, title, description, stickerText, showSticker, link } = card;
+          const { mediaItemUrl } = image;
+          const { url, target } = link;
+
           return (
             <CategoryCard
-              image={image}
+              image={mediaItemUrl}
               title={title}
               description={description}
               stickerText={stickerText}
               showSticker={showSticker}
-              link={link}
+              link={url}
+              target={target}
               key={index}
               mobileSizeWide={mobileSizeWide}
             />

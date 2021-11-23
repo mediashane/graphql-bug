@@ -1,5 +1,7 @@
 import {
   CallToAction,
+  CardList,
+  CenteredText,
   EmailSubscribe,
   HeroCenterButton,
   HeroLeftJustified,
@@ -9,9 +11,25 @@ import {
 
 export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
-    console.log('[KOA]', 'Rendering', componentName, componentData);
+    // console.log('[KOA]', 'Rendering', componentName, componentData);
 
     switch (componentName) {
+      case 'RugCollections': {
+        const { collections, mobileSizeWide } = componentData;
+        return <CardList key={`${componentName}_${index}`} cards={collections} mobileSizeWide={mobileSizeWide} />;
+      }
+      case 'CenteredText': {
+        const { text, backgroundColor, textColor, textSize } = componentData;
+        return (
+          <CenteredText
+            key={`${componentName}_${index}`}
+            text={text}
+            backgroundColor={backgroundColor}
+            textColor={textColor}
+            textSize={textSize}
+          />
+        );
+      }
       case 'HeroLeftJustified': {
         const { textOverline, textHeadline, textParagraph, media, textColor } = componentData;
         const { mediaItemUrl } = media;
