@@ -29,18 +29,16 @@ function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
       <Box sx={styles.cardListWrapper}>
         {cards.map((card, index) => {
           const { image, title, description, stickerText, showSticker, link } = card;
-          const { mediaItemUrl } = image;
-          const { url, target } = link;
 
           return (
             <CategoryCard
-              image={mediaItemUrl}
+              image={image?.mediaItemUrl ?? ''}
               title={title}
               description={description}
               stickerText={stickerText}
               showSticker={showSticker}
-              link={url}
-              target={target}
+              link={link?.url ?? '/'}
+              target={link?.target ?? '_blank'}
               key={index}
               mobileSizeWide={mobileSizeWide}
             />

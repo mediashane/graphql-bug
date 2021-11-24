@@ -123,7 +123,7 @@ export default function Page() {
         textOverline="From the Farm"
         textHeadline="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales"
         textSubline="By Jerry Wigglesworth"
-        mediaDesktop="images/fromTheFarmHero.png"
+        media="images/fromTheFarmHero.png"
       />
 
       <CardList cards={exampleCards} mobileSizeWide={true} />

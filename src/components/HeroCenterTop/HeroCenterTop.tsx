@@ -10,18 +10,25 @@ interface Props {
   textOverline?: string;
   textHeadline: string;
   textSubline: string;
-  mediaDesktop?: string;
+  media?: string;
+  textColor?: string;
 }
 
-function HeroCenterTop({ textOverline = '', textHeadline = '', textSubline = '', mediaDesktop }: Props): JSX.Element {
+function HeroCenterTop({
+  textOverline = '',
+  textHeadline = '',
+  textSubline = '',
+  media,
+  textColor,
+}: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${mediaDesktop})` }}>
+    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
       <Box sx={styles.textContainer}>
         <Box sx={styles.textWrapper}>
           <Fade delay={500}>
-            <Typography sx={styles.textOverline}>{textOverline}</Typography>
-            <Typography sx={styles.textHeadline}>{textHeadline}</Typography>
-            <Typography sx={styles.textSubline}>{textSubline}</Typography>
+            <Typography sx={{ ...styles.textOverline, color: textColor }}>{textOverline}</Typography>
+            <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>
+            <Typography sx={{ ...styles.textSubline, color: textColor }}>{textSubline}</Typography>
           </Fade>
         </Box>
       </Box>

@@ -8,6 +8,7 @@ import {
   FourCardsWithPrompt,
   FourFeatureTags,
   HeroCenterButton,
+  HeroCenterTop,
   HeroLeftJustified,
   ThreeFeatureCards,
   ThreeImageButtons,
@@ -245,9 +246,9 @@ export default function netteamRenderComponent(componentName, componentData, ind
           />
         );
       }
-      case 'RugCollections': {
-        const { collections, mobileSizeWide } = componentData;
-        return <CardList key={`${componentName}_${index}`} cards={collections} mobileSizeWide={mobileSizeWide} />;
+      case 'CardList': {
+        const { cards, mobileSizeWide } = componentData;
+        return <CardList key={`${componentName}_${index}`} cards={cards} mobileSizeWide={mobileSizeWide} />;
       }
       case 'CenteredText': {
         const { text, backgroundColor, textColor, textSize } = componentData;
@@ -287,6 +288,20 @@ export default function netteamRenderComponent(componentName, componentData, ind
             textColor={textColor}
             hoverTextColor={hoverTextColor}
             media={media?.mediaItemUrl ?? ''}
+          />
+        );
+      }
+      case 'HeroCenterTop': {
+        const { textOverline, textHeadline, textSubline, media, textColor } = componentData;
+
+        return (
+          <HeroCenterTop
+            key={`${componentName}_${index}`}
+            textOverline={textOverline}
+            textHeadline={textHeadline}
+            textSubline={textSubline}
+            media={media?.mediaItemUrl ?? ''}
+            textColor={textColor}
           />
         );
       }

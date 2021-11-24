@@ -4947,6 +4947,15 @@ export const generatedSchema = {
     textOverline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_HeroCenterTop: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    media: { __type: 'MediaItem' },
+    textColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textOverline: { __type: 'String' },
+    textSubline: { __type: 'String' },
+  },
   Page_Pagebuilder_Modules_HeroCenterButton: {
     __typename: { __type: 'String!' },
     buttonLabel: { __type: 'String' },
@@ -5028,13 +5037,13 @@ export const generatedSchema = {
     textColor: { __type: 'String' },
     textSize: { __type: 'Float' },
   },
-  Page_Pagebuilder_Modules_RugCollections: {
+  Page_Pagebuilder_Modules_CardList: {
     __typename: { __type: 'String!' },
-    collections: { __type: '[Page_Pagebuilder_Modules_RugCollections_collections]' },
+    cards: { __type: '[Page_Pagebuilder_Modules_CardList_cards]' },
     fieldGroupName: { __type: 'String' },
     mobileSizeWide: { __type: 'Boolean' },
   },
-  Page_Pagebuilder_Modules_RugCollections_collections: {
+  Page_Pagebuilder_Modules_CardList_cards: {
     __typename: { __type: 'String!' },
     description: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
@@ -7076,14 +7085,15 @@ export const generatedSchema = {
       'Page_Centeredtext',
       'Page_Pagebuilder',
       'Page_Pagebuilder_Modules_HeroLeftJustified',
+      'Page_Pagebuilder_Modules_HeroCenterTop',
       'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
       'Page_Pagebuilder_Modules_EmailSubscribe',
       'Page_Pagebuilder_Modules_CenteredText',
-      'Page_Pagebuilder_Modules_RugCollections',
-      'Page_Pagebuilder_Modules_RugCollections_collections',
+      'Page_Pagebuilder_Modules_CardList',
+      'Page_Pagebuilder_Modules_CardList_cards',
       'Page_Pagebuilder_Modules_TwoColumnGallery',
       'Page_Pagebuilder_Modules_TwoColumnGallery_images',
       'Page_Pagebuilder_Modules_TwoColumnGallery_listItems',
@@ -7095,13 +7105,14 @@ export const generatedSchema = {
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
+      'Page_Pagebuilder_Modules_HeroCenterTop',
       'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
       'Page_Pagebuilder_Modules_EmailSubscribe',
       'Page_Pagebuilder_Modules_CenteredText',
-      'Page_Pagebuilder_Modules_RugCollections',
+      'Page_Pagebuilder_Modules_CardList',
       'Page_Pagebuilder_Modules_TwoColumnGallery',
       'Page_Pagebuilder_Modules_FourFeatureTags',
       'Page_Pagebuilder_Modules_FourCardsRow',
@@ -11044,14 +11055,15 @@ export interface AcfFieldGroup {
     | 'Page_Centeredtext'
     | 'Page_Pagebuilder'
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroCenterTop'
     | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
     | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'Page_Pagebuilder_Modules_CenteredText'
-    | 'Page_Pagebuilder_Modules_RugCollections'
-    | 'Page_Pagebuilder_Modules_RugCollections_collections'
+    | 'Page_Pagebuilder_Modules_CardList'
+    | 'Page_Pagebuilder_Modules_CardList_cards'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems'
@@ -11116,13 +11128,14 @@ export interface Page_Pagebuilder {
 export interface Page_Pagebuilder_Modules {
   __typename?:
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroCenterTop'
     | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
     | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'Page_Pagebuilder_Modules_CenteredText'
-    | 'Page_Pagebuilder_Modules_RugCollections'
+    | 'Page_Pagebuilder_Modules_CardList'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery'
     | 'Page_Pagebuilder_Modules_FourFeatureTags'
     | 'Page_Pagebuilder_Modules_FourCardsRow'
@@ -11145,6 +11158,22 @@ export interface Page_Pagebuilder_Modules_HeroLeftJustified {
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textOverline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_HeroCenterTop {
+  __typename?: 'Page_Pagebuilder_Modules_HeroCenterTop';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  media?: Maybe<MediaItem>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textOverline?: Maybe<ScalarsEnums['String']>;
+  textSubline?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -11292,9 +11321,9 @@ export interface Page_Pagebuilder_Modules_CenteredText {
 /**
  * Group within the flex field
  */
-export interface Page_Pagebuilder_Modules_RugCollections {
-  __typename?: 'Page_Pagebuilder_Modules_RugCollections';
-  collections?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_RugCollections_collections>>>;
+export interface Page_Pagebuilder_Modules_CardList {
+  __typename?: 'Page_Pagebuilder_Modules_CardList';
+  cards?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_CardList_cards>>>;
   /**
    * The name of the ACF Field Group
    */
@@ -11308,8 +11337,8 @@ export interface Page_Pagebuilder_Modules_RugCollections {
 /**
  * Field Group
  */
-export interface Page_Pagebuilder_Modules_RugCollections_collections {
-  __typename?: 'Page_Pagebuilder_Modules_RugCollections_collections';
+export interface Page_Pagebuilder_Modules_CardList_cards {
+  __typename?: 'Page_Pagebuilder_Modules_CardList_cards';
   description?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
@@ -14688,6 +14717,7 @@ export interface SchemaObjectTypes {
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
   Page_Pagebuilder: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroCenterTop: Page_Pagebuilder_Modules_HeroCenterTop;
   Page_Pagebuilder_Modules_HeroCenterButton: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction: Page_Pagebuilder_Modules_CallToAction;
   AcfLink: AcfLink;
@@ -14695,8 +14725,8 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_ThreeFeatureCards: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe: Page_Pagebuilder_Modules_EmailSubscribe;
   Page_Pagebuilder_Modules_CenteredText: Page_Pagebuilder_Modules_CenteredText;
-  Page_Pagebuilder_Modules_RugCollections: Page_Pagebuilder_Modules_RugCollections;
-  Page_Pagebuilder_Modules_RugCollections_collections: Page_Pagebuilder_Modules_RugCollections_collections;
+  Page_Pagebuilder_Modules_CardList: Page_Pagebuilder_Modules_CardList;
+  Page_Pagebuilder_Modules_CardList_cards: Page_Pagebuilder_Modules_CardList_cards;
   Page_Pagebuilder_Modules_TwoColumnGallery: Page_Pagebuilder_Modules_TwoColumnGallery;
   Page_Pagebuilder_Modules_TwoColumnGallery_images: Page_Pagebuilder_Modules_TwoColumnGallery_images;
   Page_Pagebuilder_Modules_TwoColumnGallery_listItems: Page_Pagebuilder_Modules_TwoColumnGallery_listItems;
@@ -14907,6 +14937,7 @@ export type SchemaObjectTypesNames =
   | 'PageToCommentConnectionEdge'
   | 'Page_Pagebuilder'
   | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+  | 'Page_Pagebuilder_Modules_HeroCenterTop'
   | 'Page_Pagebuilder_Modules_HeroCenterButton'
   | 'Page_Pagebuilder_Modules_CallToAction'
   | 'AcfLink'
@@ -14914,8 +14945,8 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
   | 'Page_Pagebuilder_Modules_EmailSubscribe'
   | 'Page_Pagebuilder_Modules_CenteredText'
-  | 'Page_Pagebuilder_Modules_RugCollections'
-  | 'Page_Pagebuilder_Modules_RugCollections_collections'
+  | 'Page_Pagebuilder_Modules_CardList'
+  | 'Page_Pagebuilder_Modules_CardList_cards'
   | 'Page_Pagebuilder_Modules_TwoColumnGallery'
   | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
   | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems'
@@ -15175,14 +15206,15 @@ export interface $AcfFieldGroup {
   Page_Centeredtext?: Page_Centeredtext;
   Page_Pagebuilder?: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroCenterTop?: Page_Pagebuilder_Modules_HeroCenterTop;
   Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
   Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
-  Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
-  Page_Pagebuilder_Modules_RugCollections_collections?: Page_Pagebuilder_Modules_RugCollections_collections;
+  Page_Pagebuilder_Modules_CardList?: Page_Pagebuilder_Modules_CardList;
+  Page_Pagebuilder_Modules_CardList_cards?: Page_Pagebuilder_Modules_CardList_cards;
   Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
   Page_Pagebuilder_Modules_TwoColumnGallery_images?: Page_Pagebuilder_Modules_TwoColumnGallery_images;
   Page_Pagebuilder_Modules_TwoColumnGallery_listItems?: Page_Pagebuilder_Modules_TwoColumnGallery_listItems;
@@ -15195,13 +15227,14 @@ export interface $AcfFieldGroup {
 
 export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroCenterTop?: Page_Pagebuilder_Modules_HeroCenterTop;
   Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
   Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
-  Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
+  Page_Pagebuilder_Modules_CardList?: Page_Pagebuilder_Modules_CardList;
   Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
   Page_Pagebuilder_Modules_FourFeatureTags?: Page_Pagebuilder_Modules_FourFeatureTags;
   Page_Pagebuilder_Modules_FourCardsRow?: Page_Pagebuilder_Modules_FourCardsRow;

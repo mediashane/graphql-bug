@@ -1,4 +1,4 @@
-import { colorDarkGrey, colorWhite, freightBigProSemibold, proximaNova } from '../../style';
+import { colorWhite, freightBigProSemibold, proximaNova } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -48,7 +48,6 @@ const styles = {
     textAlign: 'center' as const,
   },
   textOverline: {
-    color: colorDarkGrey,
     fontFamily: freightBigProSemibold,
     fontSize: {
       xs: '32px',
@@ -59,7 +58,6 @@ const styles = {
   },
   textHeadline: {
     padding: '20px 0',
-    color: colorDarkGrey,
     fontFamily: proximaNova,
     fontSize: {
       xs: '18px',
@@ -69,7 +67,6 @@ const styles = {
     lineHeight: 1,
   },
   textSubline: {
-    color: colorDarkGrey,
     fontFamily: proximaNova,
     fontSize: {
       xs: '18px',
