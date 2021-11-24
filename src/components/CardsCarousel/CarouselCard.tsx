@@ -9,7 +9,7 @@ import CarouselCardSticker from './CarouselCardSticker';
 import styles from './styles';
 
 interface Props {
-  image: string;
+  image: any;
   title: string;
   subtitle: string;
   textColor: string;
@@ -28,7 +28,9 @@ function CarouselCard({ image, title, subtitle, textColor, link, showSticker, st
         <Box
           sx={{
             ...styles.carouselCardImage,
-            backgroundImage: `linear-gradient( rgba(0, 0, 0, ${overlay}), rgba(0, 0, 0, ${overlay}) ), url(${image})`,
+            backgroundImage: `linear-gradient( rgba(0, 0, 0, ${overlay}), rgba(0, 0, 0, ${overlay}) ), url(${
+              image?.mediaItemUrl ?? ''
+            })`,
           }}
         ></Box>
       </>

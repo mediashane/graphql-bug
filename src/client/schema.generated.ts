@@ -5057,6 +5057,7 @@ export const generatedSchema = {
     iconButtonThreeLink: { __type: 'AcfLink' },
     iconButtonTwoImage: { __type: 'MediaItem' },
     iconButtonTwoLabel: { __type: 'String' },
+    iconButtonTwoLink: { __type: 'AcfLink' },
     iconButtonsHeadline: { __type: 'String' },
     images: { __type: '[Page_Pagebuilder_Modules_TwoColumnGallery_images]' },
     listItems: { __type: '[Page_Pagebuilder_Modules_TwoColumnGallery_listItems]' },
@@ -5163,6 +5164,26 @@ export const generatedSchema = {
     titleTwo: { __type: 'String' },
     toplineTextColor: { __type: 'String' },
     withButton: { __type: 'Boolean' },
+  },
+  Page_Pagebuilder_Modules_CardsCarousel: {
+    __typename: { __type: 'String!' },
+    cards: { __type: '[Page_Pagebuilder_Modules_CardsCarousel_cards]' },
+    fieldGroupName: { __type: 'String' },
+    labelColor: { __type: 'String' },
+    sectionLabel: { __type: 'String' },
+    textColor: { __type: 'String' },
+    textLinkLabel: { __type: 'String' },
+    textLinkUrl: { __type: 'AcfLink' },
+  },
+  Page_Pagebuilder_Modules_CardsCarousel_cards: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    link: { __type: 'AcfLink' },
+    showSticker: { __type: 'Boolean' },
+    stickerText: { __type: 'String' },
+    subtitle: { __type: 'String' },
+    title: { __type: 'String' },
   },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
@@ -7069,6 +7090,8 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_FourFeatureTags',
       'Page_Pagebuilder_Modules_FourCardsRow',
       'Page_Pagebuilder_Modules_FourCardsWithPrompt',
+      'Page_Pagebuilder_Modules_CardsCarousel',
+      'Page_Pagebuilder_Modules_CardsCarousel_cards',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
@@ -7083,6 +7106,7 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_FourFeatureTags',
       'Page_Pagebuilder_Modules_FourCardsRow',
       'Page_Pagebuilder_Modules_FourCardsWithPrompt',
+      'Page_Pagebuilder_Modules_CardsCarousel',
     ],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
@@ -11033,7 +11057,9 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems'
     | 'Page_Pagebuilder_Modules_FourFeatureTags'
     | 'Page_Pagebuilder_Modules_FourCardsRow'
-    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt';
+    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
+    | 'Page_Pagebuilder_Modules_CardsCarousel'
+    | 'Page_Pagebuilder_Modules_CardsCarousel_cards';
   /**
    * The name of the ACF Field Group
    */
@@ -11100,7 +11126,8 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_TwoColumnGallery'
     | 'Page_Pagebuilder_Modules_FourFeatureTags'
     | 'Page_Pagebuilder_Modules_FourCardsRow'
-    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt';
+    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
+    | 'Page_Pagebuilder_Modules_CardsCarousel';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -11212,7 +11239,7 @@ export interface Page_Pagebuilder_Modules_ThreeFeatureCards {
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
   /**
-   * Set to true is using icons instead of photo images.
+   * Set to true if using icons instead of photo images.
    */
   iconLayout?: Maybe<ScalarsEnums['Boolean']>;
   imageOne?: Maybe<MediaItem>;
@@ -11314,6 +11341,7 @@ export interface Page_Pagebuilder_Modules_TwoColumnGallery {
   iconButtonThreeLink?: Maybe<AcfLink>;
   iconButtonTwoImage?: Maybe<MediaItem>;
   iconButtonTwoLabel?: Maybe<ScalarsEnums['String']>;
+  iconButtonTwoLink?: Maybe<AcfLink>;
   iconButtonsHeadline?: Maybe<ScalarsEnums['String']>;
   images?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_TwoColumnGallery_images>>>;
   listItems?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_TwoColumnGallery_listItems>>>;
@@ -11503,6 +11531,43 @@ export interface Page_Pagebuilder_Modules_FourCardsWithPrompt {
    * If true, a button is also displayed in the prompt
    */
   withButton?: Maybe<ScalarsEnums['Boolean']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_CardsCarousel {
+  __typename?: 'Page_Pagebuilder_Modules_CardsCarousel';
+  cards?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_CardsCarousel_cards>>>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  labelColor?: Maybe<ScalarsEnums['String']>;
+  sectionLabel?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textLinkLabel?: Maybe<ScalarsEnums['String']>;
+  textLinkUrl?: Maybe<AcfLink>;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Pagebuilder_Modules_CardsCarousel_cards {
+  __typename?: 'Page_Pagebuilder_Modules_CardsCarousel_cards';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  link?: Maybe<AcfLink>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showSticker?: Maybe<ScalarsEnums['Boolean']>;
+  stickerText?: Maybe<ScalarsEnums['String']>;
+  subtitle?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14638,6 +14703,8 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_FourFeatureTags: Page_Pagebuilder_Modules_FourFeatureTags;
   Page_Pagebuilder_Modules_FourCardsRow: Page_Pagebuilder_Modules_FourCardsRow;
   Page_Pagebuilder_Modules_FourCardsWithPrompt: Page_Pagebuilder_Modules_FourCardsWithPrompt;
+  Page_Pagebuilder_Modules_CardsCarousel: Page_Pagebuilder_Modules_CardsCarousel;
+  Page_Pagebuilder_Modules_CardsCarousel_cards: Page_Pagebuilder_Modules_CardsCarousel_cards;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -14855,6 +14922,8 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_FourFeatureTags'
   | 'Page_Pagebuilder_Modules_FourCardsRow'
   | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
+  | 'Page_Pagebuilder_Modules_CardsCarousel'
+  | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -15120,6 +15189,8 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_FourFeatureTags?: Page_Pagebuilder_Modules_FourFeatureTags;
   Page_Pagebuilder_Modules_FourCardsRow?: Page_Pagebuilder_Modules_FourCardsRow;
   Page_Pagebuilder_Modules_FourCardsWithPrompt?: Page_Pagebuilder_Modules_FourCardsWithPrompt;
+  Page_Pagebuilder_Modules_CardsCarousel?: Page_Pagebuilder_Modules_CardsCarousel;
+  Page_Pagebuilder_Modules_CardsCarousel_cards?: Page_Pagebuilder_Modules_CardsCarousel_cards;
 }
 
 export interface $Page_Pagebuilder_Modules {
@@ -15135,6 +15206,7 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_FourFeatureTags?: Page_Pagebuilder_Modules_FourFeatureTags;
   Page_Pagebuilder_Modules_FourCardsRow?: Page_Pagebuilder_Modules_FourCardsRow;
   Page_Pagebuilder_Modules_FourCardsWithPrompt?: Page_Pagebuilder_Modules_FourCardsWithPrompt;
+  Page_Pagebuilder_Modules_CardsCarousel?: Page_Pagebuilder_Modules_CardsCarousel;
 }
 
 export interface $NodeWithContentEditor {

@@ -1,6 +1,7 @@
 import {
   CallToAction,
   CardList,
+  CardsCarousel,
   CenteredText,
   EmailSubscribe,
   FourCardsRow,
@@ -18,6 +19,21 @@ export default function netteamRenderComponent(componentName, componentData, ind
     // console.log('[KOA]', 'Rendering', componentName, componentData);
 
     switch (componentName) {
+      case 'CardsCarousel': {
+        const { cards, labelColor, textColor, textLinkLabel, textLinkUrl, sectionLabel } = componentData;
+        console.log('CARDS? ', cards);
+        // return null;
+        return (
+          <CardsCarousel
+            cards={cards}
+            labelColor={labelColor}
+            textColor={textColor}
+            textLinkLabel={textLinkLabel}
+            textLinkUrl={textLinkUrl?.url ?? '/'}
+            sectionLabel={sectionLabel}
+          />
+        );
+      }
       case 'FourCardsWithPrompt': {
         const {
           flexDirection,
@@ -53,15 +69,6 @@ export default function netteamRenderComponent(componentName, componentData, ind
           showStickerFour,
           stickerTextFour,
         } = componentData;
-        const { mediaItemUrl: image } = promptImage;
-        const { mediaItemUrl: cardImageOne } = imageOne;
-        const { mediaItemUrl: cardImageTwo } = imageTwo;
-        const { mediaItemUrl: cardImageThree } = imageThree;
-        const { mediaItemUrl: cardImageFour } = imageFour;
-        const { url: urlOne = '/' } = linkOne;
-        const { url: urlTwo = '/' } = linkTwo;
-        const { url: urlThree = '/' } = linkThree;
-        const { url: urlFour = '/' } = linkFour;
 
         return (
           <FourCardsWithPrompt
@@ -72,30 +79,30 @@ export default function netteamRenderComponent(componentName, componentData, ind
             promptOverline={promptOverline}
             promptTopline={promptTopline}
             promptParagraph={promptParagraph}
-            promptImage={image}
+            promptImage={promptImage?.mediaItemUrl ?? ''}
             paragraphTextColor={textColor}
-            imageOne={cardImageOne}
+            imageOne={imageOne?.mediaItemUrl ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
-            linkOne={urlOne}
+            linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={cardImageTwo}
+            imageTwo={imageTwo?.mediaItemUrl ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
-            linkTwo={urlTwo}
+            linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={cardImageThree}
+            imageThree={imageThree?.mediaItemUrl ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
-            linkThree={urlThree}
+            linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={cardImageFour}
+            imageFour={imageFour?.mediaItemUrl ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
-            linkFour={urlFour}
+            linkFour={linkFour?.url ?? '/'}
             showStickerFour={showStickerFour}
             stickerTextFour={stickerTextFour}
           />
@@ -129,41 +136,33 @@ export default function netteamRenderComponent(componentName, componentData, ind
           showStickerFour,
           stickerTextFour,
         } = componentData;
-        const { mediaItemUrl: cardImageOne } = imageOne;
-        const { mediaItemUrl: cardImageTwo } = imageTwo;
-        const { mediaItemUrl: cardImageThree } = imageThree;
-        const { mediaItemUrl: cardImageFour } = imageFour;
-        const { url: urlOne = '/' } = linkOne;
-        const { url: urlTwo = '/' } = linkTwo;
-        const { url: urlThree = '/' } = linkThree;
-        const { url: urlFour = '/' } = linkFour;
 
         return (
           <FourCardsRow
             key={`${componentName}_${index}`}
             textColor={textColor}
-            imageOne={cardImageOne}
+            imageOne={imageOne?.mediaItemUrl ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
-            linkOne={urlOne}
+            linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={cardImageTwo}
+            imageTwo={imageTwo?.mediaItemUrl ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
-            linkTwo={urlTwo}
+            linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={cardImageThree}
+            imageThree={imageThree?.mediaItemUrl ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
-            linkThree={urlThree}
+            linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={cardImageFour}
+            imageFour={imageFour?.mediaItemUrl ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
-            linkFour={urlFour}
+            linkFour={linkFour?.url ?? '/'}
             showStickerFour={showStickerFour}
             stickerTextFour={stickerTextFour}
           />
@@ -172,22 +171,18 @@ export default function netteamRenderComponent(componentName, componentData, ind
       case 'FourFeatureTags': {
         const { textColor, imageOne, labelOne, imageTwo, labelTwo, imageThree, labelThree, imageFour, labelFour } =
           componentData;
-        const { mediaItemUrl: tagImageOne } = imageOne;
-        const { mediaItemUrl: tagImageTwo } = imageTwo;
-        const { mediaItemUrl: tagImageThree } = imageThree;
-        const { mediaItemUrl: tagImageFour } = imageFour;
 
         return (
           <FourFeatureTags
             key={`${componentName}_${index}`}
             textColor={textColor}
-            imageOne={tagImageOne}
+            imageOne={imageOne?.mediaItemUrl ?? ''}
             labelOne={labelOne}
-            imageTwo={tagImageTwo}
+            imageTwo={imageTwo?.mediaItemUrl ?? ''}
             labelTwo={labelTwo}
-            imageThree={tagImageThree}
+            imageThree={imageThree?.mediaItemUrl ?? ''}
             labelThree={labelThree}
-            imageFour={tagImageFour}
+            imageFour={imageFour?.mediaItemUrl ?? ''}
             labelFour={labelFour}
           />
         );
@@ -219,6 +214,7 @@ export default function netteamRenderComponent(componentName, componentData, ind
           iconButtonThreeLink,
           iconButtonThreeLabel,
         } = componentData;
+
         return (
           <TwoColumnGallery
             key={`${componentName}_${index}`}
@@ -237,14 +233,14 @@ export default function netteamRenderComponent(componentName, componentData, ind
             buttonLabel={buttonLabel}
             withIconButtons={withIconButtons}
             iconButtonsHeadline={iconButtonsHeadline}
-            iconButtonOneImage={iconButtonOneImage}
-            iconButtonOneLink={iconButtonOneLink}
+            iconButtonOneImage={iconButtonOneImage?.mediaItemUrl ?? ''}
+            iconButtonOneLink={iconButtonOneLink?.url ?? '/'}
             iconButtonOneLabel={iconButtonOneLabel}
-            iconButtonTwoImage={iconButtonTwoImage}
-            iconButtonTwoLink={iconButtonTwoLink}
+            iconButtonTwoImage={iconButtonTwoImage?.mediaItemUrl ?? ''}
+            iconButtonTwoLink={iconButtonTwoLink?.url ?? '/'}
             iconButtonTwoLabel={iconButtonTwoLabel}
-            iconButtonThreeImage={iconButtonThreeImage}
-            iconButtonThreeLink={iconButtonThreeLink}
+            iconButtonThreeImage={iconButtonThreeImage?.mediaItemUrl ?? ''}
+            iconButtonThreeLink={iconButtonThreeLink?.url ?? '/'}
             iconButtonThreeLabel={iconButtonThreeLabel}
           />
         );
@@ -267,21 +263,21 @@ export default function netteamRenderComponent(componentName, componentData, ind
       }
       case 'HeroLeftJustified': {
         const { textOverline, textHeadline, textParagraph, media, textColor } = componentData;
-        const { mediaItemUrl } = media;
+
         return (
           <HeroLeftJustified
             key={`${componentName}_${index}`}
             textOverline={textOverline}
             textHeadline={textHeadline}
             textParagraph={textParagraph}
-            media={mediaItemUrl}
+            media={media?.mediaItemUrl ?? ''}
             textColor={textColor}
           />
         );
       }
       case 'HeroCenterButton': {
         const { textOverline, textHeadline, buttonLabel, media, textColor, hoverTextColor } = componentData;
-        const { mediaItemUrl } = media;
+
         return (
           <HeroCenterButton
             key={`${componentName}_${index}`}
@@ -290,7 +286,7 @@ export default function netteamRenderComponent(componentName, componentData, ind
             buttonLabel={buttonLabel}
             textColor={textColor}
             hoverTextColor={hoverTextColor}
-            media={mediaItemUrl}
+            media={media?.mediaItemUrl ?? ''}
           />
         );
       }
@@ -306,13 +302,13 @@ export default function netteamRenderComponent(componentName, componentData, ind
           buttonTextColor,
           buttonBackgroundColor,
         } = componentData;
-        const { mediaItemUrl } = media;
+
         return (
           <CallToAction
             key={`${componentName}_${index}`}
             textHeadline={textHeadline}
             textParagraph={textParagraph}
-            media={mediaItemUrl}
+            media={media?.mediaItemUrl ?? ''}
             textColor={textColor}
             cardBackgroundColor={cardBackgroundColor}
             buttonLabel={buttonLabel}
@@ -337,12 +333,6 @@ export default function netteamRenderComponent(componentName, componentData, ind
           labelThree,
           linkThree,
         } = componentData;
-        const { mediaItemUrl: imageOne } = buttonImageOne;
-        const { mediaItemUrl: imageTwo } = buttonImageTwo;
-        const { mediaItemUrl: imageThree } = buttonImageThree;
-        const { url: buttonLinkOne } = linkOne;
-        const { url: buttonLinkTwo } = linkTwo;
-        const { url: buttonLinkThree } = linkThree;
 
         return (
           <ThreeImageButtons
@@ -350,22 +340,22 @@ export default function netteamRenderComponent(componentName, componentData, ind
             sectionLabel={sectionLabel}
             labelTextColor={labelTextColor}
             textColor={textColor}
-            buttonImageOne={imageOne}
+            buttonImageOne={buttonImageOne?.mediaItemUrl ?? ''}
             labelOne={labelOne}
-            linkOne={buttonLinkOne}
-            buttonImageTwo={imageTwo}
+            linkOne={linkOne?.url ?? '/'}
+            buttonImageTwo={buttonImageTwo?.mediaItemUrl ?? ''}
             labelTwo={labelTwo}
-            linkTwo={buttonLinkTwo}
-            buttonImageThree={imageThree}
+            linkTwo={linkTwo?.url ?? '/'}
+            buttonImageThree={buttonImageThree?.mediaItemUrl ?? ''}
             labelThree={labelThree}
-            linkThree={buttonLinkThree}
+            linkThree={linkThree?.url ?? '/'}
           />
         );
       }
       case 'EmailSubscribe': {
         const { title, placeholder, buttonLabel, subtitle, textColor, backgroundImage, backgroundColor } =
           componentData;
-        const { mediaItemUrl } = backgroundImage;
+
         return (
           <EmailSubscribe
             key={`${componentName}_${index}`}
@@ -374,7 +364,7 @@ export default function netteamRenderComponent(componentName, componentData, ind
             buttonLabel={buttonLabel}
             subtitle={subtitle}
             textColor={textColor}
-            backgroundImage={mediaItemUrl}
+            backgroundImage={backgroundImage?.mediaItemUrl ?? ''}
             backgroundColor={backgroundColor}
           />
         );
@@ -395,9 +385,6 @@ export default function netteamRenderComponent(componentName, componentData, ind
           labelThree,
           descriptionThree,
         } = componentData;
-        const { mediaItemUrl: cardImageOne } = imageOne;
-        const { mediaItemUrl: cardImageTwo } = imageTwo;
-        const { mediaItemUrl: cardImageThree } = imageThree;
 
         return (
           <ThreeFeatureCards
@@ -406,13 +393,13 @@ export default function netteamRenderComponent(componentName, componentData, ind
             iconLayout={iconLayout}
             textColor={textColor}
             labelTextColor={labelTextColor}
-            imageOne={cardImageOne}
+            imageOne={imageOne?.mediaItemUrl ?? ''}
             labelOne={labelOne}
             descriptionOne={descriptionOne}
-            imageTwo={cardImageTwo}
+            imageTwo={imageTwo?.mediaItemUrl ?? ''}
             labelTwo={labelTwo}
             descriptionTwo={descriptionTwo}
-            imageThree={cardImageThree}
+            imageThree={imageThree?.mediaItemUrl ?? ''}
             labelThree={labelThree}
             descriptionThree={descriptionThree}
           />

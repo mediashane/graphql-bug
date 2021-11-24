@@ -19,7 +19,7 @@ interface Props {
   textLinkUrl?: string;
   textLinkLabel?: string;
   cards: {
-    image: string;
+    image: any;
     title: string;
     subtitle?: string;
     link?: {
@@ -88,8 +88,8 @@ function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textL
           </Box>
           <Box sx={styles.carouselCards} id="carousel">
             {cards.map((card, index) => {
-              const { image, title, subtitle, link, showSticker, stickerText } = card;
-              const { url } = link;
+              const { image, title, subtitle, showSticker, stickerText } = card;
+              // const { url } = link;
               return (
                 <CarouselCard
                   image={image}
@@ -98,7 +98,7 @@ function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textL
                   textColor={textColor}
                   showSticker={showSticker}
                   stickerText={stickerText}
-                  link={url}
+                  link={card?.link?.url ?? '/'}
                   key={index}
                 />
               );

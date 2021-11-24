@@ -11,7 +11,7 @@ interface Props {
   sectionLabel?: string;
   iconLayout: boolean;
   textColor: string;
-  labelColor?: string;
+  labelTextColor?: string;
   imageOne: string;
   labelOne: string;
   descriptionOne: string;
@@ -26,7 +26,7 @@ interface Props {
 function FeatureCardsIcons({
   sectionLabel,
   iconLayout,
-  labelColor,
+  labelTextColor,
   textColor,
   imageOne,
   labelOne,
@@ -42,7 +42,7 @@ function FeatureCardsIcons({
     <Container maxWidth="xl">
       <Box sx={styles.threeFeatureCardsContainer}>
         <Box sx={styles.threeFeatureCardsContent}>
-          <Typography sx={{ ...styles.threeFeatureCardsTitle, color: labelColor }}>{sectionLabel}</Typography>
+          <Typography sx={{ ...styles.threeFeatureCardsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
           <Box sx={styles.threeFeatureCardsCards}>
             <FeatureCard
               iconLayout={iconLayout}
