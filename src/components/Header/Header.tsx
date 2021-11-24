@@ -32,19 +32,22 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   // while waiting for the response from WordPress backend don't render
   if (!mainMenu[0]?.url || !mainMenu[0]?.label) {
     return (
-      <Box sx={styles.headerContainer} position="fixed">
-        <AppBar position="static" color="transparent">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={styles.headerTitle}>
-              <NextLink href="/" passHref>
-                <MUILink color="inherit" variant="inherit" underline="none">
-                  {title}
-                </MUILink>
-              </NextLink>
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <>
+        <Box sx={styles.headerContainer} position="fixed">
+          <AppBar position="static" color="transparent">
+            <Toolbar>
+              <Typography variant="h6" component="div" sx={styles.headerTitle}>
+                <NextLink href="/" passHref>
+                  <MUILink color="inherit" variant="inherit" underline="none">
+                    {title}
+                  </MUILink>
+                </NextLink>
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Box>
+        <HeaderSpacer />
+      </>
     );
   }
 

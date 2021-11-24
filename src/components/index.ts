@@ -12,6 +12,7 @@ export { default as HeroCenterButton } from './HeroCenterButton/HeroCenterButton
 export { default as HeroCenterTop } from './HeroCenterTop/HeroCenterTop';
 export { default as HeroLeftJustified } from './HeroLeftJustified/HeroLeftJustified';
 export { default as HeroRightJustified } from './HeroRightJustified/HeroRightJustified';
+export { default as OneColumnContent } from './OneColumnContent/OneColumnContent';
 export { default as Pagination } from './Pagination';
 export { default as ThreeFeatureCards } from './ThreeFeatureCards/ThreeFeatureCards';
 export { default as ThreeImageButtons } from './ThreeImageButtons/ThreeImageButtons';

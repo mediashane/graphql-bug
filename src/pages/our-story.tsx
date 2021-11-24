@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Footer, Header, HeroRightJustified, TwoColumnContent } from 'components';
+import { Footer, Header, HeroRightJustified, OneColumnContent, TwoColumnContent } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -30,6 +30,12 @@ export default function Page() {
         textParagraph="Handmade with an indelible care for natural fibers, each rug is an artifact with its own history, designed to endure."
         headlineColor="#826C4F"
         paragraphColor="#333333"
+      />
+
+      <OneColumnContent
+        textHeadline="From the beginning, the handwoven rug has been the heart of Elizabeth Eakins. "
+        textParagraph="Diversity of techniques and yarn systems, expert coloration, and attention to quality in production set the industry standard."
+        media="images/weavingRepeated.png"
       />
 
       <Footer
