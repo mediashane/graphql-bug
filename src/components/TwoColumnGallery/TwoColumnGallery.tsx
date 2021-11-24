@@ -178,8 +178,6 @@ function TwoColumnGallery({
     );
   };
 
-  console.log('IMAGES? ', images[imageIndex].image.mediaItemUrl);
-
   return (
     <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>
       <Box sx={styles.textContainer}>

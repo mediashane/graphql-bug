@@ -138,8 +138,9 @@ export default function Page() {
         buttonLabel="Book an appointment"
         promptOverline="Questions? want to know more?"
         promptTopline="Book a virtual or in person appointment."
+        promptImage="images/bookVirtualAppointment.png"
         promptParagraph=""
-        textColor="#333333"
+        paragraphTextColor="#333333"
         imageOne="images/latticeLoop.png"
         titleOne="Lattice Loop"
         subtitleOne=""
@@ -198,12 +199,16 @@ export default function Page() {
         flexDirection="row-reverse"
         withButton={false}
         buttonLabel="Book an appointment"
+        buttonLabelColor="#826C4F"
         promptOverline="Designed with you in mind"
+        overlineTextColor="#E56F4D"
         promptTopline="Every pattern is customizable in color, shape, and size"
+        toplineTextColor="#90949F"
         promptParagraph="Our collections feature a broad range of patterns and styles that are fully customizable in color and pattern.
         You can create a truly unique piece by choosing color combinations that reflect your home’s personality. The
         possibilities are endless."
-        textColor="#333333"
+        paragraphTextColor="#333333"
+        promptImage="images/bookVirtualAppointment.png"
         imageOne="images/sb154.png"
         titleOne="SB 154"
         subtitleOne=""

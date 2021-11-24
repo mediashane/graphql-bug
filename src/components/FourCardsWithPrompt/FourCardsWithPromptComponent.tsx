@@ -9,12 +9,16 @@ import styles from './styles';
 
 interface Props {
   flexDirection?: string;
-  withButton: boolean;
-  buttonLabel: string;
-  promptOverline: string;
-  promptTopline: string;
-  promptParagraph: string;
-  textColor: string;
+  withButton?: boolean;
+  buttonLabel?: string;
+  buttonLabelColor?: string;
+  promptOverline?: string;
+  overlineTextColor?: string;
+  promptTopline?: string;
+  toplineTextColor?: string;
+  promptParagraph?: string;
+  promptImage?: string;
+  paragraphTextColor?: string;
   imageOne: string;
   titleOne: string;
   subtitleOne?: string;
@@ -44,11 +48,15 @@ interface Props {
 function FeatureTagIcons({
   flexDirection = 'row',
   withButton,
-  textColor,
+  paragraphTextColor = '#333333',
   buttonLabel,
+  buttonLabelColor = '#826C4F',
   promptOverline,
+  overlineTextColor = '#E56F4D',
   promptTopline,
+  toplineTextColor = '#90949F',
   promptParagraph,
+  promptImage,
   imageOne,
   titleOne,
   subtitleOne,
@@ -78,8 +86,8 @@ function FeatureTagIcons({
     if (withButton) {
       return (
         <>
-          <Typography sx={styles.fourCardsPromptOverline}>{promptOverline}</Typography>
-          <Typography sx={styles.fourCardsPromptTopline}>{promptTopline}</Typography>
+          <Typography sx={{ ...styles.fourCardsPromptOverline, color: overlineTextColor }}>{promptOverline}</Typography>
+          <Typography sx={{ ...styles.fourCardsPromptTopline, color: toplineTextColor }}>{promptTopline}</Typography>
         </>
       );
     }
@@ -87,7 +95,7 @@ function FeatureTagIcons({
     return (
       <>
         <>
-          <Typography sx={styles.fourCardsPromptOverline}>{promptOverline}</Typography>
+          <Typography sx={{ ...styles.fourCardsPromptOverline, color: overlineTextColor }}>{promptOverline}</Typography>
         </>
       </>
     );
@@ -97,7 +105,7 @@ function FeatureTagIcons({
     if (withButton) {
       return (
         <Box sx={styles.fourCardsPromptButtonWrapper}>
-          <Button variant="outlined" size="large" sx={styles.fourCardsPromptButton}>
+          <Button variant="outlined" size="large" sx={{ ...styles.fourCardsPromptButton, color: buttonLabelColor }}>
             {buttonLabel}
           </Button>
         </Box>
@@ -106,8 +114,10 @@ function FeatureTagIcons({
 
     return (
       <>
-        <Typography sx={styles.fourCardsPromptBottomline}>{promptTopline}</Typography>
-        <Typography sx={styles.fourCardsPromptParagraph}>{promptParagraph}</Typography>
+        <Typography sx={{ ...styles.fourCardsPromptBottomline, color: overlineTextColor }}>{promptTopline}</Typography>
+        <Typography sx={{ ...styles.fourCardsPromptParagraph, color: paragraphTextColor }}>
+          {promptParagraph}
+        </Typography>
       </>
     );
   };
@@ -119,7 +129,7 @@ function FeatureTagIcons({
           <Box sx={styles.fourCardsPrompt}>
             <Box sx={styles.fourCardsPromptInnerWrapper}>
               <PromptTop />
-              <Box sx={{ ...styles.fourCardsPromptImage, backgroundImage: `url(images/bookVirtualAppointment.png)` }} />
+              <Box sx={{ ...styles.fourCardsPromptImage, backgroundImage: `url(${promptImage})` }} />
               <PromptBottom />
             </Box>
           </Box>
@@ -129,7 +139,7 @@ function FeatureTagIcons({
             image={imageOne}
             title={titleOne}
             subtitle={subtitleOne}
-            textColor={textColor}
+            textColor={paragraphTextColor}
             showSticker={showStickerOne}
             stickerText={stickerTextOne}
             link={linkOne}
@@ -138,7 +148,7 @@ function FeatureTagIcons({
             image={imageTwo}
             title={titleTwo}
             subtitle={subtitleTwo}
-            textColor={textColor}
+            textColor={paragraphTextColor}
             showSticker={showStickerTwo}
             stickerText={stickerTextTwo}
             link={linkTwo}
@@ -147,7 +157,7 @@ function FeatureTagIcons({
             image={imageThree}
             title={titleThree}
             subtitle={subtitleThree}
-            textColor={textColor}
+            textColor={paragraphTextColor}
             showSticker={showStickerThree}
             stickerText={stickerTextThree}
             link={linkThree}
@@ -156,7 +166,7 @@ function FeatureTagIcons({
             image={imageFour}
             title={titleFour}
             subtitle={subtitleFour}
-            textColor={textColor}
+            textColor={paragraphTextColor}
             showSticker={showStickerFour}
             stickerText={stickerTextFour}
             link={linkFour}

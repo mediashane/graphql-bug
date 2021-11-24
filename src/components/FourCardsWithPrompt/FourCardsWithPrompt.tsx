@@ -4,12 +4,16 @@ import FourCardsWithPromptComponent from './FourCardsWithPromptComponent';
 
 interface Props {
   flexDirection?: string;
-  withButton: boolean;
-  buttonLabel: string;
-  promptOverline: string;
-  promptTopline: string;
-  promptParagraph: string;
-  textColor: string;
+  withButton?: boolean;
+  buttonLabel?: string;
+  buttonLabelColor?: string;
+  promptOverline?: string;
+  overlineTextColor?: string;
+  promptTopline?: string;
+  toplineTextColor?: string;
+  promptParagraph?: string;
+  promptImage?: string;
+  paragraphTextColor: string;
   imageOne: string;
   titleOne: string;
   subtitleOne?: string;

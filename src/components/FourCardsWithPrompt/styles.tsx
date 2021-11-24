@@ -1,12 +1,4 @@
-import {
-  colorBrandBrown,
-  colorBrandOrange,
-  colorDarkGrey,
-  colorMidGrey,
-  colorWhite,
-  freightBigPro,
-  proximaNova,
-} from '../../style';
+import { colorBrandBrown, colorDarkGrey, colorWhite, freightBigPro, proximaNova } from '../../style';
 
 const styles = {
   fourCardsWithPromptContainer: {
@@ -162,19 +154,16 @@ const styles = {
     backgroundPosition: 'center center',
   },
   fourCardsPromptOverline: {
-    color: colorBrandOrange,
     fontSize: '20px',
     fontFamily: freightBigPro,
     textAlign: 'center' as const,
   },
   fourCardsPromptTopline: {
-    color: colorMidGrey,
     fontSize: '32px',
     fontFamily: freightBigPro,
     textAlign: 'center' as const,
   },
   fourCardsPromptBottomline: {
-    color: colorBrandOrange,
     fontSize: {
       xs: '20px',
       sm: '28px',
@@ -184,7 +173,6 @@ const styles = {
     textAlign: 'center' as const,
   },
   fourCardsPromptParagraph: {
-    color: colorDarkGrey,
     fontSize: '14px',
     fontFamily: proximaNova,
     textAlign: 'center' as const,
@@ -211,7 +199,6 @@ const styles = {
   fourCardsPromptButton: {
     margin: '20px 0 40px 0',
     padding: '15px 50px',
-    color: colorBrandBrown,
     backgroundColor: colorWhite,
     fontFamily: proximaNova,
     fontWeight: '100',

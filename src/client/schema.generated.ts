@@ -5083,6 +5083,87 @@ export const generatedSchema = {
     textHeadline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_FourFeatureTags: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    imageFour: { __type: 'MediaItem' },
+    imageOne: { __type: 'MediaItem' },
+    imageThree: { __type: 'MediaItem' },
+    imageTwo: { __type: 'MediaItem' },
+    labelFour: { __type: 'String' },
+    labelOne: { __type: 'String' },
+    labelThree: { __type: 'String' },
+    labelTwo: { __type: 'String' },
+    textColor: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_FourCardsRow: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    imageFour: { __type: 'MediaItem' },
+    imageOne: { __type: 'MediaItem' },
+    imageThree: { __type: 'MediaItem' },
+    imageTwo: { __type: 'MediaItem' },
+    linkFour: { __type: 'AcfLink' },
+    linkOne: { __type: 'AcfLink' },
+    linkThree: { __type: 'AcfLink' },
+    linkTwo: { __type: 'AcfLink' },
+    showStickerFour: { __type: 'Boolean' },
+    showStickerOne: { __type: 'Boolean' },
+    showStickerThree: { __type: 'Boolean' },
+    showStickerTwo: { __type: 'Boolean' },
+    stickerTextFour: { __type: 'String' },
+    stickerTextOne: { __type: 'String' },
+    stickerTextThree: { __type: 'String' },
+    stickerTextTwo: { __type: 'String' },
+    subtitleFour: { __type: 'String' },
+    subtitleOne: { __type: 'String' },
+    subtitleThree: { __type: 'String' },
+    subtitleTwo: { __type: 'String' },
+    textColor: { __type: 'String' },
+    titleFour: { __type: 'String' },
+    titleOne: { __type: 'String' },
+    titleThree: { __type: 'String' },
+    titleTwo: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_FourCardsWithPrompt: {
+    __typename: { __type: 'String!' },
+    buttonLabel: { __type: 'String' },
+    buttonLabelColor: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    flexDirection: { __type: 'String' },
+    imageFour: { __type: 'MediaItem' },
+    imageOne: { __type: 'MediaItem' },
+    imageThree: { __type: 'MediaItem' },
+    imageTwo: { __type: 'MediaItem' },
+    linkFour: { __type: 'AcfLink' },
+    linkOne: { __type: 'AcfLink' },
+    linkThree: { __type: 'AcfLink' },
+    linkTwo: { __type: 'AcfLink' },
+    overlineTextColor: { __type: 'String' },
+    paragraphTextColor: { __type: 'String' },
+    promptImage: { __type: 'MediaItem' },
+    promptOverline: { __type: 'String' },
+    promptParagraph: { __type: 'String' },
+    promptTopline: { __type: 'String' },
+    showStickerFour: { __type: 'Boolean' },
+    showStickerOne: { __type: 'Boolean' },
+    showStickerThree: { __type: 'Boolean' },
+    showStickerTwo: { __type: 'Boolean' },
+    stickerTextFour: { __type: 'String' },
+    stickerTextOne: { __type: 'String' },
+    stickerTextThree: { __type: 'String' },
+    stickerTextTwo: { __type: 'String' },
+    subtitleFour: { __type: 'String' },
+    subtitleOne: { __type: 'String' },
+    subtitleThree: { __type: 'String' },
+    subtitleTwo: { __type: 'String' },
+    titleFour: { __type: 'String' },
+    titleOne: { __type: 'String' },
+    titleThree: { __type: 'String' },
+    titleTwo: { __type: 'String' },
+    toplineTextColor: { __type: 'String' },
+    withButton: { __type: 'Boolean' },
+  },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
@@ -6985,6 +7066,9 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_TwoColumnGallery',
       'Page_Pagebuilder_Modules_TwoColumnGallery_images',
       'Page_Pagebuilder_Modules_TwoColumnGallery_listItems',
+      'Page_Pagebuilder_Modules_FourFeatureTags',
+      'Page_Pagebuilder_Modules_FourCardsRow',
+      'Page_Pagebuilder_Modules_FourCardsWithPrompt',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
@@ -6996,6 +7080,9 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_CenteredText',
       'Page_Pagebuilder_Modules_RugCollections',
       'Page_Pagebuilder_Modules_TwoColumnGallery',
+      'Page_Pagebuilder_Modules_FourFeatureTags',
+      'Page_Pagebuilder_Modules_FourCardsRow',
+      'Page_Pagebuilder_Modules_FourCardsWithPrompt',
     ],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
@@ -10943,7 +11030,10 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_RugCollections_collections'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
-    | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems';
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems'
+    | 'Page_Pagebuilder_Modules_FourFeatureTags'
+    | 'Page_Pagebuilder_Modules_FourCardsRow'
+    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt';
   /**
    * The name of the ACF Field Group
    */
@@ -11007,7 +11097,10 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'Page_Pagebuilder_Modules_CenteredText'
     | 'Page_Pagebuilder_Modules_RugCollections'
-    | 'Page_Pagebuilder_Modules_TwoColumnGallery';
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery'
+    | 'Page_Pagebuilder_Modules_FourFeatureTags'
+    | 'Page_Pagebuilder_Modules_FourCardsRow'
+    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -11278,6 +11371,138 @@ export interface Page_Pagebuilder_Modules_TwoColumnGallery_listItems {
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_FourFeatureTags {
+  __typename?: 'Page_Pagebuilder_Modules_FourFeatureTags';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  imageFour?: Maybe<MediaItem>;
+  imageOne?: Maybe<MediaItem>;
+  imageThree?: Maybe<MediaItem>;
+  imageTwo?: Maybe<MediaItem>;
+  labelFour?: Maybe<ScalarsEnums['String']>;
+  labelOne?: Maybe<ScalarsEnums['String']>;
+  labelThree?: Maybe<ScalarsEnums['String']>;
+  labelTwo?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_FourCardsRow {
+  __typename?: 'Page_Pagebuilder_Modules_FourCardsRow';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  imageFour?: Maybe<MediaItem>;
+  imageOne?: Maybe<MediaItem>;
+  imageThree?: Maybe<MediaItem>;
+  imageTwo?: Maybe<MediaItem>;
+  linkFour?: Maybe<AcfLink>;
+  linkOne?: Maybe<AcfLink>;
+  linkThree?: Maybe<AcfLink>;
+  linkTwo?: Maybe<AcfLink>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerFour?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerOne?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerThree?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerTwo?: Maybe<ScalarsEnums['Boolean']>;
+  stickerTextFour?: Maybe<ScalarsEnums['String']>;
+  stickerTextOne?: Maybe<ScalarsEnums['String']>;
+  stickerTextThree?: Maybe<ScalarsEnums['String']>;
+  stickerTextTwo?: Maybe<ScalarsEnums['String']>;
+  subtitleFour?: Maybe<ScalarsEnums['String']>;
+  subtitleOne?: Maybe<ScalarsEnums['String']>;
+  subtitleThree?: Maybe<ScalarsEnums['String']>;
+  subtitleTwo?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  titleFour?: Maybe<ScalarsEnums['String']>;
+  titleOne?: Maybe<ScalarsEnums['String']>;
+  titleThree?: Maybe<ScalarsEnums['String']>;
+  titleTwo?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_FourCardsWithPrompt {
+  __typename?: 'Page_Pagebuilder_Modules_FourCardsWithPrompt';
+  buttonLabel?: Maybe<ScalarsEnums['String']>;
+  buttonLabelColor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Enter &#039;row&#039; if you want the prompt left justified, or &#039;row-reverse&#039; if you want the prompt right justified.
+   */
+  flexDirection?: Maybe<ScalarsEnums['String']>;
+  imageFour?: Maybe<MediaItem>;
+  imageOne?: Maybe<MediaItem>;
+  imageThree?: Maybe<MediaItem>;
+  imageTwo?: Maybe<MediaItem>;
+  linkFour?: Maybe<AcfLink>;
+  linkOne?: Maybe<AcfLink>;
+  linkThree?: Maybe<AcfLink>;
+  linkTwo?: Maybe<AcfLink>;
+  overlineTextColor?: Maybe<ScalarsEnums['String']>;
+  paragraphTextColor?: Maybe<ScalarsEnums['String']>;
+  promptImage?: Maybe<MediaItem>;
+  promptOverline?: Maybe<ScalarsEnums['String']>;
+  promptParagraph?: Maybe<ScalarsEnums['String']>;
+  promptTopline?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerFour?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerOne?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerThree?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * If true, show sticker in upper right hand corner of image
+   */
+  showStickerTwo?: Maybe<ScalarsEnums['Boolean']>;
+  stickerTextFour?: Maybe<ScalarsEnums['String']>;
+  stickerTextOne?: Maybe<ScalarsEnums['String']>;
+  stickerTextThree?: Maybe<ScalarsEnums['String']>;
+  stickerTextTwo?: Maybe<ScalarsEnums['String']>;
+  subtitleFour?: Maybe<ScalarsEnums['String']>;
+  subtitleOne?: Maybe<ScalarsEnums['String']>;
+  subtitleThree?: Maybe<ScalarsEnums['String']>;
+  subtitleTwo?: Maybe<ScalarsEnums['String']>;
+  titleFour?: Maybe<ScalarsEnums['String']>;
+  titleOne?: Maybe<ScalarsEnums['String']>;
+  titleThree?: Maybe<ScalarsEnums['String']>;
+  titleTwo?: Maybe<ScalarsEnums['String']>;
+  toplineTextColor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If true, a button is also displayed in the prompt
+   */
+  withButton?: Maybe<ScalarsEnums['Boolean']>;
 }
 
 /**
@@ -14410,6 +14635,9 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_TwoColumnGallery: Page_Pagebuilder_Modules_TwoColumnGallery;
   Page_Pagebuilder_Modules_TwoColumnGallery_images: Page_Pagebuilder_Modules_TwoColumnGallery_images;
   Page_Pagebuilder_Modules_TwoColumnGallery_listItems: Page_Pagebuilder_Modules_TwoColumnGallery_listItems;
+  Page_Pagebuilder_Modules_FourFeatureTags: Page_Pagebuilder_Modules_FourFeatureTags;
+  Page_Pagebuilder_Modules_FourCardsRow: Page_Pagebuilder_Modules_FourCardsRow;
+  Page_Pagebuilder_Modules_FourCardsWithPrompt: Page_Pagebuilder_Modules_FourCardsWithPrompt;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -14624,6 +14852,9 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_TwoColumnGallery'
   | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
   | 'Page_Pagebuilder_Modules_TwoColumnGallery_listItems'
+  | 'Page_Pagebuilder_Modules_FourFeatureTags'
+  | 'Page_Pagebuilder_Modules_FourCardsRow'
+  | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -14886,6 +15117,9 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
   Page_Pagebuilder_Modules_TwoColumnGallery_images?: Page_Pagebuilder_Modules_TwoColumnGallery_images;
   Page_Pagebuilder_Modules_TwoColumnGallery_listItems?: Page_Pagebuilder_Modules_TwoColumnGallery_listItems;
+  Page_Pagebuilder_Modules_FourFeatureTags?: Page_Pagebuilder_Modules_FourFeatureTags;
+  Page_Pagebuilder_Modules_FourCardsRow?: Page_Pagebuilder_Modules_FourCardsRow;
+  Page_Pagebuilder_Modules_FourCardsWithPrompt?: Page_Pagebuilder_Modules_FourCardsWithPrompt;
 }
 
 export interface $Page_Pagebuilder_Modules {
@@ -14898,6 +15132,9 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
   Page_Pagebuilder_Modules_RugCollections?: Page_Pagebuilder_Modules_RugCollections;
   Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
+  Page_Pagebuilder_Modules_FourFeatureTags?: Page_Pagebuilder_Modules_FourFeatureTags;
+  Page_Pagebuilder_Modules_FourCardsRow?: Page_Pagebuilder_Modules_FourCardsRow;
+  Page_Pagebuilder_Modules_FourCardsWithPrompt?: Page_Pagebuilder_Modules_FourCardsWithPrompt;
 }
 
 export interface $NodeWithContentEditor {

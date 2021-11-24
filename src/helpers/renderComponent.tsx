@@ -3,6 +3,9 @@ import {
   CardList,
   CenteredText,
   EmailSubscribe,
+  FourCardsRow,
+  FourCardsWithPrompt,
+  FourFeatureTags,
   HeroCenterButton,
   HeroLeftJustified,
   ThreeFeatureCards,
@@ -15,6 +18,180 @@ export default function netteamRenderComponent(componentName, componentData, ind
     // console.log('[KOA]', 'Rendering', componentName, componentData);
 
     switch (componentName) {
+      case 'FourCardsWithPrompt': {
+        const {
+          flexDirection,
+          withButton,
+          buttonLabel,
+          promptOverline,
+          promptTopline,
+          promptParagraph,
+          promptImage,
+          textColor,
+          imageOne,
+          titleOne,
+          subtitleOne,
+          linkOne,
+          showStickerOne,
+          stickerTextOne,
+          imageTwo,
+          titleTwo,
+          subtitleTwo,
+          linkTwo,
+          showStickerTwo,
+          stickerTextTwo,
+          imageThree,
+          titleThree,
+          subtitleThree,
+          linkThree,
+          showStickerThree,
+          stickerTextThree,
+          imageFour,
+          titleFour,
+          subtitleFour,
+          linkFour,
+          showStickerFour,
+          stickerTextFour,
+        } = componentData;
+        const { mediaItemUrl: image } = promptImage;
+        const { mediaItemUrl: cardImageOne } = imageOne;
+        const { mediaItemUrl: cardImageTwo } = imageTwo;
+        const { mediaItemUrl: cardImageThree } = imageThree;
+        const { mediaItemUrl: cardImageFour } = imageFour;
+        const { url: urlOne = '/' } = linkOne;
+        const { url: urlTwo = '/' } = linkTwo;
+        const { url: urlThree = '/' } = linkThree;
+        const { url: urlFour = '/' } = linkFour;
+
+        return (
+          <FourCardsWithPrompt
+            key={`${componentName}_${index}`}
+            flexDirection={flexDirection}
+            withButton={withButton}
+            buttonLabel={buttonLabel}
+            promptOverline={promptOverline}
+            promptTopline={promptTopline}
+            promptParagraph={promptParagraph}
+            promptImage={image}
+            paragraphTextColor={textColor}
+            imageOne={cardImageOne}
+            titleOne={titleOne}
+            subtitleOne={subtitleOne}
+            linkOne={urlOne}
+            showStickerOne={showStickerOne}
+            stickerTextOne={stickerTextOne}
+            imageTwo={cardImageTwo}
+            titleTwo={titleTwo}
+            subtitleTwo={subtitleTwo}
+            linkTwo={urlTwo}
+            showStickerTwo={showStickerTwo}
+            stickerTextTwo={stickerTextTwo}
+            imageThree={cardImageThree}
+            titleThree={titleThree}
+            subtitleThree={subtitleThree}
+            linkThree={urlThree}
+            showStickerThree={showStickerThree}
+            stickerTextThree={stickerTextThree}
+            imageFour={cardImageFour}
+            titleFour={titleFour}
+            subtitleFour={subtitleFour}
+            linkFour={urlFour}
+            showStickerFour={showStickerFour}
+            stickerTextFour={stickerTextFour}
+          />
+        );
+      }
+      case 'FourCardsRow': {
+        const {
+          textColor,
+          imageOne,
+          titleOne,
+          subtitleOne,
+          linkOne,
+          showStickerOne,
+          stickerTextOne,
+          imageTwo,
+          titleTwo,
+          subtitleTwo,
+          linkTwo,
+          showStickerTwo,
+          stickerTextTwo,
+          imageThree,
+          titleThree,
+          subtitleThree,
+          linkThree,
+          showStickerThree,
+          stickerTextThree,
+          imageFour,
+          titleFour,
+          subtitleFour,
+          linkFour,
+          showStickerFour,
+          stickerTextFour,
+        } = componentData;
+        const { mediaItemUrl: cardImageOne } = imageOne;
+        const { mediaItemUrl: cardImageTwo } = imageTwo;
+        const { mediaItemUrl: cardImageThree } = imageThree;
+        const { mediaItemUrl: cardImageFour } = imageFour;
+        const { url: urlOne = '/' } = linkOne;
+        const { url: urlTwo = '/' } = linkTwo;
+        const { url: urlThree = '/' } = linkThree;
+        const { url: urlFour = '/' } = linkFour;
+
+        return (
+          <FourCardsRow
+            key={`${componentName}_${index}`}
+            textColor={textColor}
+            imageOne={cardImageOne}
+            titleOne={titleOne}
+            subtitleOne={subtitleOne}
+            linkOne={urlOne}
+            showStickerOne={showStickerOne}
+            stickerTextOne={stickerTextOne}
+            imageTwo={cardImageTwo}
+            titleTwo={titleTwo}
+            subtitleTwo={subtitleTwo}
+            linkTwo={urlTwo}
+            showStickerTwo={showStickerTwo}
+            stickerTextTwo={stickerTextTwo}
+            imageThree={cardImageThree}
+            titleThree={titleThree}
+            subtitleThree={subtitleThree}
+            linkThree={urlThree}
+            showStickerThree={showStickerThree}
+            stickerTextThree={stickerTextThree}
+            imageFour={cardImageFour}
+            titleFour={titleFour}
+            subtitleFour={subtitleFour}
+            linkFour={urlFour}
+            showStickerFour={showStickerFour}
+            stickerTextFour={stickerTextFour}
+          />
+        );
+      }
+      case 'FourFeatureTags': {
+        const { textColor, imageOne, labelOne, imageTwo, labelTwo, imageThree, labelThree, imageFour, labelFour } =
+          componentData;
+        const { mediaItemUrl: tagImageOne } = imageOne;
+        const { mediaItemUrl: tagImageTwo } = imageTwo;
+        const { mediaItemUrl: tagImageThree } = imageThree;
+        const { mediaItemUrl: tagImageFour } = imageFour;
+
+        return (
+          <FourFeatureTags
+            key={`${componentName}_${index}`}
+            textColor={textColor}
+            imageOne={tagImageOne}
+            labelOne={labelOne}
+            imageTwo={tagImageTwo}
+            labelTwo={labelTwo}
+            imageThree={tagImageThree}
+            labelThree={labelThree}
+            imageFour={tagImageFour}
+            labelFour={labelFour}
+          />
+        );
+      }
       case 'TwoColumnGallery': {
         const {
           textOverline,
