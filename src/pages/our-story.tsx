@@ -26,6 +26,8 @@ export default function Page() {
       />
 
       <TwoColumnContent
+        includeParagraph={true}
+        image="/images/LivingRoom.png"
         textHeadline="Living with Elizabeth Eakins rugs is an intimate experience. "
         textParagraph="Handmade with an indelible care for natural fibers, each rug is an artifact with its own history, designed to endure."
         headlineColor="#826C4F"
@@ -33,9 +35,23 @@ export default function Page() {
       />
 
       <OneColumnContent
-        textHeadline="From the beginning, the handwoven rug has been the heart of Elizabeth Eakins. "
+        includeParagraph={true}
+        textHeadline="From the beginning, the handwoven rug has been the heart of Elizabeth Eakins."
         textParagraph="Diversity of techniques and yarn systems, expert coloration, and attention to quality in production set the industry standard."
         media="images/weavingRepeated.png"
+      />
+
+      <TwoColumnContent
+        includeParagraph={false}
+        image="/images/WeavingBnW.png"
+        textHeadline="From its origins as a pencil sketch, to the dyeing of fibers timed by watchful eyes."
+        headlineColor="##333333"
+      />
+
+      <OneColumnContent
+        includeParagraph={false}
+        textHeadline="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis."
+        media="images/SheepBnW.png"
       />
 
       <Footer

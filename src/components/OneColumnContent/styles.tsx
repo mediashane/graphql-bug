@@ -2,7 +2,11 @@ import { colorWhite, freightBigProSemibold, proximaNova, proximaNovaThin } from 
 
 const styles = {
   wrapper: {
-    marginBottom: '60px',
+    marginBottom: {
+      xs: '0',
+      sm: '0',
+      md: '60px',
+    },
     height: '100%',
     width: '100%',
   },
@@ -18,7 +22,11 @@ const styles = {
     backgroundPosition: 'center top',
   },
   textContainer: {
-    paddingLeft: '40px',
+    padding: {
+      xs: '40px',
+      sm: '40px',
+      md: '0 0 0 40px',
+    },
     width: {
       xs: '90%',
       sm: '80%',
@@ -30,19 +38,22 @@ const styles = {
     fontFamily: freightBigProSemibold,
   },
   textHeadline: {
-    marginBottom: {
-      xs: '0',
-      sm: '60px',
-    },
     fontFamily: 'inherit',
     fontSize: {
       xs: '32px',
-      sm: '4.5vw',
+      sm: '5vw',
       md: '4.5vw',
       lg: '4vw',
       xl: '3.5vw',
     },
     lineHeight: 1.25,
+  },
+  innerHeadlineTextContainer: {
+    padding: {
+      xs: 'none',
+      sm: 'flex',
+      md: '4.5vw',
+    },
   },
   innerParagraphTextContainer: {
     display: {
@@ -58,6 +69,10 @@ const styles = {
     padding: '40px',
   },
   textParagraph: {
+    marginTop: {
+      xs: '0',
+      sm: '60px',
+    },
     fontFamily: proximaNovaThin,
     fontSize: {
       xs: '4vw',

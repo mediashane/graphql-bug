@@ -10,7 +10,11 @@ const styles = {
       sm: 'column' as const,
       md: 'row' as const,
     },
-    padding: '40px 0',
+    padding: {
+      xs: '20px 0',
+      sm: '40px 0',
+      md: '40px 0',
+    },
     width: '100%',
   },
   twoColumnImageWrapper: {
@@ -35,9 +39,9 @@ const styles = {
     flexDirection: 'column' as const,
     alignItems: 'flex-start',
     justifyContent: 'center',
-    marginBottom: {
-      xs: '60px',
-      sm: '60px',
+    margin: {
+      xs: '20px 0 60px 0',
+      sm: '20px 0 60px 0',
       md: '0',
     },
     padding: {
@@ -62,16 +66,26 @@ const styles = {
       xl: '75%',
     },
   },
+  twoColumnTextHeadlineWrapper: {
+    paddingBottom: {
+      xs: '0',
+      sm: '0',
+      md: '45%',
+      lg: '70%',
+      xl: '70%',
+    },
+  },
   twoColumnHeadline: {
     marginBottom: '40px',
     fontFamily: freightBigProSemibold,
-    fontSize: '38px',
-    // textAlign: 'center' as const,
+    fontSize: {
+      xs: '34px',
+      sm: '38px',
+    },
   },
   twoColumnParagraph: {
     fontFamily: proximaNova,
     fontSize: '22px',
-    // textAlign: 'center' as const,
   },
 };
 
