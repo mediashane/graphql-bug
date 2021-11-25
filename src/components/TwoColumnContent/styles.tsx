@@ -5,27 +5,12 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    flexDirection: {
-      xs: 'column' as const,
-      sm: 'column' as const,
-      md: 'row' as const,
-    },
-    padding: {
-      xs: '20px 0',
-      sm: '40px 0',
-      md: '40px 0',
-    },
+    padding: '40px 0',
     width: '100%',
   },
   twoColumnImageWrapper: {
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
-    padding: {
-      xs: '20px 0',
-      sm: '40px 0',
-      md: '40px',
-    },
     width: {
       xs: '85%',
       sm: '90%',
@@ -45,13 +30,13 @@ const styles = {
       md: '0',
     },
     padding: {
-      xs: '0',
-      sm: '0',
+      xs: '0 40px',
+      sm: '0 40px',
       md: '0 40px',
     },
     width: {
       xs: '85%',
-      sm: '90%',
+      sm: '80%',
       md: '50%',
       lg: '50%',
       xl: '50%',
@@ -60,7 +45,7 @@ const styles = {
   twoColumnTextWrapper: {
     width: {
       xs: '100%',
-      sm: '100%',
+      sm: '90%',
       md: '90%',
       lg: '90%',
       xl: '75%',
@@ -69,21 +54,28 @@ const styles = {
   twoColumnTextHeadlineWrapper: {
     paddingBottom: {
       xs: '0',
-      sm: '0',
-      md: '45%',
+      sm: '40%',
+      md: '70%',
       lg: '70%',
       xl: '70%',
     },
   },
   twoColumnHeadline: {
-    marginBottom: '40px',
     fontFamily: freightBigProSemibold,
     fontSize: {
-      xs: '34px',
-      sm: '38px',
+      xs: '24px',
+      sm: '28px',
+      md: '38px',
+      lg: '44px',
     },
   },
   twoColumnParagraph: {
+    marginTop: {
+      xs: '20px',
+      sm: '20px',
+      md: '40px',
+      lg: '60px',
+    },
     fontFamily: proximaNova,
     fontSize: '22px',
   },

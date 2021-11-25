@@ -36,7 +36,7 @@ function OneColumnContent({
     }
 
     return (
-      <Box sx={styles.textContainer}>
+      <Box sx={styles.headlineTextContainer}>
         <Fade delay={500}>
           <Box sx={styles.innerHeadlineTextContainer}>
             <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>

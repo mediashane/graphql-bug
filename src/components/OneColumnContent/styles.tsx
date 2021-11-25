@@ -37,6 +37,28 @@ const styles = {
     color: colorWhite,
     fontFamily: freightBigProSemibold,
   },
+  headlineTextContainer: {
+    padding: {
+      xs: '70% 0 0 0',
+      sm: '60% 0 0 0',
+      md: '40% 0 0 20%',
+      lg: '40% 0 0 30%',
+    },
+    margin: {
+      xs: '40px',
+      sm: '40px',
+      md: '0 0 0 40px',
+    },
+    width: {
+      xs: '90%',
+      sm: '80%',
+      md: '80%',
+      lg: '80%',
+      xl: '62.5%',
+    },
+    color: colorWhite,
+    fontFamily: freightBigProSemibold,
+  },
   textHeadline: {
     fontFamily: 'inherit',
     fontSize: {
@@ -49,10 +71,15 @@ const styles = {
     lineHeight: 1.25,
   },
   innerHeadlineTextContainer: {
-    padding: {
-      xs: 'none',
-      sm: 'flex',
-      md: '4.5vw',
+    marginRight: {
+      xs: '0',
+      sm: '0',
+      md: '60px',
+    },
+    textAlign: {
+      xs: 'left' as const,
+      sm: 'left' as const,
+      md: 'right' as const,
     },
   },
   innerParagraphTextContainer: {

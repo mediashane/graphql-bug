@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import styles from './styles';
 
 interface Props {
+  flexDirection?: string;
   includeParagraph: boolean;
   image: string;
   textHeadline?: string;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 function TwoColumnContent({
+  flexDirection = 'row',
   includeParagraph = false,
   image = '',
   textHeadline = '',
@@ -37,7 +39,12 @@ function TwoColumnContent({
     }
 
     return (
-      <Box sx={styles.twoColumnTextContainer}>
+      <Box
+        sx={{
+          ...styles.twoColumnTextContainer,
+          alignItems: flexDirection === 'row' ? 'flex-start' : 'center',
+        }}
+      >
         <Box sx={styles.twoColumnTextWrapper}>
           <Box sx={styles.twoColumnTextHeadlineWrapper}>
             <Box sx={{ ...styles.twoColumnHeadline, color: headlineColor }}>{textHeadline}</Box>
@@ -48,8 +55,25 @@ function TwoColumnContent({
   };
 
   return (
-    <Box sx={{ ...styles.twoColumnContentContainer, backgroundColor: backgroundColor }}>
-      <Box sx={styles.twoColumnImageWrapper}>
+    <Box
+      sx={{
+        ...styles.twoColumnContentContainer,
+        backgroundColor: backgroundColor,
+        flexDirection: {
+          xs: 'column' as any,
+          sm: flexDirection === 'row' ? 'row' : 'row-reverse',
+        },
+      }}
+    >
+      <Box
+        sx={{
+          ...styles.twoColumnImageWrapper,
+          margin: {
+            xs: 0,
+            sm: flexDirection === 'row' ? '0 0 0 60px' : '0 60px 0 0',
+          },
+        }}
+      >
         <Image src={image} alt="Living Room" width={651} height={886} />
       </Box>
       <InnerTextContent />
