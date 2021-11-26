@@ -38,7 +38,7 @@ export default function Page() {
         includeParagraph={true}
         textHeadline="From the beginning, the handwoven rug has been the heart of Elizabeth Eakins."
         textParagraph="Diversity of techniques and yarn systems, expert coloration, and attention to quality in production set the industry standard."
-        media="images/weavingRepeated.png"
+        image="images/weavingRepeated.png"
       />
 
       <TwoColumnContent
@@ -51,7 +51,7 @@ export default function Page() {
       <OneColumnContent
         includeParagraph={false}
         textHeadline="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis."
-        media="images/SheepBnW.png"
+        image="images/SheepBnW.png"
       />
 
       <TwoColumnContent
