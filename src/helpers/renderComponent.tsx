@@ -10,8 +10,11 @@ import {
   HeroCenterButton,
   HeroCenterTop,
   HeroLeftJustified,
+  HeroRightJustified,
+  OneColumnContent,
   ThreeFeatureCards,
   ThreeImageButtons,
+  TwoColumnContent,
   TwoColumnGallery,
 } from 'components';
 
@@ -276,6 +279,20 @@ export default function netteamRenderComponent(componentName, componentData, ind
           />
         );
       }
+      case 'HeroRightJustified': {
+        const { textSubline, textHeadline, textMediaLabel, media, textColor } = componentData;
+
+        return (
+          <HeroRightJustified
+            key={`${componentName}_${index}`}
+            textSubline={textSubline}
+            textHeadline={textHeadline}
+            textMediaLabel={textMediaLabel}
+            media={media?.mediaItemUrl ?? ''}
+            textColor={textColor}
+          />
+        );
+      }
       case 'HeroCenterButton': {
         const { textOverline, textHeadline, buttonLabel, media, textColor, hoverTextColor } = componentData;
 
@@ -305,6 +322,20 @@ export default function netteamRenderComponent(componentName, componentData, ind
           />
         );
       }
+      case 'OneColumnContent': {
+        const { includeParagraph, textHeadline, textParagraph, image, textColor } = componentData;
+
+        return (
+          <OneColumnContent
+            key={`${componentName}_${index}`}
+            includeParagraph={includeParagraph}
+            textHeadline={textHeadline}
+            textParagraph={textParagraph}
+            image={image?.mediaItemUrl ?? ''}
+            textColor={textColor}
+          />
+        );
+      }
       case 'CallToAction': {
         const {
           textHeadline,
@@ -330,6 +361,34 @@ export default function netteamRenderComponent(componentName, componentData, ind
             buttonUrl={buttonUrl}
             buttonTextColor={buttonTextColor}
             buttonBackgroundColor={buttonBackgroundColor}
+          />
+        );
+      }
+      case 'TwoColumnContent': {
+        const {
+          flexDirection,
+          includeParagraph,
+          image,
+          alt,
+          textHeadline,
+          textParagraph,
+          backgroundColor,
+          headlineColor,
+          paragraphColor,
+        } = componentData;
+
+        return (
+          <TwoColumnContent
+            key={`${componentName}_${index}`}
+            flexDirection={flexDirection}
+            includeParagraph={includeParagraph}
+            image={image?.mediaItemUrl ?? ''}
+            alt={alt}
+            textHeadline={textHeadline}
+            textParagraph={textParagraph}
+            backgroundColor={backgroundColor}
+            headlineColor={headlineColor}
+            paragraphColor={paragraphColor}
           />
         );
       }

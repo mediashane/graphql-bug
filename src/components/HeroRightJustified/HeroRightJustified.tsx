@@ -12,7 +12,7 @@ interface Props {
   textSubline?: string;
   textMediaLabel: string;
   textHeadline: string;
-  mediaDesktop?: string;
+  media?: string;
 }
 
 function HeroRightJustified({
@@ -20,10 +20,10 @@ function HeroRightJustified({
   textSubline = '',
   textMediaLabel = '',
   textHeadline = '',
-  mediaDesktop,
+  media,
 }: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${mediaDesktop})` }}>
+    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
       <Box sx={styles.textContainer}>
         <Box sx={styles.textWrapper}>
           <Fade delay={500}>

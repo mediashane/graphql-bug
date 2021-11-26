@@ -9,6 +9,7 @@ interface Props {
   flexDirection?: string;
   includeParagraph: boolean;
   image: string;
+  alt?: string;
   textHeadline?: string;
   textParagraph?: string;
   backgroundColor?: string;
@@ -19,13 +20,16 @@ interface Props {
 function TwoColumnContent({
   flexDirection = 'row',
   includeParagraph = false,
-  image = '',
+  image,
+  alt = '',
   textHeadline = '',
   textParagraph = '',
   backgroundColor = 'transparent',
   headlineColor = '#826C4F',
   paragraphColor = '#333333',
 }: Props): JSX.Element {
+  console.log('IMAGE ', image);
+
   const InnerTextContent = () => {
     if (includeParagraph) {
       return (
@@ -74,7 +78,7 @@ function TwoColumnContent({
           },
         }}
       >
-        <Image src={image} alt="Living Room" width={651} height={886} />
+        {image && <Image src={image} alt={alt} width={651} height={886} />}
       </Box>
       <InnerTextContent />
     </Box>

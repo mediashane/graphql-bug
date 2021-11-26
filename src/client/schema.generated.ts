@@ -4947,6 +4947,15 @@ export const generatedSchema = {
     textOverline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_HeroRightJustified: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    media: { __type: 'MediaItem' },
+    textColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textMediaLabel: { __type: 'String' },
+    textSubline: { __type: 'String' },
+  },
   Page_Pagebuilder_Modules_HeroCenterTop: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
@@ -5193,6 +5202,28 @@ export const generatedSchema = {
     stickerText: { __type: 'String' },
     subtitle: { __type: 'String' },
     title: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_TwoColumnContent: {
+    __typename: { __type: 'String!' },
+    alt: { __type: 'String' },
+    backgroundColor: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    flexDirection: { __type: 'String' },
+    headlineColor: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    includeParagraph: { __type: 'Boolean' },
+    paragraphColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textParagraph: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_OneColumnContent: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    includeParagraph: { __type: 'Boolean' },
+    textColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textParagraph: { __type: 'String' },
   },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
@@ -7085,6 +7116,7 @@ export const generatedSchema = {
       'Page_Centeredtext',
       'Page_Pagebuilder',
       'Page_Pagebuilder_Modules_HeroLeftJustified',
+      'Page_Pagebuilder_Modules_HeroRightJustified',
       'Page_Pagebuilder_Modules_HeroCenterTop',
       'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
@@ -7102,9 +7134,12 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_FourCardsWithPrompt',
       'Page_Pagebuilder_Modules_CardsCarousel',
       'Page_Pagebuilder_Modules_CardsCarousel_cards',
+      'Page_Pagebuilder_Modules_TwoColumnContent',
+      'Page_Pagebuilder_Modules_OneColumnContent',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
+      'Page_Pagebuilder_Modules_HeroRightJustified',
       'Page_Pagebuilder_Modules_HeroCenterTop',
       'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
@@ -7118,6 +7153,8 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_FourCardsRow',
       'Page_Pagebuilder_Modules_FourCardsWithPrompt',
       'Page_Pagebuilder_Modules_CardsCarousel',
+      'Page_Pagebuilder_Modules_TwoColumnContent',
+      'Page_Pagebuilder_Modules_OneColumnContent',
     ],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
@@ -11055,6 +11092,7 @@ export interface AcfFieldGroup {
     | 'Page_Centeredtext'
     | 'Page_Pagebuilder'
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroRightJustified'
     | 'Page_Pagebuilder_Modules_HeroCenterTop'
     | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
@@ -11071,7 +11109,9 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_FourCardsRow'
     | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
     | 'Page_Pagebuilder_Modules_CardsCarousel'
-    | 'Page_Pagebuilder_Modules_CardsCarousel_cards';
+    | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
+    | 'Page_Pagebuilder_Modules_TwoColumnContent'
+    | 'Page_Pagebuilder_Modules_OneColumnContent';
   /**
    * The name of the ACF Field Group
    */
@@ -11128,6 +11168,7 @@ export interface Page_Pagebuilder {
 export interface Page_Pagebuilder_Modules {
   __typename?:
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroRightJustified'
     | 'Page_Pagebuilder_Modules_HeroCenterTop'
     | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
@@ -11140,7 +11181,9 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_FourFeatureTags'
     | 'Page_Pagebuilder_Modules_FourCardsRow'
     | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
-    | 'Page_Pagebuilder_Modules_CardsCarousel';
+    | 'Page_Pagebuilder_Modules_CardsCarousel'
+    | 'Page_Pagebuilder_Modules_TwoColumnContent'
+    | 'Page_Pagebuilder_Modules_OneColumnContent';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -11158,6 +11201,22 @@ export interface Page_Pagebuilder_Modules_HeroLeftJustified {
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textOverline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_HeroRightJustified {
+  __typename?: 'Page_Pagebuilder_Modules_HeroRightJustified';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  media?: Maybe<MediaItem>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textMediaLabel?: Maybe<ScalarsEnums['String']>;
+  textSubline?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -11597,6 +11656,54 @@ export interface Page_Pagebuilder_Modules_CardsCarousel_cards {
   stickerText?: Maybe<ScalarsEnums['String']>;
   subtitle?: Maybe<ScalarsEnums['String']>;
   title?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_TwoColumnContent {
+  __typename?: 'Page_Pagebuilder_Modules_TwoColumnContent';
+  /**
+   * Alt tag for image
+   */
+  alt?: Maybe<ScalarsEnums['String']>;
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Enter &#039;row&#039; if you want the image left justified, or &#039;row-reverse&#039; if you want the image right justified.
+   */
+  flexDirection?: Maybe<ScalarsEnums['String']>;
+  headlineColor?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  /**
+   * If true, a space for a paragraph will be added to the text content.
+   */
+  includeParagraph?: Maybe<ScalarsEnums['Boolean']>;
+  paragraphColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textParagraph?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_OneColumnContent {
+  __typename?: 'Page_Pagebuilder_Modules_OneColumnContent';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  /**
+   * If true, create a space for paragraph text content.
+   */
+  includeParagraph?: Maybe<ScalarsEnums['Boolean']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textParagraph?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14717,6 +14824,7 @@ export interface SchemaObjectTypes {
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
   Page_Pagebuilder: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroRightJustified: Page_Pagebuilder_Modules_HeroRightJustified;
   Page_Pagebuilder_Modules_HeroCenterTop: Page_Pagebuilder_Modules_HeroCenterTop;
   Page_Pagebuilder_Modules_HeroCenterButton: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction: Page_Pagebuilder_Modules_CallToAction;
@@ -14735,6 +14843,8 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_FourCardsWithPrompt: Page_Pagebuilder_Modules_FourCardsWithPrompt;
   Page_Pagebuilder_Modules_CardsCarousel: Page_Pagebuilder_Modules_CardsCarousel;
   Page_Pagebuilder_Modules_CardsCarousel_cards: Page_Pagebuilder_Modules_CardsCarousel_cards;
+  Page_Pagebuilder_Modules_TwoColumnContent: Page_Pagebuilder_Modules_TwoColumnContent;
+  Page_Pagebuilder_Modules_OneColumnContent: Page_Pagebuilder_Modules_OneColumnContent;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -14937,6 +15047,7 @@ export type SchemaObjectTypesNames =
   | 'PageToCommentConnectionEdge'
   | 'Page_Pagebuilder'
   | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+  | 'Page_Pagebuilder_Modules_HeroRightJustified'
   | 'Page_Pagebuilder_Modules_HeroCenterTop'
   | 'Page_Pagebuilder_Modules_HeroCenterButton'
   | 'Page_Pagebuilder_Modules_CallToAction'
@@ -14955,6 +15066,8 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
   | 'Page_Pagebuilder_Modules_CardsCarousel'
   | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
+  | 'Page_Pagebuilder_Modules_TwoColumnContent'
+  | 'Page_Pagebuilder_Modules_OneColumnContent'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -15206,6 +15319,7 @@ export interface $AcfFieldGroup {
   Page_Centeredtext?: Page_Centeredtext;
   Page_Pagebuilder?: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroRightJustified?: Page_Pagebuilder_Modules_HeroRightJustified;
   Page_Pagebuilder_Modules_HeroCenterTop?: Page_Pagebuilder_Modules_HeroCenterTop;
   Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
@@ -15223,10 +15337,13 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_FourCardsWithPrompt?: Page_Pagebuilder_Modules_FourCardsWithPrompt;
   Page_Pagebuilder_Modules_CardsCarousel?: Page_Pagebuilder_Modules_CardsCarousel;
   Page_Pagebuilder_Modules_CardsCarousel_cards?: Page_Pagebuilder_Modules_CardsCarousel_cards;
+  Page_Pagebuilder_Modules_TwoColumnContent?: Page_Pagebuilder_Modules_TwoColumnContent;
+  Page_Pagebuilder_Modules_OneColumnContent?: Page_Pagebuilder_Modules_OneColumnContent;
 }
 
 export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
+  Page_Pagebuilder_Modules_HeroRightJustified?: Page_Pagebuilder_Modules_HeroRightJustified;
   Page_Pagebuilder_Modules_HeroCenterTop?: Page_Pagebuilder_Modules_HeroCenterTop;
   Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
@@ -15240,6 +15357,8 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_FourCardsRow?: Page_Pagebuilder_Modules_FourCardsRow;
   Page_Pagebuilder_Modules_FourCardsWithPrompt?: Page_Pagebuilder_Modules_FourCardsWithPrompt;
   Page_Pagebuilder_Modules_CardsCarousel?: Page_Pagebuilder_Modules_CardsCarousel;
+  Page_Pagebuilder_Modules_TwoColumnContent?: Page_Pagebuilder_Modules_TwoColumnContent;
+  Page_Pagebuilder_Modules_OneColumnContent?: Page_Pagebuilder_Modules_OneColumnContent;
 }
 
 export interface $NodeWithContentEditor {

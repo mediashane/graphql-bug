@@ -10,7 +10,7 @@ interface Props {
   includeParagraph: boolean;
   textHeadline: string;
   textParagraph?: string;
-  media?: string;
+  image?: string;
   textColor?: string;
 }
 
@@ -18,7 +18,7 @@ function OneColumnContent({
   includeParagraph = false,
   textHeadline = '',
   textParagraph = '',
-  media = '',
+  image = '',
   textColor = '',
 }: Props): JSX.Element {
   const InnerTextContent = () => {
@@ -60,7 +60,7 @@ function OneColumnContent({
 
   return (
     <Box sx={styles.wrapper}>
-      <Box sx={{ ...styles.container, backgroundImage: `url(${media})` }}>
+      <Box sx={{ ...styles.container, backgroundImage: `url(${image})` }}>
         <InnerTextContent />
       </Box>
       <OuterTextContent />
