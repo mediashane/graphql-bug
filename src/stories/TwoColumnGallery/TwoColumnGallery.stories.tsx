@@ -37,7 +37,12 @@ import elizabethsClothDetails from './elizabethsClothDetails.png';
 import newArrivals from './newArrivals.png';
 import rugsLink from './rugsLink.png';
 
-const galleryImages = [elizabethsClothDetails, elizabethsCloth, newArrivals, rugsLink];
+const galleryImages = [
+  { image: { mediaItemUrl: elizabethsClothDetails } },
+  { image: { mediaItemUrl: elizabethsCloth } },
+  { image: { mediaItemUrl: newArrivals } },
+  { image: { mediaItemUrl: rugsLink } },
+];
 
 export default {
   title: 'Two Column Gallery',

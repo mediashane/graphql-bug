@@ -39,7 +39,7 @@ function CarouselCard({ image, title, subtitle, textColor, link, showSticker, st
 
   const Subtitle = () => {
     if (subtitle) {
-      return <Typography sx={{ ...styles.carouselCardSubtitle, color: textColor }}>Test</Typography>;
+      return <Typography sx={{ ...styles.carouselCardSubtitle, color: textColor }}>{subtitle}</Typography>;
     }
 
     return null;

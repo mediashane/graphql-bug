@@ -4950,7 +4950,8 @@ export const generatedSchema = {
   Page_Pagebuilder_Modules_HeroRightJustified: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
-    media: { __type: 'MediaItem' },
+    image: { __type: 'MediaItem' },
+    mediaIcon: { __type: 'MediaItem' },
     textColor: { __type: 'String' },
     textHeadline: { __type: 'String' },
     textMediaLabel: { __type: 'String' },
@@ -11212,7 +11213,11 @@ export interface Page_Pagebuilder_Modules_HeroRightJustified {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  media?: Maybe<MediaItem>;
+  /**
+   * The background image for the hero
+   */
+  image?: Maybe<MediaItem>;
+  mediaIcon?: Maybe<MediaItem>;
   textColor?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textMediaLabel?: Maybe<ScalarsEnums['String']>;

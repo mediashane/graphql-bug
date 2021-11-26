@@ -280,7 +280,7 @@ export default function netteamRenderComponent(componentName, componentData, ind
         );
       }
       case 'HeroRightJustified': {
-        const { textSubline, textHeadline, textMediaLabel, media, textColor } = componentData;
+        const { textSubline, textHeadline, textMediaLabel, mediaIcon, image, textColor } = componentData;
 
         return (
           <HeroRightJustified
@@ -288,7 +288,8 @@ export default function netteamRenderComponent(componentName, componentData, ind
             textSubline={textSubline}
             textHeadline={textHeadline}
             textMediaLabel={textMediaLabel}
-            media={media?.mediaItemUrl ?? ''}
+            mediaIcon={mediaIcon?.mediaItemUrl ?? ''}
+            image={image?.mediaItemUrl ?? ''}
             textColor={textColor}
           />
         );

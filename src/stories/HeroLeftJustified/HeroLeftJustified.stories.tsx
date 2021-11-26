@@ -7,7 +7,7 @@ import HeroLeftJustified from '../../components/HeroLeftJustified/HeroLeftJustif
 import elizabethWeaving from './elizabethWeaving.png';
 
 export default {
-  title: 'Left Justifed Hero',
+  title: 'Hero Left Justifed',
   component: HeroLeftJustified,
 } as ComponentMeta<typeof HeroLeftJustified>;
 

@@ -2,69 +2,69 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import CardList from '../../components/CardList/CardList';
+import CardsCarousel from '../../components/CardsCarousel/CardsCarousel';
 
 const exampleCards = [
   {
     image: { mediaItemUrl: 'images/newArrivals.png' },
     title: 'New  Arrivals',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/masterSeriesClassic.png' },
     title: 'Master Series Classic',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/masterSeriesLinenWool.png' },
     title: 'Master Series Linen Wool',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/masterSeriesPrivateReserve.png' },
     title: 'Master Series Private Reserve',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/cotton.png' },
     title: 'Cotton',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/teff.png' },
     title: 'Teff',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/wovenTextures.png' },
     title: 'Woven Textures',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/elizabethsCloth.png' },
     title: 'Elizabeth’s Cloth',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: false,
     link: '/elizabeths-cloth',
@@ -72,37 +72,42 @@ const exampleCards = [
   {
     image: { mediaItemUrl: 'images/hagga.png' },
     title: 'Hagga',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/belden.png' },
     title: 'Belden',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: true,
-    link: '/',
+    link: { url: '/' },
   },
   {
     image: { mediaItemUrl: 'images/handTufted.png' },
     title: 'Hand Tuffed',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle: 'Lorem ipsum dolor',
     stickerText: 'New',
     showSticker: false,
-    link: '/',
+    link: { url: '/' },
   },
 ];
 
 export default {
-  title: 'Card List',
-  component: CardList,
-} as ComponentMeta<typeof CardList>;
+  title: 'Cards Carousel',
+  component: CardsCarousel,
+} as ComponentMeta<typeof CardsCarousel>;
 
-const Template: ComponentStory<typeof CardList> = (args) => <CardList {...args} />;
+const Template: ComponentStory<typeof CardsCarousel> = (args) => <CardsCarousel {...args} />;
 
-export const CardListSection = Template.bind({});
-CardListSection.args = {
+export const CardsCarouselSection = Template.bind({});
+CardsCarouselSection.args = {
   cards: exampleCards,
+  textColor: '#333333',
+  labelColor: '#826C4F',
+  sectionLabel: 'More Rug Collections',
+  textLinkUrl: '/rugs',
+  textLinkLabel: 'See all >',
 };

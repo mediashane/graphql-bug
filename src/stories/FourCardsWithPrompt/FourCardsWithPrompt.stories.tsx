@@ -7,6 +7,7 @@ import FourCardsWithPrompt from '../../components/FourCardsWithPrompt/FourCardsW
 import checkeredBoxInLoop from './checkeredBoxInLoop.png';
 import latticeWithFlowers from './latticeWithFlowers.png';
 import vectorCrossLoop from './vectorCrossLoop.png';
+import yarns from './yarns.png';
 import zigZagInLoop from './zigZagInLoop.png';
 
 export default {
@@ -21,6 +22,7 @@ FourCardsWithPromptSection.args = {
   flexDirection: 'row-reverse',
   withButton: false,
   buttonLabel: 'Book an appointment',
+  promptImage: yarns,
   promptOverline: 'Designed with you in mind',
   promptTopline: 'Every pattern is customizable in color, shape, and size',
   textColor: '#333333',

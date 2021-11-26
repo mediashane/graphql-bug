@@ -89,7 +89,7 @@ function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textL
           <Box sx={styles.carouselCards} id="carousel">
             {cards.map((card, index) => {
               const { image, title, subtitle, showSticker, stickerText } = card;
-              // const { url } = link;
+
               return (
                 <CarouselCard
                   image={image}

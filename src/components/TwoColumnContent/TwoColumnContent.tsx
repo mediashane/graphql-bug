@@ -28,8 +28,6 @@ function TwoColumnContent({
   headlineColor = '#826C4F',
   paragraphColor = '#333333',
 }: Props): JSX.Element {
-  console.log('IMAGE ', image);
-
   const InnerTextContent = () => {
     if (includeParagraph) {
       return (

@@ -34,7 +34,7 @@ function FourCard({ image, title, subtitle, textColor, link, showSticker, sticke
 
   const Subtitle = () => {
     if (subtitle) {
-      return <Typography sx={{ ...styles.fourCardsSubtitle, color: textColor }}>Test</Typography>;
+      return <Typography sx={{ ...styles.fourCardsSubtitle, color: textColor }}>{subtitle}</Typography>;
     }
 
     return null;

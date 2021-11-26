@@ -22,7 +22,8 @@ export default function Page() {
         textHeadline="It begins in 1978 with one woman who had a talent for textile design and believed in the discipline of doing things by hand."
         textMediaLabel="Watch Portraits in Creativity"
         textSubline="A special look into Elizabeth Eakins’ process, passion and work. Directed by Gael Towey with cinematography by Victoria Pearson."
-        media="images/AnalogPortrait.png"
+        mediaIcon="/images/playIcon.png"
+        image="images/AnalogPortrait.png"
       />
 
       <TwoColumnContent
