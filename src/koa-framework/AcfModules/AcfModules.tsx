@@ -10,8 +10,12 @@ export default function AcfModules({ modules }: Props) {
   return (
     <>
       {modules.map((module, index) => {
-        const componentName = module.__typename?.split('_')?.pop();
-        const moduleData = module.$on[module.__typename];
+        const componentName = module?.__typename?.split('_')?.pop();
+        if (!componentName) {
+          console.error('[KOA]', 'AcfModules', 'Component name is empty');
+          return;
+        }
+        const moduleData = module?.$on[module?.__typename];
         return renderComponent(componentName, moduleData, index);
       })}
     </>
