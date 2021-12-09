@@ -20,7 +20,7 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@faustjs/core": "^0.14.1",
-    "@faustjs/next": "^0.14.1",
+    "@faustjs/next": "^0.14.0",
     "@marker.io/browser": "^0.10.0",
     "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.6",
