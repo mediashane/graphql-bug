@@ -1,29 +1,31 @@
-import React from 'react';
 import { client } from 'client';
+import { Footer, Header, HeroRightJustified } from 'components';
+import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
-import { Footer, Header, HeroLeftJustified } from '../components';
+import { getNextStaticProps } from '@faustjs/next';
 
-export default function Page(): JSX.Element {
+export default function Page() {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
   return (
     <>
-      <main className="content content-page">
-        <Header title={generalSettings.title} />
-        <Head>
-          <title>{generalSettings.title}</title>
-        </Head>
-        <HeroLeftJustified textHeadline={`Oops! That page can’t be found.`} />
-        <div className="wrap">
-          <div>
-            <div>
-              <p>The page you were looking for does not exist or is no longer available.</p>
-            </div>
-          </div>
-        </div>
-      </main>
+      <Header title={generalSettings.title} />
+
+      <Head>
+        <title>{generalSettings.title}</title>
+      </Head>
+
+      <HeroRightJustified
+        textColor="#FFFFFF"
+        textHeadline="It begins in 1978 with one woman who had a talent for textile design and believed in the discipline of doing things by hand."
+        textMediaLabel="Watch Portraits in Creativity"
+        textSubline="A special look into Elizabeth Eakins’ process, passion and work. Directed by Gael Towey with cinematography by Victoria Pearson."
+        mediaIcon="/images/playIcon.png"
+        image="images/AnalogPortrait.png"
+      />
+
       <Footer
         title="Elizabeth Eakins Studio"
         description="The Elizabeth Eakins Studio is located in South Norwalk Connecticut and is open Monday through Friday from 9am to 5:00pm. Please call or email us to visit and we would be happy to have you come by."
@@ -42,4 +44,11 @@ export default function Page(): JSX.Element {
       />
     </>
   );
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return getNextStaticProps(context, {
+    Page,
+    client,
+  });
 }
