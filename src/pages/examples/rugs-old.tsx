@@ -1,5 +1,5 @@
 import { client, PageIdType } from 'client';
-import { CardList, CenteredText, Footer, Header, HeroCenterButton } from 'components';
+import { CardList, Footer, Header, HeroCenterButton } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -160,7 +160,7 @@ export default function Page() {
     idType: PageIdType.URI,
   });
 
-  console.log('ACF MODULE DATA ', pageData.centeredText.paragraphText);
+  console.log('ACF MODULE DATA ', pageData);
 
   return (
     <>
@@ -179,7 +179,7 @@ export default function Page() {
         hoverTextColor="#587DA9"
       />
 
-      <CenteredText text={pageData.centeredText.paragraphText ?? ''} />
+      {/* <CenteredText text={pageData.centeredText.paragraphText ?? ''} /> */}
 
       <CardList cards={exampleCards} />
 
