@@ -15,7 +15,10 @@ export default function AcfModules({ modules }: Props) {
           console.error('[KOA]', 'AcfModules', 'Component name is empty');
           return;
         }
-        const moduleData = module?.$on[module?.__typename];
+
+        // if modules are ACF Flexible Content, access properties using $on
+        // otherwise return module properties directly
+        const moduleData = module.$on ? module?.$on[module?.__typename] : module;
         return renderComponent(componentName, moduleData, index);
       })}
     </>

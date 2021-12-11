@@ -1,4 +1,4 @@
-import { client, Page as PageType } from 'client';
+import { client, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -9,13 +9,26 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
-  pageUri: string[];
+  pageUri?: string[];
 }
 
 export function PageComponent({ page, pageUri }: PageProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
-  console.log('PAGE? ', page.rug);
+  const rugDetails = useQuery().rug({
+    id: pageUri[1] ?? '',
+    idType: RugIdType.URI,
+  });
+
+  // if query contains custom post type 'rug', use the Rug ACF modules
+  // otherwise use the Page Builder ACF modules
+  const modules = pageUri.includes('rug')
+    ? Object.values(rugDetails?.rug?.modules)
+        .filter((e) => typeof e !== 'string')
+        .sort((a, b) => {
+          return a.order - b.order;
+        })
+    : page?.pageBuilder?.modules;
 
   const headerSection = (
     <>
@@ -44,14 +57,7 @@ export function PageComponent({ page, pageUri }: PageProps) {
     />
   );
 
-  return (
-    <ComponentsPage
-      header={headerSection}
-      modules={page?.pageBuilder?.modules}
-      pageUri={pageUri}
-      footer={footerSection}
-    />
-  );
+  return <ComponentsPage header={headerSection} modules={modules} footer={footerSection} />;
 }
 
 export default function Page({ pageUri }) {

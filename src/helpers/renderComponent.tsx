@@ -18,17 +18,15 @@ import {
   TwoColumnGallery,
 } from 'components';
 
-export default function netteamRenderComponent(componentName, componentData, index): JSX.Element {
+export default function acfRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
     // console.log('[KOA]', 'Rendering', componentName, componentData);
-
     switch (componentName) {
       case 'CardsCarousel': {
         const { cards, labelColor, textColor, textLinkLabel, textLinkUrl, sectionLabel } = componentData;
-        console.log('CARDS? ', cards);
-        // return null;
         return (
           <CardsCarousel
+            key={`${componentName}_${index}`}
             cards={cards}
             labelColor={labelColor}
             textColor={textColor}
@@ -445,6 +443,78 @@ export default function netteamRenderComponent(componentName, componentData, ind
         );
       }
       case 'ThreeFeatureCards': {
+        const {
+          sectionLabel,
+          iconLayout,
+          textColor,
+          labelTextColor,
+          imageOne,
+          labelOne,
+          descriptionOne,
+          imageTwo,
+          labelTwo,
+          descriptionTwo,
+          imageThree,
+          labelThree,
+          descriptionThree,
+        } = componentData;
+
+        return (
+          <ThreeFeatureCards
+            key={`${componentName}_${index}`}
+            sectionLabel={sectionLabel}
+            iconLayout={iconLayout}
+            textColor={textColor}
+            labelTextColor={labelTextColor}
+            imageOne={imageOne?.mediaItemUrl ?? ''}
+            labelOne={labelOne}
+            descriptionOne={descriptionOne}
+            imageTwo={imageTwo?.mediaItemUrl ?? ''}
+            labelTwo={labelTwo}
+            descriptionTwo={descriptionTwo}
+            imageThree={imageThree?.mediaItemUrl ?? ''}
+            labelThree={labelThree}
+            descriptionThree={descriptionThree}
+          />
+        );
+      }
+      case 'ThreeFeatureCardsFeatures': {
+        const {
+          sectionLabel,
+          iconLayout,
+          textColor,
+          labelTextColor,
+          imageOne,
+          labelOne,
+          descriptionOne,
+          imageTwo,
+          labelTwo,
+          descriptionTwo,
+          imageThree,
+          labelThree,
+          descriptionThree,
+        } = componentData;
+
+        return (
+          <ThreeFeatureCards
+            key={`${componentName}_${index}`}
+            sectionLabel={sectionLabel}
+            iconLayout={iconLayout}
+            textColor={textColor}
+            labelTextColor={labelTextColor}
+            imageOne={imageOne?.mediaItemUrl ?? ''}
+            labelOne={labelOne}
+            descriptionOne={descriptionOne}
+            imageTwo={imageTwo?.mediaItemUrl ?? ''}
+            labelTwo={labelTwo}
+            descriptionTwo={descriptionTwo}
+            imageThree={imageThree?.mediaItemUrl ?? ''}
+            labelThree={labelThree}
+            descriptionThree={descriptionThree}
+          />
+        );
+      }
+      case 'ThreeFeatureCardsValues': {
         const {
           sectionLabel,
           iconLayout,
