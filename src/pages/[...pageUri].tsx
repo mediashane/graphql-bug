@@ -9,11 +9,13 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
+  pageUri: string[];
 }
 
-export function PageComponent({ page }: PageProps) {
+export function PageComponent({ page, pageUri }: PageProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
+  console.log('PAGE? ', page.rug);
 
   const headerSection = (
     <>
@@ -42,14 +44,21 @@ export function PageComponent({ page }: PageProps) {
     />
   );
 
-  return <ComponentsPage header={headerSection} modules={page?.pageBuilder?.modules} footer={footerSection} />;
+  return (
+    <ComponentsPage
+      header={headerSection}
+      modules={page?.pageBuilder?.modules}
+      pageUri={pageUri}
+      footer={footerSection}
+    />
+  );
 }
 
-export default function Page() {
+export default function Page({ pageUri }) {
   const { usePage } = client;
   const page = usePage();
 
-  return <PageComponent page={page} />;
+  return <PageComponent page={page} pageUri={pageUri} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
@@ -57,6 +66,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     Page,
     client,
     notFound: await is404(context, { client }),
+    props: { pageUri: context.params.pageUri },
   });
 }
 
