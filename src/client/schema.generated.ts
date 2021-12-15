@@ -6423,21 +6423,89 @@ export const generatedSchema = {
   },
   Rug_Rug_Modules_ThreeFeatureCardsValues: {
     __typename: { __type: 'String!' },
-    descriptionOne: { __type: 'String' },
-    descriptionThree: { __type: 'String' },
-    descriptionTwo: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     iconLayout: { __type: 'Boolean' },
-    imageOne: { __type: 'MediaItem' },
-    imageThree: { __type: 'MediaItem' },
-    imageTwo: { __type: 'MediaItem' },
-    labelOne: { __type: 'String' },
     labelTextColor: { __type: 'String' },
-    labelThree: { __type: 'String' },
-    labelTwo: { __type: 'String' },
     order: { __type: 'Float' },
     sectionLabel: { __type: 'String' },
     showHidden: { __type: 'Boolean' },
+    textColor: { __type: 'String' },
+    valueCards: { __type: '[Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards]' },
+  },
+  Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards!' },
+  },
+  Value: {
+    __typename: { __type: 'String!' },
+    ancestors: {
+      __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs',
+      },
+    },
+    children: {
+      __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
+      },
+    },
+    conditionalTags: { __type: 'ConditionalTags' },
+    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    databaseId: { __type: 'Int!' },
+    date: { __type: 'String' },
+    dateGmt: { __type: 'String' },
+    desiredSlug: { __type: 'String' },
+    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
+    enclosure: { __type: 'String' },
+    enqueuedScripts: {
+      __type: 'ContentNodeToEnqueuedScriptConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    enqueuedStylesheets: {
+      __type: 'ContentNodeToEnqueuedStylesheetConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    guid: { __type: 'String' },
+    id: { __type: 'ID!' },
+    isContentNode: { __type: 'Boolean!' },
+    isPreview: { __type: 'Boolean' },
+    isRestricted: { __type: 'Boolean' },
+    isTermNode: { __type: 'Boolean!' },
+    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
+    link: { __type: 'String' },
+    modified: { __type: 'String' },
+    modifiedGmt: { __type: 'String' },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
+    parentDatabaseId: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    preview: { __type: 'ValueToPreviewConnectionEdge' },
+    previewRevisionDatabaseId: { __type: 'Int' },
+    previewRevisionId: { __type: 'ID' },
+    slug: { __type: 'String' },
+    status: { __type: 'String' },
+    template: { __type: 'ContentTemplate' },
+    templates: { __type: '[String]' },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
+    uri: { __type: 'String' },
+    valueId: { __type: 'Int!' },
+    values: { __type: 'Value_Values' },
+  },
+  ValueToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Value' } },
+  Value_Values: {
+    __typename: { __type: 'String!' },
+    description: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    label: { __type: 'String' },
     textColor: { __type: 'String' },
   },
   Rug_Rug_Modules_TwoColumnGallery: {
@@ -6533,22 +6601,18 @@ export const generatedSchema = {
   },
   Page_Rug_Modules_ThreeFeatureCardsValues: {
     __typename: { __type: 'String!' },
-    descriptionOne: { __type: 'String' },
-    descriptionThree: { __type: 'String' },
-    descriptionTwo: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     iconLayout: { __type: 'Boolean' },
-    imageOne: { __type: 'MediaItem' },
-    imageThree: { __type: 'MediaItem' },
-    imageTwo: { __type: 'MediaItem' },
-    labelOne: { __type: 'String' },
     labelTextColor: { __type: 'String' },
-    labelThree: { __type: 'String' },
-    labelTwo: { __type: 'String' },
     order: { __type: 'Float' },
     sectionLabel: { __type: 'String' },
     showHidden: { __type: 'Boolean' },
     textColor: { __type: 'String' },
+    valueCards: { __type: '[Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards]' },
+  },
+  Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards!' },
   },
   Page_Rug_Modules_TwoColumnGallery: {
     __typename: { __type: 'String!' },
@@ -7617,69 +7681,6 @@ export const generatedSchema = {
   },
   MenuItemToMenuItemLinkableConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'MenuItemLinkable' } },
   MenuItemObjectUnion: { __typename: { __type: 'String!' }, $on: { __type: '$MenuItemObjectUnion!' } },
-  Value: {
-    __typename: { __type: 'String!' },
-    ancestors: {
-      __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs',
-      },
-    },
-    children: {
-      __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
-      },
-    },
-    conditionalTags: { __type: 'ConditionalTags' },
-    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
-    databaseId: { __type: 'Int!' },
-    date: { __type: 'String' },
-    dateGmt: { __type: 'String' },
-    desiredSlug: { __type: 'String' },
-    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
-    enclosure: { __type: 'String' },
-    enqueuedScripts: {
-      __type: 'ContentNodeToEnqueuedScriptConnection',
-      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
-    },
-    enqueuedStylesheets: {
-      __type: 'ContentNodeToEnqueuedStylesheetConnection',
-      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
-    },
-    guid: { __type: 'String' },
-    id: { __type: 'ID!' },
-    isContentNode: { __type: 'Boolean!' },
-    isPreview: { __type: 'Boolean' },
-    isRestricted: { __type: 'Boolean' },
-    isTermNode: { __type: 'Boolean!' },
-    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
-    link: { __type: 'String' },
-    modified: { __type: 'String' },
-    modifiedGmt: { __type: 'String' },
-    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
-    parentDatabaseId: { __type: 'Int' },
-    parentId: { __type: 'ID' },
-    preview: { __type: 'ValueToPreviewConnectionEdge' },
-    previewRevisionDatabaseId: { __type: 'Int' },
-    previewRevisionId: { __type: 'ID' },
-    slug: { __type: 'String' },
-    status: { __type: 'String' },
-    template: { __type: 'ContentTemplate' },
-    templates: { __type: '[String]' },
-    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
-    uri: { __type: 'String' },
-    valueId: { __type: 'Int!' },
-  },
-  ValueToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Value' } },
   MenuItemToMenuConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Menu' } },
   RootQueryToMenuItemConnectionWhereArgs: {
     id: { __type: 'Int' },
@@ -8816,14 +8817,6 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     value: { __type: 'Value' },
   },
-  DefaultTemplate_Features: {
-    __typename: { __type: 'String!' },
-    description: { __type: 'String' },
-    fieldGroupName: { __type: 'String' },
-    image: { __type: 'MediaItem' },
-    label: { __type: 'String' },
-    textColor: { __type: 'String' },
-  },
   CommentAuthor: {
     __typename: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
@@ -8838,6 +8831,15 @@ export const generatedSchema = {
     features: { __type: 'DefaultTemplate_Features' },
     rug_collection: { __type: 'DefaultTemplate_RugCollection' },
     templateName: { __type: 'String' },
+    values: { __type: 'DefaultTemplate_Values' },
+  },
+  DefaultTemplate_Features: {
+    __typename: { __type: 'String!' },
+    description: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    label: { __type: 'String' },
+    textColor: { __type: 'String' },
   },
   DefaultTemplate_RugCollection: {
     __typename: { __type: 'String!' },
@@ -8874,6 +8876,14 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     $on: { __type: '$DefaultTemplate_RugCollection_Rugs!' },
   },
+  DefaultTemplate_Values: {
+    __typename: { __type: 'String!' },
+    description: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    label: { __type: 'String' },
+    textColor: { __type: 'String' },
+  },
   Template_Home: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
   [SchemaUnionsKey]: {
     Node: [
@@ -8890,13 +8900,13 @@ export const generatedSchema = {
       'Rug_collection',
       'Feature',
       'Rug',
+      'Value',
       'Post',
       'PostFormat',
       'Tag',
       'UserRole',
       'Menu',
       'MenuItem',
-      'Value',
       'Plugin',
       'Theme',
       'CommentAuthor',
@@ -8912,10 +8922,10 @@ export const generatedSchema = {
       'Rug_collection',
       'Feature',
       'Rug',
+      'Value',
       'Post',
       'PostFormat',
       'Tag',
-      'Value',
     ],
     DatabaseIdentifier: [
       'Category',
@@ -8927,20 +8937,20 @@ export const generatedSchema = {
       'Rug_collection',
       'Feature',
       'Rug',
+      'Value',
       'Post',
       'PostFormat',
       'Tag',
       'Menu',
       'MenuItem',
-      'Value',
     ],
     HierarchicalTermNode: ['Category'],
-    MenuItemLinkable: ['Category', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Tag', 'Value'],
+    MenuItemLinkable: ['Category', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Value', 'Post', 'Tag'],
     EnqueuedAsset: ['EnqueuedScript', 'EnqueuedStylesheet'],
     Commenter: ['User', 'CommentAuthor'],
-    ContentNode: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
-    NodeWithTemplate: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
-    NodeWithTitle: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
+    ContentNode: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Value', 'Post'],
+    NodeWithTemplate: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Value', 'Post'],
+    NodeWithTitle: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Value', 'Post'],
     NodeWithAuthor: ['MediaItem', 'Page', 'Post'],
     NodeWithComments: ['MediaItem', 'Page', 'Post'],
     HierarchicalContentNode: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Value'],
@@ -8988,6 +8998,7 @@ export const generatedSchema = {
       'Rug_Rug_Modules_CenteredText',
       'Rug_Rug_Modules_ThreeFeatureCardsFeatures',
       'Rug_Rug_Modules_ThreeFeatureCardsValues',
+      'Value_Values',
       'Rug_Rug_Modules_TwoColumnGallery',
       'Rug_Rug_Modules_TwoColumnGallery_images',
       'Rug_Rug_Modules_TwoColumnGallery_listItems',
@@ -9001,6 +9012,7 @@ export const generatedSchema = {
       'DefaultTemplate_RugCollection',
       'DefaultTemplate_RugCollection_Images',
       'DefaultTemplate_RugCollection_listItems',
+      'DefaultTemplate_Values',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
@@ -9029,7 +9041,9 @@ export const generatedSchema = {
     Rug_Rug_Modules_CenteredText_Cta: ['Cta'],
     Rug_Rug_Modules_Collection: ['Rug_collection'],
     Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards: ['Feature'],
+    Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards: ['Value'],
     Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards: ['Feature'],
+    Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards: ['Value'],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
     NodeWithTrackbacks: ['Post'],
@@ -9706,13 +9720,13 @@ export interface Node {
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
+    | 'Value'
     | 'Post'
     | 'PostFormat'
     | 'Tag'
     | 'UserRole'
     | 'Menu'
     | 'MenuItem'
-    | 'Value'
     | 'Plugin'
     | 'Theme'
     | 'CommentAuthor';
@@ -9841,10 +9855,10 @@ export interface UniformResourceIdentifiable {
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
+    | 'Value'
     | 'Post'
     | 'PostFormat'
-    | 'Tag'
-    | 'Value';
+    | 'Tag';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * The unique resource identifier path
@@ -10172,12 +10186,12 @@ export interface DatabaseIdentifier {
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
+    | 'Value'
     | 'Post'
     | 'PostFormat'
     | 'Tag'
     | 'Menu'
-    | 'MenuItem'
-    | 'Value';
+    | 'MenuItem';
   /**
    * The unique identifier stored in the database
    */
@@ -10205,7 +10219,7 @@ export interface HierarchicalTermNode {
  * Nodes that can be linked to as Menu Items
  */
 export interface MenuItemLinkable {
-  __typename?: 'Category' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Tag' | 'Value';
+  __typename?: 'Category' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Value' | 'Post' | 'Tag';
   /**
    * The unique resource identifier path
    */
@@ -10327,7 +10341,7 @@ export interface CategoryToContentNodeConnectionEdge {
  * Nodes used to manage content
  */
 export interface ContentNode {
-  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Value' | 'Post';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * Connection between the ContentNode type and the ContentType type
@@ -12049,7 +12063,7 @@ export interface MediaItem {
  * A node that can have a template associated with it
  */
 export interface NodeWithTemplate {
-  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Value' | 'Post';
   /**
    * The template assigned to the node
    */
@@ -12073,7 +12087,7 @@ export interface ContentTemplate {
  * A node that NodeWith a title
  */
 export interface NodeWithTitle {
-  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Value' | 'Post';
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
@@ -13214,6 +13228,7 @@ export interface AcfFieldGroup {
     | 'Rug_Rug_Modules_CenteredText'
     | 'Rug_Rug_Modules_ThreeFeatureCardsFeatures'
     | 'Rug_Rug_Modules_ThreeFeatureCardsValues'
+    | 'Value_Values'
     | 'Rug_Rug_Modules_TwoColumnGallery'
     | 'Rug_Rug_Modules_TwoColumnGallery_images'
     | 'Rug_Rug_Modules_TwoColumnGallery_listItems'
@@ -13226,7 +13241,8 @@ export interface AcfFieldGroup {
     | 'DefaultTemplate_Features'
     | 'DefaultTemplate_RugCollection'
     | 'DefaultTemplate_RugCollection_Images'
-    | 'DefaultTemplate_RugCollection_listItems';
+    | 'DefaultTemplate_RugCollection_listItems'
+    | 'DefaultTemplate_Values';
   /**
    * The name of the ACF Field Group
    */
@@ -15143,9 +15159,6 @@ export interface Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
  */
 export interface Rug_Rug_Modules_ThreeFeatureCardsValues {
   __typename?: 'Rug_Rug_Modules_ThreeFeatureCardsValues';
-  descriptionOne?: Maybe<ScalarsEnums['String']>;
-  descriptionThree?: Maybe<ScalarsEnums['String']>;
-  descriptionTwo?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
@@ -15154,16 +15167,269 @@ export interface Rug_Rug_Modules_ThreeFeatureCardsValues {
    * Set to true if using icons instead of photo images.
    */
   iconLayout?: Maybe<ScalarsEnums['Boolean']>;
-  imageOne?: Maybe<MediaItem>;
-  imageThree?: Maybe<MediaItem>;
-  imageTwo?: Maybe<MediaItem>;
-  labelOne?: Maybe<ScalarsEnums['String']>;
   labelTextColor?: Maybe<ScalarsEnums['String']>;
-  labelThree?: Maybe<ScalarsEnums['String']>;
-  labelTwo?: Maybe<ScalarsEnums['String']>;
   order?: Maybe<ScalarsEnums['Float']>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   showHidden?: Maybe<ScalarsEnums['Boolean']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  valueCards?: Maybe<Array<Maybe<Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards>>>;
+}
+
+export interface Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards {
+  __typename?: 'Value';
+  $on: $Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards;
+}
+
+/**
+ * The value type
+ */
+export interface Value {
+  __typename?: 'Value';
+  /**
+   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
+   */
+  ancestors: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
+  /**
+   * Connection between the HierarchicalContentNode type and the ContentNode type
+   */
+  children: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums['Int'];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The globally unique identifier of the value object.
+   */
+  id: ScalarsEnums['ID'];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums['Boolean'];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums['Boolean'];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The parent of the node. The parent object can be of various types
+   */
+  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
+  /**
+   * Database id of the parent node
+   */
+  parentDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * The globally unique identifier of the parent node.
+   */
+  parentId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * Connection between the value type and the value type
+   */
+  preview?: Maybe<ValueToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The template assigned to the node
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums['String']>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  valueId: ScalarsEnums['Int'];
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Values&quot; was set to Show in GraphQL.
+   */
+  values?: Maybe<Value_Values>;
+}
+
+/**
+ * Connection between the value type and the value type
+ */
+export interface ValueToPreviewConnectionEdge {
+  __typename?: 'ValueToPreviewConnectionEdge';
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Value>;
+}
+
+/**
+ * Field Group
+ */
+export interface Value_Values {
+  __typename?: 'Value_Values';
+  description?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  label?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
 }
 
@@ -15325,9 +15591,6 @@ export interface Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
  */
 export interface Page_Rug_Modules_ThreeFeatureCardsValues {
   __typename?: 'Page_Rug_Modules_ThreeFeatureCardsValues';
-  descriptionOne?: Maybe<ScalarsEnums['String']>;
-  descriptionThree?: Maybe<ScalarsEnums['String']>;
-  descriptionTwo?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
@@ -15336,17 +15599,17 @@ export interface Page_Rug_Modules_ThreeFeatureCardsValues {
    * Set to true if using icons instead of photo images.
    */
   iconLayout?: Maybe<ScalarsEnums['Boolean']>;
-  imageOne?: Maybe<MediaItem>;
-  imageThree?: Maybe<MediaItem>;
-  imageTwo?: Maybe<MediaItem>;
-  labelOne?: Maybe<ScalarsEnums['String']>;
   labelTextColor?: Maybe<ScalarsEnums['String']>;
-  labelThree?: Maybe<ScalarsEnums['String']>;
-  labelTwo?: Maybe<ScalarsEnums['String']>;
   order?: Maybe<ScalarsEnums['Float']>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   showHidden?: Maybe<ScalarsEnums['Boolean']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+  valueCards?: Maybe<Array<Maybe<Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards>>>;
+}
+
+export interface Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards {
+  __typename?: 'Value';
+  $on: $Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards;
 }
 
 /**
@@ -17323,240 +17586,6 @@ export interface MenuItemObjectUnion {
 }
 
 /**
- * The value type
- */
-export interface Value {
-  __typename?: 'Value';
-  /**
-   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
-   */
-  ancestors: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>
-    /**
-     * Arguments for filtering the connection
-     */;
-    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
-  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
-  /**
-   * Connection between the HierarchicalContentNode type and the ContentNode type
-   */
-  children: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>
-    /**
-     * Arguments for filtering the connection
-     */;
-    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
-  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
-  conditionalTags?: Maybe<ConditionalTags>;
-  /**
-   * Connection between the ContentNode type and the ContentType type
-   */
-  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
-  /**
-   * The unique resource identifier path
-   */
-  databaseId: ScalarsEnums['Int'];
-  /**
-   * Post publishing date.
-   */
-  date?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The publishing date set in GMT.
-   */
-  dateGmt?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The desired slug of the post
-   */
-  desiredSlug?: Maybe<ScalarsEnums['String']>;
-  /**
-   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
-   */
-  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
-  /**
-   * The RSS enclosure for the object
-   */
-  enclosure?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Connection between the ContentNode type and the EnqueuedScript type
-   */
-  enqueuedScripts: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>;
-  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
-  /**
-   * Connection between the ContentNode type and the EnqueuedStylesheet type
-   */
-  enqueuedStylesheets: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>;
-  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
-  /**
-   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
-   */
-  guid?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The globally unique identifier of the value object.
-   */
-  id: ScalarsEnums['ID'];
-  /**
-   * Whether the node is a Content Node
-   */
-  isContentNode: ScalarsEnums['Boolean'];
-  /**
-   * Whether the object is a node in the preview state
-   */
-  isPreview?: Maybe<ScalarsEnums['Boolean']>;
-  /**
-   * Whether the object is restricted from the current viewer
-   */
-  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
-  /**
-   * Whether the node is a Term
-   */
-  isTermNode: ScalarsEnums['Boolean'];
-  /**
-   * The user that most recently edited the node
-   */
-  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
-  /**
-   * The permalink of the post
-   */
-  link?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
-   */
-  modified?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
-   */
-  modifiedGmt?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The parent of the node. The parent object can be of various types
-   */
-  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
-  /**
-   * Database id of the parent node
-   */
-  parentDatabaseId?: Maybe<ScalarsEnums['Int']>;
-  /**
-   * The globally unique identifier of the parent node.
-   */
-  parentId?: Maybe<ScalarsEnums['ID']>;
-  /**
-   * Connection between the value type and the value type
-   */
-  preview?: Maybe<ValueToPreviewConnectionEdge>;
-  /**
-   * The database id of the preview node
-   */
-  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
-  /**
-   * Whether the object is a node in the preview state
-   */
-  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
-  /**
-   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
-   */
-  slug?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The current status of the object
-   */
-  status?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The template assigned to the node
-   */
-  template?: Maybe<ContentTemplate>;
-  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
-  /**
-   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-   */
-  title: (args?: {
-    /**
-     * Format of the field output
-     */
-    format?: Maybe<PostObjectFieldFormatEnum>;
-  }) => Maybe<ScalarsEnums['String']>;
-  /**
-   * The unique resource identifier path
-   */
-  uri?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The id field matches the WP_Post-&gt;ID field.
-   * @deprecated Deprecated in favor of the databaseId field
-   */
-  valueId: ScalarsEnums['Int'];
-}
-
-/**
- * Connection between the value type and the value type
- */
-export interface ValueToPreviewConnectionEdge {
-  __typename?: 'ValueToPreviewConnectionEdge';
-  /**
-   * The node of the connection, without the edges
-   */
-  node?: Maybe<Value>;
-}
-
-/**
  * Connection between the MenuItem type and the Menu type
  */
 export interface MenuItemToMenuConnectionEdge {
@@ -19063,21 +19092,6 @@ export interface UpdateValuePayload {
 }
 
 /**
- * Field Group
- */
-export interface DefaultTemplate_Features {
-  __typename?: 'DefaultTemplate_Features';
-  description?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  image?: Maybe<MediaItem>;
-  label?: Maybe<ScalarsEnums['String']>;
-  textColor?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
  * A Comment Author object
  */
 export interface CommentAuthor {
@@ -19125,6 +19139,25 @@ export interface DefaultTemplate {
    * The name of the template
    */
   templateName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Values&quot; was set to Show in GraphQL.
+   */
+  values?: Maybe<DefaultTemplate_Values>;
+}
+
+/**
+ * Field Group
+ */
+export interface DefaultTemplate_Features {
+  __typename?: 'DefaultTemplate_Features';
+  description?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  label?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -19195,6 +19228,21 @@ export interface DefaultTemplate_RugCollection_listItems {
 export interface DefaultTemplate_RugCollection_Rugs {
   __typename?: 'Rug';
   $on: $DefaultTemplate_RugCollection_Rugs;
+}
+
+/**
+ * Field Group
+ */
+export interface DefaultTemplate_Values {
+  __typename?: 'DefaultTemplate_Values';
+  description?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  label?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -19335,6 +19383,9 @@ export interface SchemaObjectTypes {
   Rug_Rug_Modules_CenteredText: Rug_Rug_Modules_CenteredText;
   Rug_Rug_Modules_ThreeFeatureCardsFeatures: Rug_Rug_Modules_ThreeFeatureCardsFeatures;
   Rug_Rug_Modules_ThreeFeatureCardsValues: Rug_Rug_Modules_ThreeFeatureCardsValues;
+  Value: Value;
+  ValueToPreviewConnectionEdge: ValueToPreviewConnectionEdge;
+  Value_Values: Value_Values;
   Rug_Rug_Modules_TwoColumnGallery: Rug_Rug_Modules_TwoColumnGallery;
   Rug_Rug_Modules_TwoColumnGallery_images: Rug_Rug_Modules_TwoColumnGallery_images;
   Rug_Rug_Modules_TwoColumnGallery_listItems: Rug_Rug_Modules_TwoColumnGallery_listItems;
@@ -19405,8 +19456,6 @@ export interface SchemaObjectTypes {
   MenuItemToMenuItemConnection: MenuItemToMenuItemConnection;
   MenuItemToMenuItemConnectionEdge: MenuItemToMenuItemConnectionEdge;
   MenuItemToMenuItemLinkableConnectionEdge: MenuItemToMenuItemLinkableConnectionEdge;
-  Value: Value;
-  ValueToPreviewConnectionEdge: ValueToPreviewConnectionEdge;
   MenuItemToMenuConnectionEdge: MenuItemToMenuConnectionEdge;
   RootQueryToMenuItemConnection: RootQueryToMenuItemConnection;
   RootQueryToMenuItemConnectionEdge: RootQueryToMenuItemConnectionEdge;
@@ -19493,12 +19542,13 @@ export interface SchemaObjectTypes {
   UpdateTagPayload: UpdateTagPayload;
   UpdateUserPayload: UpdateUserPayload;
   UpdateValuePayload: UpdateValuePayload;
-  DefaultTemplate_Features: DefaultTemplate_Features;
   CommentAuthor: CommentAuthor;
   DefaultTemplate: DefaultTemplate;
+  DefaultTemplate_Features: DefaultTemplate_Features;
   DefaultTemplate_RugCollection: DefaultTemplate_RugCollection;
   DefaultTemplate_RugCollection_Images: DefaultTemplate_RugCollection_Images;
   DefaultTemplate_RugCollection_listItems: DefaultTemplate_RugCollection_listItems;
+  DefaultTemplate_Values: DefaultTemplate_Values;
   Template_Home: Template_Home;
 }
 export type SchemaObjectTypesNames =
@@ -19628,6 +19678,9 @@ export type SchemaObjectTypesNames =
   | 'Rug_Rug_Modules_CenteredText'
   | 'Rug_Rug_Modules_ThreeFeatureCardsFeatures'
   | 'Rug_Rug_Modules_ThreeFeatureCardsValues'
+  | 'Value'
+  | 'ValueToPreviewConnectionEdge'
+  | 'Value_Values'
   | 'Rug_Rug_Modules_TwoColumnGallery'
   | 'Rug_Rug_Modules_TwoColumnGallery_images'
   | 'Rug_Rug_Modules_TwoColumnGallery_listItems'
@@ -19698,8 +19751,6 @@ export type SchemaObjectTypesNames =
   | 'MenuItemToMenuItemConnection'
   | 'MenuItemToMenuItemConnectionEdge'
   | 'MenuItemToMenuItemLinkableConnectionEdge'
-  | 'Value'
-  | 'ValueToPreviewConnectionEdge'
   | 'MenuItemToMenuConnectionEdge'
   | 'RootQueryToMenuItemConnection'
   | 'RootQueryToMenuItemConnectionEdge'
@@ -19786,12 +19837,13 @@ export type SchemaObjectTypesNames =
   | 'UpdateTagPayload'
   | 'UpdateUserPayload'
   | 'UpdateValuePayload'
-  | 'DefaultTemplate_Features'
   | 'CommentAuthor'
   | 'DefaultTemplate'
+  | 'DefaultTemplate_Features'
   | 'DefaultTemplate_RugCollection'
   | 'DefaultTemplate_RugCollection_Images'
   | 'DefaultTemplate_RugCollection_listItems'
+  | 'DefaultTemplate_Values'
   | 'Template_Home';
 
 export interface $Node {
@@ -19808,13 +19860,13 @@ export interface $Node {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
+  Value?: Value;
   Post?: Post;
   PostFormat?: PostFormat;
   Tag?: Tag;
   UserRole?: UserRole;
   Menu?: Menu;
   MenuItem?: MenuItem;
-  Value?: Value;
   Plugin?: Plugin;
   Theme?: Theme;
   CommentAuthor?: CommentAuthor;
@@ -19836,10 +19888,10 @@ export interface $UniformResourceIdentifiable {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
+  Value?: Value;
   Post?: Post;
   PostFormat?: PostFormat;
   Tag?: Tag;
-  Value?: Value;
 }
 
 export interface $DatabaseIdentifier {
@@ -19852,12 +19904,12 @@ export interface $DatabaseIdentifier {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
+  Value?: Value;
   Post?: Post;
   PostFormat?: PostFormat;
   Tag?: Tag;
   Menu?: Menu;
   MenuItem?: MenuItem;
-  Value?: Value;
 }
 
 export interface $HierarchicalTermNode {
@@ -19871,9 +19923,9 @@ export interface $MenuItemLinkable {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
+  Value?: Value;
   Post?: Post;
   Tag?: Tag;
-  Value?: Value;
 }
 
 export interface $EnqueuedAsset {
@@ -19893,8 +19945,8 @@ export interface $ContentNode {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
-  Post?: Post;
   Value?: Value;
+  Post?: Post;
 }
 
 export interface $NodeWithTemplate {
@@ -19904,8 +19956,8 @@ export interface $NodeWithTemplate {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
-  Post?: Post;
   Value?: Value;
+  Post?: Post;
 }
 
 export interface $NodeWithTitle {
@@ -19915,8 +19967,8 @@ export interface $NodeWithTitle {
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
-  Post?: Post;
   Value?: Value;
+  Post?: Post;
 }
 
 export interface $NodeWithAuthor {
@@ -19996,6 +20048,7 @@ export interface $AcfFieldGroup {
   Rug_Rug_Modules_CenteredText?: Rug_Rug_Modules_CenteredText;
   Rug_Rug_Modules_ThreeFeatureCardsFeatures?: Rug_Rug_Modules_ThreeFeatureCardsFeatures;
   Rug_Rug_Modules_ThreeFeatureCardsValues?: Rug_Rug_Modules_ThreeFeatureCardsValues;
+  Value_Values?: Value_Values;
   Rug_Rug_Modules_TwoColumnGallery?: Rug_Rug_Modules_TwoColumnGallery;
   Rug_Rug_Modules_TwoColumnGallery_images?: Rug_Rug_Modules_TwoColumnGallery_images;
   Rug_Rug_Modules_TwoColumnGallery_listItems?: Rug_Rug_Modules_TwoColumnGallery_listItems;
@@ -20009,6 +20062,7 @@ export interface $AcfFieldGroup {
   DefaultTemplate_RugCollection?: DefaultTemplate_RugCollection;
   DefaultTemplate_RugCollection_Images?: DefaultTemplate_RugCollection_Images;
   DefaultTemplate_RugCollection_listItems?: DefaultTemplate_RugCollection_listItems;
+  DefaultTemplate_Values?: DefaultTemplate_Values;
 }
 
 export interface $Page_Pagebuilder_Modules {
@@ -20063,8 +20117,16 @@ export interface $Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
   Feature?: Feature;
 }
 
+export interface $Rug_Rug_Modules_ThreeFeatureCardsValues_ValueCards {
+  Value?: Value;
+}
+
 export interface $Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
   Feature?: Feature;
+}
+
+export interface $Page_Rug_Modules_ThreeFeatureCardsValues_ValueCards {
+  Value?: Value;
 }
 
 export interface $NodeWithContentEditor {

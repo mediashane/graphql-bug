@@ -481,8 +481,6 @@ export default function acfRenderComponent(componentName, componentData, index):
       case 'ThreeFeatureCardsFeatures': {
         const { sectionLabel, iconLayout, textColor, labelTextColor, featureCards } = componentData;
 
-        console.log('FEATURE CARDS? ', featureCards[0]?.$on?.Feature?.features.label);
-
         return (
           <ThreeFeatureCards
             key={`${componentName}_${index}`}
@@ -503,21 +501,7 @@ export default function acfRenderComponent(componentName, componentData, index):
         );
       }
       case 'ThreeFeatureCardsValues': {
-        const {
-          sectionLabel,
-          iconLayout,
-          textColor,
-          labelTextColor,
-          imageOne,
-          labelOne,
-          descriptionOne,
-          imageTwo,
-          labelTwo,
-          descriptionTwo,
-          imageThree,
-          labelThree,
-          descriptionThree,
-        } = componentData;
+        const { sectionLabel, iconLayout, textColor, labelTextColor, valueCards } = componentData;
 
         return (
           <ThreeFeatureCards
@@ -526,15 +510,15 @@ export default function acfRenderComponent(componentName, componentData, index):
             iconLayout={iconLayout}
             textColor={textColor}
             labelTextColor={labelTextColor}
-            imageOne={imageOne?.mediaItemUrl ?? ''}
-            labelOne={labelOne}
-            descriptionOne={descriptionOne}
-            imageTwo={imageTwo?.mediaItemUrl ?? ''}
-            labelTwo={labelTwo}
-            descriptionTwo={descriptionTwo}
-            imageThree={imageThree?.mediaItemUrl ?? ''}
-            labelThree={labelThree}
-            descriptionThree={descriptionThree}
+            imageOne={valueCards[0]?.$on?.Value?.values?.image?.mediaItemUrl ?? ''}
+            labelOne={valueCards[0]?.$on?.Value?.values?.label ?? ''}
+            descriptionOne={valueCards[0]?.$on?.Value?.values.description ?? ''}
+            imageTwo={valueCards[1]?.$on?.Value?.values?.image?.mediaItemUrl ?? ''}
+            labelTwo={valueCards[1]?.$on?.Value?.values?.label ?? ''}
+            descriptionTwo={valueCards[1]?.$on?.Value?.values.description ?? ''}
+            imageThree={valueCards[2]?.$on?.Value?.values?.image?.mediaItemUrl ?? ''}
+            labelThree={valueCards[2]?.$on?.Value?.values?.label ?? ''}
+            descriptionThree={valueCards[2]?.$on?.Value?.values?.description ?? ''}
           />
         );
       }
