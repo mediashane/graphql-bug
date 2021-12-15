@@ -453,8 +453,6 @@ export enum PostStatusEnum {
   ACF_DISABLED = 'ACF_DISABLED',
   /** Objects with the auto-draft status */
   AUTO_DRAFT = 'AUTO_DRAFT',
-  /** Objects with the dp-rewrite-republish status */
-  DP_REWRITE_REPUBLISH = 'DP_REWRITE_REPUBLISH',
   /** Objects with the draft status */
   DRAFT = 'DRAFT',
   /** Objects with the future status */
@@ -523,6 +521,8 @@ export interface ContentTypeToContentNodeConnectionWhereArgs {
 export enum ContentTypeEnum {
   /** The Type of Content object */
   ATTACHMENT = 'ATTACHMENT',
+  /** The Type of Content object */
+  CTA = 'CTA',
   /** The Type of Content object */
   FEATURE = 'FEATURE',
   /** The Type of Content object */
@@ -2076,6 +2076,54 @@ export enum ContentTypeIdTypeEnum {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum CtaIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = 'DATABASE_ID',
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = 'ID',
+  /** Identify a resource by the URI. */
+  URI = 'URI',
+}
+
+/** Arguments for filtering the RootQueryToCtaConnection connection */
+export interface RootQueryToCtaConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: Maybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: Maybe<Scalars['Boolean']>;
+  /** Specific ID of the object */
+  id?: Maybe<Scalars['Int']>;
+  /** Array of IDs for the objects to retrieve */
+  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: Maybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: Maybe<Scalars['String']>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: Maybe<Scalars['ID']>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Show posts with a specific password. */
+  password?: Maybe<Scalars['String']>;
+  /** Show Posts based on a keyword search */
+  search?: Maybe<Scalars['String']>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: Maybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: Maybe<Scalars['String']>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum FeatureIdType {
   /** Identify a resource by the Database ID. */
   DATABASE_ID = 'DATABASE_ID',
@@ -2905,6 +2953,26 @@ export interface CreateCommentInput {
   type?: Maybe<Scalars['String']>;
 }
 
+/** Input for the createCta mutation */
+export interface CreateCtaInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: Maybe<Scalars['String']>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: Maybe<Scalars['Int']>;
+  /** The ID of the parent object */
+  parentId?: Maybe<Scalars['ID']>;
+  /** The password used to protect the content of the object */
+  password?: Maybe<Scalars['String']>;
+  /** The slug of the object */
+  slug?: Maybe<Scalars['String']>;
+  /** The status of the object */
+  status?: Maybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: Maybe<Scalars['String']>;
+}
+
 /** Input for the createFeature mutation */
 export interface CreateFeatureInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -3239,6 +3307,16 @@ export interface DeleteCommentInput {
   id: Scalars['ID'];
 }
 
+/** Input for the deleteCta mutation */
+export interface DeleteCtaInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: Maybe<Scalars['Boolean']>;
+  /** The ID of the cta to delete */
+  id: Scalars['ID'];
+}
+
 /** Input for the deleteFeature mutation */
 export interface DeleteFeatureInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -3455,6 +3533,28 @@ export interface UpdateCommentInput {
   parent?: Maybe<Scalars['ID']>;
   /** Type of comment. */
   type?: Maybe<Scalars['String']>;
+}
+
+/** Input for the updateCta mutation */
+export interface UpdateCtaInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: Maybe<Scalars['String']>;
+  /** The ID of the cta object */
+  id: Scalars['ID'];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: Maybe<Scalars['Int']>;
+  /** The ID of the parent object */
+  parentId?: Maybe<Scalars['ID']>;
+  /** The password used to protect the content of the object */
+  password?: Maybe<Scalars['String']>;
+  /** The slug of the object */
+  slug?: Maybe<Scalars['String']>;
+  /** The status of the object */
+  status?: Maybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: Maybe<Scalars['String']>;
 }
 
 /** Input for the updateFeature mutation */
@@ -3780,6 +3880,7 @@ export const scalarsEnumsHash: import('gqty').ScalarsEnumsHash = {
   CategoryIdType: true,
   ContentNodeIdTypeEnum: true,
   ContentTypeIdTypeEnum: true,
+  CtaIdType: true,
   FeatureIdType: true,
   MediaItemIdType: true,
   MenuNodeIdTypeEnum: true,
@@ -3844,6 +3945,18 @@ export const generatedSchema = {
     contentTypes: {
       __type: 'RootQueryToContentTypeConnection',
       __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    cta: { __type: 'Cta', __args: { id: 'ID!', idType: 'CtaIdType', asPreview: 'Boolean' } },
+    ctaBy: { __type: 'Cta', __args: { id: 'ID', ctaId: 'Int', uri: 'String' } },
+    ctas: {
+      __type: 'RootQueryToCtaConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'RootQueryToCtaConnectionWhereArgs',
+      },
     },
     discussionSettings: { __type: 'DiscussionSettings' },
     feature: { __type: 'Feature', __args: { id: 'ID!', idType: 'FeatureIdType', asPreview: 'Boolean' } },
@@ -4049,6 +4162,7 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     createCategory: { __type: 'CreateCategoryPayload', __args: { input: 'CreateCategoryInput!' } },
     createComment: { __type: 'CreateCommentPayload', __args: { input: 'CreateCommentInput!' } },
+    createCta: { __type: 'CreateCtaPayload', __args: { input: 'CreateCtaInput!' } },
     createFeature: { __type: 'CreateFeaturePayload', __args: { input: 'CreateFeatureInput!' } },
     createMediaItem: { __type: 'CreateMediaItemPayload', __args: { input: 'CreateMediaItemInput!' } },
     createPage: { __type: 'CreatePagePayload', __args: { input: 'CreatePageInput!' } },
@@ -4061,6 +4175,7 @@ export const generatedSchema = {
     createValue: { __type: 'CreateValuePayload', __args: { input: 'CreateValueInput!' } },
     deleteCategory: { __type: 'DeleteCategoryPayload', __args: { input: 'DeleteCategoryInput!' } },
     deleteComment: { __type: 'DeleteCommentPayload', __args: { input: 'DeleteCommentInput!' } },
+    deleteCta: { __type: 'DeleteCtaPayload', __args: { input: 'DeleteCtaInput!' } },
     deleteFeature: { __type: 'DeleteFeaturePayload', __args: { input: 'DeleteFeatureInput!' } },
     deleteMediaItem: { __type: 'DeleteMediaItemPayload', __args: { input: 'DeleteMediaItemInput!' } },
     deletePage: { __type: 'DeletePagePayload', __args: { input: 'DeletePageInput!' } },
@@ -4085,6 +4200,7 @@ export const generatedSchema = {
     },
     updateCategory: { __type: 'UpdateCategoryPayload', __args: { input: 'UpdateCategoryInput!' } },
     updateComment: { __type: 'UpdateCommentPayload', __args: { input: 'UpdateCommentInput!' } },
+    updateCta: { __type: 'UpdateCtaPayload', __args: { input: 'UpdateCtaInput!' } },
     updateFeature: { __type: 'UpdateFeaturePayload', __args: { input: 'UpdateFeatureInput!' } },
     updateMediaItem: { __type: 'UpdateMediaItemPayload', __args: { input: 'UpdateMediaItemInput!' } },
     updatePage: { __type: 'UpdatePagePayload', __args: { input: 'UpdatePageInput!' } },
@@ -5651,11 +5767,80 @@ export const generatedSchema = {
   Page_Pagebuilder_Modules_CenteredText: {
     __typename: { __type: 'String!' },
     backgroundColor: { __type: 'String' },
+    cta: { __type: '[Page_Pagebuilder_Modules_CenteredText_Cta]' },
     fieldGroupName: { __type: 'String' },
-    text: { __type: 'String' },
     textColor: { __type: 'String' },
     textSize: { __type: 'Float' },
   },
+  Page_Pagebuilder_Modules_CenteredText_Cta: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Page_Pagebuilder_Modules_CenteredText_Cta!' },
+  },
+  Cta: {
+    __typename: { __type: 'String!' },
+    ancestors: {
+      __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs',
+      },
+    },
+    children: {
+      __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
+      },
+    },
+    conditionalTags: { __type: 'ConditionalTags' },
+    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    ctaId: { __type: 'Int!' },
+    ctaText: { __type: 'Cta_Ctatext' },
+    databaseId: { __type: 'Int!' },
+    date: { __type: 'String' },
+    dateGmt: { __type: 'String' },
+    desiredSlug: { __type: 'String' },
+    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
+    enclosure: { __type: 'String' },
+    enqueuedScripts: {
+      __type: 'ContentNodeToEnqueuedScriptConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    enqueuedStylesheets: {
+      __type: 'ContentNodeToEnqueuedStylesheetConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    guid: { __type: 'String' },
+    id: { __type: 'ID!' },
+    isContentNode: { __type: 'Boolean!' },
+    isPreview: { __type: 'Boolean' },
+    isRestricted: { __type: 'Boolean' },
+    isTermNode: { __type: 'Boolean!' },
+    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
+    link: { __type: 'String' },
+    modified: { __type: 'String' },
+    modifiedGmt: { __type: 'String' },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
+    parentDatabaseId: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    preview: { __type: 'CtaToPreviewConnectionEdge' },
+    previewRevisionDatabaseId: { __type: 'Int' },
+    previewRevisionId: { __type: 'ID' },
+    slug: { __type: 'String' },
+    status: { __type: 'String' },
+    template: { __type: 'ContentTemplate' },
+    templates: { __type: '[String]' },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
+    uri: { __type: 'String' },
+  },
+  Cta_Ctatext: { __typename: { __type: 'String!' }, cta: { __type: 'String' }, fieldGroupName: { __type: 'String' } },
+  CtaToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Cta' } },
   Page_Pagebuilder_Modules_CardList: {
     __typename: { __type: 'String!' },
     cards: { __type: '[Page_Pagebuilder_Modules_CardList_cards]' },
@@ -5910,12 +6095,16 @@ export const generatedSchema = {
   Page_Rug_Modules_CenteredText: {
     __typename: { __type: 'String!' },
     backgroundColor: { __type: 'String' },
+    cta: { __type: '[Page_Rug_Modules_CenteredText_Cta]' },
     fieldGroupName: { __type: 'String' },
     order: { __type: 'Float' },
     showHidden: { __type: 'Boolean' },
-    text: { __type: 'String' },
     textColor: { __type: 'String' },
     textSize: { __type: 'Float' },
+  },
+  Page_Rug_Modules_CenteredText_Cta: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Page_Rug_Modules_CenteredText_Cta!' },
   },
   Page_Rug_Modules_Collection: { __typename: { __type: 'String!' }, $on: { __type: '$Page_Rug_Modules_Collection!' } },
   Rug_collection: {
@@ -6113,6 +6302,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    ctaText: { __type: 'Rug_Ctatext' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -6162,6 +6352,7 @@ export const generatedSchema = {
     title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     uri: { __type: 'String' },
   },
+  Rug_Ctatext: { __typename: { __type: 'String!' }, cta: { __type: 'String' }, fieldGroupName: { __type: 'String' } },
   RugToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Rug' } },
   Rug_Rug: {
     __typename: { __type: 'String!' },
@@ -6203,12 +6394,16 @@ export const generatedSchema = {
   Rug_Rug_Modules_CenteredText: {
     __typename: { __type: 'String!' },
     backgroundColor: { __type: 'String' },
+    cta: { __type: '[Rug_Rug_Modules_CenteredText_Cta]' },
     fieldGroupName: { __type: 'String' },
     order: { __type: 'Float' },
     showHidden: { __type: 'Boolean' },
-    text: { __type: 'String' },
     textColor: { __type: 'String' },
     textSize: { __type: 'Float' },
+  },
+  Rug_Rug_Modules_CenteredText_Cta: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Rug_Rug_Modules_CenteredText_Cta!' },
   },
   Rug_Rug_Modules_Collection: { __typename: { __type: 'String!' }, $on: { __type: '$Rug_Rug_Modules_Collection!' } },
   Rug_Rug_Modules_ThreeFeatureCardsFeatures: {
@@ -7214,6 +7409,36 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'ContentType' },
   },
+  RootQueryToCtaConnectionWhereArgs: {
+    dateQuery: { __type: 'DateQueryInput' },
+    hasPassword: { __type: 'Boolean' },
+    id: { __type: 'Int' },
+    in: { __type: '[ID]' },
+    mimeType: { __type: 'MimeTypeEnum' },
+    name: { __type: 'String' },
+    nameIn: { __type: '[String]' },
+    notIn: { __type: '[ID]' },
+    orderby: { __type: '[PostObjectsConnectionOrderbyInput]' },
+    parent: { __type: 'ID' },
+    parentIn: { __type: '[ID]' },
+    parentNotIn: { __type: '[ID]' },
+    password: { __type: 'String' },
+    search: { __type: 'String' },
+    stati: { __type: '[PostStatusEnum]' },
+    status: { __type: 'PostStatusEnum' },
+    title: { __type: 'String' },
+  },
+  RootQueryToCtaConnection: {
+    __typename: { __type: 'String!' },
+    edges: { __type: '[RootQueryToCtaConnectionEdge]' },
+    nodes: { __type: '[Cta]' },
+    pageInfo: { __type: 'WPPageInfo' },
+  },
+  RootQueryToCtaConnectionEdge: {
+    __typename: { __type: 'String!' },
+    cursor: { __type: 'String' },
+    node: { __type: 'Cta' },
+  },
   DiscussionSettings: {
     __typename: { __type: 'String!' },
     defaultCommentStatus: { __type: 'String' },
@@ -7955,6 +8180,21 @@ export const generatedSchema = {
     comment: { __type: 'Comment' },
     success: { __type: 'Boolean' },
   },
+  CreateCtaInput: {
+    clientMutationId: { __type: 'String' },
+    date: { __type: 'String' },
+    menuOrder: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    password: { __type: 'String' },
+    slug: { __type: 'String' },
+    status: { __type: 'PostStatusEnum' },
+    title: { __type: 'String' },
+  },
+  CreateCtaPayload: {
+    __typename: { __type: 'String!' },
+    clientMutationId: { __type: 'String' },
+    cta: { __type: 'Cta' },
+  },
   CreateFeatureInput: {
     clientMutationId: { __type: 'String' },
     date: { __type: 'String' },
@@ -8166,6 +8406,13 @@ export const generatedSchema = {
     comment: { __type: 'Comment' },
     deletedId: { __type: 'ID' },
   },
+  DeleteCtaInput: { clientMutationId: { __type: 'String' }, forceDelete: { __type: 'Boolean' }, id: { __type: 'ID!' } },
+  DeleteCtaPayload: {
+    __typename: { __type: 'String!' },
+    clientMutationId: { __type: 'String' },
+    cta: { __type: 'Cta' },
+    deletedId: { __type: 'ID' },
+  },
   DeleteFeatureInput: {
     clientMutationId: { __type: 'String' },
     forceDelete: { __type: 'Boolean' },
@@ -8352,6 +8599,22 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     comment: { __type: 'Comment' },
     success: { __type: 'Boolean' },
+  },
+  UpdateCtaInput: {
+    clientMutationId: { __type: 'String' },
+    date: { __type: 'String' },
+    id: { __type: 'ID!' },
+    menuOrder: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    password: { __type: 'String' },
+    slug: { __type: 'String' },
+    status: { __type: 'PostStatusEnum' },
+    title: { __type: 'String' },
+  },
+  UpdateCtaPayload: {
+    __typename: { __type: 'String!' },
+    clientMutationId: { __type: 'String' },
+    cta: { __type: 'Cta' },
   },
   UpdateFeatureInput: {
     clientMutationId: { __type: 'String' },
@@ -8631,6 +8894,7 @@ export const generatedSchema = {
       'Comment',
       'MediaItem',
       'Page',
+      'Cta',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -8652,6 +8916,7 @@ export const generatedSchema = {
       'User',
       'MediaItem',
       'Page',
+      'Cta',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -8666,6 +8931,7 @@ export const generatedSchema = {
       'Comment',
       'MediaItem',
       'Page',
+      'Cta',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -8677,15 +8943,15 @@ export const generatedSchema = {
       'Value',
     ],
     HierarchicalTermNode: ['Category'],
-    MenuItemLinkable: ['Category', 'Page', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Tag', 'Value'],
+    MenuItemLinkable: ['Category', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Tag', 'Value'],
     EnqueuedAsset: ['EnqueuedScript', 'EnqueuedStylesheet'],
     Commenter: ['User', 'CommentAuthor'],
-    ContentNode: ['MediaItem', 'Page', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
-    NodeWithTemplate: ['MediaItem', 'Page', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
-    NodeWithTitle: ['MediaItem', 'Page', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
+    ContentNode: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
+    NodeWithTemplate: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
+    NodeWithTitle: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Post', 'Value'],
     NodeWithAuthor: ['MediaItem', 'Page', 'Post'],
     NodeWithComments: ['MediaItem', 'Page', 'Post'],
-    HierarchicalContentNode: ['MediaItem', 'Page', 'Rug_collection', 'Feature', 'Rug', 'Value'],
+    HierarchicalContentNode: ['MediaItem', 'Page', 'Cta', 'Rug_collection', 'Feature', 'Rug', 'Value'],
     NodeWithFeaturedImage: ['Page', 'Post'],
     NodeWithRevisions: ['Page', 'Post'],
     NodeWithPageAttributes: ['Page'],
@@ -8700,6 +8966,7 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_ThreeFeatureCards',
       'Page_Pagebuilder_Modules_EmailSubscribe',
       'Page_Pagebuilder_Modules_CenteredText',
+      'Cta_Ctatext',
       'Page_Pagebuilder_Modules_CardList',
       'Page_Pagebuilder_Modules_CardList_cards',
       'Page_Pagebuilder_Modules_TwoColumnGallery',
@@ -8721,6 +8988,7 @@ export const generatedSchema = {
       'Feature_Features',
       'Rug_collection_RugCollection_Images',
       'Rug_collection_RugCollection_listItems',
+      'Rug_Ctatext',
       'Rug_Rug',
       'Rug_Rug_Modules',
       'Rug_Rug_Modules_CardsCarousel',
@@ -8761,15 +9029,18 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_TwoColumnContent',
       'Page_Pagebuilder_Modules_OneColumnContent',
     ],
+    Page_Pagebuilder_Modules_CenteredText_Cta: ['Cta'],
+    Page_Rug_Modules_CenteredText_Cta: ['Cta'],
     Page_Rug_Modules_Collection: ['Rug_collection'],
     Rug_collection_RugCollection_Features: ['Feature'],
     Rug_collection_RugCollection_Rugs: ['Rug'],
+    Rug_Rug_Modules_CenteredText_Cta: ['Cta'],
     Rug_Rug_Modules_Collection: ['Rug_collection'],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
     NodeWithTrackbacks: ['Post'],
     ContentRevisionUnion: ['Post', 'Page'],
-    MenuItemObjectUnion: ['Post', 'Page', 'Feature', 'Rug', 'Rug_collection', 'Value', 'Category', 'Tag'],
+    MenuItemObjectUnion: ['Post', 'Page', 'Cta', 'Feature', 'Rug', 'Rug_collection', 'Value', 'Category', 'Tag'],
     ContentTemplate: ['DefaultTemplate', 'Template_Home'],
     DefaultTemplate_RugCollection_Features: ['Feature'],
     DefaultTemplate_RugCollection_Rugs: ['Rug'],
@@ -8815,6 +9086,19 @@ export interface Query {
     after?: Maybe<Scalars['String']>;
     before?: Maybe<Scalars['String']>;
   }) => Maybe<RootQueryToContentTypeConnection>;
+  cta: (args: { id: Scalars['ID']; idType?: Maybe<CtaIdType>; asPreview?: Maybe<Scalars['Boolean']> }) => Maybe<Cta>;
+  ctaBy: (args?: {
+    id?: Maybe<Scalars['ID']>;
+    ctaId?: Maybe<Scalars['Int']>;
+    uri?: Maybe<Scalars['String']>;
+  }) => Maybe<Cta>;
+  ctas: (args?: {
+    first?: Maybe<Scalars['Int']>;
+    last?: Maybe<Scalars['Int']>;
+    after?: Maybe<Scalars['String']>;
+    before?: Maybe<Scalars['String']>;
+    where?: Maybe<RootQueryToCtaConnectionWhereArgs>;
+  }) => Maybe<RootQueryToCtaConnection>;
   discussionSettings?: Maybe<DiscussionSettings>;
   feature: (args: {
     id: Scalars['ID'];
@@ -9037,6 +9321,7 @@ export interface Mutation {
   __typename?: 'Mutation';
   createCategory: (args: { input: CreateCategoryInput }) => Maybe<CreateCategoryPayload>;
   createComment: (args: { input: CreateCommentInput }) => Maybe<CreateCommentPayload>;
+  createCta: (args: { input: CreateCtaInput }) => Maybe<CreateCtaPayload>;
   createFeature: (args: { input: CreateFeatureInput }) => Maybe<CreateFeaturePayload>;
   createMediaItem: (args: { input: CreateMediaItemInput }) => Maybe<CreateMediaItemPayload>;
   createPage: (args: { input: CreatePageInput }) => Maybe<CreatePagePayload>;
@@ -9049,6 +9334,7 @@ export interface Mutation {
   createValue: (args: { input: CreateValueInput }) => Maybe<CreateValuePayload>;
   deleteCategory: (args: { input: DeleteCategoryInput }) => Maybe<DeleteCategoryPayload>;
   deleteComment: (args: { input: DeleteCommentInput }) => Maybe<DeleteCommentPayload>;
+  deleteCta: (args: { input: DeleteCtaInput }) => Maybe<DeleteCtaPayload>;
   deleteFeature: (args: { input: DeleteFeatureInput }) => Maybe<DeleteFeaturePayload>;
   deleteMediaItem: (args: { input: DeleteMediaItemInput }) => Maybe<DeleteMediaItemPayload>;
   deletePage: (args: { input: DeletePageInput }) => Maybe<DeletePagePayload>;
@@ -9069,6 +9355,7 @@ export interface Mutation {
   sendPasswordResetEmail: (args: { input: SendPasswordResetEmailInput }) => Maybe<SendPasswordResetEmailPayload>;
   updateCategory: (args: { input: UpdateCategoryInput }) => Maybe<UpdateCategoryPayload>;
   updateComment: (args: { input: UpdateCommentInput }) => Maybe<UpdateCommentPayload>;
+  updateCta: (args: { input: UpdateCtaInput }) => Maybe<UpdateCtaPayload>;
   updateFeature: (args: { input: UpdateFeatureInput }) => Maybe<UpdateFeaturePayload>;
   updateMediaItem: (args: { input: UpdateMediaItemInput }) => Maybe<UpdateMediaItemPayload>;
   updatePage: (args: { input: UpdatePageInput }) => Maybe<UpdatePagePayload>;
@@ -9421,6 +9708,7 @@ export interface Node {
     | 'Comment'
     | 'MediaItem'
     | 'Page'
+    | 'Cta'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
@@ -9555,6 +9843,7 @@ export interface UniformResourceIdentifiable {
     | 'User'
     | 'MediaItem'
     | 'Page'
+    | 'Cta'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
@@ -9885,6 +10174,7 @@ export interface DatabaseIdentifier {
     | 'Comment'
     | 'MediaItem'
     | 'Page'
+    | 'Cta'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
@@ -9921,7 +10211,7 @@ export interface HierarchicalTermNode {
  * Nodes that can be linked to as Menu Items
  */
 export interface MenuItemLinkable {
-  __typename?: 'Category' | 'Page' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Tag' | 'Value';
+  __typename?: 'Category' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Tag' | 'Value';
   /**
    * The unique resource identifier path
    */
@@ -10043,7 +10333,7 @@ export interface CategoryToContentNodeConnectionEdge {
  * Nodes used to manage content
  */
 export interface ContentNode {
-  __typename?: 'MediaItem' | 'Page' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * Connection between the ContentNode type and the ContentType type
@@ -11765,7 +12055,7 @@ export interface MediaItem {
  * A node that can have a template associated with it
  */
 export interface NodeWithTemplate {
-  __typename?: 'MediaItem' | 'Page' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
   /**
    * The template assigned to the node
    */
@@ -11789,7 +12079,7 @@ export interface ContentTemplate {
  * A node that NodeWith a title
  */
 export interface NodeWithTitle {
-  __typename?: 'MediaItem' | 'Page' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Post' | 'Value';
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
@@ -11853,7 +12143,7 @@ export interface NodeWithComments {
  * Content node with hierarchical (parent/child) relationships
  */
 export interface HierarchicalContentNode {
-  __typename?: 'MediaItem' | 'Page' | 'Rug_collection' | 'Feature' | 'Rug' | 'Value';
+  __typename?: 'MediaItem' | 'Page' | 'Cta' | 'Rug_collection' | 'Feature' | 'Rug' | 'Value';
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -12900,6 +13190,7 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
     | 'Page_Pagebuilder_Modules_EmailSubscribe'
     | 'Page_Pagebuilder_Modules_CenteredText'
+    | 'Cta_Ctatext'
     | 'Page_Pagebuilder_Modules_CardList'
     | 'Page_Pagebuilder_Modules_CardList_cards'
     | 'Page_Pagebuilder_Modules_TwoColumnGallery'
@@ -12921,6 +13212,7 @@ export interface AcfFieldGroup {
     | 'Feature_Features'
     | 'Rug_collection_RugCollection_Images'
     | 'Rug_collection_RugCollection_listItems'
+    | 'Rug_Ctatext'
     | 'Rug_Rug'
     | 'Rug_Rug_Modules'
     | 'Rug_Rug_Modules_CardsCarousel'
@@ -13152,16 +13444,271 @@ export interface Page_Pagebuilder_Modules_EmailSubscribe {
 export interface Page_Pagebuilder_Modules_CenteredText {
   __typename?: 'Page_Pagebuilder_Modules_CenteredText';
   backgroundColor?: Maybe<ScalarsEnums['String']>;
+  cta?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_CenteredText_Cta>>>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  text?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
   /**
    * Enter a whole number
    */
   textSize?: Maybe<ScalarsEnums['Float']>;
+}
+
+export interface Page_Pagebuilder_Modules_CenteredText_Cta {
+  __typename?: 'Cta';
+  $on: $Page_Pagebuilder_Modules_CenteredText_Cta;
+}
+
+/**
+ * The cta type
+ */
+export interface Cta {
+  __typename?: 'Cta';
+  /**
+   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
+   */
+  ancestors: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
+  /**
+   * Connection between the HierarchicalContentNode type and the ContentNode type
+   */
+  children: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  ctaId: ScalarsEnums['Int'];
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Cta&quot; was set to Show in GraphQL.
+   */
+  ctaText?: Maybe<Cta_Ctatext>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums['Int'];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The globally unique identifier of the cta object.
+   */
+  id: ScalarsEnums['ID'];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums['Boolean'];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums['Boolean'];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The parent of the node. The parent object can be of various types
+   */
+  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
+  /**
+   * Database id of the parent node
+   */
+  parentDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * The globally unique identifier of the parent node.
+   */
+  parentId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * Connection between the cta type and the cta type
+   */
+  preview?: Maybe<CtaToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The template assigned to the node
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums['String']>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Field Group
+ */
+export interface Cta_Ctatext {
+  __typename?: 'Cta_Ctatext';
+  cta?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Connection between the cta type and the cta type
+ */
+export interface CtaToPreviewConnectionEdge {
+  __typename?: 'CtaToPreviewConnectionEdge';
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Cta>;
 }
 
 /**
@@ -13609,18 +14156,23 @@ export interface Page_Rug_Modules_CardsCarousel_cards {
 export interface Page_Rug_Modules_CenteredText {
   __typename?: 'Page_Rug_Modules_CenteredText';
   backgroundColor?: Maybe<ScalarsEnums['String']>;
+  cta?: Maybe<Array<Maybe<Page_Rug_Modules_CenteredText_Cta>>>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
   order?: Maybe<ScalarsEnums['Float']>;
   showHidden?: Maybe<ScalarsEnums['Boolean']>;
-  text?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
   /**
    * Enter a whole number
    */
   textSize?: Maybe<ScalarsEnums['Float']>;
+}
+
+export interface Page_Rug_Modules_CenteredText_Cta {
+  __typename?: 'Cta';
+  $on: $Page_Rug_Modules_CenteredText_Cta;
 }
 
 export interface Page_Rug_Modules_Collection {
@@ -14250,6 +14802,10 @@ export interface Rug {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Cta&quot; was set to Show in GraphQL.
+   */
+  ctaText?: Maybe<Rug_Ctatext>;
+  /**
    * The unique resource identifier path
    */
   databaseId: ScalarsEnums['Int'];
@@ -14442,6 +14998,18 @@ export interface Rug {
 }
 
 /**
+ * Field Group
+ */
+export interface Rug_Ctatext {
+  __typename?: 'Rug_Ctatext';
+  cta?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
  * Connection between the rug type and the rug type
  */
 export interface RugToPreviewConnectionEdge {
@@ -14523,18 +15091,23 @@ export interface Rug_Rug_Modules_CardsCarousel_cards {
 export interface Rug_Rug_Modules_CenteredText {
   __typename?: 'Rug_Rug_Modules_CenteredText';
   backgroundColor?: Maybe<ScalarsEnums['String']>;
+  cta?: Maybe<Array<Maybe<Rug_Rug_Modules_CenteredText_Cta>>>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
   order?: Maybe<ScalarsEnums['Float']>;
   showHidden?: Maybe<ScalarsEnums['Boolean']>;
-  text?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
   /**
    * Enter a whole number
    */
   textSize?: Maybe<ScalarsEnums['Float']>;
+}
+
+export interface Rug_Rug_Modules_CenteredText_Cta {
+  __typename?: 'Cta';
+  $on: $Rug_Rug_Modules_CenteredText_Cta;
 }
 
 export interface Rug_Rug_Modules_Collection {
@@ -14639,8 +15212,17 @@ export interface Rug_Rug_Modules_TwoColumnGallery {
   textAlign?: Maybe<ScalarsEnums['String']>;
   textColorPrimary?: Maybe<ScalarsEnums['String']>;
   textColorSecondary?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Product name or title
+   */
   textHeadline?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Format: CATEGORY/Collection
+   */
   textOverline?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Description of product, if any
+   */
   textParagraph?: Maybe<ScalarsEnums['String']>;
   /**
    * If true, will include a large button after the paragraph.
@@ -14812,8 +15394,17 @@ export interface Page_Rug_Modules_TwoColumnGallery {
   textAlign?: Maybe<ScalarsEnums['String']>;
   textColorPrimary?: Maybe<ScalarsEnums['String']>;
   textColorSecondary?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Product name or title
+   */
   textHeadline?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Format: CATEGORY/Collection
+   */
   textOverline?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Description of product, if any
+   */
   textParagraph?: Maybe<ScalarsEnums['String']>;
   /**
    * If true, will include a large button after the paragraph.
@@ -16286,6 +16877,40 @@ export interface RootQueryToContentTypeConnectionEdge {
 }
 
 /**
+ * Connection between the RootQuery type and the cta type
+ */
+export interface RootQueryToCtaConnection {
+  __typename?: 'RootQueryToCtaConnection';
+  /**
+   * Edges for the RootQueryToCtaConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToCtaConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Cta>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToCtaConnectionEdge {
+  __typename?: 'RootQueryToCtaConnectionEdge';
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Cta>;
+}
+
+/**
  * The discussion setting type
  */
 export interface DiscussionSettings {
@@ -16699,7 +17324,7 @@ export interface MenuItemToMenuItemLinkableConnectionEdge {
  * Deprecated in favor of MenuItemLinkeable Interface
  */
 export interface MenuItemObjectUnion {
-  __typename?: 'Post' | 'Page' | 'Feature' | 'Rug' | 'Rug_collection' | 'Value' | 'Category' | 'Tag';
+  __typename?: 'Post' | 'Page' | 'Cta' | 'Feature' | 'Rug' | 'Rug_collection' | 'Value' | 'Category' | 'Tag';
   $on: $MenuItemObjectUnion;
 }
 
@@ -17719,6 +18344,21 @@ export interface CreateCommentPayload {
 }
 
 /**
+ * The payload for the createCta mutation
+ */
+export interface CreateCtaPayload {
+  __typename?: 'CreateCtaPayload';
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The Post object mutation type.
+   */
+  cta?: Maybe<Cta>;
+}
+
+/**
  * The payload for the createFeature mutation
  */
 export interface CreateFeaturePayload {
@@ -17902,6 +18542,25 @@ export interface DeleteCommentPayload {
   comment?: Maybe<Comment>;
   /**
    * The deleted comment ID
+   */
+  deletedId?: Maybe<ScalarsEnums['ID']>;
+}
+
+/**
+ * The payload for the deleteCta mutation
+ */
+export interface DeleteCtaPayload {
+  __typename?: 'DeleteCtaPayload';
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The object before it was deleted
+   */
+  cta?: Maybe<Cta>;
+  /**
+   * The ID of the deleted object
    */
   deletedId?: Maybe<ScalarsEnums['ID']>;
 }
@@ -18211,6 +18870,21 @@ export interface UpdateCommentPayload {
    * Whether the mutation succeeded. If the comment is not approved, the server will not return the comment to a non authenticated user, but a success message can be returned if the create succeeded, and the client can optimistically add the comment to the client cache
    */
   success?: Maybe<ScalarsEnums['Boolean']>;
+}
+
+/**
+ * The payload for the updateCta mutation
+ */
+export interface UpdateCtaPayload {
+  __typename?: 'UpdateCtaPayload';
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The Post object mutation type.
+   */
+  cta?: Maybe<Cta>;
 }
 
 /**
@@ -18626,6 +19300,9 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_ThreeFeatureCards: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe: Page_Pagebuilder_Modules_EmailSubscribe;
   Page_Pagebuilder_Modules_CenteredText: Page_Pagebuilder_Modules_CenteredText;
+  Cta: Cta;
+  Cta_Ctatext: Cta_Ctatext;
+  CtaToPreviewConnectionEdge: CtaToPreviewConnectionEdge;
   Page_Pagebuilder_Modules_CardList: Page_Pagebuilder_Modules_CardList;
   Page_Pagebuilder_Modules_CardList_cards: Page_Pagebuilder_Modules_CardList_cards;
   Page_Pagebuilder_Modules_TwoColumnGallery: Page_Pagebuilder_Modules_TwoColumnGallery;
@@ -18655,6 +19332,7 @@ export interface SchemaObjectTypes {
   Rug_collection_RugCollection_Images: Rug_collection_RugCollection_Images;
   Rug_collection_RugCollection_listItems: Rug_collection_RugCollection_listItems;
   Rug: Rug;
+  Rug_Ctatext: Rug_Ctatext;
   RugToPreviewConnectionEdge: RugToPreviewConnectionEdge;
   Rug_Rug: Rug_Rug;
   Rug_Rug_Modules: Rug_Rug_Modules;
@@ -18716,6 +19394,8 @@ export interface SchemaObjectTypes {
   RootQueryToContentNodeConnectionEdge: RootQueryToContentNodeConnectionEdge;
   RootQueryToContentTypeConnection: RootQueryToContentTypeConnection;
   RootQueryToContentTypeConnectionEdge: RootQueryToContentTypeConnectionEdge;
+  RootQueryToCtaConnection: RootQueryToCtaConnection;
+  RootQueryToCtaConnectionEdge: RootQueryToCtaConnectionEdge;
   DiscussionSettings: DiscussionSettings;
   RootQueryToFeatureConnection: RootQueryToFeatureConnection;
   RootQueryToFeatureConnectionEdge: RootQueryToFeatureConnectionEdge;
@@ -18776,6 +19456,7 @@ export interface SchemaObjectTypes {
   WritingSettings: WritingSettings;
   CreateCategoryPayload: CreateCategoryPayload;
   CreateCommentPayload: CreateCommentPayload;
+  CreateCtaPayload: CreateCtaPayload;
   CreateFeaturePayload: CreateFeaturePayload;
   CreateMediaItemPayload: CreateMediaItemPayload;
   CreatePagePayload: CreatePagePayload;
@@ -18788,6 +19469,7 @@ export interface SchemaObjectTypes {
   CreateValuePayload: CreateValuePayload;
   DeleteCategoryPayload: DeleteCategoryPayload;
   DeleteCommentPayload: DeleteCommentPayload;
+  DeleteCtaPayload: DeleteCtaPayload;
   DeleteFeaturePayload: DeleteFeaturePayload;
   DeleteMediaItemPayload: DeleteMediaItemPayload;
   DeletePagePayload: DeletePagePayload;
@@ -18805,6 +19487,7 @@ export interface SchemaObjectTypes {
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
   UpdateCategoryPayload: UpdateCategoryPayload;
   UpdateCommentPayload: UpdateCommentPayload;
+  UpdateCtaPayload: UpdateCtaPayload;
   UpdateFeaturePayload: UpdateFeaturePayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
   UpdatePagePayload: UpdatePagePayload;
@@ -18910,6 +19593,9 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
   | 'Page_Pagebuilder_Modules_EmailSubscribe'
   | 'Page_Pagebuilder_Modules_CenteredText'
+  | 'Cta'
+  | 'Cta_Ctatext'
+  | 'CtaToPreviewConnectionEdge'
   | 'Page_Pagebuilder_Modules_CardList'
   | 'Page_Pagebuilder_Modules_CardList_cards'
   | 'Page_Pagebuilder_Modules_TwoColumnGallery'
@@ -18939,6 +19625,7 @@ export type SchemaObjectTypesNames =
   | 'Rug_collection_RugCollection_Images'
   | 'Rug_collection_RugCollection_listItems'
   | 'Rug'
+  | 'Rug_Ctatext'
   | 'RugToPreviewConnectionEdge'
   | 'Rug_Rug'
   | 'Rug_Rug_Modules'
@@ -19000,6 +19687,8 @@ export type SchemaObjectTypesNames =
   | 'RootQueryToContentNodeConnectionEdge'
   | 'RootQueryToContentTypeConnection'
   | 'RootQueryToContentTypeConnectionEdge'
+  | 'RootQueryToCtaConnection'
+  | 'RootQueryToCtaConnectionEdge'
   | 'DiscussionSettings'
   | 'RootQueryToFeatureConnection'
   | 'RootQueryToFeatureConnectionEdge'
@@ -19060,6 +19749,7 @@ export type SchemaObjectTypesNames =
   | 'WritingSettings'
   | 'CreateCategoryPayload'
   | 'CreateCommentPayload'
+  | 'CreateCtaPayload'
   | 'CreateFeaturePayload'
   | 'CreateMediaItemPayload'
   | 'CreatePagePayload'
@@ -19072,6 +19762,7 @@ export type SchemaObjectTypesNames =
   | 'CreateValuePayload'
   | 'DeleteCategoryPayload'
   | 'DeleteCommentPayload'
+  | 'DeleteCtaPayload'
   | 'DeleteFeaturePayload'
   | 'DeleteMediaItemPayload'
   | 'DeletePagePayload'
@@ -19089,6 +19780,7 @@ export type SchemaObjectTypesNames =
   | 'SendPasswordResetEmailPayload'
   | 'UpdateCategoryPayload'
   | 'UpdateCommentPayload'
+  | 'UpdateCtaPayload'
   | 'UpdateFeaturePayload'
   | 'UpdateMediaItemPayload'
   | 'UpdatePagePayload'
@@ -19118,6 +19810,7 @@ export interface $Node {
   Comment?: Comment;
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19145,6 +19838,7 @@ export interface $UniformResourceIdentifiable {
   User?: User;
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19160,6 +19854,7 @@ export interface $DatabaseIdentifier {
   Comment?: Comment;
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19178,6 +19873,7 @@ export interface $HierarchicalTermNode {
 export interface $MenuItemLinkable {
   Category?: Category;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19199,6 +19895,7 @@ export interface $Commenter {
 export interface $ContentNode {
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19209,6 +19906,7 @@ export interface $ContentNode {
 export interface $NodeWithTemplate {
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19219,6 +19917,7 @@ export interface $NodeWithTemplate {
 export interface $NodeWithTitle {
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19241,6 +19940,7 @@ export interface $NodeWithComments {
 export interface $HierarchicalContentNode {
   MediaItem?: MediaItem;
   Page?: Page;
+  Cta?: Cta;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -19272,6 +19972,7 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_ThreeFeatureCards?: Page_Pagebuilder_Modules_ThreeFeatureCards;
   Page_Pagebuilder_Modules_EmailSubscribe?: Page_Pagebuilder_Modules_EmailSubscribe;
   Page_Pagebuilder_Modules_CenteredText?: Page_Pagebuilder_Modules_CenteredText;
+  Cta_Ctatext?: Cta_Ctatext;
   Page_Pagebuilder_Modules_CardList?: Page_Pagebuilder_Modules_CardList;
   Page_Pagebuilder_Modules_CardList_cards?: Page_Pagebuilder_Modules_CardList_cards;
   Page_Pagebuilder_Modules_TwoColumnGallery?: Page_Pagebuilder_Modules_TwoColumnGallery;
@@ -19293,6 +19994,7 @@ export interface $AcfFieldGroup {
   Feature_Features?: Feature_Features;
   Rug_collection_RugCollection_Images?: Rug_collection_RugCollection_Images;
   Rug_collection_RugCollection_listItems?: Rug_collection_RugCollection_listItems;
+  Rug_Ctatext?: Rug_Ctatext;
   Rug_Rug?: Rug_Rug;
   Rug_Rug_Modules?: Rug_Rug_Modules;
   Rug_Rug_Modules_CardsCarousel?: Rug_Rug_Modules_CardsCarousel;
@@ -19335,6 +20037,14 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_OneColumnContent?: Page_Pagebuilder_Modules_OneColumnContent;
 }
 
+export interface $Page_Pagebuilder_Modules_CenteredText_Cta {
+  Cta?: Cta;
+}
+
+export interface $Page_Rug_Modules_CenteredText_Cta {
+  Cta?: Cta;
+}
+
 export interface $Page_Rug_Modules_Collection {
   Rug_collection?: Rug_collection;
 }
@@ -19345,6 +20055,10 @@ export interface $Rug_collection_RugCollection_Features {
 
 export interface $Rug_collection_RugCollection_Rugs {
   Rug?: Rug;
+}
+
+export interface $Rug_Rug_Modules_CenteredText_Cta {
+  Cta?: Cta;
 }
 
 export interface $Rug_Rug_Modules_Collection {
@@ -19371,6 +20085,7 @@ export interface $ContentRevisionUnion {
 export interface $MenuItemObjectUnion {
   Post?: Post;
   Page?: Page;
+  Cta?: Cta;
   Feature?: Feature;
   Rug?: Rug;
   Rug_collection?: Rug_collection;
@@ -19422,6 +20137,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   CategoryIdType: CategoryIdType | undefined;
   ContentNodeIdTypeEnum: ContentNodeIdTypeEnum | undefined;
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;
+  CtaIdType: CtaIdType | undefined;
   FeatureIdType: FeatureIdType | undefined;
   MediaItemIdType: MediaItemIdType | undefined;
   MenuNodeIdTypeEnum: MenuNodeIdTypeEnum | undefined;

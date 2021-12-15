@@ -20,6 +20,8 @@ export function PageComponent({ page, pageUri }: PageProps) {
     idType: RugIdType.URI,
   });
 
+  // console.log('RUG COLLECTION? ', rugDetails?.rug?.modules?.collection[0].$on.Rug_collection?.link);
+
   // if query contains custom post type 'rug', use the Rug ACF modules
   // otherwise use the Page Builder ACF modules
   const modules = pageUri.includes('rug')

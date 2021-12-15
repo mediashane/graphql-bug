@@ -252,11 +252,11 @@ export default function acfRenderComponent(componentName, componentData, index):
         return <CardList key={`${componentName}_${index}`} cards={cards} mobileSizeWide={mobileSizeWide} />;
       }
       case 'CenteredText': {
-        const { text, backgroundColor, textColor, textSize } = componentData;
+        const { cta, backgroundColor, textColor, textSize } = componentData;
         return (
           <CenteredText
             key={`${componentName}_${index}`}
-            text={text}
+            text={cta[0]?.$on?.Cta?.ctaText?.cta}
             backgroundColor={backgroundColor}
             textColor={textColor}
             textSize={textSize}
