@@ -6408,22 +6408,18 @@ export const generatedSchema = {
   Rug_Rug_Modules_Collection: { __typename: { __type: 'String!' }, $on: { __type: '$Rug_Rug_Modules_Collection!' } },
   Rug_Rug_Modules_ThreeFeatureCardsFeatures: {
     __typename: { __type: 'String!' },
-    descriptionOne: { __type: 'String' },
-    descriptionThree: { __type: 'String' },
-    descriptionTwo: { __type: 'String' },
+    featureCards: { __type: '[Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards]' },
     fieldGroupName: { __type: 'String' },
     iconLayout: { __type: 'Boolean' },
-    imageOne: { __type: 'MediaItem' },
-    imageThree: { __type: 'MediaItem' },
-    imageTwo: { __type: 'MediaItem' },
-    labelOne: { __type: 'String' },
     labelTextColor: { __type: 'String' },
-    labelThree: { __type: 'String' },
-    labelTwo: { __type: 'String' },
     order: { __type: 'Float' },
     sectionLabel: { __type: 'String' },
     showHidden: { __type: 'Boolean' },
     textColor: { __type: 'String' },
+  },
+  Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards!' },
   },
   Rug_Rug_Modules_ThreeFeatureCardsValues: {
     __typename: { __type: 'String!' },
@@ -6522,22 +6518,18 @@ export const generatedSchema = {
   },
   Page_Rug_Modules_ThreeFeatureCardsFeatures: {
     __typename: { __type: 'String!' },
-    descriptionOne: { __type: 'String' },
-    descriptionThree: { __type: 'String' },
-    descriptionTwo: { __type: 'String' },
+    featureCards: { __type: '[Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards]' },
     fieldGroupName: { __type: 'String' },
     iconLayout: { __type: 'Boolean' },
-    imageOne: { __type: 'MediaItem' },
-    imageThree: { __type: 'MediaItem' },
-    imageTwo: { __type: 'MediaItem' },
-    labelOne: { __type: 'String' },
     labelTextColor: { __type: 'String' },
-    labelThree: { __type: 'String' },
-    labelTwo: { __type: 'String' },
     order: { __type: 'Float' },
     sectionLabel: { __type: 'String' },
     showHidden: { __type: 'Boolean' },
     textColor: { __type: 'String' },
+  },
+  Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards!' },
   },
   Page_Rug_Modules_ThreeFeatureCardsValues: {
     __typename: { __type: 'String!' },
@@ -9036,6 +9028,8 @@ export const generatedSchema = {
     Rug_collection_RugCollection_Rugs: ['Rug'],
     Rug_Rug_Modules_CenteredText_Cta: ['Cta'],
     Rug_Rug_Modules_Collection: ['Rug_collection'],
+    Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards: ['Feature'],
+    Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards: ['Feature'],
     NodeWithContentEditor: ['Post'],
     NodeWithExcerpt: ['Post'],
     NodeWithTrackbacks: ['Post'],
@@ -15120,9 +15114,10 @@ export interface Rug_Rug_Modules_Collection {
  */
 export interface Rug_Rug_Modules_ThreeFeatureCardsFeatures {
   __typename?: 'Rug_Rug_Modules_ThreeFeatureCardsFeatures';
-  descriptionOne?: Maybe<ScalarsEnums['String']>;
-  descriptionThree?: Maybe<ScalarsEnums['String']>;
-  descriptionTwo?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Pick 3 features to show
+   */
+  featureCards?: Maybe<Array<Maybe<Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards>>>;
   /**
    * The name of the ACF Field Group
    */
@@ -15131,17 +15126,16 @@ export interface Rug_Rug_Modules_ThreeFeatureCardsFeatures {
    * Set to true if using icons instead of photo images.
    */
   iconLayout?: Maybe<ScalarsEnums['Boolean']>;
-  imageOne?: Maybe<MediaItem>;
-  imageThree?: Maybe<MediaItem>;
-  imageTwo?: Maybe<MediaItem>;
-  labelOne?: Maybe<ScalarsEnums['String']>;
   labelTextColor?: Maybe<ScalarsEnums['String']>;
-  labelThree?: Maybe<ScalarsEnums['String']>;
-  labelTwo?: Maybe<ScalarsEnums['String']>;
   order?: Maybe<ScalarsEnums['Float']>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   showHidden?: Maybe<ScalarsEnums['Boolean']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+export interface Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
+  __typename?: 'Feature';
+  $on: $Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards;
 }
 
 /**
@@ -15302,9 +15296,10 @@ export interface RugToTermNodeConnectionEdge {
  */
 export interface Page_Rug_Modules_ThreeFeatureCardsFeatures {
   __typename?: 'Page_Rug_Modules_ThreeFeatureCardsFeatures';
-  descriptionOne?: Maybe<ScalarsEnums['String']>;
-  descriptionThree?: Maybe<ScalarsEnums['String']>;
-  descriptionTwo?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Pick 3 features to show
+   */
+  featureCards?: Maybe<Array<Maybe<Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards>>>;
   /**
    * The name of the ACF Field Group
    */
@@ -15313,17 +15308,16 @@ export interface Page_Rug_Modules_ThreeFeatureCardsFeatures {
    * Set to true if using icons instead of photo images.
    */
   iconLayout?: Maybe<ScalarsEnums['Boolean']>;
-  imageOne?: Maybe<MediaItem>;
-  imageThree?: Maybe<MediaItem>;
-  imageTwo?: Maybe<MediaItem>;
-  labelOne?: Maybe<ScalarsEnums['String']>;
   labelTextColor?: Maybe<ScalarsEnums['String']>;
-  labelThree?: Maybe<ScalarsEnums['String']>;
-  labelTwo?: Maybe<ScalarsEnums['String']>;
   order?: Maybe<ScalarsEnums['Float']>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   showHidden?: Maybe<ScalarsEnums['Boolean']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+export interface Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
+  __typename?: 'Feature';
+  $on: $Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards;
 }
 
 /**
@@ -20063,6 +20057,14 @@ export interface $Rug_Rug_Modules_CenteredText_Cta {
 
 export interface $Rug_Rug_Modules_Collection {
   Rug_collection?: Rug_collection;
+}
+
+export interface $Rug_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
+  Feature?: Feature;
+}
+
+export interface $Page_Rug_Modules_ThreeFeatureCardsFeatures_FeatureCards {
+  Feature?: Feature;
 }
 
 export interface $NodeWithContentEditor {

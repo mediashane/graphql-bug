@@ -479,21 +479,9 @@ export default function acfRenderComponent(componentName, componentData, index):
         );
       }
       case 'ThreeFeatureCardsFeatures': {
-        const {
-          sectionLabel,
-          iconLayout,
-          textColor,
-          labelTextColor,
-          imageOne,
-          labelOne,
-          descriptionOne,
-          imageTwo,
-          labelTwo,
-          descriptionTwo,
-          imageThree,
-          labelThree,
-          descriptionThree,
-        } = componentData;
+        const { sectionLabel, iconLayout, textColor, labelTextColor, featureCards } = componentData;
+
+        console.log('FEATURE CARDS? ', featureCards[0]?.$on?.Feature?.features.label);
 
         return (
           <ThreeFeatureCards
@@ -502,15 +490,15 @@ export default function acfRenderComponent(componentName, componentData, index):
             iconLayout={iconLayout}
             textColor={textColor}
             labelTextColor={labelTextColor}
-            imageOne={imageOne?.mediaItemUrl ?? ''}
-            labelOne={labelOne}
-            descriptionOne={descriptionOne}
-            imageTwo={imageTwo?.mediaItemUrl ?? ''}
-            labelTwo={labelTwo}
-            descriptionTwo={descriptionTwo}
-            imageThree={imageThree?.mediaItemUrl ?? ''}
-            labelThree={labelThree}
-            descriptionThree={descriptionThree}
+            imageOne={featureCards[0]?.$on?.Feature?.features?.image?.mediaItemUrl ?? ''}
+            labelOne={featureCards[0]?.$on?.Feature?.features.label ?? ''}
+            descriptionOne={featureCards[0]?.$on?.Feature?.features?.description ?? ''}
+            imageTwo={featureCards[1]?.$on?.Feature?.features?.image?.mediaItemUrl ?? ''}
+            labelTwo={featureCards[1]?.$on?.Feature?.features.label ?? ''}
+            descriptionTwo={featureCards[1]?.$on?.Feature?.features?.description ?? ''}
+            imageThree={featureCards[2]?.$on?.Feature?.features?.image?.mediaItemUrl ?? ''}
+            labelThree={featureCards[2]?.$on?.Feature?.features.label ?? ''}
+            descriptionThree={featureCards[2]?.$on?.Feature?.features?.description ?? ''}
           />
         );
       }
