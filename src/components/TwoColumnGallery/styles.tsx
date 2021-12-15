@@ -20,6 +20,7 @@ const styles = {
     },
     height: '100%',
     width: '100%',
+    paddingBottom: '40px',
   },
   imageSliderContainer: {
     display: 'flex',
@@ -251,6 +252,7 @@ const styles = {
   },
   imagePaginationContainer: {
     display: 'flex',
+    flexDirection: 'column' as const,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute' as const,
@@ -265,7 +267,11 @@ const styles = {
       md: '50%',
     },
     width: '50%',
-    height: '14px',
+    height: '28px',
+  },
+  paginationDotsContainer: {
+    display: 'flex',
+    marginTop: '15px',
   },
   imagePaginationDot: {
     margin: '0 7px',
@@ -273,6 +279,13 @@ const styles = {
     width: '14px',
     backgroundColor: colorBrandBlue,
     borderRadius: '50%',
+  },
+  captionText: {
+    position: 'absolute' as const,
+    top: '43px',
+    fontSize: '20px',
+    color: colorDarkGrey,
+    fontFamily: proximaNova,
   },
 };
 

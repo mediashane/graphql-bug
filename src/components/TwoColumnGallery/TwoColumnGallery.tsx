@@ -31,6 +31,7 @@ interface Props {
     __typename?: string;
     fieldGroupName?: string;
     image?: any;
+    caption?: string;
   }[];
   withButton?: boolean;
   buttonLabel?: string;
@@ -178,61 +179,74 @@ function TwoColumnGallery({
     );
   };
 
+  console.log('IMAGES? ', Object.values(images));
+
   return (
-    <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>
-      <Box sx={styles.textContainer}>
-        <Box sx={styles.textWrapper}>
-          <Typography sx={{ ...styles.textOverline, color: textColorPrimary }}>{textOverline}</Typography>
-          <Typography sx={{ ...styles.textHeadline, color: textColorSecondary }}>{textHeadline}</Typography>
-          <Typography sx={{ ...styles.textParagraph, color: textColorPrimary, fontFamily: paragraphFont }}>
-            {textParagraph}
-          </Typography>
-          <Divider />
-          {listItems.map((item, index) => {
-            return <ListItems item={item} key={index} />;
-          })}
-          <CtaButton />
-          <IconButtons />
-        </Box>
-      </Box>
-      <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex].image.mediaItemUrl})` }}>
-        <Box sx={styles.controlsContainer}>
-          <Box sx={styles.arrowButtonContainer}>
-            <IconButton
-              onClick={() => decrementImageIndex()}
-              sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
-              disableFocusRipple
-              disableRipple
-            >
-              <ChevronLeftIcon sx={styles.arrowButton} />
-            </IconButton>
-          </Box>
-          <Box sx={styles.arrowButtonContainer}>
-            <IconButton
-              onClick={() => incrementImageIndex()}
-              sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
-              disableFocusRipple
-              disableRipple
-            >
-              <ChevronRightIcon sx={styles.arrowButton} />
-            </IconButton>
+    <>
+      <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>
+        <Box sx={styles.textContainer}>
+          <Box sx={styles.textWrapper}>
+            <Typography sx={{ ...styles.textOverline, color: textColorPrimary }}>{textOverline}</Typography>
+            <Typography sx={{ ...styles.textHeadline, color: textColorSecondary }}>{textHeadline}</Typography>
+            <Typography sx={{ ...styles.textParagraph, color: textColorPrimary, fontFamily: paragraphFont }}>
+              {textParagraph}
+            </Typography>
+            <Divider />
+            {listItems.map((item, index) => {
+              return <ListItems item={item} key={index} />;
+            })}
+            <CtaButton />
+            <IconButtons />
           </Box>
         </Box>
-        <Box sx={styles.imagePaginationContainer}>
-          {images.map((image, index) => {
-            return (
-              <Box
-                sx={{
-                  ...styles.imagePaginationDot,
-                  backgroundColor: index === imageIndex ? colorWhite : colorBrandBlue,
-                }}
-                key={index}
-              />
-            );
-          })}
+        <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex].image.mediaItemUrl})` }}>
+          {Object.values(images).length > 1 && (
+            <Box sx={styles.controlsContainer}>
+              <Box sx={styles.arrowButtonContainer}>
+                <IconButton
+                  onClick={() => decrementImageIndex()}
+                  sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
+                  disableFocusRipple
+                  disableRipple
+                >
+                  <ChevronLeftIcon sx={styles.arrowButton} />
+                </IconButton>
+              </Box>
+              <Box sx={styles.arrowButtonContainer}>
+                <IconButton
+                  onClick={() => incrementImageIndex()}
+                  sx={{ '&.MuiButtonBase-root:hover': { bgcolor: 'transparent' } }}
+                  disableFocusRipple
+                  disableRipple
+                >
+                  <ChevronRightIcon sx={styles.arrowButton} />
+                </IconButton>
+              </Box>
+            </Box>
+          )}
+          <Box sx={styles.imagePaginationContainer}>
+            {Object.values(images).length > 1 && (
+              <Box sx={styles.paginationDotsContainer}>
+                {images.map((image, index) => {
+                  return (
+                    <Box
+                      sx={{
+                        ...styles.imagePaginationDot,
+                        backgroundColor: index === imageIndex ? colorWhite : colorBrandBlue,
+                      }}
+                      key={index}
+                    />
+                  );
+                })}
+              </Box>
+            )}
+            {images[imageIndex]?.caption && (
+              <Typography sx={styles.captionText}>{images[imageIndex].caption}</Typography>
+            )}
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 

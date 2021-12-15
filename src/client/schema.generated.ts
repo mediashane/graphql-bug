@@ -5888,6 +5888,7 @@ export const generatedSchema = {
   },
   Page_Pagebuilder_Modules_TwoColumnGallery_images: {
     __typename: { __type: 'String!' },
+    caption: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     image: { __type: 'MediaItem' },
   },
@@ -6541,6 +6542,7 @@ export const generatedSchema = {
   },
   Rug_Rug_Modules_TwoColumnGallery_images: {
     __typename: { __type: 'String!' },
+    caption: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     image: { __type: 'MediaItem' },
   },
@@ -6647,6 +6649,7 @@ export const generatedSchema = {
   },
   Page_Rug_Modules_TwoColumnGallery_images: {
     __typename: { __type: 'String!' },
+    caption: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     image: { __type: 'MediaItem' },
   },
@@ -13813,6 +13816,7 @@ export interface Page_Pagebuilder_Modules_TwoColumnGallery {
  */
 export interface Page_Pagebuilder_Modules_TwoColumnGallery_images {
   __typename?: 'Page_Pagebuilder_Modules_TwoColumnGallery_images';
+  caption?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
@@ -15503,6 +15507,7 @@ export interface Rug_Rug_Modules_TwoColumnGallery {
  */
 export interface Rug_Rug_Modules_TwoColumnGallery_images {
   __typename?: 'Rug_Rug_Modules_TwoColumnGallery_images';
+  caption?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
@@ -15682,6 +15687,7 @@ export interface Page_Rug_Modules_TwoColumnGallery {
  */
 export interface Page_Rug_Modules_TwoColumnGallery_images {
   __typename?: 'Page_Rug_Modules_TwoColumnGallery_images';
+  caption?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
