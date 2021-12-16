@@ -13,7 +13,6 @@ import { colorBrandBlue, colorWhite } from '../../style';
 import styles from './styles';
 
 interface Props {
-  textOverline?: string;
   textHeadline: string;
   textParagraph?: string;
   paragraphFont?: string;
@@ -49,7 +48,6 @@ interface Props {
 }
 
 function TwoColumnGallery({
-  textOverline = '',
   textHeadline = '',
   textParagraph = '',
   paragraphFont = '',
@@ -184,7 +182,9 @@ function TwoColumnGallery({
       <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>
         <Box sx={styles.textContainer}>
           <Box sx={styles.textWrapper}>
-            <Typography sx={{ ...styles.textOverline, color: textColorPrimary }}>{textOverline}</Typography>
+            <Typography sx={{ ...styles.textOverline, color: textColorPrimary }}>
+              Insert Product Category + Collection Name here
+            </Typography>
             <Typography sx={{ ...styles.textHeadline, color: textColorSecondary }}>{textHeadline}</Typography>
             <Typography sx={{ ...styles.textParagraph, color: textColorPrimary, fontFamily: paragraphFont }}>
               {textParagraph}

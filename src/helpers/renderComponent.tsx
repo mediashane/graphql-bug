@@ -191,9 +191,7 @@ export default function acfRenderComponent(componentName, componentData, index):
       }
       case 'TwoColumnGallery': {
         const {
-          textOverline,
           textHeadline,
-          textParagraph,
           rugDescription,
           rugAttributes,
           backgroundColor,
@@ -202,7 +200,6 @@ export default function acfRenderComponent(componentName, componentData, index):
           textAlign,
           withDivider,
           images,
-          // listItems,
           listItemsLarge,
           withButton,
           buttonLabel,
@@ -231,11 +228,8 @@ export default function acfRenderComponent(componentName, componentData, index):
         return (
           <TwoColumnGallery
             key={`${componentName}_${index}`}
-            textOverline={textOverline}
             textHeadline={textHeadline}
-            textParagraph={
-              rugDescription ? rugDescription[0]?.$on?.Rug_description.rugDescription?.description : textParagraph
-            }
+            textParagraph={rugDescription ? rugDescription[0]?.$on?.Rug_description.rugDescription?.description : ''}
             backgroundColor={backgroundColor}
             textColorPrimary={textColorPrimary}
             textColorSecondary={textColorSecondary}
