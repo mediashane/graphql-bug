@@ -179,8 +179,6 @@ function TwoColumnGallery({
     );
   };
 
-  console.log('IMAGES? ', Object.values(images));
-
   return (
     <>
       <Box sx={{ ...styles.galleryContainer, backgroundColor: backgroundColor }}>

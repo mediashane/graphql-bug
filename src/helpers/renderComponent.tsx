@@ -194,13 +194,15 @@ export default function acfRenderComponent(componentName, componentData, index):
           textOverline,
           textHeadline,
           textParagraph,
+          rugDescription,
+          rugAttributes,
           backgroundColor,
           textColorPrimary,
           textColorSecondary,
           textAlign,
           withDivider,
           images,
-          listItems,
+          // listItems,
           listItemsLarge,
           withButton,
           buttonLabel,
@@ -217,12 +219,23 @@ export default function acfRenderComponent(componentName, componentData, index):
           iconButtonThreeLabel,
         } = componentData;
 
+        const listItems = [];
+
+        rugAttributes.forEach((rug) => {
+          listItems.push({
+            textHeadline: rug.$on?.Rug_attribute.rugAttribute.textHeadline,
+            textParagraph: rug.$on?.Rug_attribute.rugAttribute.textParagraph,
+          });
+        });
+
         return (
           <TwoColumnGallery
             key={`${componentName}_${index}`}
             textOverline={textOverline}
             textHeadline={textHeadline}
-            textParagraph={textParagraph}
+            textParagraph={
+              rugDescription ? rugDescription[0]?.$on?.Rug_description.rugDescription?.description : textParagraph
+            }
             backgroundColor={backgroundColor}
             textColorPrimary={textColorPrimary}
             textColorSecondary={textColorSecondary}
