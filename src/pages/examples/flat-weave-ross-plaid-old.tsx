@@ -194,7 +194,6 @@ export default function Page() {
       </Head>
 
       <TwoColumnGallery
-        textOverline="RUGS/Elizabeth's Cloth"
         textHeadline="Flat Weave Ross Plaid"
         textParagraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales."
         paragraphFont="ProximaNovaRegular"
