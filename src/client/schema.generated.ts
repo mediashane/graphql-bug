@@ -6955,6 +6955,7 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     backgroundColor: { __type: 'String' },
     buttonLabel: { __type: 'String' },
+    color: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     iconButtonOneImage: { __type: 'MediaItem' },
     iconButtonOneLabel: { __type: 'String' },
@@ -6978,7 +6979,7 @@ export const generatedSchema = {
     textAlign: { __type: 'String' },
     textColorPrimary: { __type: 'String' },
     textColorSecondary: { __type: 'String' },
-    textOverline: { __type: 'String' },
+    textHeadline: { __type: 'String' },
     withButton: { __type: 'Boolean' },
     withDivider: { __type: 'Boolean' },
     withIconButtons: { __type: 'Boolean' },
@@ -7218,6 +7219,7 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     backgroundColor: { __type: 'String' },
     buttonLabel: { __type: 'String' },
+    color: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
     iconButtonOneImage: { __type: 'MediaItem' },
     iconButtonOneLabel: { __type: 'String' },
@@ -7241,7 +7243,7 @@ export const generatedSchema = {
     textAlign: { __type: 'String' },
     textColorPrimary: { __type: 'String' },
     textColorSecondary: { __type: 'String' },
-    textOverline: { __type: 'String' },
+    textHeadline: { __type: 'String' },
     withButton: { __type: 'Boolean' },
     withDivider: { __type: 'Boolean' },
     withIconButtons: { __type: 'Boolean' },
@@ -16758,6 +16760,7 @@ export interface Rug_Rug_Modules_TwoColumnGallery {
   __typename?: 'Rug_Rug_Modules_TwoColumnGallery';
   backgroundColor?: Maybe<ScalarsEnums['String']>;
   buttonLabel?: Maybe<ScalarsEnums['String']>;
+  color?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
@@ -16793,10 +16796,7 @@ export interface Rug_Rug_Modules_TwoColumnGallery {
   textAlign?: Maybe<ScalarsEnums['String']>;
   textColorPrimary?: Maybe<ScalarsEnums['String']>;
   textColorSecondary?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Format: CATEGORY/Collection
-   */
-  textOverline?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
   /**
    * If true, will include a large button after the paragraph.
    */
@@ -17457,6 +17457,7 @@ export interface Page_Rug_Modules_TwoColumnGallery {
   __typename?: 'Page_Rug_Modules_TwoColumnGallery';
   backgroundColor?: Maybe<ScalarsEnums['String']>;
   buttonLabel?: Maybe<ScalarsEnums['String']>;
+  color?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
@@ -17492,10 +17493,7 @@ export interface Page_Rug_Modules_TwoColumnGallery {
   textAlign?: Maybe<ScalarsEnums['String']>;
   textColorPrimary?: Maybe<ScalarsEnums['String']>;
   textColorSecondary?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Format: CATEGORY/Collection
-   */
-  textOverline?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
   /**
    * If true, will include a large button after the paragraph.
    */

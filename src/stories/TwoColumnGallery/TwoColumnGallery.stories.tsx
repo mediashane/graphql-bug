@@ -53,7 +53,7 @@ const Template: ComponentStory<typeof TwoColumnGallery> = (args) => <TwoColumnGa
 
 export const TwoColumnGallerySection = Template.bind({});
 TwoColumnGallerySection.args = {
-  textOverline: 'Rugs',
+  // textOverline: 'Rugs',
   textHeadline: `Elizabeth's Cloth`,
   textParagraph:
     'Our new Elizabeth’s Cloth is handwoven in pure wool in many different types of weave structures. It is a versatile product line that requires no minimums and has the benefit of many loom systems so the designer is welcomed to cr eate new designs at any time. The weights range from extremely flat tight weaves to supple combinations of yarns, soft and durable. The products have excellent price points.',
