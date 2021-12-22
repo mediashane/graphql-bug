@@ -87,22 +87,24 @@ function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textL
             <CarouselControls />
           </Box>
           <Box sx={styles.carouselCards} id="carousel">
-            {cards.map((card, index) => {
-              const { image, title, subtitle, showSticker, stickerText } = card;
+            {cards
+              ? cards.map((card, index) => {
+                  const { image, title, subtitle, showSticker, stickerText } = card;
 
-              return (
-                <CarouselCard
-                  image={image}
-                  title={title}
-                  subtitle={subtitle}
-                  textColor={textColor}
-                  showSticker={showSticker}
-                  stickerText={stickerText}
-                  link={card?.link?.url ?? '/'}
-                  key={index}
-                />
-              );
-            })}
+                  return (
+                    <CarouselCard
+                      image={image}
+                      title={title}
+                      subtitle={subtitle}
+                      textColor={textColor}
+                      showSticker={showSticker}
+                      stickerText={stickerText}
+                      link={card?.link?.url ?? '/'}
+                      key={index}
+                    />
+                  );
+                })
+              : null}
           </Box>
         </Box>
       </Box>

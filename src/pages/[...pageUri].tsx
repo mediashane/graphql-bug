@@ -15,8 +15,8 @@ export interface PageProps {
 export function PageComponent({ page, pageUri }: PageProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
-  const rugDetails = useQuery().rug({
-    id: pageUri[1] ?? '',
+  const rugDetails = useQuery({ suspense: false }).rug({
+    id: `/${pageUri.join('/')}` ?? '',
     idType: RugIdType.URI,
   });
 
