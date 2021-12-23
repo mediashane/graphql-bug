@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { client, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { getNextStaticProps, is404 } from '@faustjs/next';
 
@@ -14,13 +16,28 @@ export interface PageProps {
 
 export function PageComponent({ page, pageUri }: PageProps) {
   const { useQuery } = client;
+  const router = useRouter();
   const generalSettings = useQuery().generalSettings;
-  const rugDetails = useQuery({ suspense: false }).rug({
+  const rugDetails = useQuery().rug({
     id: `/${pageUri.join('/')}` ?? '',
     idType: RugIdType.URI,
   });
 
-  // console.log('RUG COLLECTION? ', rugDetails?.rug?.modules?.collection[0].$on.Rug_collection?.link);
+  useEffect(() => {
+    if (rugDetails?.rug?.modules?.collection[0]) {
+      router.push(
+        {
+          pathname: pageUri.join('/'),
+          query: { collection: rugDetails?.rug?.modules?.collection[0].$on.Rug_collection?.rug_collection?.title },
+        },
+        undefined,
+        { shallow: true },
+      );
+    }
+  }, [rugDetails]);
+
+  // console.log('RUG COLLECTION? ', rugDetails?.rug?.modules?.collection[0].$on.Rug_collection?.rug_collection.title);
+  // console.log('RUG COLLECTION? ', rugCollectionDetails?.rug_collection?.rugs);
 
   // if query contains custom post type 'rug', use the Rug ACF modules
   // otherwise use the Page Builder ACF modules

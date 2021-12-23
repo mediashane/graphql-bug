@@ -33,7 +33,14 @@ interface Props {
   }[];
 }
 
-function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textLinkLabel, cards }: Props): JSX.Element {
+function CarouselCards({
+  textColor,
+  sectionLabel,
+  labelColor,
+  textLinkUrl,
+  textLinkLabel,
+  cards = [],
+}: Props): JSX.Element {
   const prevElement = () => {
     document.getElementById('carousel').scrollLeft -= 200;
   };
@@ -73,7 +80,9 @@ function CarouselCards({ textColor, sectionLabel, labelColor, textLinkUrl, textL
     <>
       <Container maxWidth="xl">
         <Box sx={styles.cardsCarouselLabelContainer}>
-          <Typography sx={{ ...styles.cardsCarouselLabel, color: labelColor }}>{sectionLabel}</Typography>
+          <Typography sx={{ ...styles.cardsCarouselLabel, color: labelColor }}>
+            {sectionLabel && `More from ${sectionLabel}`}
+          </Typography>
           <NextLink href={textLinkUrl} passHref>
             <MUILink color="inherit" variant="inherit" underline="hover">
               <Typography sx={{ ...styles.cardsCarouselTextLink, color: textColor }}>{textLinkLabel}</Typography>

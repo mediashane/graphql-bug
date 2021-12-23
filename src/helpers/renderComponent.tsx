@@ -18,6 +18,8 @@ import {
   TwoColumnGallery,
 } from 'components';
 
+// let currentCollection = '';
+
 export default function acfRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
     // console.log('[KOA]', 'Rendering', componentName, componentData);
@@ -192,6 +194,8 @@ export default function acfRenderComponent(componentName, componentData, index):
       case 'TwoColumnGallery': {
         const {
           textHeadline,
+          color,
+          productCategory,
           rugDescription,
           rugAttributes,
           backgroundColor,
@@ -216,6 +220,10 @@ export default function acfRenderComponent(componentName, componentData, index):
           iconButtonThreeLabel,
         } = componentData;
 
+        // console.log('PRODUCT CATEGORY ', productCategory[0].$on.Product_category.title());
+
+        // console.log('RUG COLLECTION IN TWO COLUMN? ', currentCollection);
+
         const listItems = [];
 
         rugAttributes.forEach((rug) => {
@@ -229,6 +237,9 @@ export default function acfRenderComponent(componentName, componentData, index):
           <TwoColumnGallery
             key={`${componentName}_${index}`}
             textHeadline={textHeadline}
+            // collection={currentCollection}
+            color={color}
+            productCategory={productCategory[0].$on.Product_category.title()}
             textParagraph={rugDescription ? rugDescription[0]?.$on?.Rug_description.rugDescription?.description : ''}
             backgroundColor={backgroundColor}
             textColorPrimary={textColorPrimary}
@@ -251,6 +262,7 @@ export default function acfRenderComponent(componentName, componentData, index):
             iconButtonThreeImage={iconButtonThreeImage?.mediaItemUrl ?? ''}
             iconButtonThreeLink={iconButtonThreeLink?.url ?? '/'}
             iconButtonThreeLabel={iconButtonThreeLabel}
+            // collection={collection[0]?.$on?.Rug_collection?.rug_collection?.title}
           />
         );
       }

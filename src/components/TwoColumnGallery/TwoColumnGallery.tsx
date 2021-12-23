@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -14,6 +15,8 @@ import styles from './styles';
 
 interface Props {
   textHeadline: string;
+  color?: string;
+  productCategory?: string;
   textParagraph?: string;
   paragraphFont?: string;
   backgroundColor?: string;
@@ -49,6 +52,8 @@ interface Props {
 
 function TwoColumnGallery({
   textHeadline = '',
+  // color = '',
+  productCategory = '',
   textParagraph = '',
   paragraphFont = '',
   backgroundColor = 'transparent',
@@ -72,6 +77,7 @@ function TwoColumnGallery({
   iconButtonThreeLink = '',
   iconButtonThreeLabel = '',
 }: Props): JSX.Element {
+  const router = useRouter();
   const [imageIndex, setImageIndex] = useState(0);
 
   const incrementImageIndex = () => {
@@ -183,7 +189,8 @@ function TwoColumnGallery({
         <Box sx={styles.textContainer}>
           <Box sx={styles.textWrapper}>
             <Typography sx={{ ...styles.textOverline, color: textColorPrimary }}>
-              Insert Product Category + Collection Name here
+              {productCategory.toLocaleUpperCase()}
+              {productCategory && router.query.collection && `/${router.query.collection}`}
             </Typography>
             <Typography sx={{ ...styles.textHeadline, color: textColorSecondary }}>{textHeadline}</Typography>
             <Typography sx={{ ...styles.textParagraph, color: textColorPrimary, fontFamily: paragraphFont }}>

@@ -45,7 +45,6 @@ const styles = {
     position: 'absolute' as const,
     width: '100%',
     overflow: 'hidden',
-    zIndex: 2,
   },
   cardsCarouselArrowButtonContainer: {
     display: 'flex',
@@ -55,6 +54,7 @@ const styles = {
     width: '53px',
     backgroundColor: colorWhite,
     cursor: 'pointer',
+    zIndex: 2,
 
     '&:hover': {
       backgroundColor: colorLightGrey,
