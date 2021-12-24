@@ -32,30 +32,26 @@ function CardsCarousel({ ...props }: Props): JSX.Element {
     id: `${router.query.collection}` ?? '',
     idType: Rug_collectionIdType.URI,
   });
-
-  // console.log('CAROUSEL? ', props);
-
   // if no collection is detected, do not render empty carousel
   if (!router.query.collection) return null;
 
   const cards = [];
 
   rugCollectionDetails?.rug_collection?.rugs.forEach((item) => {
+    const { images, textHeadline, showSticker, stickerText } = item?.$on?.Rug?.rug?.modules?.twoColumnGallery;
+    const { uri, rug } = item?.$on?.Rug;
+
     cards.push({
-      image: item.$on.Rug.rug.modules.twoColumnGallery.images[0].image,
-      title: item.$on.Rug.rug.modules.twoColumnGallery.textHeadline,
-      link: { url: '/', target: '_blank', __typename: 'Rug' },
-      showSticker: false,
-      // stickerText: 'New',
+      image: images?.[0]?.image,
+      title: textHeadline,
+      link: { url: uri, target: '_blank', __typename: rug.__typename },
+      showSticker: showSticker,
+      stickerText: stickerText,
     });
   });
 
-  console.log(
-    'RUG COLLECTION? ',
-    // typeof rugCollectionDetails?.rug_collection?.rugs?.[0]?.$on.Rug.rug.modules.twoColumnGallery.images[0].image.srcSet(),
-    rugCollectionDetails?.rug_collection?.rugs?.[0]?.$on.Rug.rug.modules.twoColumnGallery.images[0].image,
-    // rugCollectionDetails?.rug_collection?.rugs,
-  );
+  // console.log('RUG? ', rugCollectionDetails?.rug_collection?.rugs?.[0]?.$on.Rug.rug);
+  console.log('RUG? ', rugCollectionDetails?.rug_collection?.rugs?.[0]?.$on.Rug.rug?.modules?.twoColumnGallery);
   return <CarouselCards {...props} sectionLabel={`${router.query.collection}`} cards={cards} />;
 }
 
