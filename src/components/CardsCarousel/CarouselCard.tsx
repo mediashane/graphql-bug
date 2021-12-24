@@ -29,7 +29,7 @@ function CarouselCard({ image, title, subtitle, textColor, link, showSticker, st
           sx={{
             ...styles.carouselCardImage,
             backgroundImage: `linear-gradient( rgba(0, 0, 0, ${overlay}), rgba(0, 0, 0, ${overlay}) ), url(${
-              image?.srcSet().split(' ')[0] ?? ''
+              image?.srcSet()?.split(' ')?.[0] ?? ''
             })`,
           }}
         ></Box>
