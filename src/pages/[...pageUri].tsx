@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { client, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
+import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -12,9 +13,10 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
   pageUri?: string[];
+  koaThemeOptions?: string;
 }
 
-export function PageComponent({ page, pageUri }: PageProps) {
+export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   const { useQuery } = client;
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
@@ -35,9 +37,6 @@ export function PageComponent({ page, pageUri }: PageProps) {
       );
     }
   }, [rugDetails]);
-
-  // console.log('RUG COLLECTION? ', rugDetails?.rug?.modules?.collection[0].$on.Rug_collection?.rug_collection.title);
-  // console.log('RUG COLLECTION? ', rugCollectionDetails?.rug_collection?.rugs);
 
   // if query contains custom post type 'rug', use the Rug ACF modules
   // otherwise use the Page Builder ACF modules
@@ -76,22 +75,27 @@ export function PageComponent({ page, pageUri }: PageProps) {
     />
   );
 
-  return <ComponentsPage header={headerSection} modules={modules} footer={footerSection} />;
+  return (
+    <ComponentsPage header={headerSection} modules={modules} footer={footerSection} koaThemeOptions={koaThemeOptions} />
+  );
 }
 
-export default function Page({ pageUri }) {
+export default function Page({ pageUri, koaThemeOptions }) {
   const { usePage } = client;
   const page = usePage();
 
-  return <PageComponent page={page} pageUri={pageUri} />;
+  return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+  const koaThemeOptions = await getKoaThemeOptions();
+  const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
+
   return getNextStaticProps(context, {
     Page,
     client,
     notFound: await is404(context, { client }),
-    props: { pageUri: context.params.pageUri },
+    props: { pageUri: context.params.pageUri, koaThemeOptions: serializedKoaThemeOptions },
   });
 }
 

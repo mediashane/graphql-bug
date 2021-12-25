@@ -6514,7 +6514,6 @@ export const generatedSchema = {
   },
   Page_Rug_Modules_CardsCarousel: {
     __typename: { __type: 'String!' },
-    cards: { __type: '[Page_Rug_Modules_CardsCarousel_cards]' },
     fieldGroupName: { __type: 'String' },
     labelColor: { __type: 'String' },
     order: { __type: 'Float' },
@@ -6523,16 +6522,6 @@ export const generatedSchema = {
     textColor: { __type: 'String' },
     textLinkLabel: { __type: 'String' },
     textLinkUrl: { __type: 'AcfLink' },
-  },
-  Page_Rug_Modules_CardsCarousel_cards: {
-    __typename: { __type: 'String!' },
-    fieldGroupName: { __type: 'String' },
-    image: { __type: 'MediaItem' },
-    link: { __type: 'AcfLink' },
-    showSticker: { __type: 'Boolean' },
-    stickerText: { __type: 'String' },
-    subtitle: { __type: 'String' },
-    title: { __type: 'String' },
   },
   Page_Rug_Modules_CenteredText: {
     __typename: { __type: 'String!' },
@@ -6815,7 +6804,6 @@ export const generatedSchema = {
   },
   Rug_Rug_Modules_CardsCarousel: {
     __typename: { __type: 'String!' },
-    cards: { __type: '[Rug_Rug_Modules_CardsCarousel_cards]' },
     fieldGroupName: { __type: 'String' },
     labelColor: { __type: 'String' },
     order: { __type: 'Float' },
@@ -6824,16 +6812,6 @@ export const generatedSchema = {
     textColor: { __type: 'String' },
     textLinkLabel: { __type: 'String' },
     textLinkUrl: { __type: 'AcfLink' },
-  },
-  Rug_Rug_Modules_CardsCarousel_cards: {
-    __typename: { __type: 'String!' },
-    fieldGroupName: { __type: 'String' },
-    image: { __type: 'MediaItem' },
-    link: { __type: 'AcfLink' },
-    showSticker: { __type: 'Boolean' },
-    stickerText: { __type: 'String' },
-    subtitle: { __type: 'String' },
-    title: { __type: 'String' },
   },
   Rug_Rug_Modules_CenteredText: {
     __typename: { __type: 'String!' },
@@ -8375,9 +8353,23 @@ export const generatedSchema = {
   },
   KoaThemeOptions: {
     __typename: { __type: 'String!' },
+    bookAnAppointment: { __type: 'KoaThemeOptions_Bookanappointment' },
     pageSlug: { __type: 'String' },
     pageTitle: { __type: 'String' },
     themeOptions: { __type: 'KoaThemeOptions_Themeoptions' },
+  },
+  KoaThemeOptions_Bookanappointment: {
+    __typename: { __type: 'String!' },
+    appointmentTopics: { __type: 'String' },
+    appointmentType: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    locationPlaceholderText: { __type: 'String' },
+    locations: { __type: 'String' },
+    newsletterPrompt: { __type: 'String' },
+    otherPrompt: { __type: 'String' },
+    professionalPrompt: { __type: 'String' },
+    recipientEmail: { __type: 'String' },
+    topicsPrompt: { __type: 'String' },
   },
   KoaThemeOptions_Themeoptions: {
     __typename: { __type: 'String!' },
@@ -9950,7 +9942,6 @@ export const generatedSchema = {
   },
   DefaultTemplate_Rug_Modules_CardsCarousel: {
     __typename: { __type: 'String!' },
-    cards: { __type: '[DefaultTemplate_Rug_Modules_CardsCarousel_cards]' },
     fieldGroupName: { __type: 'String' },
     labelColor: { __type: 'String' },
     order: { __type: 'Float' },
@@ -9959,16 +9950,6 @@ export const generatedSchema = {
     textColor: { __type: 'String' },
     textLinkLabel: { __type: 'String' },
     textLinkUrl: { __type: 'AcfLink' },
-  },
-  DefaultTemplate_Rug_Modules_CardsCarousel_cards: {
-    __typename: { __type: 'String!' },
-    fieldGroupName: { __type: 'String' },
-    image: { __type: 'MediaItem' },
-    link: { __type: 'AcfLink' },
-    showSticker: { __type: 'Boolean' },
-    stickerText: { __type: 'String' },
-    subtitle: { __type: 'String' },
-    title: { __type: 'String' },
   },
   DefaultTemplate_Rug_Modules_CenteredText: {
     __typename: { __type: 'String!' },
@@ -10306,7 +10287,6 @@ export const generatedSchema = {
       'Page_Rug',
       'Page_Rug_Modules',
       'Page_Rug_Modules_CardsCarousel',
-      'Page_Rug_Modules_CardsCarousel_cards',
       'Page_Rug_Modules_CenteredText',
       'Rug_collection_RugCollection',
       'Feature_Features',
@@ -10316,7 +10296,6 @@ export const generatedSchema = {
       'Rug_Rug',
       'Rug_Rug_Modules',
       'Rug_Rug_Modules_CardsCarousel',
-      'Rug_Rug_Modules_CardsCarousel_cards',
       'Rug_Rug_Modules_CenteredText',
       'Rug_Rug_Modules_ThreeFeatureCardsFeatures',
       'Rug_Rug_Modules_ThreeFeatureCardsValues',
@@ -10332,12 +10311,12 @@ export const generatedSchema = {
       'Page_Rug_Modules_TwoColumnGallery',
       'Page_Rug_Modules_TwoColumnGallery_images',
       'Page_Rug_Modules_TwoColumnGallery_listItems',
+      'KoaThemeOptions_Bookanappointment',
       'KoaThemeOptions_Themeoptions',
       'DefaultTemplate_Features',
       'DefaultTemplate_Rug',
       'DefaultTemplate_Rug_Modules',
       'DefaultTemplate_Rug_Modules_CardsCarousel',
-      'DefaultTemplate_Rug_Modules_CardsCarousel_cards',
       'DefaultTemplate_Rug_Modules_CenteredText',
       'DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures',
       'DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues',
@@ -14584,7 +14563,6 @@ export interface AcfFieldGroup {
     | 'Page_Rug'
     | 'Page_Rug_Modules'
     | 'Page_Rug_Modules_CardsCarousel'
-    | 'Page_Rug_Modules_CardsCarousel_cards'
     | 'Page_Rug_Modules_CenteredText'
     | 'Rug_collection_RugCollection'
     | 'Feature_Features'
@@ -14594,7 +14572,6 @@ export interface AcfFieldGroup {
     | 'Rug_Rug'
     | 'Rug_Rug_Modules'
     | 'Rug_Rug_Modules_CardsCarousel'
-    | 'Rug_Rug_Modules_CardsCarousel_cards'
     | 'Rug_Rug_Modules_CenteredText'
     | 'Rug_Rug_Modules_ThreeFeatureCardsFeatures'
     | 'Rug_Rug_Modules_ThreeFeatureCardsValues'
@@ -14610,12 +14587,12 @@ export interface AcfFieldGroup {
     | 'Page_Rug_Modules_TwoColumnGallery'
     | 'Page_Rug_Modules_TwoColumnGallery_images'
     | 'Page_Rug_Modules_TwoColumnGallery_listItems'
+    | 'KoaThemeOptions_Bookanappointment'
     | 'KoaThemeOptions_Themeoptions'
     | 'DefaultTemplate_Features'
     | 'DefaultTemplate_Rug'
     | 'DefaultTemplate_Rug_Modules'
     | 'DefaultTemplate_Rug_Modules_CardsCarousel'
-    | 'DefaultTemplate_Rug_Modules_CardsCarousel_cards'
     | 'DefaultTemplate_Rug_Modules_CenteredText'
     | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures'
     | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues'
@@ -15758,7 +15735,6 @@ export interface Page_Rug_Modules {
  */
 export interface Page_Rug_Modules_CardsCarousel {
   __typename?: 'Page_Rug_Modules_CardsCarousel';
-  cards?: Maybe<Array<Maybe<Page_Rug_Modules_CardsCarousel_cards>>>;
   /**
    * The name of the ACF Field Group
    */
@@ -15770,23 +15746,6 @@ export interface Page_Rug_Modules_CardsCarousel {
   textColor?: Maybe<ScalarsEnums['String']>;
   textLinkLabel?: Maybe<ScalarsEnums['String']>;
   textLinkUrl?: Maybe<AcfLink>;
-}
-
-/**
- * Field Group
- */
-export interface Page_Rug_Modules_CardsCarousel_cards {
-  __typename?: 'Page_Rug_Modules_CardsCarousel_cards';
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  image?: Maybe<MediaItem>;
-  link?: Maybe<AcfLink>;
-  showSticker?: Maybe<ScalarsEnums['Boolean']>;
-  stickerText?: Maybe<ScalarsEnums['String']>;
-  subtitle?: Maybe<ScalarsEnums['String']>;
-  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -16701,7 +16660,6 @@ export interface Rug_Rug_Modules {
  */
 export interface Rug_Rug_Modules_CardsCarousel {
   __typename?: 'Rug_Rug_Modules_CardsCarousel';
-  cards?: Maybe<Array<Maybe<Rug_Rug_Modules_CardsCarousel_cards>>>;
   /**
    * The name of the ACF Field Group
    */
@@ -16713,23 +16671,6 @@ export interface Rug_Rug_Modules_CardsCarousel {
   textColor?: Maybe<ScalarsEnums['String']>;
   textLinkLabel?: Maybe<ScalarsEnums['String']>;
   textLinkUrl?: Maybe<AcfLink>;
-}
-
-/**
- * Field Group
- */
-export interface Rug_Rug_Modules_CardsCarousel_cards {
-  __typename?: 'Rug_Rug_Modules_CardsCarousel_cards';
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  image?: Maybe<MediaItem>;
-  link?: Maybe<AcfLink>;
-  showSticker?: Maybe<ScalarsEnums['Boolean']>;
-  stickerText?: Maybe<ScalarsEnums['String']>;
-  subtitle?: Maybe<ScalarsEnums['String']>;
-  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -19861,12 +19802,48 @@ export interface GeneralSettings {
  */
 export interface KoaThemeOptions {
   __typename?: 'KoaThemeOptions';
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Book an Appointment&quot; was set to Show in GraphQL.
+   */
+  bookAnAppointment?: Maybe<KoaThemeOptions_Bookanappointment>;
   pageSlug?: Maybe<ScalarsEnums['String']>;
   pageTitle?: Maybe<ScalarsEnums['String']>;
   /**
    * Added to the GraphQL Schema because the ACF Field Group &quot;Static Text&quot; was set to Show in GraphQL.
    */
   themeOptions?: Maybe<KoaThemeOptions_Themeoptions>;
+}
+
+/**
+ * Field Group
+ */
+export interface KoaThemeOptions_Bookanappointment {
+  __typename?: 'KoaThemeOptions_Bookanappointment';
+  /**
+   * List of appointment topics, separate by comma.
+   */
+  appointmentTopics?: Maybe<ScalarsEnums['String']>;
+  /**
+   * List of appointment types, separate by comma.
+   */
+  appointmentType?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  locationPlaceholderText?: Maybe<ScalarsEnums['String']>;
+  /**
+   * List of locations, separate by comma.
+   */
+  locations?: Maybe<ScalarsEnums['String']>;
+  newsletterPrompt?: Maybe<ScalarsEnums['String']>;
+  otherPrompt?: Maybe<ScalarsEnums['String']>;
+  professionalPrompt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The email address that receives the appointment request.
+   */
+  recipientEmail?: Maybe<ScalarsEnums['String']>;
+  topicsPrompt?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -22114,7 +22091,6 @@ export interface DefaultTemplate_Rug_Modules {
  */
 export interface DefaultTemplate_Rug_Modules_CardsCarousel {
   __typename?: 'DefaultTemplate_Rug_Modules_CardsCarousel';
-  cards?: Maybe<Array<Maybe<DefaultTemplate_Rug_Modules_CardsCarousel_cards>>>;
   /**
    * The name of the ACF Field Group
    */
@@ -22126,23 +22102,6 @@ export interface DefaultTemplate_Rug_Modules_CardsCarousel {
   textColor?: Maybe<ScalarsEnums['String']>;
   textLinkLabel?: Maybe<ScalarsEnums['String']>;
   textLinkUrl?: Maybe<AcfLink>;
-}
-
-/**
- * Field Group
- */
-export interface DefaultTemplate_Rug_Modules_CardsCarousel_cards {
-  __typename?: 'DefaultTemplate_Rug_Modules_CardsCarousel_cards';
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  image?: Maybe<MediaItem>;
-  link?: Maybe<AcfLink>;
-  showSticker?: Maybe<ScalarsEnums['Boolean']>;
-  stickerText?: Maybe<ScalarsEnums['String']>;
-  subtitle?: Maybe<ScalarsEnums['String']>;
-  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -22559,7 +22518,6 @@ export interface SchemaObjectTypes {
   Page_Rug: Page_Rug;
   Page_Rug_Modules: Page_Rug_Modules;
   Page_Rug_Modules_CardsCarousel: Page_Rug_Modules_CardsCarousel;
-  Page_Rug_Modules_CardsCarousel_cards: Page_Rug_Modules_CardsCarousel_cards;
   Page_Rug_Modules_CenteredText: Page_Rug_Modules_CenteredText;
   Rug_collection: Rug_collection;
   Rug_collectionToPreviewConnectionEdge: Rug_collectionToPreviewConnectionEdge;
@@ -22575,7 +22533,6 @@ export interface SchemaObjectTypes {
   Rug_Rug: Rug_Rug;
   Rug_Rug_Modules: Rug_Rug_Modules;
   Rug_Rug_Modules_CardsCarousel: Rug_Rug_Modules_CardsCarousel;
-  Rug_Rug_Modules_CardsCarousel_cards: Rug_Rug_Modules_CardsCarousel_cards;
   Rug_Rug_Modules_CenteredText: Rug_Rug_Modules_CenteredText;
   Rug_Rug_Modules_ThreeFeatureCardsFeatures: Rug_Rug_Modules_ThreeFeatureCardsFeatures;
   Rug_Rug_Modules_ThreeFeatureCardsValues: Rug_Rug_Modules_ThreeFeatureCardsValues;
@@ -22661,6 +22618,7 @@ export interface SchemaObjectTypes {
   RootQueryToFeatureConnectionEdge: RootQueryToFeatureConnectionEdge;
   GeneralSettings: GeneralSettings;
   KoaThemeOptions: KoaThemeOptions;
+  KoaThemeOptions_Bookanappointment: KoaThemeOptions_Bookanappointment;
   KoaThemeOptions_Themeoptions: KoaThemeOptions_Themeoptions;
   RootQueryToMediaItemConnection: RootQueryToMediaItemConnection;
   RootQueryToMediaItemConnectionEdge: RootQueryToMediaItemConnectionEdge;
@@ -22781,7 +22739,6 @@ export interface SchemaObjectTypes {
   DefaultTemplate_Rug: DefaultTemplate_Rug;
   DefaultTemplate_Rug_Modules: DefaultTemplate_Rug_Modules;
   DefaultTemplate_Rug_Modules_CardsCarousel: DefaultTemplate_Rug_Modules_CardsCarousel;
-  DefaultTemplate_Rug_Modules_CardsCarousel_cards: DefaultTemplate_Rug_Modules_CardsCarousel_cards;
   DefaultTemplate_Rug_Modules_CenteredText: DefaultTemplate_Rug_Modules_CenteredText;
   DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures: DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures;
   DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues: DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues;
@@ -22897,7 +22854,6 @@ export type SchemaObjectTypesNames =
   | 'Page_Rug'
   | 'Page_Rug_Modules'
   | 'Page_Rug_Modules_CardsCarousel'
-  | 'Page_Rug_Modules_CardsCarousel_cards'
   | 'Page_Rug_Modules_CenteredText'
   | 'Rug_collection'
   | 'Rug_collectionToPreviewConnectionEdge'
@@ -22913,7 +22869,6 @@ export type SchemaObjectTypesNames =
   | 'Rug_Rug'
   | 'Rug_Rug_Modules'
   | 'Rug_Rug_Modules_CardsCarousel'
-  | 'Rug_Rug_Modules_CardsCarousel_cards'
   | 'Rug_Rug_Modules_CenteredText'
   | 'Rug_Rug_Modules_ThreeFeatureCardsFeatures'
   | 'Rug_Rug_Modules_ThreeFeatureCardsValues'
@@ -22999,6 +22954,7 @@ export type SchemaObjectTypesNames =
   | 'RootQueryToFeatureConnectionEdge'
   | 'GeneralSettings'
   | 'KoaThemeOptions'
+  | 'KoaThemeOptions_Bookanappointment'
   | 'KoaThemeOptions_Themeoptions'
   | 'RootQueryToMediaItemConnection'
   | 'RootQueryToMediaItemConnectionEdge'
@@ -23119,7 +23075,6 @@ export type SchemaObjectTypesNames =
   | 'DefaultTemplate_Rug'
   | 'DefaultTemplate_Rug_Modules'
   | 'DefaultTemplate_Rug_Modules_CardsCarousel'
-  | 'DefaultTemplate_Rug_Modules_CardsCarousel_cards'
   | 'DefaultTemplate_Rug_Modules_CenteredText'
   | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures'
   | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues'
@@ -23344,7 +23299,6 @@ export interface $AcfFieldGroup {
   Page_Rug?: Page_Rug;
   Page_Rug_Modules?: Page_Rug_Modules;
   Page_Rug_Modules_CardsCarousel?: Page_Rug_Modules_CardsCarousel;
-  Page_Rug_Modules_CardsCarousel_cards?: Page_Rug_Modules_CardsCarousel_cards;
   Page_Rug_Modules_CenteredText?: Page_Rug_Modules_CenteredText;
   Rug_collection_RugCollection?: Rug_collection_RugCollection;
   Feature_Features?: Feature_Features;
@@ -23354,7 +23308,6 @@ export interface $AcfFieldGroup {
   Rug_Rug?: Rug_Rug;
   Rug_Rug_Modules?: Rug_Rug_Modules;
   Rug_Rug_Modules_CardsCarousel?: Rug_Rug_Modules_CardsCarousel;
-  Rug_Rug_Modules_CardsCarousel_cards?: Rug_Rug_Modules_CardsCarousel_cards;
   Rug_Rug_Modules_CenteredText?: Rug_Rug_Modules_CenteredText;
   Rug_Rug_Modules_ThreeFeatureCardsFeatures?: Rug_Rug_Modules_ThreeFeatureCardsFeatures;
   Rug_Rug_Modules_ThreeFeatureCardsValues?: Rug_Rug_Modules_ThreeFeatureCardsValues;
@@ -23370,12 +23323,12 @@ export interface $AcfFieldGroup {
   Page_Rug_Modules_TwoColumnGallery?: Page_Rug_Modules_TwoColumnGallery;
   Page_Rug_Modules_TwoColumnGallery_images?: Page_Rug_Modules_TwoColumnGallery_images;
   Page_Rug_Modules_TwoColumnGallery_listItems?: Page_Rug_Modules_TwoColumnGallery_listItems;
+  KoaThemeOptions_Bookanappointment?: KoaThemeOptions_Bookanappointment;
   KoaThemeOptions_Themeoptions?: KoaThemeOptions_Themeoptions;
   DefaultTemplate_Features?: DefaultTemplate_Features;
   DefaultTemplate_Rug?: DefaultTemplate_Rug;
   DefaultTemplate_Rug_Modules?: DefaultTemplate_Rug_Modules;
   DefaultTemplate_Rug_Modules_CardsCarousel?: DefaultTemplate_Rug_Modules_CardsCarousel;
-  DefaultTemplate_Rug_Modules_CardsCarousel_cards?: DefaultTemplate_Rug_Modules_CardsCarousel_cards;
   DefaultTemplate_Rug_Modules_CenteredText?: DefaultTemplate_Rug_Modules_CenteredText;
   DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures?: DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures;
   DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues?: DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues;

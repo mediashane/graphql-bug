@@ -68,14 +68,14 @@ function TwoColumnGallery({
   withIconButtons = false,
   iconButtonsHeadline = '',
   iconButtonOneImage = 'images/callUs.png',
-  iconButtonOneLink = '',
-  iconButtonOneLabel = '',
+  iconButtonOneLink = '/contact-us',
+  iconButtonOneLabel = 'Call us',
   iconButtonTwoImage = 'images/emailUs.png',
-  iconButtonTwoLink = '',
-  iconButtonTwoLabel = '',
+  iconButtonTwoLink = '/contact-us',
+  iconButtonTwoLabel = 'Email us',
   iconButtonThreeImage = 'images/visitUs.png',
-  iconButtonThreeLink = '',
-  iconButtonThreeLabel = '',
+  iconButtonThreeLink = '/contact-us',
+  iconButtonThreeLabel = 'Visit us',
 }: Props): JSX.Element {
   const router = useRouter();
   const [imageIndex, setImageIndex] = useState(0);
@@ -98,11 +98,35 @@ function TwoColumnGallery({
     setImageIndex(imageIndex - 1);
   };
 
+  const toggleAppointmentDialog = () => {
+    if (router.query.modal) {
+      delete router.query.modal;
+      router.push(
+        {
+          pathname: router.pathname,
+          query: { ...router.query },
+        },
+        undefined,
+        { shallow: true },
+      );
+      return;
+    }
+
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, modal: 'appointment' },
+      },
+      undefined,
+      { shallow: true },
+    );
+  };
+
   const CtaButton = () => {
     if (withButton) {
       return (
         <Box sx={styles.ctaButtonWrapper}>
-          <Button variant="outlined" size="large" sx={styles.ctaPromptButton}>
+          <Button variant="outlined" size="large" sx={styles.ctaPromptButton} onClick={() => toggleAppointmentDialog()}>
             {buttonLabel}
           </Button>
         </Box>

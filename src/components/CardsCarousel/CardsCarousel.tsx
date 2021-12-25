@@ -51,7 +51,6 @@ function CardsCarousel({ ...props }: Props): JSX.Element {
   });
 
   // console.log('RUG? ', rugCollectionDetails?.rug_collection?.rugs?.[0]?.$on.Rug.rug);
-  console.log('RUG? ', rugCollectionDetails?.rug_collection?.rugs?.[0]?.$on.Rug.rug?.modules?.twoColumnGallery);
   return <CarouselCards {...props} sectionLabel={`${router.query.collection}`} cards={cards} />;
 }
 
