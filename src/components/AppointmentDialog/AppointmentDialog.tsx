@@ -36,9 +36,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
   const [anythingElse, setAnythingElse] = useState('');
   const router = useRouter();
 
-  // console.log('THEME OPTIONS? ', typeof koaThemeOptions, koaThemeOptions.bookAnAppointment);
-
-  const { bookAnAppointment } = koaThemeOptions;
+  // console.log('THEME OPTIONS? ', typeof koaThemeOptions, koaThemeOptions.bookAnAppointment)
 
   const handleSubmit = () => {
     Email.send({
@@ -94,7 +92,6 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                 <Input
                   sx={styles.formInput}
                   id="first-name-input"
-                  // onKeyPress={onKeyPress}
                   value={firstName}
                   onChange={(event) => setFirstName(event.target.value)}
                   disableUnderline
@@ -138,7 +135,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                   if (!selected) {
                     return (
                       <Typography sx={styles.formInputPlaceholder}>
-                        {bookAnAppointment?.locationPlaceholderText}
+                        {koaThemeOptions?.bookAnAppointment?.locationPlaceholderText}
                       </Typography>
                     );
                   }
@@ -146,7 +143,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                   return selected;
                 }}
               >
-                {bookAnAppointment?.locations.split(',').map((location, index) => (
+                {koaThemeOptions?.bookAnAppointment?.locations.split(',').map((location, index) => (
                   <MenuItem key={index} value={location}>
                     {location}
                   </MenuItem>
@@ -163,7 +160,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
               value={selectedAppointmentType}
               onChange={(event) => setSelectedAppointmentType(event.target.value)}
             >
-              {bookAnAppointment?.appointmentType.split(',').map((appointment, index) => (
+              {koaThemeOptions?.bookAnAppointment?.appointmentType.split(',').map((appointment, index) => (
                 <FormControlLabel
                   key={index}
                   value={appointment}
@@ -183,7 +180,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
             </RadioGroup>
           </Box>
           <Box sx={styles.formInputWrapper}>
-            <Typography sx={styles.formInputLabel}>{bookAnAppointment?.topicsPrompt}</Typography>
+            <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.topicsPrompt}</Typography>
             <RadioGroup
               row
               aria-label="gender"
@@ -191,7 +188,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
               value={selectedAppointmentTopic}
               onChange={(event) => setSelectedAppointmentTopic(event.target.value)}
             >
-              {bookAnAppointment?.appointmentTopics.split(',').map((appointment, index) => (
+              {koaThemeOptions?.bookAnAppointment?.appointmentTopics.split(',').map((appointment, index) => (
                 <FormControlLabel
                   key={index}
                   value={appointment}
@@ -211,7 +208,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
             </RadioGroup>
           </Box>
           <Box sx={styles.formInputWrapper}>
-            <Typography sx={styles.formInputLabel}>{bookAnAppointment?.professionalPrompt}</Typography>
+            <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.professionalPrompt}</Typography>
             <RadioGroup
               row
               aria-label="gender"
@@ -250,7 +247,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
             </RadioGroup>
           </Box>
           <Box sx={styles.formInputWrapper}>
-            <Typography sx={styles.formInputLabel}>{bookAnAppointment?.otherPrompt}</Typography>
+            <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.otherPrompt}</Typography>
             <FormControl>
               <Input
                 sx={styles.formInput}
