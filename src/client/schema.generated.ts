@@ -8363,6 +8363,7 @@ export const generatedSchema = {
     appointmentTopics: { __type: 'String' },
     appointmentType: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
     locationPlaceholderText: { __type: 'String' },
     locations: { __type: 'String' },
     newsletterPrompt: { __type: 'String' },
@@ -19831,6 +19832,10 @@ export interface KoaThemeOptions_Bookanappointment {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Image that will appear to the side of the dialog in desktop view
+   */
+  image?: Maybe<MediaItem>;
   locationPlaceholderText?: Maybe<ScalarsEnums['String']>;
   /**
    * List of locations, separate by comma.

@@ -1,7 +1,22 @@
 import { colorDarkGrey, colorWhite, freightBigPro, proximaNova } from '../../style';
 
 const styles = {
-  root: {
+  outerWrapper: {
+    display: 'flex',
+  },
+  imageContainer: {
+    height: 'auto',
+    width: '660px',
+    display: {
+      xs: 'none',
+      sm: 'none',
+      md: 'none',
+      lg: 'flex',
+      xl: 'flex',
+    },
+    backgroundPosition: 'right top',
+  },
+  formContainer: {
     height: {
       xs: '100%',
       sm: '100%',
@@ -10,14 +25,14 @@ const styles = {
       xl: '100%',
     },
     width: {
-      xs: '520px',
+      xs: '100vw',
       sm: '520px',
       md: '520px',
       lg: '520px',
       xl: '520px',
     },
     padding: {
-      xs: '40px',
+      xs: '20px',
       sm: '40px',
       md: '40px',
       lg: '40px',
@@ -32,7 +47,13 @@ const styles = {
   dialogTitle: {
     padding: '0 0 0 20px',
     fontFamily: freightBigPro,
-    fontSize: '36px',
+    fontSize: {
+      xs: '24px',
+      sm: '36px',
+      md: '36px',
+      lg: '36px',
+      xl: '36px',
+    },
     fontWeight: 700,
   },
   dialogButtonsContainer: {
@@ -71,7 +92,13 @@ const styles = {
   },
   formInputRow: {
     display: 'flex',
-    flexDirection: 'row' as const,
+    flexDirection: {
+      xs: 'column' as const,
+      sm: 'column' as const,
+      md: 'row' as const,
+      lg: 'row' as const,
+      xl: 'row' as const,
+    },
     justifyContent: 'space-between',
   },
   formInputWrapper: {
