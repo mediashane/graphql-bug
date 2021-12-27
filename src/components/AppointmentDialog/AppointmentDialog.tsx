@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { KoaThemeOptions } from 'client';
+import Email from 'helpers/smtp';
 import { useRouter } from 'next/router';
 
 import {
@@ -38,17 +39,19 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
 
   // console.log('THEME OPTIONS? ', typeof koaThemeOptions, koaThemeOptions.bookAnAppointment);
 
-  // const {
-  //   appointmentType,
-  //   appointmentTopics,
-  //   topicsPrompt,
-  //   professionalPrompt,
-  //   locations,
-  //   otherPrompt,
-  //   locationPlaceholderText,
-  // } = koaThemeOptions?.bookAnAppointment;
+  const { bookAnAppointment } = koaThemeOptions;
 
   const handleSubmit = () => {
+    Email.send({
+      SecureToken: '73148fb3-22d0-45b8-ba7d-817674438cf5',
+      To: 'shane@koalition.com',
+      From: emailAddress,
+      Subject: 'Website appointment request',
+      Body: `Appointment request from ${firstName} ${lastName}, at ${emailAddress}. They seeking a ${selectedAppointmentType} appointment to discuss ${selectedAppointmentTopic}. The location nearest to them is ${nearestLocation}. They ${
+        isProfessional ? 'are' : 'are not'
+      } a designer or architect. Additional info (if any}): ${anythingElse}.`,
+    }).then(() => alert('Message sent'));
+
     delete router.query.modal;
     router.push(
       {
@@ -85,185 +88,184 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
       <Box sx={styles.root}>
         <DialogTitle sx={styles.dialogTitle}>Book an Appointment</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            <FormControl variant="outlined" fullWidth>
-              <Box sx={styles.formInputRow}>
-                <Box sx={styles.formInputWrapper}>
-                  <Typography sx={styles.formInputLabel}>First Name*</Typography>
-                  <Input
-                    sx={styles.formInput}
-                    id="first-name-input"
-                    // onKeyPress={onKeyPress}
-                    value={firstName}
-                    onChange={(event) => setFirstName(event.target.value)}
-                    disableUnderline
-                  />
-                </Box>
-                <Box sx={styles.formInputWrapper}>
-                  <Typography sx={styles.formInputLabel}>Last Name*</Typography>
-                  <Input
-                    sx={styles.formInput}
-                    id="first-name-input"
-                    value={lastName}
-                    onChange={(event) => setLastName(event.target.value)}
-                    disableUnderline
-                  />
-                </Box>
-              </Box>
-              <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>Email address*</Typography>
+          <Box sx={styles.formInputRow}>
+            <Box sx={styles.formInputWrapper}>
+              <Typography sx={styles.formInputLabel}>First Name*</Typography>
+              <FormControl>
                 <Input
                   sx={styles.formInput}
                   id="first-name-input"
-                  value={emailAddress}
-                  onChange={(event) => setEmailAddress(event.target.value)}
+                  // onKeyPress={onKeyPress}
+                  value={firstName}
+                  onChange={(event) => setFirstName(event.target.value)}
                   disableUnderline
                 />
-              </Box>
-              <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>Nearest Showroom Location*</Typography>
-                <FormControl fullWidth>
-                  <Select
-                    displayEmpty
-                    sx={styles.selectInput}
-                    value={nearestLocation}
-                    onChange={(event) => setNearestLocation(event.target.value)}
-                    renderValue={(selected) => {
-                      if (!selected) {
-                        return (
-                          <Typography sx={styles.formInputPlaceholder}>
-                            {koaThemeOptions?.bookAnAppointment?.locationPlaceholderText}
-                          </Typography>
-                        );
-                      }
-
-                      return selected;
-                    }}
-                  >
-                    {koaThemeOptions?.bookAnAppointment?.locations &&
-                      koaThemeOptions?.bookAnAppointment?.locations.split(',').map((location, index) => (
-                        <MenuItem key={index} value={location}>
-                          {location}
-                        </MenuItem>
-                      ))}
-                  </Select>
-                </FormControl>
-              </Box>
-              <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>Appointment Type*</Typography>
-                <RadioGroup
-                  row
-                  aria-label="gender"
-                  name="row-radio-buttons-group"
-                  value={selectedAppointmentType}
-                  onChange={(event) => setSelectedAppointmentType(event.target.value)}
-                >
-                  {koaThemeOptions?.bookAnAppointment?.appointmentType &&
-                    koaThemeOptions?.bookAnAppointment?.appointmentType.split(',').map((appointment, index) => (
-                      <FormControlLabel
-                        key={index}
-                        value={appointment}
-                        control={
-                          <Radio
-                            sx={{
-                              color: '#333333',
-                              '&.Mui-checked': {
-                                color: '#333333',
-                              },
-                            }}
-                          />
-                        }
-                        label={appointment}
-                      />
-                    ))}
-                </RadioGroup>
-              </Box>
-              <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.topicsPrompt}</Typography>
-                <RadioGroup
-                  row
-                  aria-label="gender"
-                  name="row-radio-buttons-group"
-                  value={selectedAppointmentTopic}
-                  onChange={(event) => setSelectedAppointmentTopic(event.target.value)}
-                >
-                  {koaThemeOptions?.bookAnAppointment?.appointmentTopics &&
-                    koaThemeOptions?.bookAnAppointment?.appointmentTopics.split(',').map((appointment, index) => (
-                      <FormControlLabel
-                        key={index}
-                        value={appointment}
-                        control={
-                          <Radio
-                            sx={{
-                              color: '#333333',
-                              '&.Mui-checked': {
-                                color: '#333333',
-                              },
-                            }}
-                          />
-                        }
-                        label={appointment}
-                      />
-                    ))}
-                </RadioGroup>
-              </Box>
-              <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>
-                  {koaThemeOptions?.bookAnAppointment?.professionalPrompt}
-                </Typography>
-                <RadioGroup
-                  row
-                  aria-label="gender"
-                  name="row-radio-buttons-group"
-                  value={isProfessional}
-                  onChange={(event) => setIsProfessional(event.target.value)}
-                >
-                  <FormControlLabel
-                    value={'yes'}
-                    control={
-                      <Radio
-                        sx={{
-                          color: '#333333',
-                          '&.Mui-checked': {
-                            color: '#333333',
-                          },
-                        }}
-                      />
-                    }
-                    label={'Yes'}
-                  />
-                  <FormControlLabel
-                    value={'no'}
-                    control={
-                      <Radio
-                        sx={{
-                          color: '#333333',
-                          '&.Mui-checked': {
-                            color: '#333333',
-                          },
-                        }}
-                      />
-                    }
-                    label={'No'}
-                  />
-                </RadioGroup>
-              </Box>
-              <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.otherPrompt}</Typography>
+              </FormControl>
+            </Box>
+            <Box sx={styles.formInputWrapper}>
+              <Typography sx={styles.formInputLabel}>Last Name*</Typography>
+              <FormControl>
                 <Input
                   sx={styles.formInput}
                   id="first-name-input"
-                  value={anythingElse}
-                  onChange={(event) => setAnythingElse(event.target.value)}
+                  value={lastName}
+                  onChange={(event) => setLastName(event.target.value)}
                   disableUnderline
-                  fullWidth
-                  multiline
-                  minRows={3}
-                  maxRows={3}
                 />
-              </Box>
+              </FormControl>
+            </Box>
+          </Box>
+          <Box sx={styles.formInputWrapper}>
+            <Typography sx={styles.formInputLabel}>Email address*</Typography>
+            <FormControl>
+              <Input
+                sx={styles.formInput}
+                id="first-name-input"
+                value={emailAddress}
+                onChange={(event) => setEmailAddress(event.target.value)}
+                disableUnderline
+              />
             </FormControl>
-          </DialogContentText>
+          </Box>
+          <Box sx={styles.formInputWrapper}>
+            <Typography sx={styles.formInputLabel}>Nearest Showroom Location*</Typography>
+            <FormControl>
+              <Select
+                displayEmpty
+                sx={styles.selectInput}
+                value={nearestLocation}
+                onChange={(event) => setNearestLocation(event.target.value)}
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return (
+                      <Typography sx={styles.formInputPlaceholder}>
+                        {bookAnAppointment?.locationPlaceholderText}
+                      </Typography>
+                    );
+                  }
+
+                  return selected;
+                }}
+              >
+                {bookAnAppointment?.locations.split(',').map((location, index) => (
+                  <MenuItem key={index} value={location}>
+                    {location}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={styles.formInputWrapper}>
+            <Typography sx={styles.formInputLabel}>Appointment Type*</Typography>
+            <RadioGroup
+              row
+              aria-label="gender"
+              name="row-radio-buttons-group"
+              value={selectedAppointmentType}
+              onChange={(event) => setSelectedAppointmentType(event.target.value)}
+            >
+              {bookAnAppointment?.appointmentType.split(',').map((appointment, index) => (
+                <FormControlLabel
+                  key={index}
+                  value={appointment}
+                  control={
+                    <Radio
+                      sx={{
+                        color: '#333333',
+                        '&.Mui-checked': {
+                          color: '#333333',
+                        },
+                      }}
+                    />
+                  }
+                  label={appointment}
+                />
+              ))}
+            </RadioGroup>
+          </Box>
+          <Box sx={styles.formInputWrapper}>
+            <Typography sx={styles.formInputLabel}>{bookAnAppointment?.topicsPrompt}</Typography>
+            <RadioGroup
+              row
+              aria-label="gender"
+              name="row-radio-buttons-group"
+              value={selectedAppointmentTopic}
+              onChange={(event) => setSelectedAppointmentTopic(event.target.value)}
+            >
+              {bookAnAppointment?.appointmentTopics.split(',').map((appointment, index) => (
+                <FormControlLabel
+                  key={index}
+                  value={appointment}
+                  control={
+                    <Radio
+                      sx={{
+                        color: '#333333',
+                        '&.Mui-checked': {
+                          color: '#333333',
+                        },
+                      }}
+                    />
+                  }
+                  label={appointment}
+                />
+              ))}
+            </RadioGroup>
+          </Box>
+          <Box sx={styles.formInputWrapper}>
+            <Typography sx={styles.formInputLabel}>{bookAnAppointment?.professionalPrompt}</Typography>
+            <RadioGroup
+              row
+              aria-label="gender"
+              name="row-radio-buttons-group"
+              value={isProfessional}
+              onChange={(event) => setIsProfessional(event.target.value)}
+            >
+              <FormControlLabel
+                value={'yes'}
+                control={
+                  <Radio
+                    sx={{
+                      color: '#333333',
+                      '&.Mui-checked': {
+                        color: '#333333',
+                      },
+                    }}
+                  />
+                }
+                label={'Yes'}
+              />
+              <FormControlLabel
+                value={'no'}
+                control={
+                  <Radio
+                    sx={{
+                      color: '#333333',
+                      '&.Mui-checked': {
+                        color: '#333333',
+                      },
+                    }}
+                  />
+                }
+                label={'No'}
+              />
+            </RadioGroup>
+          </Box>
+          <Box sx={styles.formInputWrapper}>
+            <Typography sx={styles.formInputLabel}>{bookAnAppointment?.otherPrompt}</Typography>
+            <FormControl>
+              <Input
+                sx={styles.formInput}
+                id="first-name-input"
+                value={anythingElse}
+                onChange={(event) => setAnythingElse(event.target.value)}
+                disableUnderline
+                fullWidth
+                multiline
+                minRows={3}
+                maxRows={3}
+              />
+            </FormControl>
+          </Box>
           <Box sx={styles.dialogButtonsContainer}>
             <Button sx={styles.dialogButton} onClick={() => handleSubmit()}>
               Submit
