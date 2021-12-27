@@ -38,15 +38,15 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
 
   // console.log('THEME OPTIONS? ', typeof koaThemeOptions, koaThemeOptions.bookAnAppointment);
 
-  const {
-    appointmentType,
-    appointmentTopics,
-    topicsPrompt,
-    professionalPrompt,
-    locations,
-    otherPrompt,
-    locationPlaceholderText,
-  } = koaThemeOptions?.bookAnAppointment;
+  // const {
+  //   appointmentType,
+  //   appointmentTopics,
+  //   topicsPrompt,
+  //   professionalPrompt,
+  //   locations,
+  //   otherPrompt,
+  //   locationPlaceholderText,
+  // } = koaThemeOptions?.bookAnAppointment;
 
   const handleSubmit = () => {
     delete router.query.modal;
@@ -130,14 +130,18 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                     onChange={(event) => setNearestLocation(event.target.value)}
                     renderValue={(selected) => {
                       if (!selected) {
-                        return <Typography sx={styles.formInputPlaceholder}>{locationPlaceholderText}</Typography>;
+                        return (
+                          <Typography sx={styles.formInputPlaceholder}>
+                            {koaThemeOptions?.bookAnAppointment?.locationPlaceholderText}
+                          </Typography>
+                        );
                       }
 
                       return selected;
                     }}
                   >
-                    {locations &&
-                      locations.split(',').map((location, index) => (
+                    {koaThemeOptions?.bookAnAppointment?.locations &&
+                      koaThemeOptions?.bookAnAppointment?.locations.split(',').map((location, index) => (
                         <MenuItem key={index} value={location}>
                           {location}
                         </MenuItem>
@@ -154,8 +158,8 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                   value={selectedAppointmentType}
                   onChange={(event) => setSelectedAppointmentType(event.target.value)}
                 >
-                  {appointmentType &&
-                    appointmentType.split(',').map((appointment, index) => (
+                  {koaThemeOptions?.bookAnAppointment?.appointmentType &&
+                    koaThemeOptions?.bookAnAppointment?.appointmentType.split(',').map((appointment, index) => (
                       <FormControlLabel
                         key={index}
                         value={appointment}
@@ -175,7 +179,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                 </RadioGroup>
               </Box>
               <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>{topicsPrompt}</Typography>
+                <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.topicsPrompt}</Typography>
                 <RadioGroup
                   row
                   aria-label="gender"
@@ -183,8 +187,8 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                   value={selectedAppointmentTopic}
                   onChange={(event) => setSelectedAppointmentTopic(event.target.value)}
                 >
-                  {appointmentTopics &&
-                    appointmentTopics.split(',').map((appointment, index) => (
+                  {koaThemeOptions?.bookAnAppointment?.appointmentTopics &&
+                    koaThemeOptions?.bookAnAppointment?.appointmentTopics.split(',').map((appointment, index) => (
                       <FormControlLabel
                         key={index}
                         value={appointment}
@@ -204,7 +208,9 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                 </RadioGroup>
               </Box>
               <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>{professionalPrompt}</Typography>
+                <Typography sx={styles.formInputLabel}>
+                  {koaThemeOptions?.bookAnAppointment?.professionalPrompt}
+                </Typography>
                 <RadioGroup
                   row
                   aria-label="gender"
@@ -243,7 +249,7 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                 </RadioGroup>
               </Box>
               <Box sx={styles.formInputWrapper}>
-                <Typography sx={styles.formInputLabel}>{otherPrompt}</Typography>
+                <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.otherPrompt}</Typography>
                 <Input
                   sx={styles.formInput}
                   id="first-name-input"
