@@ -1,18 +1,20 @@
+import { colorDarkGrey, colorWhite, freightBigPro, proximaNova } from '../../style';
+
 const styles = {
   root: {
     height: {
-      xs: '500px',
-      sm: '500px',
-      md: '500px',
-      lg: '500px',
-      xl: '500px',
+      xs: '100%',
+      sm: '100%',
+      md: '100%',
+      lg: '100%',
+      xl: '100%',
     },
     width: {
-      xs: '350px',
-      sm: '350px',
-      md: '350px',
-      lg: '350px',
-      xl: '350px',
+      xs: '520px',
+      sm: '520px',
+      md: '520px',
+      lg: '520px',
+      xl: '520px',
     },
     padding: {
       xs: '40px',
@@ -28,38 +30,92 @@ const styles = {
     borderRadius: '0px',
   },
   dialogTitle: {
+    padding: '0 0 0 20px',
+    fontFamily: freightBigPro,
+    fontSize: '36px',
     fontWeight: 700,
   },
   dialogButtonsContainer: {
-    display: 'flex',
-    flexDirection: {
-      xs: 'column' as const,
-      sm: 'column' as const,
-      md: 'row' as const,
-      lg: 'row' as const,
-      xl: 'row' as const,
-    },
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: '170px',
-    paddingTop: {
-      xs: '50px',
-      sm: '50px',
-      md: '0px',
-      lg: '0px',
-      xl: '0px',
+    marginTop: {
+      xs: '20px',
+      sm: '20px',
+      md: '20px',
+      lg: '20px',
+      xl: '20px',
     },
   },
   dialogButton: {
     height: '50px',
     width: {
       xs: '225px',
-      sm: '366px',
-      md: '250px',
-      lg: '366px',
-      xl: '366px',
+      sm: '300px',
+      md: '300px',
+      lg: '300px',
+      xl: '300px',
+    },
+    color: '#333333',
+    textTransform: 'capitalize' as const,
+    fontSize: '16px',
+    fontWeight: 600,
+    fontFamily: proximaNova,
+    border: 2,
+    borderRadius: 0,
+    borderColor: '#858585',
+
+    '&:hover': {
+      color: colorWhite,
+      backgroundColor: '#858585',
+      borderWidth: '2px',
+      borderColor: '#858585',
     },
   },
+  formInputRow: {
+    display: 'flex',
+    flexDirection: 'row' as const,
+    justifyContent: 'space-between',
+  },
+  formInputWrapper: {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    marginTop: '15px',
+  },
+  formInputLabel: {
+    color: colorDarkGrey,
+    fontFamily: proximaNova,
+  },
+  formInputPlaceholder: {
+    color: '#9B9B9B',
+    fontSize: '14px',
+    fontFamily: proximaNova,
+  },
+  formInput: {
+    marginTop: '5px',
+    padding: '5px 10px 5px 10px',
+    input: {
+      '&::placeholder': {
+        paddingLeft: '10px',
+        opacity: '0.7',
+        fontSize: '1.1rem',
+      },
+    },
+    '& fieldset': {
+      borderRadius: 0,
+    },
+    backgroundColor: '#ffffff',
+  },
+  selectInput: {
+    marginTop: '5px',
+    '& fieldset': {
+      borderRadius: 0,
+    },
+    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#ffffff',
+    },
+    borderColor: '#ffffff',
+    backgroundColor: '#ffffff',
+  },
+
+  fontFamily: proximaNova,
 };
 
 export default styles;

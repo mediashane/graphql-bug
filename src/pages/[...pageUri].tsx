@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { client, Page as PageType, RugIdType } from 'client';
+import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
@@ -13,7 +13,7 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
   pageUri?: string[];
-  koaThemeOptions?: string;
+  koaThemeOptions?: KoaThemeOptions;
 }
 
 export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
