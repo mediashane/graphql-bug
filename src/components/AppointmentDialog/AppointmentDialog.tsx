@@ -136,11 +136,12 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                       return selected;
                     }}
                   >
-                    {locations.split(',').map((location, index) => (
-                      <MenuItem key={index} value={location}>
-                        {location}
-                      </MenuItem>
-                    ))}
+                    {locations &&
+                      locations.split(',').map((location, index) => (
+                        <MenuItem key={index} value={location}>
+                          {location}
+                        </MenuItem>
+                      ))}
                   </Select>
                 </FormControl>
               </Box>
@@ -153,23 +154,24 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                   value={selectedAppointmentType}
                   onChange={(event) => setSelectedAppointmentType(event.target.value)}
                 >
-                  {appointmentType.split(',').map((appointment, index) => (
-                    <FormControlLabel
-                      key={index}
-                      value={appointment}
-                      control={
-                        <Radio
-                          sx={{
-                            color: '#333333',
-                            '&.Mui-checked': {
+                  {appointmentType &&
+                    appointmentType.split(',').map((appointment, index) => (
+                      <FormControlLabel
+                        key={index}
+                        value={appointment}
+                        control={
+                          <Radio
+                            sx={{
                               color: '#333333',
-                            },
-                          }}
-                        />
-                      }
-                      label={appointment}
-                    />
-                  ))}
+                              '&.Mui-checked': {
+                                color: '#333333',
+                              },
+                            }}
+                          />
+                        }
+                        label={appointment}
+                      />
+                    ))}
                 </RadioGroup>
               </Box>
               <Box sx={styles.formInputWrapper}>
@@ -181,23 +183,24 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
                   value={selectedAppointmentTopic}
                   onChange={(event) => setSelectedAppointmentTopic(event.target.value)}
                 >
-                  {appointmentTopics.split(',').map((appointment, index) => (
-                    <FormControlLabel
-                      key={index}
-                      value={appointment}
-                      control={
-                        <Radio
-                          sx={{
-                            color: '#333333',
-                            '&.Mui-checked': {
+                  {appointmentTopics &&
+                    appointmentTopics.split(',').map((appointment, index) => (
+                      <FormControlLabel
+                        key={index}
+                        value={appointment}
+                        control={
+                          <Radio
+                            sx={{
                               color: '#333333',
-                            },
-                          }}
-                        />
-                      }
-                      label={appointment}
-                    />
-                  ))}
+                              '&.Mui-checked': {
+                                color: '#333333',
+                              },
+                            }}
+                          />
+                        }
+                        label={appointment}
+                      />
+                    ))}
                 </RadioGroup>
               </Box>
               <Box sx={styles.formInputWrapper}>
