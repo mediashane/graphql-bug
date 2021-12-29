@@ -16,9 +16,9 @@ const styles = {
     width: {
       xs: '80%',
       sm: '80%',
-      md: '70%',
-      lg: '70%',
-      xl: '70%',
+      md: '80%',
+      lg: '80%',
+      xl: '90%',
     },
     fontFamily: freightBigProSemibold,
     textAlign: 'center' as const,

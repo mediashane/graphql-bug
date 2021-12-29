@@ -4,14 +4,14 @@ const styles = {
   fourFeatureTagsContainer: {
     display: 'flex',
     alignItems: {
-      xs: 'flex-start',
-      sm: 'flex-start',
+      xs: 'center',
+      sm: 'center',
       md: 'center',
     },
     justifyContent: 'center',
     margin: {
-      xs: '0 0 60px 0',
-      sm: '0 0 60px 0',
+      xs: '60px 0 60px 0',
+      sm: '60px 0 60px 0',
       md: '80px 0 20px 0',
     },
     width: '100%',
@@ -23,7 +23,11 @@ const styles = {
   },
   fourFeatureTagsContent: {
     display: 'flex',
-    alignItems: 'flex-start',
+    alignItems: {
+      xs: 'flex-start',
+      sm: 'flex-start',
+      md: 'center',
+    },
     justifyContent: 'center',
     width: '100%',
     height: '100%',
@@ -77,7 +81,7 @@ const styles = {
     fontFamily: freightBigProSemibold,
   },
   fourFeatureTagsDivider: {
-    margin: '0 0 60px 0',
+    margin: '30px 0 60px 0',
     height: '1px',
     width: '100%',
     backgroundColor: '#D89582',

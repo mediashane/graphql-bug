@@ -7,11 +7,16 @@ const styles = {
     justifyContent: 'center',
     width: '100%',
     height: {
-      xs: '586px',
-      sm: '586px',
+      xs: '100%',
+      sm: '100%',
       md: '413px',
       lg: '488px',
       xl: '563px',
+    },
+    paddingTop: {
+      xs: '40px',
+      sm: '40px',
+      md: 0,
     },
   },
   threeImageButtonsContent: {
@@ -64,15 +69,15 @@ const styles = {
       md: '0px',
     },
     width: {
-      xs: '100%',
-      sm: '100%',
+      xs: '325px',
+      sm: '325px',
       md: '250px',
       lg: '325px',
       xl: '400px',
     },
     height: {
-      xs: '150%',
-      sm: '150%',
+      xs: '325px',
+      sm: '325px',
       md: '250px',
       lg: '325px',
       xl: '400px',

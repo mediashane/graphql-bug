@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 import styles from './styles';
@@ -40,7 +41,7 @@ function EmailSubscribe({
 
   return (
     <Box sx={{ ...styles.emailSubscribeContainer, backgroundColor: backgroundColor }}>
-      <Box sx={styles.emailSubscribeWrapper}>
+      <Container sx={styles.emailSubscribeWrapper} maxWidth="xl">
         <Box sx={{ ...styles.emailSubscribeImage, backgroundImage: `url(${backgroundImage})` }} />
         <Box sx={styles.emailSubscribeContent}>
           <Box sx={styles.emailSubscribeTitleContainer}>
@@ -67,7 +68,7 @@ function EmailSubscribe({
             <Typography sx={{ ...styles.emailSubscribeSubtitle, color: textColor }}>{subtitle}</Typography>
           </Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 }

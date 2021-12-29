@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import CategoryCard from '../CategoryCard/CategoryCard';
 
@@ -26,7 +27,7 @@ interface Props {
 function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
   return (
     <Box sx={styles.cardListContainer}>
-      <Box sx={styles.cardListWrapper}>
+      <Container sx={styles.cardListWrapper} maxWidth="xl">
         {cards.map((card, index) => {
           const { image, title, description, stickerText, showSticker, link } = card;
 
@@ -44,7 +45,7 @@ function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
             />
           );
         })}
-      </Box>
+      </Container>
     </Box>
   );
 }

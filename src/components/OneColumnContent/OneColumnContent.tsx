@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import styles from './styles';
 
@@ -50,7 +51,7 @@ function OneColumnContent({
     if (includeParagraph) {
       return (
         <Box sx={styles.outerParagraphTextContainer}>
-          <Typography sx={{ ...styles.outerTextParagraph, color: textColor }}>{textParagraph}</Typography>
+          <Typography sx={styles.outerTextParagraph}>{textParagraph}</Typography>
         </Box>
       );
     }
@@ -59,9 +60,13 @@ function OneColumnContent({
   };
 
   return (
-    <Box sx={styles.wrapper}>
-      <Box sx={{ ...styles.container, backgroundImage: `url(${image})` }}>
-        <InnerTextContent />
+    <Box>
+      <Box sx={{ ...styles.wrapper, backgroundImage: `url(${image})` }}>
+        <Container maxWidth="xl">
+          <Box sx={styles.container}>
+            <InnerTextContent />
+          </Box>
+        </Container>
       </Box>
       <OuterTextContent />
     </Box>

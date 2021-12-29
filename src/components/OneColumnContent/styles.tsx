@@ -9,6 +9,11 @@ const styles = {
     },
     height: '100%',
     width: '100%',
+
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center top',
+    backgroundColor: '#dedede',
   },
   container: {
     display: 'flex',
@@ -16,10 +21,6 @@ const styles = {
     height: '100vw',
     minHeight: '500px',
     maxHeight: '1200px',
-    backgroundColor: '#dedede',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center top',
   },
   textContainer: {
     padding: {
@@ -110,6 +111,10 @@ const styles = {
     },
   },
   outerTextParagraph: {
+    color: {
+      xs: '#000000',
+      sm: '#ffffff',
+    },
     fontFamily: proximaNova,
     fontSize: '22px',
   },

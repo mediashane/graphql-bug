@@ -27,13 +27,20 @@ const styles = {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: {
-      xs: 'space-evenly',
-      sm: 'space-evenly',
-      md: 'space-around',
+      xs: 'space-around',
+      sm: 'space-around',
+      md: 'space-between',
     },
     flexDirection: 'row' as const,
     flexWrap: 'wrap' as const,
     width: '100%',
+    padding: {
+      xs: '0 20px',
+      sm: '0 20px',
+      md: '0 40px',
+      lg: '0 40px',
+      xl: 0,
+    },
   },
   fourCardsCardContainer: {
     display: 'flex',
@@ -50,6 +57,7 @@ const styles = {
       sm: '40%',
       md: 'auto',
     },
+    maxWidth: '280px',
     height: {
       xs: '100%',
       sm: '100%',

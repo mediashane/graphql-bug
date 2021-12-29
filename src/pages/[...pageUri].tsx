@@ -26,11 +26,12 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   });
 
   useEffect(() => {
-    if (rugDetails?.rug?.modules?.collection[0]) {
+    if (rugDetails?.rug?.modules?.collection[0]?.$on?.Rug_collection?.rug_collection?.title) {
+      const { title } = rugDetails?.rug?.modules?.collection[0]?.$on?.Rug_collection?.rug_collection;
       router.push(
         {
           pathname: pageUri.join('/'),
-          query: { collection: rugDetails?.rug?.modules?.collection[0].$on.Rug_collection?.rug_collection?.title },
+          query: { collection: title },
         },
         undefined,
         { shallow: true },

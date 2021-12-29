@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import ImageCard from './ImageCard';
 import styles from './styles';
@@ -55,16 +56,18 @@ function ThreeImageButtons({
   const { url: urlThree } = linkThree;
 
   return (
-    <Box sx={styles.threeImageButtonsContainer}>
-      <Box sx={styles.threeImageButtonsContent}>
-        <Typography sx={{ ...styles.threeImageButtonsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
-        <Box sx={styles.threeImageButtonsCards}>
-          <ImageCard buttonImage={buttonImageOne} label={labelOne} link={urlOne} textColor={textColor} />
-          <ImageCard buttonImage={buttonImageTwo} label={labelTwo} link={urlTwo} textColor={textColor} />
-          <ImageCard buttonImage={buttonImageThree} label={labelThree} link={urlThree} textColor={textColor} />
+    <Container maxWidth="xl">
+      <Box sx={styles.threeImageButtonsContainer}>
+        <Box sx={styles.threeImageButtonsContent}>
+          <Typography sx={{ ...styles.threeImageButtonsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
+          <Box sx={styles.threeImageButtonsCards}>
+            <ImageCard buttonImage={buttonImageOne} label={labelOne} link={urlOne} textColor={textColor} />
+            <ImageCard buttonImage={buttonImageTwo} label={labelTwo} link={urlTwo} textColor={textColor} />
+            <ImageCard buttonImage={buttonImageThree} label={labelThree} link={urlThree} textColor={textColor} />
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </Container>
   );
 }
 

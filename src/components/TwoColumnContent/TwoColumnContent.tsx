@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import styles from './styles';
 
@@ -67,18 +68,20 @@ function TwoColumnContent({
         },
       }}
     >
-      <Box
-        sx={{
-          ...styles.twoColumnImageWrapper,
-          margin: {
-            xs: 0,
-            sm: flexDirection === 'row' ? '0 0 0 60px' : '0 60px 0 0',
-          },
-        }}
-      >
-        {image && <Image src={image} alt={alt} width={651} height={886} />}
-      </Box>
-      <InnerTextContent />
+      <Container sx={styles.twoColumnWrapper} maxWidth="xl">
+        <Box
+          sx={{
+            ...styles.twoColumnImageWrapper,
+            margin: {
+              xs: 0,
+              sm: flexDirection === 'row' ? '0 0 0 60px' : '0 60px 0 0',
+            },
+          }}
+        >
+          {image && <Image src={image} alt={alt} width={651} height={886} />}
+        </Box>
+        <InnerTextContent />
+      </Container>
     </Box>
   );
 }

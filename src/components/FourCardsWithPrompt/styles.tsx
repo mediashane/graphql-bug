@@ -32,9 +32,22 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap' as const,
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: {
+      xs: 'space-around',
+      sm: 'space-around',
+      md: 'space-between',
+      lg: 'space-between',
+      xl: 'space-between',
+    },
     width: '100%',
     height: '100%',
+    padding: {
+      xs: '0 20px',
+      sm: '0 20px',
+      md: '0 40px',
+      lg: '0 37.5px',
+      xl: 0,
+    },
   },
   fourCardsPromptContainer: {
     display: 'flex',
@@ -50,7 +63,9 @@ const styles = {
     width: {
       xs: '100%',
       sm: '100%',
-      md: '50%',
+      md: '48.25%',
+      lg: '47%',
+      xl: '46.25%',
     },
     height: {
       xs: '620px',
@@ -68,9 +83,9 @@ const styles = {
     width: {
       xs: '100%',
       sm: '100%',
-      md: '90%',
-      lg: '85%',
-      xl: '80%',
+      md: '100%',
+      lg: '100%',
+      xl: '100%',
     },
     height: {
       xs: '100%',
@@ -91,12 +106,14 @@ const styles = {
     display: 'flex',
     alignItems: {
       xs: 'flex-start',
-      sm: 'center',
+      sm: 'flex-start',
+      md: 'flex-start',
+      lg: 'flex-end',
     },
     justifyContent: {
-      xs: 'space-evenly',
-      sm: 'space-evenly',
-      md: 'space-around',
+      xs: 'space-around',
+      sm: 'space-around',
+      md: 'space-between',
       lg: 'space-between',
     },
     flexDirection: {
@@ -109,11 +126,13 @@ const styles = {
     width: {
       xs: '100%',
       sm: '100%',
-      md: '50%',
+      md: '47.75%',
+      lg: '53%',
+      xl: '53.75%',
     },
     height: {
       xs: '120vw',
-      sm: '810px',
+      sm: '100%',
       md: '100%',
     },
   },
@@ -127,10 +146,16 @@ const styles = {
       sm: '60px',
       md: '0',
     },
-    width: '40%',
+    width: {
+      xs: 'auto',
+      sm: 'auto',
+      md: 'auto',
+      // lg: '280px',
+    },
+    maxWidth: '280px',
     height: {
       xs: 'auto',
-      sm: '360px',
+      sm: 'auto',
       md: '360px',
     },
     cursor: 'pointer',
@@ -149,7 +174,7 @@ const styles = {
     },
     maxHeight: '280px',
     backgroundColor: colorWhite,
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
   },
@@ -227,11 +252,16 @@ const styles = {
     alignItems: 'flex-start',
     marginTop: '15px',
     width: {
-      xs: '40vw',
-      sm: '40vw',
-      md: '100%',
+      xs: '20vw',
+      sm: '20vw',
+      md: '20vw',
+      lg: '20vw',
     },
-    maxWidth: '280px',
+    maxWidth: {
+      xs: '250px',
+      sm: '40vw',
+      md: '280px',
+    },
   },
   fourCardsTitle: {
     fontSize: {

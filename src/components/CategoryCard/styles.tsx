@@ -28,7 +28,6 @@ const styles = {
       xs: '335px',
       sm: '450px',
       lg: '490px',
-      xl: '520px',
     },
   },
   categoryCardWide: {
@@ -41,7 +40,6 @@ const styles = {
       xs: '450px',
       sm: '450px',
       lg: '490px',
-      xl: '520px',
     },
   },
   categoryCardWrapper: {
@@ -92,13 +90,11 @@ const styles = {
       xs: '150px',
       sm: '320px',
       lg: '360px',
-      xl: '400px',
     },
     height: {
       xs: '150px',
       sm: '320px',
       lg: '360px',
-      xl: '400px',
     },
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -109,13 +105,11 @@ const styles = {
       xs: '320px',
       sm: '360px',
       lg: '360px',
-      xl: '400px',
     },
     height: {
       xs: '320px',
       sm: '360px',
       lg: '360px',
-      xl: '400px',
     },
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',

@@ -2,6 +2,11 @@ import { colorBrandBlue, colorWhite, freightBigPro, freightBigProBookItalic, pro
 
 const styles = {
   footerContainer: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: colorBrandBlue,
+  },
+  footerWrapper: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -11,22 +16,16 @@ const styles = {
       md: 'row' as const,
     },
     width: '100%',
-    height: {
-      xs: '1060px',
-      sm: '960px',
-      md: '670px',
-      lg: '570px',
-    },
+    height: '100%',
     color: colorWhite,
-    backgroundColor: colorBrandBlue,
   },
   footerLeftColumn: {
     width: {
       xs: '90%',
       sm: '90%',
       md: '35%',
-      lg: '35%',
-      xl: '35%',
+      lg: '40%',
+      xl: '40%',
     },
     height: {
       xs: '80%',

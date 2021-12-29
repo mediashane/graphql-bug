@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import FourCard from './FourCard';
 import styles from './styles';
@@ -62,7 +63,7 @@ function FeatureTagIcons({
 }: Props): JSX.Element {
   return (
     <Box sx={styles.fourCardsRowContainer}>
-      <Box sx={styles.fourCardsRowContent}>
+      <Container sx={styles.fourCardsRowContent} maxWidth="xl">
         <Box sx={styles.fourCardsCards}>
           <FourCard
             image={imageOne}
@@ -101,7 +102,7 @@ function FeatureTagIcons({
             link={linkFour}
           />
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 }

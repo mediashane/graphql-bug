@@ -21,6 +21,10 @@ const styles = {
       sm: 'center center',
     },
   },
+  heroWrapper: {
+    height: '100%',
+    width: '100%',
+  },
   textContainer: {
     display: 'flex',
     flexDirection: 'column' as const,

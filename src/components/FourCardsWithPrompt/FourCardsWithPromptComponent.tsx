@@ -3,6 +3,7 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
 import FourCard from './FourCard';
 import styles from './styles';
@@ -124,7 +125,7 @@ function FeatureTagIcons({
 
   return (
     <Box sx={styles.fourCardsWithPromptContainer}>
-      <Box sx={{ ...styles.fourCardsWithPromptContent, flexDirection: flexDirection as any }}>
+      <Container sx={{ ...styles.fourCardsWithPromptContent, flexDirection: flexDirection as any }} maxWidth="xl">
         <Box sx={styles.fourCardsPromptContainer}>
           <Box sx={styles.fourCardsPrompt}>
             <Box sx={styles.fourCardsPromptInnerWrapper}>
@@ -172,7 +173,7 @@ function FeatureTagIcons({
             link={linkFour}
           />
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 }

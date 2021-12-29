@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import FeatureTagIcon from './FeatureTagIcon';
 import styles from './styles';
@@ -31,14 +32,14 @@ function FeatureTagIcons({
   return (
     <>
       <Box sx={styles.fourFeatureTagsContainer}>
-        <Box sx={styles.fourFeatureTagsContent}>
+        <Container sx={styles.fourFeatureTagsContent} maxWidth="xl">
           <Box sx={styles.fourFeatureTagsTags}>
             <FeatureTagIcon image={imageOne} label={labelOne} textColor={textColor} />
             <FeatureTagIcon image={imageTwo} label={labelTwo} textColor={textColor} />
             <FeatureTagIcon image={imageThree} label={labelThree} textColor={textColor} />
             <FeatureTagIcon image={imageFour} label={labelFour} textColor={textColor} />
           </Box>
-        </Box>
+        </Container>
       </Box>
       <Box sx={styles.fourFeatureTagsDivider} />
     </>

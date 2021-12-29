@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import styles from './styles';
 
@@ -19,7 +20,9 @@ function CenteredText({
 }: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }}>
-      <Box sx={{ ...styles.centeredTextWrapper, fontSize: `${textSize}px`, color: textColor }}>{text}</Box>
+      <Container maxWidth="xl">
+        <Box sx={{ ...styles.centeredTextWrapper, fontSize: `${textSize}px`, color: textColor }}>{text}</Box>
+      </Container>
     </Box>
   );
 }

@@ -8,9 +8,16 @@ const styles = {
     padding: '40px 0',
     width: '100%',
   },
-  twoColumnImageWrapper: {
+  twoColumnWrapper: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: {
+      xs: 'column' as const,
+      sm: 'row' as const,
+    },
+  },
+  twoColumnImageWrapper: {
     width: {
       xs: '85%',
       sm: '90%',
@@ -48,7 +55,7 @@ const styles = {
       sm: '90%',
       md: '90%',
       lg: '90%',
-      xl: '75%',
+      xl: '100%',
     },
   },
   twoColumnTextHeadlineWrapper: {

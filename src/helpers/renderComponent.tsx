@@ -239,8 +239,8 @@ export default function acfRenderComponent(componentName, componentData, index):
             textHeadline={textHeadline}
             // collection={currentCollection}
             color={color}
-            productCategory={productCategory[0].$on.Product_category.title()}
-            textParagraph={rugDescription ? rugDescription[0]?.$on?.Rug_description.rugDescription?.description : ''}
+            productCategory={productCategory?.[0]?.$on.Product_category.title()}
+            textParagraph={rugDescription ? rugDescription?.[0]?.$on?.Rug_description.rugDescription?.description : ''}
             backgroundColor={backgroundColor}
             textColorPrimary={textColorPrimary}
             textColorSecondary={textColorSecondary}

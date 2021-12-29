@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import styles from './styles';
 
@@ -26,7 +27,7 @@ function HeroRightJustified({
 }: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${image})` }}>
-      <Box sx={styles.textContainer}>
+      <Container sx={styles.textContainer} maxWidth="xl">
         <Box sx={styles.textWrapper}>
           <Fade delay={500}>
             <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>
@@ -42,7 +43,7 @@ function HeroRightJustified({
             </Box>
           </Fade>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 }

@@ -34,6 +34,13 @@ const styles = {
   },
   threeFeatureCardsTitle: {
     marginTop: '60px',
+    marginLeft: {
+      xs: '20px',
+      sm: '20px',
+      md: '20px',
+      lg: '20px',
+      xl: 0,
+    },
     fontSize: '2.5rem',
     fontStyle: 'italic',
     fontFamily: freightBigProMediumItalic,
