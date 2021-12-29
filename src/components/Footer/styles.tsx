@@ -9,7 +9,11 @@ const styles = {
   footerWrapper: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: {
+      xs: 'center',
+      sm: 'center',
+      md: 'flex-start',
+    },
     flexDirection: {
       xs: 'column' as const,
       sm: 'column' as const,

@@ -18,8 +18,19 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '80% top',
   },
+  textWrapper: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    width: '100%',
+  },
   textContainer: {
-    paddingLeft: '40px',
+    paddingLeft: {
+      xs: '40px',
+      sm: '40px',
+      md: '40px',
+      lg: '40px',
+      xl: 0,
+    },
     paddingBottom: {
       xs: '60px',
       sm: '60px',

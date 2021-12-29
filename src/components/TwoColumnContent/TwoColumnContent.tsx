@@ -74,7 +74,7 @@ function TwoColumnContent({
             ...styles.twoColumnImageWrapper,
             margin: {
               xs: 0,
-              sm: flexDirection === 'row' ? '0 0 0 60px' : '0 60px 0 0',
+              sm: flexDirection === 'row' ? '0 0 0 60px' : '0 60px 0 60px',
             },
           }}
         >

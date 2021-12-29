@@ -24,7 +24,7 @@ const styles = {
     flexDirection: 'column' as const,
     alignItems: 'flex-start',
     justifyContent: 'center',
-    width: '87.5%',
+    width: '100%',
     height: '100%',
   },
   threeImageButtonsTitle: {

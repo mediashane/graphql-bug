@@ -20,7 +20,7 @@ const styles = {
     },
     height: '100%',
     width: '100%',
-    paddingBottom: '40px',
+    paddingBottom: '60px',
   },
   imageSliderContainer: {
     display: 'flex',
@@ -282,7 +282,7 @@ const styles = {
   },
   captionText: {
     position: 'absolute' as const,
-    top: '43px',
+    top: '53px',
     fontSize: '20px',
     color: colorDarkGrey,
     fontFamily: proximaNova,

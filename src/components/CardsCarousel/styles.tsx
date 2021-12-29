@@ -78,6 +78,7 @@ const styles = {
       xs: '60px 0 40px 0',
       sm: '60px 0 60px 0',
     },
+    width: '100%',
   },
   cardsCarouselLabel: {
     fontSize: {
