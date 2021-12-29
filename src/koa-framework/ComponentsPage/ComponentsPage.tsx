@@ -1,6 +1,7 @@
 import React from 'react';
 import { KoaThemeOptions } from 'client';
 import AppointmentDialog from 'components/AppointmentDialog/AppointmentDialog';
+import FloatingActionButton from 'components/FloatingActionButton/FloatingActionButton';
 
 import Box from '@mui/material/Box';
 
@@ -22,6 +23,7 @@ export default function ComponentsPage({ header, modules, footer, koaThemeOption
   return (
     <Box sx={styles.componentsPage}>
       {header ? header : null}
+      <FloatingActionButton />
       <AppointmentDialog koaThemeOptions={koaThemeOptions} />
       <Box sx={styles.componentsContainer}>
         <AcfModules modules={modules} />
