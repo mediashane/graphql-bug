@@ -98,7 +98,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const koaThemeOptions = await getKoaThemeOptions();
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
 
-  console.log('GET STATIC PROPS');
+  console.log('GET STATIC PROPS: ', koaThemeOptions);
 
   return getNextStaticProps(context, {
     Page,
