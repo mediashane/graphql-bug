@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { getNextStaticProps, is404 } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
+const { useQuery } = client;
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
@@ -17,10 +18,9 @@ export interface PageProps {
 }
 
 export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
-  const { useQuery } = client;
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
-  const rugDetails = useQuery({ staleWhileRevalidate: false }).rug({
+  const rugDetails = useQuery().rug({
     id: `/${pageUri.join('/')}`,
     idType: RugIdType.URI,
   });

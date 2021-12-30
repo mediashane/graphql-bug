@@ -7,11 +7,11 @@ import Head from 'next/head';
 import { getNextStaticProps } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
+const { useQuery } = client;
 
 export default function Page() {
-  const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
-  const pageData = useQuery().page({
+  const pageData = useQuery({ suspense: false }).page({
     id: '/',
     idType: PageIdType.URI,
   });
