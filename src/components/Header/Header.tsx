@@ -37,7 +37,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           <AppBar position="static" color="transparent">
             <Toolbar>
               <Typography variant="h6" component="div" sx={styles.headerTitle}>
-                <NextLink href="/" passHref shallow={true}>
+                <NextLink href="/" passHref prefetch={false}>
                   <MUILink color="inherit" variant="inherit" underline="none">
                     {title}
                   </MUILink>
