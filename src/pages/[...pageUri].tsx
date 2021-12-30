@@ -40,6 +40,8 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
     }
   }, [rugDetails]);
 
+  console.log('PAGE COMPONENT');
+
   // if query contains custom post type 'rug', use the Rug ACF modules
   // otherwise use the Page Builder ACF modules
   const modules = pageUri.includes('rug')
@@ -95,6 +97,8 @@ export default function Page({ pageUri, koaThemeOptions }) {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const koaThemeOptions = await getKoaThemeOptions();
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
+
+  console.log('GET STATIC PROPS');
 
   return getNextStaticProps(context, {
     Page,
