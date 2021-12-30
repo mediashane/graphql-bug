@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
+import { client, KoaThemeOptions, Page as PageType, PageIdType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
@@ -9,8 +9,8 @@ import { useRouter } from 'next/router';
 import { getNextStaticProps, is404 } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
-const { useQuery, usePage } = client;
-// const { usePage } = client;
+// const { useQuery, usePage } = client;
+const { useQuery } = client;
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
@@ -21,11 +21,7 @@ export interface PageProps {
 export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
-  const rugDetails = useQuery({
-    onError(error) {
-      console.log('ERROR? ', error);
-    },
-  }).rug({
+  const rugDetails = useQuery({ suspense: false, staleWhileRevalidate: true }).rug({
     id: `/${pageUri.join('/')}`,
     idType: RugIdType.URI,
   });
@@ -87,7 +83,11 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
 }
 
 export default function Page({ pageUri, koaThemeOptions }) {
-  const page = usePage();
+  // const page = usePage({ suspense: false, staleWhileRevalidate: true });
+  const page = useQuery({ suspense: false, staleWhileRevalidate: true }).page({
+    id: `/${pageUri}`,
+    idType: PageIdType.URI,
+  });
 
   return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} />;
 }

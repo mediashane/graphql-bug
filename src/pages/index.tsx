@@ -11,7 +11,7 @@ const { useQuery } = client;
 
 export default function Page() {
   const generalSettings = useQuery().generalSettings;
-  const pageData = useQuery({ suspense: false }).page({
+  const pageData = useQuery({ suspense: false, staleWhileRevalidate: true }).page({
     id: '/',
     idType: PageIdType.URI,
   });
