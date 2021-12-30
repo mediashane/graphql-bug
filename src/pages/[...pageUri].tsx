@@ -20,8 +20,8 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   const { useQuery } = client;
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
-  const rugDetails = useQuery().rug({
-    id: `/${pageUri.join('/')}` ?? '',
+  const rugDetails = useQuery({ staleWhileRevalidate: false }).rug({
+    id: `/${pageUri.join('/')}`,
     idType: RugIdType.URI,
   });
 

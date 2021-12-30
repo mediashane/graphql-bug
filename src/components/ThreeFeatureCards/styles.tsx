@@ -53,7 +53,7 @@ const styles = {
       xs: 'space-between',
       sm: 'space-between',
       md: 'space-around',
-      lg: 'space-between',
+      lg: 'space-around',
       xl: 'space-between',
     },
     flexDirection: {
