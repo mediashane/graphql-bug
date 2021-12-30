@@ -41,8 +41,8 @@ const styles = {
       xs: 'space-between',
       sm: 'space-between',
       md: 'space-around',
-      lg: 'space-between',
-      xl: 'space-between',
+      lg: 'space-around',
+      xl: 'space-around',
     },
     flexDirection: {
       xs: 'column' as const,
