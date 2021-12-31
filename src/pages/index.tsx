@@ -3,18 +3,30 @@ import { client, PageIdType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { getNextStaticProps } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
-const { useQuery } = client;
+const { useTransactionQuery, useQuery } = client;
 
 export default function Page() {
+  const router = useRouter();
   const generalSettings = useQuery().generalSettings;
-  const pageData = useQuery().page({
-    id: '/',
-    idType: PageIdType.URI,
-  });
+  // const pageData = useQuery().page({
+  //   id: '/',
+  //   idType: PageIdType.URI,
+  // });
+
+  const pageData = useTransactionQuery(
+    (query) => {
+      return query.page({ id: `/`, idType: PageIdType.URI });
+    },
+    {
+      variables: router.pathname,
+      fetchPolicy: 'network-only',
+    },
+  );
 
   const headerSection = (
     <>
@@ -43,7 +55,11 @@ export default function Page() {
     />
   );
 
-  return <ComponentsPage header={headerSection} modules={pageData?.pageBuilder?.modules} footer={footerSection} />;
+  if (!pageData?.data) return null;
+
+  return (
+    <ComponentsPage header={headerSection} modules={pageData?.data?.pageBuilder?.modules} footer={footerSection} />
+  );
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
