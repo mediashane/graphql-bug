@@ -3,7 +3,7 @@
  */
 import type { IncomingMessage } from 'http';
 
-import { getClient, logQueries } from '@faustjs/next';
+import { getClient } from '@faustjs/next';
 
 import {
   GeneratedSchema,
@@ -19,7 +19,7 @@ export const client = getClient<GeneratedSchema, SchemaObjectTypesNames, SchemaO
 });
 
 // if (process.env.NODE_ENV === 'development') {
-logQueries(client);
+// logQueries(client);
 // }
 
 export function serverClient(req: IncomingMessage) {
