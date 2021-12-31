@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { client, KoaThemeOptions, Page as PageType, PageIdType, RugIdType } from 'client';
+import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
@@ -9,7 +9,6 @@ import { useRouter } from 'next/router';
 import { getNextStaticProps, is404 } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
-// const { useQuery, usePage } = client;
 const { useQuery } = client;
 
 export interface PageProps {
@@ -21,7 +20,7 @@ export interface PageProps {
 export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
-  const rugDetails = useQuery({ suspense: false, staleWhileRevalidate: true }).rug({
+  const rugDetails = useQuery().rug({
     id: `/${pageUri.join('/')}`,
     idType: RugIdType.URI,
   });
@@ -40,8 +39,6 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
     }
   }, [rugDetails]);
 
-  console.log('PAGE COMPONENT');
-
   // if query contains custom post type 'rug', use the Rug ACF modules
   // otherwise use the Page Builder ACF modules
   const modules = pageUri.includes('rug')
@@ -51,6 +48,8 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
           return a.order - b.order;
         })
     : page?.pageBuilder?.modules;
+
+  console.log('PAGE COMPONENT ', modules);
 
   const headerSection = (
     <>
@@ -85,11 +84,8 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
 }
 
 export default function Page({ pageUri, koaThemeOptions }) {
-  // const page = usePage({ suspense: false, staleWhileRevalidate: true });
-  const page = useQuery({ suspense: false, staleWhileRevalidate: true }).page({
-    id: `/${pageUri}`,
-    idType: PageIdType.URI,
-  });
+  const { usePage } = client;
+  const page = usePage();
 
   return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} />;
 }
@@ -97,8 +93,6 @@ export default function Page({ pageUri, koaThemeOptions }) {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const koaThemeOptions = await getKoaThemeOptions();
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
-
-  console.log('GET STATIC PROPS: ', koaThemeOptions);
 
   return getNextStaticProps(context, {
     Page,

@@ -37,7 +37,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           <AppBar position="static" color="transparent">
             <Toolbar>
               <Typography variant="h6" component="div" sx={styles.headerTitle}>
-                <NextLink href="/" passHref>
+                <NextLink href="/" passHref shallow={true}>
                   <MUILink color="inherit" variant="inherit" underline="none">
                     {title}
                   </MUILink>
@@ -61,7 +61,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
       <Box sx={styles.headerLinksBox}>
         {mainMenu?.map((link, index) => (
           <Typography sx={styles.headerLinks} key={index}>
-            <NextLink href={getRouteSlug(link.url)} passHref>
+            <NextLink href={getRouteSlug(link.url)} passHref shallow={true}>
               <MUILink color="inherit" variant="inherit" underline={isActive(link.url)}>
                 {link.label}
               </MUILink>
@@ -78,7 +78,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
         <AppBar position="static" color="transparent">
           <Toolbar>
             <Typography variant="h6" component="div" sx={styles.headerTitle}>
-              <NextLink href="/" passHref>
+              <NextLink href="/" passHref shallow={true}>
                 <MUILink color="inherit" variant="inherit" underline="none">
                   {title}
                 </MUILink>

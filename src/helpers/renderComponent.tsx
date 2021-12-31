@@ -23,7 +23,7 @@ import {
 export default function acfRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
     // console.log('[KOA]', 'Rendering', componentName, componentData);
-    console.log('RENDERING COMPONENTS');
+    console.log('RENDERING COMPONENTS: ', componentName);
     switch (componentName) {
       case 'CardsCarousel': {
         const { cards, labelColor, textColor, textLinkLabel, textLinkUrl, sectionLabel } = componentData;
