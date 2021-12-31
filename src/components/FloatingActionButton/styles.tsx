@@ -18,6 +18,7 @@ const styles = {
     borderRadius: '50px',
     cursor: 'pointer',
     transition: 'ease-in-out all 0.3s',
+    zIndex: 9999,
 
     '&:hover': {
       width: {
