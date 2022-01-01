@@ -97,7 +97,7 @@ export default function Page({ pageUri, koaThemeOptions }) {
     },
     {
       variables: pageUri,
-      fetchPolicy: 'no-cache',
+      fetchPolicy: 'cache-and-network',
     },
   );
 

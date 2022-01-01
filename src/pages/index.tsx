@@ -3,7 +3,6 @@ import { client, PageIdType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 import { getNextStaticProps } from '@faustjs/next';
 
@@ -11,7 +10,6 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 const { useTransactionQuery, useQuery } = client;
 
 export default function Page() {
-  const router = useRouter();
   const generalSettings = useQuery().generalSettings;
   // const pageData = useQuery().page({
   //   id: '/',
@@ -23,8 +21,7 @@ export default function Page() {
       return query.page({ id: `/`, idType: PageIdType.URI });
     },
     {
-      variables: router.pathname,
-      fetchPolicy: 'no-cache',
+      fetchPolicy: 'cache-and-network',
     },
   );
 
