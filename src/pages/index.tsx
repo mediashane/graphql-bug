@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { client, PageIdType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { getNextStaticProps } from '@faustjs/next';
 
@@ -10,18 +11,24 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 const { useTransactionQuery, useQuery } = client;
 
 export default function Page() {
+  const router = useRouter();
+  const [currentRoute, setCurrentRoute] = useState('/');
   const generalSettings = useQuery().generalSettings;
   // const pageData = useQuery().page({
   //   id: '/',
   //   idType: PageIdType.URI,
   // });
 
+  useEffect(() => {
+    setCurrentRoute(router.pathname);
+  }, [router.pathname]);
+
   const pageData = useTransactionQuery(
     (query) => {
       return query.page({ id: `/`, idType: PageIdType.URI });
     },
     {
-      pollInterval: 500,
+      variables: currentRoute,
       fetchPolicy: 'cache-and-network',
     },
   );

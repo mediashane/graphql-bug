@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { client, KoaThemeOptions, Page as PageType, PageIdType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
@@ -84,19 +84,25 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
 }
 
 export default function Page({ pageUri, koaThemeOptions }) {
+  const [currentRoute, setCurrentRoute] = useState(pageUri);
   // const { usePage } = client;
   // const page = usePage({ });
   // const page = useTransactionQuery((query, args: string) => {
   //   return query.page({ id: `${pageUri}`,
   //   idType: PageIdType.URI, },{ fetchPolicy: 'network-only' });
   // });
+  const router = useRouter();
+
+  useEffect(() => {
+    setCurrentRoute(router.pathname);
+  }, [router.pathname]);
 
   const queryResult = useTransactionQuery(
     (query) => {
       return query.page({ id: `/${pageUri}`, idType: PageIdType.URI });
     },
     {
-      pollInterval: 500,
+      variables: currentRoute,
       fetchPolicy: 'cache-and-network',
     },
   );
