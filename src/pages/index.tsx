@@ -24,7 +24,7 @@ export default function Page() {
     },
     {
       variables: router.pathname,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'no-cache',
     },
   );
 
