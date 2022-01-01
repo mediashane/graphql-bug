@@ -1,37 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { client, PageIdType } from 'client';
 import { Footer, Header } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 import { getNextStaticProps } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
-const { useTransactionQuery, useQuery } = client;
+const { useQuery } = client;
 
 export default function Page() {
-  const router = useRouter();
-  const [currentRoute, setCurrentRoute] = useState('/');
   const generalSettings = useQuery().generalSettings;
-  // const pageData = useQuery().page({
-  //   id: '/',
-  //   idType: PageIdType.URI,
-  // });
-
-  useEffect(() => {
-    setCurrentRoute(router.pathname);
-  }, [router.pathname]);
-
-  const pageData = useTransactionQuery(
-    (query) => {
-      return query.page({ id: `/`, idType: PageIdType.URI });
-    },
-    {
-      variables: currentRoute,
-      fetchPolicy: 'cache-and-network',
-    },
-  );
+  const pageData = useQuery().page({
+    id: '/',
+    idType: PageIdType.URI,
+  });
 
   const headerSection = (
     <>
@@ -60,11 +43,7 @@ export default function Page() {
     />
   );
 
-  if (!pageData?.data) return null;
-
-  return (
-    <ComponentsPage header={headerSection} modules={pageData?.data?.pageBuilder?.modules} footer={footerSection} />
-  );
+  return <ComponentsPage header={headerSection} modules={pageData?.pageBuilder?.modules} footer={footerSection} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {

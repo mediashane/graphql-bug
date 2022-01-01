@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { client, KoaThemeOptions, Page as PageType, PageIdType, RugIdType } from 'client';
+import { useEffect } from 'react';
+import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { getNextStaticProps, is404 } from '@faustjs/next';
 
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
-const { useQuery, useTransactionQuery } = client;
+const { useQuery } = client;
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
@@ -49,6 +49,8 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
         })
     : page?.pageBuilder?.modules;
 
+  console.log('PAGE COMPONENT ', modules);
+
   const headerSection = (
     <>
       <Header title={generalSettings.title} />
@@ -76,40 +78,16 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
     />
   );
 
-  if (!modules) return null;
-
   return (
     <ComponentsPage header={headerSection} modules={modules} footer={footerSection} koaThemeOptions={koaThemeOptions} />
   );
 }
 
 export default function Page({ pageUri, koaThemeOptions }) {
-  const [currentRoute, setCurrentRoute] = useState(pageUri);
-  // const { usePage } = client;
-  // const page = usePage({ });
-  // const page = useTransactionQuery((query, args: string) => {
-  //   return query.page({ id: `${pageUri}`,
-  //   idType: PageIdType.URI, },{ fetchPolicy: 'network-only' });
-  // });
-  const router = useRouter();
+  const { usePage } = client;
+  const page = usePage();
 
-  useEffect(() => {
-    setCurrentRoute(router.pathname);
-  }, [router.pathname]);
-
-  const queryResult = useTransactionQuery(
-    (query) => {
-      return query.page({ id: `/${pageUri}`, idType: PageIdType.URI });
-    },
-    {
-      variables: currentRoute,
-      fetchPolicy: 'cache-and-network',
-    },
-  );
-
-  if (queryResult.isLoading) return null;
-
-  return <PageComponent page={queryResult?.data} pageUri={pageUri} koaThemeOptions={koaThemeOptions} />;
+  return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
