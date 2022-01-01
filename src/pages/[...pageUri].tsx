@@ -96,7 +96,7 @@ export default function Page({ pageUri, koaThemeOptions }) {
       return query.page({ id: `/${pageUri}`, idType: PageIdType.URI });
     },
     {
-      // variables: pageUri,
+      pollInterval: 500,
       fetchPolicy: 'cache-and-network',
     },
   );

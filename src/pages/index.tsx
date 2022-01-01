@@ -21,6 +21,7 @@ export default function Page() {
       return query.page({ id: `/`, idType: PageIdType.URI });
     },
     {
+      pollInterval: 500,
       fetchPolicy: 'cache-and-network',
     },
   );
