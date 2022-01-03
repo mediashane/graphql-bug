@@ -1,6 +1,7 @@
 import React from 'react';
-import { client, PageIdType } from 'client';
+import { client, KoaThemeOptions, PageIdType } from 'client';
 import { Footer, Header } from 'components';
+import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -9,7 +10,11 @@ import { getNextStaticProps } from '@faustjs/next';
 import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 const { useQuery } = client;
 
-export default function Page() {
+export interface PageProps {
+  koaThemeOptions?: KoaThemeOptions;
+}
+
+export default function Page({ koaThemeOptions }: PageProps) {
   const generalSettings = useQuery().generalSettings;
   const pageData = useQuery().page({
     id: '/',
@@ -43,12 +48,23 @@ export default function Page() {
     />
   );
 
-  return <ComponentsPage header={headerSection} modules={pageData?.pageBuilder?.modules} footer={footerSection} />;
+  return (
+    <ComponentsPage
+      header={headerSection}
+      modules={pageData?.pageBuilder?.modules}
+      footer={footerSection}
+      koaThemeOptions={koaThemeOptions}
+    />
+  );
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+  const koaThemeOptions = await getKoaThemeOptions();
+  const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
+
   return getNextStaticProps(context, {
     Page,
     client,
+    props: { koaThemeOptions: serializedKoaThemeOptions },
   });
 }
