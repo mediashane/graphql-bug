@@ -1,5 +1,6 @@
 import { client } from 'client';
-import { Footer, Header, HeroRightJustified } from 'components';
+import { ContactBanner, Header } from 'components';
+import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -16,17 +17,25 @@ export default function Page() {
       <Head>
         <title>{generalSettings.title}</title>
       </Head>
-
-      <HeroRightJustified
-        textColor="#FFFFFF"
-        textHeadline="It begins in 1978 with one woman who had a talent for textile design and believed in the discipline of doing things by hand."
-        textMediaLabel="Watch Portraits in Creativity"
-        textSubline="A special look into Elizabeth Eakins’ process, passion and work. Directed by Gael Towey with cinematography by Victoria Pearson."
-        mediaIcon="/images/playIcon.png"
-        image="images/AnalogPortrait.png"
+      <HeaderSpacer />
+      <ContactBanner
+        title="The Elizabeth Eakins Studio"
+        description="The Elizabeth Eakins Studio is located in South Norwalk Connecticut and is open Monday through Friday from 9am to 5:00pm. Please call or email us to visit and we would be happy to have you come by to learn more about us and how we can help."
+        address="Elizabeth Eakins Studio 5 Taft Street, South Norwalk, CT 06854"
+        phoneNumber="203.831.9347"
+        email="Elizabeth.Eakins@elizabetheakins.com"
+        hours="HOURS"
+        locationTitle="LOCATION"
+        locationDescription="DESCP"
+        locationButtonLabel="Book an Appointment"
+        socialTitle="SOCIAL"
+        socialDescription="DESCP"
+        emailPlaceholder="PLACEHOLDER"
+        igCta="CTA"
+        igLink="/link"
       />
 
-      <Footer
+      {/* <Footer
         title="Elizabeth Eakins Studio"
         description="The Elizabeth Eakins Studio is located in South Norwalk Connecticut and is open Monday through Friday from 9am to 5:00pm. Please call or email us to visit and we would be happy to have you come by."
         address="5 Taft Street, South Norwalk, CT 06854"
@@ -41,7 +50,7 @@ export default function Page() {
         emailPlaceholder="Enter your email"
         igCta="Follow us on Instagram"
         igLink="https://instagram.com/elizabetheakins/"
-      />
+      /> */}
     </>
   );
 }

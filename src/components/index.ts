@@ -2,6 +2,7 @@ export { default as CallToAction } from './CallToAction/CallToAction';
 export { default as CardList } from './CardList/CardList';
 export { default as CardsCarousel } from './CardsCarousel/CardsCarousel';
 export { default as CenteredText } from './CenteredText/CenteredText';
+export { default as ContactBanner } from './ContactBanner/ContactBanner';
 export { default as EmailSubscribe } from './EmailSubscribe/EmailSubscribe';
 export { default as Footer } from './Footer/Footer';
 export { default as FourCardsRow } from './FourCardsRow/FourCardsRow';

@@ -18,7 +18,7 @@ export default function SubmenuItem({ buttonTarget, url }: LinkTarget) {
     <NextLink href={getRouteSlug(url)} passHref>
       <MUILink sx={styles.drawerLinkWrapper} underline="hover">
         <ListItem disablePadding>
-          <ListItemText sx={styles.drawerSublink} primary={buttonTarget} />
+          <ListItemText disableTypography sx={styles.drawerSublink} primary={buttonTarget} />
         </ListItem>
       </MUILink>
     </NextLink>

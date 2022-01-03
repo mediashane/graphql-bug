@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigPro } from '../../style';
+import { colorBrandBlue, colorWhite, freightBigPro, proximaNovaThin } from '../../style';
 
 const styles = {
   drawerBackground: {
@@ -59,6 +59,7 @@ const styles = {
   drawerSublink: {
     paddingLeft: '16px',
     color: colorWhite,
+    fontFamily: proximaNovaThin,
   },
   drawerTextButton: {
     fontFamily: freightBigPro,

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toggleDialog from 'helpers/toggleDialog';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -98,35 +99,16 @@ function TwoColumnGallery({
     setImageIndex(imageIndex - 1);
   };
 
-  const toggleAppointmentDialog = () => {
-    if (router.query.modal) {
-      delete router.query.modal;
-      router.push(
-        {
-          pathname: router.pathname,
-          query: { ...router.query },
-        },
-        undefined,
-        { shallow: true },
-      );
-      return;
-    }
-
-    router.push(
-      {
-        pathname: router.pathname,
-        query: { ...router.query, modal: 'appointment' },
-      },
-      undefined,
-      { shallow: true },
-    );
-  };
-
   const CtaButton = () => {
     if (withButton) {
       return (
         <Box sx={styles.ctaButtonWrapper}>
-          <Button variant="outlined" size="large" sx={styles.ctaPromptButton} onClick={() => toggleAppointmentDialog()}>
+          <Button
+            variant="outlined"
+            size="large"
+            sx={styles.ctaPromptButton}
+            onClick={() => toggleDialog('appointment')}
+          >
             {buttonLabel}
           </Button>
         </Box>

@@ -63,9 +63,9 @@ const styles = {
     fontSize: {
       xs: '9.5vw',
       sm: '8vw',
-      md: '7.5vw',
-      lg: '7.5vw',
-      xl: '7.5vw',
+      md: '6vw',
+      lg: '6vw',
+      xl: '6vw',
     },
   },
   textParagraph: {

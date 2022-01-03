@@ -1,6 +1,5 @@
 import React from 'react';
 import { client, MenuLocationEnum } from 'client';
-import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import MenuDrawer from 'components/MenuDrawer/MenuDrawer';
 import getRouteSlug from 'helpers/getRouteSlug';
 import Image from 'next/image';
@@ -49,7 +48,6 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
             </Toolbar>
           </AppBar>
         </Box>
-        <HeaderSpacer />
       </>
     );
   }
