@@ -1,5 +1,6 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import Image from 'next/image';
 
 import { Typography } from '@mui/material';
@@ -26,25 +27,28 @@ function HeroRightJustified({
   image,
 }: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${image})` }}>
-      <Container sx={styles.textContainer} maxWidth="xl">
-        <Box sx={styles.textWrapper}>
-          <Fade delay={500}>
-            <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>
-            <Box sx={styles.mediaLineContainer}>
-              {mediaIcon && <Image src={mediaIcon} alt="Play Button" width={70} height={70} />}
-              <Typography sx={{ ...styles.textMediaLabel, color: textColor }}>{textMediaLabel}</Typography>
-            </Box>
-            <Box sx={styles.textSublineContainer}>
-              <Box sx={styles.iconContainer}>
+    <>
+      <HeaderSpacer />
+      <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${image})` }}>
+        <Container sx={styles.textContainer} maxWidth="xl">
+          <Box sx={styles.textWrapper}>
+            <Fade delay={500}>
+              <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>
+              <Box sx={styles.mediaLineContainer}>
                 {mediaIcon && <Image src={mediaIcon} alt="Play Button" width={70} height={70} />}
+                <Typography sx={{ ...styles.textMediaLabel, color: textColor }}>{textMediaLabel}</Typography>
               </Box>
-              <Typography sx={{ ...styles.textSubline, color: textColor }}>{textSubline}</Typography>
-            </Box>
-          </Fade>
-        </Box>
-      </Container>
-    </Box>
+              <Box sx={styles.textSublineContainer}>
+                <Box sx={styles.iconContainer}>
+                  {mediaIcon && <Image src={mediaIcon} alt="Play Button" width={70} height={70} />}
+                </Box>
+                <Typography sx={{ ...styles.textSubline, color: textColor }}>{textSubline}</Typography>
+              </Box>
+            </Fade>
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 }
 

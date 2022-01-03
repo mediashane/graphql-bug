@@ -1,9 +1,12 @@
-import { colorBrandBrown, colorWhite, frizQuadrata, proximaNova } from '../../style';
+import { colorBrandBrown, colorDarkGrey, frizQuadrata, proximaNova } from '../../style';
 
 const styles = {
   headerContainer: {
+    display: 'flex',
+    alignItems: 'center',
     width: '100%',
-    backgroundColor: colorWhite,
+    height: '60px',
+    backgroundColor: 'transparent',
     zIndex: 2,
     transition: 'all 1s ease',
   },
@@ -12,6 +15,7 @@ const styles = {
     color: colorBrandBrown,
     fontFamily: frizQuadrata,
     textTransform: 'uppercase' as const,
+    letterSpacing: '3px',
   },
   headerLinksBox: {
     typography: 'body1',
@@ -27,9 +31,42 @@ const styles = {
     },
   },
   headerLinks: {
+    color: colorDarkGrey,
     fontFamily: proximaNova,
     fontSize: '0.9rem',
     textTransform: 'uppercase' as const,
+    position: 'relative' as const,
+  },
+  headerLinksHover: {
+    '&:before': {
+      transform: 'translateY(15px)',
+      transition: '300ms',
+      height: '1px',
+      content: '""',
+      position: 'absolute' as const,
+      backgroundColor: colorBrandBrown,
+      width: '100%',
+      bottom: '5px',
+      opacity: 0,
+    },
+
+    '&:hover:before': {
+      bottom: '10px',
+      opacity: 1,
+    },
+  },
+  headerLinksActive: {
+    '&:before': {
+      transform: 'translateY(10px)',
+      transition: '300ms',
+      height: '1px',
+      content: '""',
+      position: 'absolute' as const,
+      backgroundColor: colorBrandBrown,
+      width: '100%',
+      bottom: '5px',
+      opacity: 1,
+    },
   },
   menuIcon: {
     ml: 6,

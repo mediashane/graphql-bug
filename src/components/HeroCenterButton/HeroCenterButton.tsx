@@ -1,5 +1,6 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -26,34 +27,37 @@ function HeroCenterButton({
   media = '',
 }: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
-      <Container sx={styles.heroWrapper} maxWidth="xl">
-        <Box sx={{ ...styles.textContainer, color: textColor }}>
-          <Fade delay={500}>
-            <Typography sx={styles.introTitleText}>{textOverline}</Typography>
-            <Typography sx={styles.titleText}>{textHeadline}</Typography>
-            <Box sx={styles.heroButtonWrapper}>
-              <Button
-                variant="outlined"
-                size="large"
-                sx={{
-                  ...styles.heroButton,
-                  color: textColor,
-                  '&:hover': {
-                    color: hoverTextColor,
-                    backgroundColor: textColor,
-                    borderWidth: '2px',
-                    borderColor: textColor,
-                  },
-                }}
-              >
-                <Typography sx={styles.heroButtonText}>{buttonLabel}</Typography>
-              </Button>
-            </Box>
-          </Fade>
-        </Box>
-      </Container>
-    </Box>
+    <>
+      <HeaderSpacer />
+      <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
+        <Container sx={styles.heroWrapper} maxWidth="xl">
+          <Box sx={{ ...styles.textContainer, color: textColor }}>
+            <Fade delay={500}>
+              <Typography sx={styles.introTitleText}>{textOverline}</Typography>
+              <Typography sx={styles.titleText}>{textHeadline}</Typography>
+              <Box sx={styles.heroButtonWrapper}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    ...styles.heroButton,
+                    color: textColor,
+                    '&:hover': {
+                      color: hoverTextColor,
+                      backgroundColor: textColor,
+                      borderWidth: '2px',
+                      borderColor: textColor,
+                    },
+                  }}
+                >
+                  <Typography sx={styles.heroButtonText}>{buttonLabel}</Typography>
+                </Button>
+              </Box>
+            </Fade>
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 }
 

@@ -4,9 +4,9 @@ const styles = {
     height: {
       xs: '56px',
       sm: '56px',
-      md: '64px',
-      lg: '64px',
-      xl: '64px',
+      md: '60px',
+      lg: '60px',
+      xl: '60px',
     },
   },
 };
