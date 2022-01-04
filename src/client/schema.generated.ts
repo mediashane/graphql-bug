@@ -6142,6 +6142,7 @@ export const generatedSchema = {
     backgroundColor: { __type: 'String' },
     cta: { __type: '[Page_Pagebuilder_Modules_CenteredText_Cta]' },
     fieldGroupName: { __type: 'String' },
+    fontFamily: { __type: 'String' },
     textColor: { __type: 'String' },
     textSize: { __type: 'Float' },
   },
@@ -14822,6 +14823,10 @@ export interface Page_Pagebuilder_Modules_CenteredText {
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   */
+  fontFamily?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
   /**
    * Enter a whole number

@@ -5,7 +5,7 @@ const styles = {
     justifyContent: 'center',
     paddingTop: '60px',
     width: '100%',
-    minHeight: '20x',
+    minHeight: '20px',
   },
   cardListWrapper: {
     display: 'flex',

@@ -1,5 +1,3 @@
-import { freightBigProSemibold } from '../../style';
-
 const styles = {
   centeredTextContainer: {
     display: 'flex',
@@ -20,7 +18,6 @@ const styles = {
       lg: '80%',
       xl: '90%',
     },
-    fontFamily: freightBigProSemibold,
     textAlign: 'center' as const,
   },
 };

@@ -10,6 +10,7 @@ interface Props {
   backgroundColor?: string;
   textColor?: string;
   textSize?: string;
+  fontFamily?: string;
 }
 
 function CenteredText({
@@ -17,11 +18,14 @@ function CenteredText({
   textColor = '#333333',
   backgroundColor = 'transparent',
   textSize = '25px',
+  fontFamily = 'FreightBigProSemibold',
 }: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }}>
       <Container maxWidth="xl">
-        <Box sx={{ ...styles.centeredTextWrapper, fontSize: `${textSize}px`, color: textColor }}>{text}</Box>
+        <Box sx={{ ...styles.centeredTextWrapper, fontSize: `${textSize}px`, color: textColor, fontFamily }}>
+          {text}
+        </Box>
       </Container>
     </Box>
   );
