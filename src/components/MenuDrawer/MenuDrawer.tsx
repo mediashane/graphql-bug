@@ -1,13 +1,14 @@
 import React, { Dispatch, KeyboardEvent, MouseEvent, SetStateAction, useEffect, useState } from 'react';
 import { client, MenuLocationEnum } from 'client';
+import Image from 'next/image';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import ButtonBase from '@mui/material/ButtonBase';
 import Collapse from '@mui/material/Collapse';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -107,7 +108,9 @@ export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
     >
       <Box style={styles.drawerContainer}>
         <Box style={styles.closeContainer}>
-          <CloseIcon sx={styles.close} onClick={() => setMenuDrawer(!menuDrawer)} />
+          <ButtonBase onClick={() => setMenuDrawer(!menuDrawer)} aria-label="menu" sx={styles.close}>
+            <Image src="/images/close.svg" alt="close-icon" width={30} height={30} />
+          </ButtonBase>
         </Box>
         <Box sx={styles.menuContainer} role="presentation">
           {drawerMenu.map((link, index) => {
