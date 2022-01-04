@@ -49,12 +49,19 @@ const styles = {
     fontFamily: proximaNova,
     fontSize: '16px',
   },
+  contactLink: {
+    textDecoration: 'none',
+  },
   contactCardEmail: {
     paddingTop: '20px',
     color: colorBrandBlue,
     fontFamily: proximaNova,
     fontSize: '16px',
     cursor: 'pointer',
+
+    '&:hover': {
+      textDecoration: 'underline',
+    },
   },
 };
 

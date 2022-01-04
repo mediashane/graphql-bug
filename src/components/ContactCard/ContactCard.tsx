@@ -32,7 +32,9 @@ function ContactCard({
             <Typography sx={styles.contactCardAddress}>{addressTwo}</Typography>
             <Typography sx={styles.contactCardAddress}>{addressThree}</Typography>
             <Typography sx={styles.contactCardPhoneNumber}>{phoneNumber}</Typography>
-            <Typography sx={styles.contactCardEmail}>{email}</Typography>
+            <a href={`mailto:${email}`} style={styles.contactLink}>
+              <Typography sx={styles.contactCardEmail}>{email}</Typography>
+            </a>
           </Box>
         </Box>
       </Box>

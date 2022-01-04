@@ -6463,6 +6463,36 @@ export const generatedSchema = {
     textHeadline: { __type: 'String' },
     textParagraph: { __type: 'String' },
   },
+  Page_Pagebuilder_Modules_ContactBanner: {
+    __typename: { __type: 'String!' },
+    addressOne: { __type: 'String' },
+    addressTwo: { __type: 'String' },
+    description: { __type: 'String' },
+    email: { __type: 'String' },
+    faxNumber: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    locationButtonLabel: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+    title: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_ContactList: {
+    __typename: { __type: 'String!' },
+    cards: { __type: '[Page_Pagebuilder_Modules_ContactList_cards]' },
+    fieldGroupName: { __type: 'String' },
+    largeLabel: { __type: 'Boolean' },
+    sectionLabel: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_ContactList_cards: {
+    __typename: { __type: 'String!' },
+    addressOne: { __type: 'String' },
+    addressThree: { __type: 'String' },
+    addressTwo: { __type: 'String' },
+    email: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    location: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+  },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
@@ -6962,6 +6992,7 @@ export const generatedSchema = {
     textColorPrimary: { __type: 'String' },
     textColorSecondary: { __type: 'String' },
     textHeadline: { __type: 'String' },
+    variationNumber: { __type: 'String' },
     withButton: { __type: 'Boolean' },
     withDivider: { __type: 'Boolean' },
     withIconButtons: { __type: 'Boolean' },
@@ -7228,6 +7259,7 @@ export const generatedSchema = {
     textColorPrimary: { __type: 'String' },
     textColorSecondary: { __type: 'String' },
     textHeadline: { __type: 'String' },
+    variationNumber: { __type: 'String' },
     withButton: { __type: 'Boolean' },
     withDivider: { __type: 'Boolean' },
     withIconButtons: { __type: 'Boolean' },
@@ -10032,6 +10064,7 @@ export const generatedSchema = {
     textColorPrimary: { __type: 'String' },
     textColorSecondary: { __type: 'String' },
     textHeadline: { __type: 'String' },
+    variationNumber: { __type: 'String' },
     withButton: { __type: 'Boolean' },
     withDivider: { __type: 'Boolean' },
     withIconButtons: { __type: 'Boolean' },
@@ -10286,6 +10319,9 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_CardsCarousel_cards',
       'Page_Pagebuilder_Modules_TwoColumnContent',
       'Page_Pagebuilder_Modules_OneColumnContent',
+      'Page_Pagebuilder_Modules_ContactBanner',
+      'Page_Pagebuilder_Modules_ContactList',
+      'Page_Pagebuilder_Modules_ContactList_cards',
       'Page_Rug',
       'Page_Rug_Modules',
       'Page_Rug_Modules_CardsCarousel',
@@ -10350,6 +10386,8 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_CardsCarousel',
       'Page_Pagebuilder_Modules_TwoColumnContent',
       'Page_Pagebuilder_Modules_OneColumnContent',
+      'Page_Pagebuilder_Modules_ContactBanner',
+      'Page_Pagebuilder_Modules_ContactList',
     ],
     Page_Pagebuilder_Modules_CenteredText_Cta: ['Cta'],
     Page_Pagebuilder_Modules_TwoColumnGallery_RugAttributes: ['Rug_attribute'],
@@ -14562,6 +14600,9 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
     | 'Page_Pagebuilder_Modules_TwoColumnContent'
     | 'Page_Pagebuilder_Modules_OneColumnContent'
+    | 'Page_Pagebuilder_Modules_ContactBanner'
+    | 'Page_Pagebuilder_Modules_ContactList'
+    | 'Page_Pagebuilder_Modules_ContactList_cards'
     | 'Page_Rug'
     | 'Page_Rug_Modules'
     | 'Page_Rug_Modules_CardsCarousel'
@@ -14632,7 +14673,9 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
     | 'Page_Pagebuilder_Modules_CardsCarousel'
     | 'Page_Pagebuilder_Modules_TwoColumnContent'
-    | 'Page_Pagebuilder_Modules_OneColumnContent';
+    | 'Page_Pagebuilder_Modules_OneColumnContent'
+    | 'Page_Pagebuilder_Modules_ContactBanner'
+    | 'Page_Pagebuilder_Modules_ContactList';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -15660,6 +15703,60 @@ export interface Page_Pagebuilder_Modules_OneColumnContent {
   textColor?: Maybe<ScalarsEnums['String']>;
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textParagraph?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_ContactBanner {
+  __typename?: 'Page_Pagebuilder_Modules_ContactBanner';
+  addressOne?: Maybe<ScalarsEnums['String']>;
+  addressTwo?: Maybe<ScalarsEnums['String']>;
+  description?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  faxNumber?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  locationButtonLabel?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_ContactList {
+  __typename?: 'Page_Pagebuilder_Modules_ContactList';
+  cards?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_ContactList_cards>>>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If true, will display a large section label. If false, will display a smaller section label.
+   */
+  largeLabel?: Maybe<ScalarsEnums['Boolean']>;
+  sectionLabel?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Pagebuilder_Modules_ContactList_cards {
+  __typename?: 'Page_Pagebuilder_Modules_ContactList_cards';
+  addressOne?: Maybe<ScalarsEnums['String']>;
+  addressThree?: Maybe<ScalarsEnums['String']>;
+  addressTwo?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  location?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -17070,6 +17167,10 @@ export interface Rug_Rug_Modules_TwoColumnGallery {
    */
   textHeadline?: Maybe<ScalarsEnums['String']>;
   /**
+   * If the rug does not have a color, input the variant number here
+   */
+  variationNumber?: Maybe<ScalarsEnums['String']>;
+  /**
    * If true, will include a large button after the paragraph.
    */
   withButton?: Maybe<ScalarsEnums['Boolean']>;
@@ -17774,6 +17875,10 @@ export interface Page_Rug_Modules_TwoColumnGallery {
    * Name of product to display to visitor
    */
   textHeadline?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If the rug does not have a color, input the variant number here
+   */
+  variationNumber?: Maybe<ScalarsEnums['String']>;
   /**
    * If true, will include a large button after the paragraph.
    */
@@ -22252,6 +22357,10 @@ export interface DefaultTemplate_Rug_Modules_TwoColumnGallery {
    */
   textHeadline?: Maybe<ScalarsEnums['String']>;
   /**
+   * If the rug does not have a color, input the variant number here
+   */
+  variationNumber?: Maybe<ScalarsEnums['String']>;
+  /**
    * If true, will include a large button after the paragraph.
    */
   withButton?: Maybe<ScalarsEnums['Boolean']>;
@@ -22522,6 +22631,9 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_CardsCarousel_cards: Page_Pagebuilder_Modules_CardsCarousel_cards;
   Page_Pagebuilder_Modules_TwoColumnContent: Page_Pagebuilder_Modules_TwoColumnContent;
   Page_Pagebuilder_Modules_OneColumnContent: Page_Pagebuilder_Modules_OneColumnContent;
+  Page_Pagebuilder_Modules_ContactBanner: Page_Pagebuilder_Modules_ContactBanner;
+  Page_Pagebuilder_Modules_ContactList: Page_Pagebuilder_Modules_ContactList;
+  Page_Pagebuilder_Modules_ContactList_cards: Page_Pagebuilder_Modules_ContactList_cards;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
@@ -22858,6 +22970,9 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
   | 'Page_Pagebuilder_Modules_TwoColumnContent'
   | 'Page_Pagebuilder_Modules_OneColumnContent'
+  | 'Page_Pagebuilder_Modules_ContactBanner'
+  | 'Page_Pagebuilder_Modules_ContactList'
+  | 'Page_Pagebuilder_Modules_ContactList_cards'
   | 'PageToPreviewConnectionEdge'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
@@ -23306,6 +23421,9 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_CardsCarousel_cards?: Page_Pagebuilder_Modules_CardsCarousel_cards;
   Page_Pagebuilder_Modules_TwoColumnContent?: Page_Pagebuilder_Modules_TwoColumnContent;
   Page_Pagebuilder_Modules_OneColumnContent?: Page_Pagebuilder_Modules_OneColumnContent;
+  Page_Pagebuilder_Modules_ContactBanner?: Page_Pagebuilder_Modules_ContactBanner;
+  Page_Pagebuilder_Modules_ContactList?: Page_Pagebuilder_Modules_ContactList;
+  Page_Pagebuilder_Modules_ContactList_cards?: Page_Pagebuilder_Modules_ContactList_cards;
   Page_Rug?: Page_Rug;
   Page_Rug_Modules?: Page_Rug_Modules;
   Page_Rug_Modules_CardsCarousel?: Page_Rug_Modules_CardsCarousel;
@@ -23371,6 +23489,8 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_CardsCarousel?: Page_Pagebuilder_Modules_CardsCarousel;
   Page_Pagebuilder_Modules_TwoColumnContent?: Page_Pagebuilder_Modules_TwoColumnContent;
   Page_Pagebuilder_Modules_OneColumnContent?: Page_Pagebuilder_Modules_OneColumnContent;
+  Page_Pagebuilder_Modules_ContactBanner?: Page_Pagebuilder_Modules_ContactBanner;
+  Page_Pagebuilder_Modules_ContactList?: Page_Pagebuilder_Modules_ContactList;
 }
 
 export interface $Page_Pagebuilder_Modules_CenteredText_Cta {

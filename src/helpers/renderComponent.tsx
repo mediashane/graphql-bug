@@ -3,6 +3,8 @@ import {
   CardList,
   CardsCarousel,
   CenteredText,
+  ContactBanner,
+  ContactList,
   EmailSubscribe,
   FourCardsRow,
   FourCardsWithPrompt,
@@ -280,6 +282,44 @@ export default function acfRenderComponent(componentName, componentData, index):
             textColor={textColor}
             textSize={textSize}
             fontFamily={fontFamily}
+          />
+        );
+      }
+      case 'ContactBanner': {
+        const {
+          title,
+          description,
+          addressOne,
+          addressTwo,
+          phoneNumber,
+          faxNumber,
+          email,
+          locationButtonLabel,
+          image,
+        } = componentData;
+        return (
+          <ContactBanner
+            key={`${componentName}_${index}`}
+            title={title}
+            description={description}
+            addressOne={addressOne}
+            addressTwo={addressTwo}
+            phoneNumber={phoneNumber}
+            faxNumber={faxNumber}
+            email={email}
+            locationButtonLabel={locationButtonLabel}
+            image={image?.mediaItemUrl}
+          />
+        );
+      }
+      case 'ContactList': {
+        const { cards, sectionLabel, largeLabel } = componentData;
+        return (
+          <ContactList
+            key={`${componentName}_${index}`}
+            cards={cards}
+            sectionLabel={sectionLabel}
+            largeLabel={largeLabel}
           />
         );
       }
