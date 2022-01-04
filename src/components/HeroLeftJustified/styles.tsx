@@ -1,4 +1,4 @@
-import { colorWhite, freightDispSemibold } from '../../style';
+import { colorWhite, freightDispMedium, freightDispSemibold } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -49,34 +49,38 @@ const styles = {
     fontFamily: freightDispSemibold,
   },
   textOverline: {
-    fontFamily: 'inherit',
+    fontFamily: freightDispSemibold,
     fontSize: {
-      xs: '5.5vw',
-      sm: '4vw',
-      md: '3vw',
-      lg: '3vw',
-      xl: '3vw',
+      xs: '28px',
+      sm: '36px',
+      md: '36px',
+      lg: '36px',
+      xl: '36px',
     },
+    lineHeight: '36px',
   },
   textHeadline: {
-    fontFamily: 'inherit',
+    padding: '28px 0',
+    fontFamily: freightDispSemibold,
     fontSize: {
-      xs: '9.5vw',
-      sm: '8vw',
-      md: '6vw',
-      lg: '6vw',
-      xl: '6vw',
+      xs: '72px',
+      sm: '96px',
+      md: '96px',
+      lg: '96px',
+      xl: '96px',
     },
+    lineHeight: '100px',
   },
   textParagraph: {
-    fontFamily: 'inherit',
+    fontFamily: freightDispMedium,
     fontSize: {
-      xs: '4vw',
-      sm: '3.25vw',
-      md: '2.5vw',
-      lg: '2vw',
-      xl: '2vw',
+      xs: '22px',
+      sm: '28px',
+      md: '28px',
+      lg: '28px',
+      xl: '28px',
     },
+    lineHeight: '36px',
   },
 };
 

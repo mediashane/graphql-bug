@@ -14867,7 +14867,7 @@ export interface Page_Pagebuilder_Modules_CenteredText {
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
   /**
-   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
    */
   fontFamily?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
@@ -15192,7 +15192,7 @@ export interface Page_Pagebuilder_Modules_TwoColumnGallery {
    */
   listItemsLarge?: Maybe<ScalarsEnums['Boolean']>;
   /**
-   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
    */
   paragraphFont?: Maybe<ScalarsEnums['String']>;
   rugAttributes?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_TwoColumnGallery_RugAttributes>>>;
@@ -17144,7 +17144,7 @@ export interface Rug_Rug_Modules_TwoColumnGallery {
   listItemsLarge?: Maybe<ScalarsEnums['Boolean']>;
   order?: Maybe<ScalarsEnums['Float']>;
   /**
-   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
    */
   paragraphFont?: Maybe<ScalarsEnums['String']>;
   productCategory?: Maybe<Array<Maybe<Rug_Rug_Modules_TwoColumnGallery_ProductCategory>>>;
@@ -17853,7 +17853,7 @@ export interface Page_Rug_Modules_TwoColumnGallery {
   listItemsLarge?: Maybe<ScalarsEnums['Boolean']>;
   order?: Maybe<ScalarsEnums['Float']>;
   /**
-   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
    */
   paragraphFont?: Maybe<ScalarsEnums['String']>;
   productCategory?: Maybe<Array<Maybe<Page_Rug_Modules_TwoColumnGallery_ProductCategory>>>;
@@ -22334,7 +22334,7 @@ export interface DefaultTemplate_Rug_Modules_TwoColumnGallery {
   listItemsLarge?: Maybe<ScalarsEnums['Boolean']>;
   order?: Maybe<ScalarsEnums['Float']>;
   /**
-   * Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
    */
   paragraphFont?: Maybe<ScalarsEnums['String']>;
   productCategory?: Maybe<Array<Maybe<DefaultTemplate_Rug_Modules_TwoColumnGallery_ProductCategory>>>;

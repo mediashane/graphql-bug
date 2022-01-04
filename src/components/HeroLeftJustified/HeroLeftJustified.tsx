@@ -31,7 +31,9 @@ function HeroLeftJustified({
           <Box sx={styles.textContainer}>
             <Fade delay={500}>
               <Typography sx={{ ...styles.textOverline, color: textColor }}>{textOverline}</Typography>
-              <Typography sx={{ ...styles.textHeadline, color: textColor }}>{textHeadline}</Typography>
+              <Typography sx={{ ...styles.textHeadline, color: textColor }} variant="h1">
+                {textHeadline}
+              </Typography>
               <Typography sx={{ ...styles.textParagraph, color: textColor }}>{textParagraph}</Typography>
             </Fade>
           </Box>
