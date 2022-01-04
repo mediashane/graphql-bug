@@ -1,4 +1,4 @@
-import { colorWhite, freightBigProSemibold, proximaNova } from '../../style';
+import { colorWhite, freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -37,7 +37,7 @@ const styles = {
     },
     width: '100%',
     height: '100%',
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   introTitleText: {
     fontFamily: 'inherit',

@@ -1,4 +1,4 @@
-import { colorDarkGrey, colorLightGrey, colorWhite, freightBigProMediumItalic, proximaNova } from '../../style';
+import { colorDarkGrey, colorLightGrey, colorWhite, freightDispMediumItalic, proximaNova } from '../../style';
 
 const styles = {
   cardsCarouselContainer: {
@@ -86,7 +86,7 @@ const styles = {
       sm: '2.5rem',
     },
     fontStyle: 'italic',
-    fontFamily: freightBigProMediumItalic,
+    fontFamily: freightDispMediumItalic,
     lineHeight: 1,
   },
   cardsCarouselTextLink: {

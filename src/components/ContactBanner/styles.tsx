@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigPro, proximaNova, proximaNovaThin } from '../../style';
+import { colorBrandBlue, colorWhite, freightDispBook, proximaNova, proximaNovaThin } from '../../style';
 
 const styles = {
   bannerContainer: {
@@ -85,7 +85,7 @@ const styles = {
       lg: '48px',
       xl: '48px',
     },
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     letterSpacing: 1,
   },
   bannerBodyTextContainer: {

@@ -1,4 +1,4 @@
-import { colorWhite, freightBigProSemibold, proximaNova } from '../../style';
+import { colorWhite, freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -35,7 +35,7 @@ const styles = {
     width: '100%',
     height: '100%',
     color: colorWhite,
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   textWrapper: {
     width: {
@@ -48,7 +48,7 @@ const styles = {
     textAlign: 'center' as const,
   },
   textOverline: {
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
     fontSize: {
       xs: '32px',
       sm: '42px',

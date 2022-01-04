@@ -1,4 +1,4 @@
-import { colorBrandGreen, colorWhite, freightBigProMediumItalic, proximaNova } from '../../style';
+import { colorBrandGreen, colorWhite, freightDispMediumItalic, proximaNova } from '../../style';
 
 const styles = {
   ctaContainer: {
@@ -71,7 +71,7 @@ const styles = {
       sm: '3.75rem',
     },
     fontStyle: 'italic' as const,
-    fontFamily: freightBigProMediumItalic,
+    fontFamily: freightDispMediumItalic,
   },
   ctaMobileImage: {
     display: {

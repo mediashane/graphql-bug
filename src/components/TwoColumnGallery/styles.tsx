@@ -4,8 +4,8 @@ import {
   colorDarkGrey,
   colorLightGrey,
   colorWhite,
-  freightBigPro,
-  freightBigProMediumItalic,
+  freightDispBook,
+  freightDispMediumItalic,
   proximaNova,
 } from '../../style';
 
@@ -78,7 +78,7 @@ const styles = {
       md: '48px',
       lg: '64px',
     },
-    fontFamily: freightBigProMediumItalic,
+    fontFamily: freightDispMediumItalic,
   },
   textParagraph: {
     fontSize: {
@@ -203,7 +203,7 @@ const styles = {
   },
   iconButtonsHeadline: {
     fontSize: '32px',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     color: colorBrandBrown,
   },
   iconButtonWrapper: {

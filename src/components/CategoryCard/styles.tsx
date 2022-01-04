@@ -1,4 +1,4 @@
-import { colorDarkGrey, colorWhite, freightBigProSemibold, proximaNova } from '../../style';
+import { colorDarkGrey, colorWhite, freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   categoryCardContainer: {
@@ -134,7 +134,7 @@ const styles = {
   categoryCardTitle: {
     paddingTop: '30px',
     color: colorDarkGrey,
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
     fontSize: '22px',
   },
   categoryCardDescription: {

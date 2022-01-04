@@ -9,17 +9,23 @@ export const colorBrandBlue = '#587DA9',
   colorDarkGrey = '#333333',
   colorMidGrey = '#90949F',
   colorLightGrey = '#f7f7f7',
-  freightBigPro = 'FreightBigPro',
-  freightBigProSemibold = 'FreightBigProSemibold',
-  freightBigProBookItalic = 'FreightBigProBookItalic',
-  freightBigProMediumItalic = 'FreightBigProMediumItalic',
   frizQuadrata = 'FrizQuadrata',
   proximaNova = 'ProximaNovaRegular',
   proximaNovaThin = 'ProximaNovaThin',
+  freightDispBlack = 'FreightDispBlack',
+  freightDispBlackItalic = 'FreightDispBlackItalic',
+  freightDispBold = 'FreightDispBold',
+  freightDispBoldItalic = 'FreightDispBoldItalic',
+  freightDispBook = 'FreightDispBook',
+  freightDispBookItalic = 'FreightDispBookItalic',
+  freightDispMedium = 'FreightDispMedium',
+  freightDispMediumItalic = 'FreightDispMediumItalic',
+  freightDispSemibold = 'FreightDispSemibold',
+  freightDispSemiboldItalic = 'FreightDispSemiboldItalic',
   paddingMobile = '40px',
   siteMaxWidth = '400px';
 
-// Options include: FreightBigPro, FreightBigProSemibold, FreightBigProBookItalic, FreightBigProMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+// Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
 
 export const breakpoints = {
   xs: 0,

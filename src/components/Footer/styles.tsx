@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigPro, freightBigProBookItalic, proximaNova } from '../../style';
+import { colorBrandBlue, colorWhite, freightDispBook, freightDispBookItalic, proximaNova } from '../../style';
 
 const styles = {
   footerContainer: {
@@ -70,7 +70,7 @@ const styles = {
       xl: '2.2vw',
     },
     fontStyle: 'italic' as const,
-    fontFamily: freightBigProBookItalic,
+    fontFamily: freightDispBookItalic,
   },
   footerBodyTextContainer: {
     margin: {
@@ -136,7 +136,7 @@ const styles = {
       md: '380px',
     },
     backgroundColor: colorWhite,
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
   },
   footerFormInput: {
     fontFamily: proximaNova,

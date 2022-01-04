@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigPro, proximaNovaThin } from '../../style';
+import { colorBrandBlue, colorWhite, freightDispBook, proximaNovaThin } from '../../style';
 
 const styles = {
   drawerBackground: {
@@ -41,12 +41,12 @@ const styles = {
   },
   drawerLink: {
     color: colorWhite,
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
   },
   drawerSubmenu: {
     color: colorWhite,
     fontSize: '1.5em',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     cursor: 'pointer',
   },
   expandIcon: {
@@ -62,7 +62,7 @@ const styles = {
     fontFamily: proximaNovaThin,
   },
   drawerTextButton: {
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     cursor: 'pointer',
   },
   linkUnderlineLeft: {
@@ -94,11 +94,11 @@ const styles = {
   },
   mailingListContainer: {
     paddingTop: '24px',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
   },
   formInput: {
     color: colorWhite,
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     input: {
       '&::placeholder': {
         color: colorWhite,
@@ -121,7 +121,7 @@ const styles = {
   formLabel: {
     marginLeft: '16px',
     marginBottom: '8px',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     fontSize: '1.1rem',
   },
   inputIcon: {

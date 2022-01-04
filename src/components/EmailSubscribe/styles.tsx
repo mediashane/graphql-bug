@@ -1,4 +1,4 @@
-import { colorDarkGrey, freightBigPro, freightBigProSemibold, proximaNova } from '../../style';
+import { colorDarkGrey, freightDispBook, freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   emailSubscribeContainer: {
@@ -95,7 +95,7 @@ const styles = {
       sm: '1.7rem',
       md: '1.9rem',
     },
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
     textAlign: 'center' as const,
   },
   emailSubscribeInputContainer: {
@@ -143,7 +143,7 @@ const styles = {
     },
     height: '71px',
     color: '#858585',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     input: {
       '&::placeholder': {
         color: colorDarkGrey,

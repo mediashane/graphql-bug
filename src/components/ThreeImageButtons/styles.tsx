@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorWhite, freightBigProMediumItalic, freightBigProSemibold } from '../../style';
+import { colorBrandBlue, colorWhite, freightDispMediumItalic, freightDispSemibold } from '../../style';
 
 const styles = {
   threeImageButtonsContainer: {
@@ -31,7 +31,7 @@ const styles = {
     color: colorBrandBlue,
     fontSize: '2.5rem',
     fontStyle: 'italic' as const,
-    fontFamily: freightBigProMediumItalic,
+    fontFamily: freightDispMediumItalic,
     lineHeight: 1,
   },
   threeImageButtonsCards: {
@@ -91,7 +91,7 @@ const styles = {
   threeImageButtonsCardLabel: {
     color: colorWhite,
     fontSize: '3rem',
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
 };
 

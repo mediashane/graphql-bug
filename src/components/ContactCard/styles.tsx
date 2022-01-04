@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorDarkGrey, freightBigProSemibold, proximaNova } from '../../style';
+import { colorBrandBlue, colorDarkGrey, freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   contactCardContainer: {
@@ -35,7 +35,7 @@ const styles = {
   contactCardTitle: {
     paddingBottom: '20px',
     color: colorDarkGrey,
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
     fontSize: '22px',
   },
   contactCardAddress: {

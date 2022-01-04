@@ -1,4 +1,4 @@
-import { colorWhite, freightBigProSemibold } from 'style';
+import { colorWhite, freightDispSemibold } from 'style';
 
 const styles = {
   container: {
@@ -39,7 +39,7 @@ const styles = {
       xs: '22px',
       sm: '36px',
     },
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   chatIconContainer: {
     display: 'flex',

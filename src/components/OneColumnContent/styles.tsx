@@ -1,4 +1,4 @@
-import { colorWhite, freightBigProSemibold, proximaNova, proximaNovaThin } from '../../style';
+import { colorWhite, freightDispSemibold, proximaNova, proximaNovaThin } from '../../style';
 
 const styles = {
   wrapper: {
@@ -36,7 +36,7 @@ const styles = {
       xl: '62.5%',
     },
     color: colorWhite,
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   headlineTextContainer: {
     padding: {
@@ -58,7 +58,7 @@ const styles = {
       xl: '62.5%',
     },
     color: colorWhite,
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   textHeadline: {
     fontFamily: 'inherit',

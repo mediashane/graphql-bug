@@ -1,4 +1,4 @@
-import { colorWhite, freightBigProSemibold } from '../../style';
+import { colorWhite, freightDispSemibold } from '../../style';
 
 const styles = {
   fourFeatureTagsContainer: {
@@ -78,7 +78,7 @@ const styles = {
   },
   fourFeatureTagsTagLabel: {
     fontSize: '1.5rem',
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   fourFeatureTagsDivider: {
     margin: '30px 0 60px 0',

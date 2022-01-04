@@ -1,4 +1,4 @@
-import { freightBigProSemibold, proximaNova } from '../../style';
+import { freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   twoColumnContentContainer: {
@@ -68,7 +68,7 @@ const styles = {
     },
   },
   twoColumnHeadline: {
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
     fontSize: {
       xs: '24px',
       sm: '28px',

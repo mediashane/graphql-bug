@@ -1,4 +1,4 @@
-import { colorDarkGrey, colorWhite, freightBigPro, proximaNova } from '../../style';
+import { colorDarkGrey, colorWhite, freightDispBook, proximaNova } from '../../style';
 
 const styles = {
   outerWrapper: {
@@ -46,7 +46,7 @@ const styles = {
   },
   dialogTitle: {
     padding: '0 0 0 20px',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     fontSize: {
       xs: '24px',
       sm: '36px',

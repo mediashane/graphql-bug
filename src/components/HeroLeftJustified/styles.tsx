@@ -1,4 +1,4 @@
-import { colorWhite, freightBigProSemibold } from '../../style';
+import { colorWhite, freightDispSemibold } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -46,7 +46,7 @@ const styles = {
       xl: '62.5%',
     },
     color: colorWhite,
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
   },
   textOverline: {
     fontFamily: 'inherit',

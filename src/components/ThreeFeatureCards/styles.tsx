@@ -1,9 +1,9 @@
 import {
   colorDarkGrey,
   colorWhite,
-  freightBigPro,
-  freightBigProMediumItalic,
-  freightBigProSemibold,
+  freightDispBook,
+  freightDispMediumItalic,
+  freightDispSemibold,
   proximaNova,
 } from '../../style';
 
@@ -43,7 +43,7 @@ const styles = {
     },
     fontSize: '2.5rem',
     fontStyle: 'italic',
-    fontFamily: freightBigProMediumItalic,
+    fontFamily: freightDispMediumItalic,
     lineHeight: 1,
   },
   threeFeatureCardsCards: {
@@ -110,7 +110,7 @@ const styles = {
   },
   threeFeatureCardsCardLabel: {
     fontSize: '2rem',
-    fontFamily: freightBigProSemibold,
+    fontFamily: freightDispSemibold,
     textAlign: 'center' as const,
   },
   threeFeatureCardsCardDescription: {
@@ -122,7 +122,7 @@ const styles = {
 
   threeFeatureCardsCardImageLabel: {
     marginTop: '40px',
-    fontFamily: freightBigPro,
+    fontFamily: freightDispBook,
     fontSize: '2rem',
     fontStyle: 'normal',
     fontWeight: '500',
