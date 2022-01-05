@@ -1,6 +1,5 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -24,7 +23,6 @@ function HeroCenterTop({
 }: Props): JSX.Element {
   return (
     <>
-      <HeaderSpacer />
       <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
         <Box sx={styles.textContainer}>
           <Box sx={styles.textWrapper}>

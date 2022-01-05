@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
+import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -54,6 +55,7 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   const headerSection = (
     <>
       <Header title={generalSettings.title} />
+      <HeaderSpacer />
       <Head>
         <title>{generalSettings.title}</title>
       </Head>

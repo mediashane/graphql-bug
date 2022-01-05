@@ -1,6 +1,5 @@
 import { client } from 'client';
 import { CenteredText, ContactBanner, ContactList, Header } from 'components';
-import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -95,7 +94,6 @@ export default function Page() {
       <Head>
         <title>{generalSettings.title}</title>
       </Head>
-      <HeaderSpacer />
       <ContactBanner
         title="The Elizabeth Eakins Studio"
         description="The Elizabeth Eakins Studio is located in South Norwalk Connecticut and is open Monday through Friday from 9am to 5:00pm. Please call or email us to visit and we would be happy to have you come by to learn more about us and how we can help."

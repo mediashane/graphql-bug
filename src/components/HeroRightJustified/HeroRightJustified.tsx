@@ -1,6 +1,5 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import Image from 'next/image';
 
 import { Typography } from '@mui/material';
@@ -28,7 +27,6 @@ function HeroRightJustified({
 }: Props): JSX.Element {
   return (
     <>
-      <HeaderSpacer />
       <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${image})` }}>
         <Container sx={styles.textContainer} maxWidth="xl">
           <Box sx={styles.textWrapper}>
