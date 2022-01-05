@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { client, MenuLocationEnum } from 'client';
 import MenuDrawer from 'components/MenuDrawer/MenuDrawer';
 import getRouteSlug from 'helpers/getRouteSlug';
@@ -24,12 +24,23 @@ interface Props {
 function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
   const router = useRouter();
   const trigger = useScrollTrigger();
-  const [menuDrawer, setMenuDrawer] = React.useState(false);
+  const [menuDrawer, setMenuDrawer] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
   const { menuItems } = client.useQuery();
   const mainMenu = menuItems({
     first: 100,
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
+
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      navigator?.userAgent.indexOf('Safari') != -1 &&
+      navigator?.userAgent.indexOf('Chrome') == -1
+    ) {
+      setIsSafari(true);
+    }
+  }, []);
 
   // while waiting for the response from WordPress backend don't render
   if (!mainMenu[0]?.url || !mainMenu[0]?.label) {
@@ -57,16 +68,6 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
     const path = getRouteSlug(url);
     return `${router.asPath}` == path ? styles.headerLinksActive : styles.headerLinksHover;
   };
-
-  let isSafari = false;
-
-  if (
-    typeof window !== 'undefined' &&
-    navigator?.userAgent.indexOf('Safari') != -1 &&
-    navigator?.userAgent.indexOf('Chrome') == -1
-  ) {
-    isSafari = true;
-  }
 
   const HeaderLinks = () => {
     return (
