@@ -42,12 +42,15 @@ const styles = {
   drawerLink: {
     color: colorWhite,
     fontFamily: freightDispBook,
+    fontSize: '18px',
+    lineHeight: '24px',
   },
   drawerSubmenu: {
     color: colorWhite,
-    fontSize: '1.5em',
     fontFamily: freightDispBook,
     cursor: 'pointer',
+    fontSize: '18px',
+    lineHeight: '24px',
   },
   expandIcon: {
     marginRight: '-32px',
