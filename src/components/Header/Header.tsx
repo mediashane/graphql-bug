@@ -58,6 +58,12 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
     return `${router.asPath}` == path ? styles.headerLinksActive : styles.headerLinksHover;
   };
 
+  let isSafari = false;
+
+  if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+    isSafari = true;
+  }
+
   const HeaderLinks = () => {
     return (
       <Box sx={styles.headerLinksBox}>
@@ -80,7 +86,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
         <Slide direction="down" in={!trigger}>
           <AppBar position="static" sx={{ backgroundColor: '#ffffff' }} elevation={0}>
             <Toolbar>
-              <Typography variant="h6" sx={styles.headerTitle}>
+              <Typography variant="h6" sx={{ ...styles.headerTitle, marginTop: isSafari ? '7.5px' : 0 }}>
                 <NextLink href="/" passHref>
                   <MUILink color="inherit" variant="inherit" underline="none">
                     {title}
