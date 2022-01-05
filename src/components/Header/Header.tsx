@@ -80,7 +80,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
         <Slide direction="down" in={!trigger}>
           <AppBar position="static" sx={{ backgroundColor: '#ffffff' }} elevation={0}>
             <Toolbar>
-              <Typography variant="h6" component="div" sx={styles.headerTitle}>
+              <Typography variant="h6" sx={styles.headerTitle}>
                 <NextLink href="/" passHref>
                   <MUILink color="inherit" variant="inherit" underline="none">
                     {title}

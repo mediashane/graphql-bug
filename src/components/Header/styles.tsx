@@ -11,14 +11,11 @@ const styles = {
     transition: 'all 1s ease',
   },
   headerTitle: {
-    display: 'flex',
-    alignItems: 'center',
     flexGrow: 1,
     color: colorBrandBrown,
     fontFamily: frizQuadrata,
     textTransform: 'uppercase' as const,
     letterSpacing: '3px',
-    lineHeight: 0,
   },
   headerLinksBox: {
     typography: 'body1',
