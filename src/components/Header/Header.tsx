@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { client, MenuLocationEnum } from 'client';
 import MenuDrawer from 'components/MenuDrawer/MenuDrawer';
 import getRouteSlug from 'helpers/getRouteSlug';
@@ -15,32 +15,18 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
+import SvgLogo from './elizabethEakinsLogo';
 import styles from './styles';
 
-interface Props {
-  title?: string;
-}
-
-function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
+function Header(): JSX.Element {
   const router = useRouter();
   const trigger = useScrollTrigger();
   const [menuDrawer, setMenuDrawer] = useState(false);
-  const [isSafari, setIsSafari] = useState(false);
   const { menuItems } = client.useQuery();
   const mainMenu = menuItems({
     first: 100,
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
-
-  useEffect(() => {
-    if (
-      typeof window !== 'undefined' &&
-      navigator?.userAgent.indexOf('Safari') != -1 &&
-      navigator?.userAgent.indexOf('Chrome') == -1
-    ) {
-      setIsSafari(true);
-    }
-  }, []);
 
   // while waiting for the response from WordPress backend don't render
   if (!mainMenu[0]?.url || !mainMenu[0]?.label) {
@@ -91,10 +77,10 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
         <Slide direction="down" in={!trigger}>
           <AppBar position="static" sx={{ backgroundColor: '#ffffff' }} elevation={0}>
             <Toolbar>
-              <Typography variant="h6" sx={{ ...styles.headerTitle, marginTop: isSafari ? '7.5px' : 0 }}>
+              <Typography variant="h6" sx={styles.headerTitle}>
                 <NextLink href="/" prefetch={false} passHref>
                   <MUILink color="inherit" variant="inherit" underline="none">
-                    {title}
+                    <SvgLogo />
                   </MUILink>
                 </NextLink>
               </Typography>

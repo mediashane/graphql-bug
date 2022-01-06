@@ -24,7 +24,7 @@ export default function Page({ koaThemeOptions }: PageProps) {
 
   const headerSection = (
     <>
-      <Header title={generalSettings.title} />
+      <Header />
       <HeaderSpacer />
       <Head>
         <title>{generalSettings.title}</title>
