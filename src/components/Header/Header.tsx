@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-// import MUILink from '@mui/material/Link';
+import MUILink from '@mui/material/Link';
 import Slide from '@mui/material/Slide';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -75,9 +75,9 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
         {mainMenu?.map((link, index) => (
           <Typography sx={styles.headerLinks} key={index}>
             <NextLink href={getRouteSlug(link.url)} passHref prefetch={false}>
-              {/* <MUILink color="inherit" variant="inherit" underline="none"> */}
-              <Box sx={isActive(link.url)}>{link.label}</Box>
-              {/* </MUILink> */}
+              <MUILink color="inherit" variant="inherit" underline="none">
+                <Box sx={isActive(link.url)}>{link.label}</Box>
+              </MUILink>
             </NextLink>
           </Typography>
         ))}
