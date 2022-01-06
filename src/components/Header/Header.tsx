@@ -92,10 +92,10 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           <AppBar position="static" sx={{ backgroundColor: '#ffffff' }} elevation={0}>
             <Toolbar>
               <Typography variant="h6" sx={{ ...styles.headerTitle, marginTop: isSafari ? '7.5px' : 0 }}>
-                <NextLink href="/" prefetch={false}>
-                  {/* <MUILink color="inherit" variant="inherit" underline="none"> */}
-                  {title}
-                  {/* </MUILink> */}
+                <NextLink href="/" prefetch={false} passHref>
+                  <MUILink color="inherit" variant="inherit" underline="none">
+                    {title}
+                  </MUILink>
                 </NextLink>
               </Typography>
               <HeaderLinks />
