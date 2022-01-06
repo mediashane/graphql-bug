@@ -13,7 +13,7 @@ const styles = {
       sm: '540px',
       md: '830px',
     },
-    backgroundColor: '#dedede',
+    backgroundColor: colorWhite,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: {

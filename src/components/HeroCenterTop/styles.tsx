@@ -1,4 +1,4 @@
-import { colorLightGrey, colorWhite, freightDispSemibold, proximaNova } from '../../style';
+import { colorWhite, freightDispSemibold, proximaNova } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -13,7 +13,7 @@ const styles = {
       sm: '540px',
       md: '830px',
     },
-    backgroundColor: colorLightGrey,
+    backgroundColor: colorWhite,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: {

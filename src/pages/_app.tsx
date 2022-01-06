@@ -27,7 +27,7 @@ export default function KoaApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <NextNProgress color={colorBrandBlue} />
+      <NextNProgress color={colorBrandBlue} options={{ showSpinner: false }} />
       <ThemeProvider theme={theme}>
         <FaustProvider client={client} pageProps={pageProps}>
           <Component {...pageProps} />
