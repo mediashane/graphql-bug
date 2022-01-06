@@ -282,7 +282,7 @@ const styles = {
   },
   captionText: {
     position: 'absolute' as const,
-    top: '53px',
+    top: '40px',
     fontSize: '20px',
     color: colorDarkGrey,
     fontFamily: proximaNova,
