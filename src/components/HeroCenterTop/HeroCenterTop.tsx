@@ -18,12 +18,13 @@ function HeroCenterTop({
   textOverline = '',
   textHeadline = '',
   textSubline = '',
-  media = 'images/fromTheFarmHero.jpg',
+  // media = 'images/fromTheFarmHero.jpg',
   textColor,
 }: Props): JSX.Element {
   return (
     <>
-      <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
+      {/* <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}> */}
+      <Box sx={{ ...styles.heroContainer, backgroundImage: `url('images/fromTheFarmHero.jpg')` }}>
         <Box sx={styles.textContainer}>
           <Box sx={styles.textWrapper}>
             <Fade delay={500}>

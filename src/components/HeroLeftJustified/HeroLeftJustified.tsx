@@ -19,12 +19,13 @@ function HeroLeftJustified({
   textOverline = '',
   textHeadline = '',
   textParagraph = '',
-  media = 'images/elizabethWeaving.jpg',
+  // media = 'images/elizabethWeaving.jpg',
   textColor = '',
 }: Props): JSX.Element {
   return (
     <>
-      <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
+      {/* <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}> */}
+      <Box sx={{ ...styles.heroContainer, backgroundImage: `url('images/elizabethWeaving.jpg')` }}>
         <Container sx={styles.textWrapper} maxWidth="xl">
           <Box sx={styles.textContainer}>
             <Fade delay={500}>

@@ -23,11 +23,12 @@ function HeroRightJustified({
   textMediaLabel = '',
   mediaIcon,
   textHeadline = '',
-  image = 'images/AnalogPortrait.jpg',
-}: Props): JSX.Element {
+}: // image = 'images/AnalogPortrait.jpg',
+Props): JSX.Element {
   return (
     <>
-      <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${image})` }}>
+      {/* <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${image})` }}> */}
+      <Box sx={{ ...styles.heroContainer, backgroundImage: `url('images/AnalogPortrait.jpg')` }}>
         <Container sx={styles.textContainer} maxWidth="xl">
           <Box sx={styles.textWrapper}>
             <Fade delay={500}>
