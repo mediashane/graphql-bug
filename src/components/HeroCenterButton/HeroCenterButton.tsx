@@ -22,7 +22,7 @@ function HeroCenterButton({
   textHeadline = '',
   textColor = '',
   hoverTextColor = '',
-  buttonLabel = '',
+  buttonLabel,
 }: // media = 'images/rugsCollection.jpg',
 Props): JSX.Element {
   return (
@@ -35,22 +35,24 @@ Props): JSX.Element {
               <Typography sx={styles.introTitleText}>{textOverline}</Typography>
               <Typography sx={styles.titleText}>{textHeadline}</Typography>
               <Box sx={styles.heroButtonWrapper}>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  sx={{
-                    ...styles.heroButton,
-                    color: textColor,
-                    '&:hover': {
-                      color: hoverTextColor,
-                      backgroundColor: textColor,
-                      borderWidth: '2px',
-                      borderColor: textColor,
-                    },
-                  }}
-                >
-                  <Typography sx={styles.heroButtonText}>{buttonLabel}</Typography>
-                </Button>
+                {buttonLabel && (
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    sx={{
+                      ...styles.heroButton,
+                      color: textColor,
+                      '&:hover': {
+                        color: hoverTextColor,
+                        backgroundColor: textColor,
+                        borderWidth: '2px',
+                        borderColor: textColor,
+                      },
+                    }}
+                  >
+                    <Typography sx={styles.heroButtonText}>{buttonLabel}</Typography>
+                  </Button>
+                )}
               </Box>
             </Fade>
           </Box>
