@@ -1,5 +1,6 @@
 import React, { Dispatch, KeyboardEvent, MouseEvent, SetStateAction, useEffect, useState } from 'react';
 import { client, MenuLocationEnum } from 'client';
+import toggleDialog from 'helpers/toggleDialog';
 import Image from 'next/image';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -58,6 +59,11 @@ export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
   const handleClick = (index) => {
     const updateSubmenus = submenus.map((submenu, i) => (i == index ? { ...submenu, open: !submenu.open } : submenu));
     setSubmenus(updateSubmenus);
+  };
+
+  const handleAppointment = () => {
+    setMenuDrawer(false);
+    toggleDialog('appointment');
   };
 
   const toggleDrawer = () => (event: KeyboardEvent | MouseEvent) => {
@@ -157,7 +163,7 @@ export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
         </Box>
         <List>
           <MUILink sx={styles.drawerLinkWrapper} color="inherit" variant="inherit" underline="hover">
-            <ListItem>
+            <ListItem onClick={() => handleAppointment()}>
               <ListItemText sx={styles.drawerTextButton} primary={'Book an Appointment'} disableTypography />
             </ListItem>
           </MUILink>
