@@ -24,6 +24,8 @@ const styles = {
     color: colorWhite,
   },
   bannerLeftColumn: {
+    display: 'flex',
+    alignItems: 'center',
     width: {
       xs: '90%',
       sm: '90%',
@@ -31,11 +33,12 @@ const styles = {
       lg: '60%',
       xl: '60%',
     },
-    height: {
-      xs: '100%',
-      sm: '100%',
-      md: '100%',
-    },
+    height: '660px',
+    // {
+    //   xs: '100%',
+    //   sm: '100%',
+    //   md: '100%',
+    // },
   },
   bannerRightColumn: {
     display: 'flex',
@@ -73,8 +76,8 @@ const styles = {
     margin: {
       xs: '40px 0 0 0',
       sm: '40px 0 0 0',
-      md: '60px 40px 40px 40px',
-      xl: '80px 40px 40px 0',
+      md: '0 40px 20px 40px',
+      xl: '0 40px 20px 0',
     },
   },
   bannerTitle: {
