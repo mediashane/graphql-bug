@@ -23,7 +23,7 @@ function ImageCard({ buttonImage = '', label = '', textColor = '', link }: Props
   const [overlay, setOverlay] = useState(0.2);
 
   return (
-    <NextLink href={String(link.url)} passHref>
+    <NextLink href={String(link)} passHref>
       <MUILink underline="none">
         <Box
           onMouseEnter={() => setOverlay(0.1)}
