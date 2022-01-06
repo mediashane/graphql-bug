@@ -147,25 +147,25 @@ export default function acfRenderComponent(componentName, componentData, index):
           <FourCardsRow
             key={`${componentName}_${index}`}
             textColor={textColor}
-            imageOne={imageOne?.mediaItemUrl ?? ''}
+            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
             linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={imageTwo?.mediaItemUrl ?? ''}
+            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
             linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={imageThree?.mediaItemUrl ?? ''}
+            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
             linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={imageFour?.mediaItemUrl ?? ''}
+            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
             linkFour={linkFour?.url ?? '/'}
@@ -221,10 +221,6 @@ export default function acfRenderComponent(componentName, componentData, index):
           iconButtonThreeLink,
           iconButtonThreeLabel,
         } = componentData;
-
-        // console.log('PRODUCT CATEGORY ', productCategory[0].$on.Product_category.title());
-
-        // console.log('RUG COLLECTION IN TWO COLUMN? ', currentCollection);
 
         const listItems = [];
 
