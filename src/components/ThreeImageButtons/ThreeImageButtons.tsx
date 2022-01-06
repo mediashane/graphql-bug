@@ -51,19 +51,15 @@ function ThreeImageButtons({
   labelThree = '',
   linkThree = {},
 }: Props): JSX.Element {
-  const { url: urlOne } = linkOne;
-  const { url: urlTwo } = linkTwo;
-  const { url: urlThree } = linkThree;
-
   return (
     <Container maxWidth="xl">
       <Box sx={styles.threeImageButtonsContainer}>
         <Box sx={styles.threeImageButtonsContent}>
           <Typography sx={{ ...styles.threeImageButtonsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
           <Box sx={styles.threeImageButtonsCards}>
-            <ImageCard buttonImage={buttonImageOne} label={labelOne} link={urlOne} textColor={textColor} />
-            <ImageCard buttonImage={buttonImageTwo} label={labelTwo} link={urlTwo} textColor={textColor} />
-            <ImageCard buttonImage={buttonImageThree} label={labelThree} link={urlThree} textColor={textColor} />
+            <ImageCard buttonImage={buttonImageOne} label={labelOne} link={linkOne} textColor={textColor} />
+            <ImageCard buttonImage={buttonImageTwo} label={labelTwo} link={linkTwo} textColor={textColor} />
+            <ImageCard buttonImage={buttonImageThree} label={labelThree} link={linkThree} textColor={textColor} />
           </Box>
         </Box>
       </Box>

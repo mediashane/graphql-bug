@@ -11,10 +11,15 @@ interface Props {
   buttonImage: string;
   label: string;
   textColor: string;
-  link: string;
+  link: {
+    url?: string;
+    target?: string;
+    title?: string;
+    __typename?: string;
+  };
 }
 
-function ImageCard({ buttonImage = '', label = '', textColor = '', link = '' }: Props): JSX.Element {
+function ImageCard({ buttonImage = '', label = '', textColor = '', link }: Props): JSX.Element {
   const [overlay, setOverlay] = useState(0.2);
 
   return (
