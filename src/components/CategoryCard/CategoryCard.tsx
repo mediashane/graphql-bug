@@ -49,7 +49,7 @@ function CategoryCard({
   return (
     <Box sx={cardContainer}>
       <CardSticker stickerText={stickerText} showSticker={showSticker} />
-      <NextLink href={link} passHref>
+      <NextLink href={link} passHref prefetch={false}>
         <MUILink color="inherit" variant="inherit" underline="none" target={target}>
           <Box sx={styles.categoryCardWrapper} onMouseEnter={() => setOverlay(0.1)} onMouseLeave={() => setOverlay(0)}>
             <Box sx={cardImage} />

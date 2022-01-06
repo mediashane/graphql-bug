@@ -83,7 +83,7 @@ function CarouselCards({
           <Typography sx={{ ...styles.cardsCarouselLabel, color: labelColor }}>
             {sectionLabel && `More from ${sectionLabel}`}
           </Typography>
-          <NextLink href={textLinkUrl} passHref>
+          <NextLink href={textLinkUrl} passHref prefetch={false}>
             <MUILink color="inherit" variant="inherit" underline="hover">
               <Typography sx={{ ...styles.cardsCarouselTextLink, color: textColor }}>{textLinkLabel}</Typography>
             </MUILink>

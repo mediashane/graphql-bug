@@ -124,7 +124,7 @@ function TwoColumnGallery({
         <Box sx={styles.iconButtonsContainer}>
           <Typography sx={styles.iconButtonsHeadline}>{iconButtonsHeadline}</Typography>
           <Box sx={styles.iconButtonsGroup}>
-            <NextLink href={iconButtonOneLink} passHref>
+            <NextLink href={iconButtonOneLink} passHref prefetch={false}>
               <MUILink color="inherit" variant="inherit" underline="none">
                 <Box sx={styles.iconButtonWrapper}>
                   <Box sx={{ ...styles.iconButton, backgroundImage: `url(${iconButtonOneImage})` }}></Box>
@@ -132,7 +132,7 @@ function TwoColumnGallery({
                 </Box>
               </MUILink>
             </NextLink>
-            <NextLink href={iconButtonTwoLink} passHref>
+            <NextLink href={iconButtonTwoLink} passHref prefetch={false}>
               <MUILink color="inherit" variant="inherit" underline="none">
                 <Box sx={styles.iconButtonWrapper}>
                   <Box sx={{ ...styles.iconButton, backgroundImage: `url(${iconButtonTwoImage})` }}></Box>
@@ -140,7 +140,7 @@ function TwoColumnGallery({
                 </Box>
               </MUILink>
             </NextLink>
-            <NextLink href={iconButtonThreeLink} passHref>
+            <NextLink href={iconButtonThreeLink} passHref prefetch={false}>
               <MUILink color="inherit" variant="inherit" underline="none">
                 <Box sx={styles.iconButtonWrapper}>
                   <Box sx={{ ...styles.iconButton, backgroundImage: `url(${iconButtonThreeImage})` }}></Box>

@@ -19,7 +19,7 @@ export default function MenuItem({ buttonTarget, url, index }: LinkTarget) {
   return (
     <>
       <List sx={styles.linkUnderlineLeft}>
-        <NextLink href={url} passHref key={index}>
+        <NextLink href={url} passHref key={index} prefetch={false}>
           <MUILink underline="none">
             <ListItem key={index}>
               <ListItemText sx={styles.drawerLink} disableTypography primary={buttonTarget} />

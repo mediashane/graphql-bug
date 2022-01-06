@@ -16,7 +16,7 @@ type LinkTarget = {
 
 export default function SubmenuItem({ buttonTarget, url, setMenuDrawer }: LinkTarget) {
   return (
-    <NextLink href={getRouteSlug(url)} passHref>
+    <NextLink href={getRouteSlug(url)} passHref prefetch={false}>
       <MUILink sx={styles.drawerLinkWrapper} underline="hover">
         <ListItem disablePadding onClick={() => setMenuDrawer(false)} onKeyDown={() => setMenuDrawer(false)}>
           <ListItemText disableTypography sx={styles.drawerSublink} primary={buttonTarget} />

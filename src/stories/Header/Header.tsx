@@ -22,7 +22,7 @@ function Header({ title, mainMenu }: Props): JSX.Element {
       <Box sx={styles.headerLinksBox}>
         {mainMenu?.map((link, index) => (
           <Typography sx={styles.headerLinks} key={index}>
-            <NextLink href={link.url} passHref>
+            <NextLink href={link.url} passHref prefetch={false}>
               <MUILink color="inherit" variant="inherit" underline="hover">
                 {link.label}
               </MUILink>
@@ -38,7 +38,7 @@ function Header({ title, mainMenu }: Props): JSX.Element {
       <AppBar position="static" color="transparent">
         <Toolbar>
           <Typography variant="h6" component="div" sx={styles.headerTitle}>
-            <NextLink href="/" passHref>
+            <NextLink href="/" passHref prefetch={false}>
               <MUILink color="inherit" underline="none">
                 {title}
               </MUILink>

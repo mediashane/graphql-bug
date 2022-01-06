@@ -43,7 +43,7 @@ function FourCard({ image, title, subtitle, textColor, link, showSticker, sticke
   return (
     <Box onMouseEnter={() => setOverlay(0.1)} onMouseLeave={() => setOverlay(0)} sx={styles.fourCardsCardContainer}>
       <FourCardSticker stickerText={stickerText} showSticker={showSticker} />
-      <NextLink href={link} passHref>
+      <NextLink href={link} passHref prefetch={false}>
         <MUILink color="inherit" variant="inherit" underline={overlay === 0 ? 'none' : 'always'}>
           <CardImage />
           <Box sx={styles.fourCardsLabelContainer}>

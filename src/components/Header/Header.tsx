@@ -74,7 +74,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
       <Box sx={styles.headerLinksBox}>
         {mainMenu?.map((link, index) => (
           <Typography sx={styles.headerLinks} key={index}>
-            <NextLink href={getRouteSlug(link.url)} passHref>
+            <NextLink href={getRouteSlug(link.url)} passHref prefetch={false}>
               {/* <MUILink color="inherit" variant="inherit" underline="none"> */}
               <Box sx={isActive(link.url)}>{link.label}</Box>
               {/* </MUILink> */}
@@ -92,7 +92,7 @@ function Header({ title = 'Elizabeth Eakins' }: Props): JSX.Element {
           <AppBar position="static" sx={{ backgroundColor: '#ffffff' }} elevation={0}>
             <Toolbar>
               <Typography variant="h6" sx={{ ...styles.headerTitle, marginTop: isSafari ? '7.5px' : 0 }}>
-                <NextLink href="/">
+                <NextLink href="/" prefetch={false}>
                   {/* <MUILink color="inherit" variant="inherit" underline="none"> */}
                   {title}
                   {/* </MUILink> */}

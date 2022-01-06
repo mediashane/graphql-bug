@@ -21,7 +21,7 @@ export default function MenuItem({ buttonTarget, url, index, setMenuDrawer }: Li
   return (
     <>
       <List sx={styles.linkUnderlineLeft}>
-        <NextLink href={getRouteSlug(url)} passHref key={index}>
+        <NextLink href={getRouteSlug(url)} passHref key={index} prefetch={false}>
           <MUILink underline="none">
             <ListItem key={index} onClick={() => setMenuDrawer(false)} onKeyDown={() => setMenuDrawer(false)}>
               <ListItemText sx={styles.drawerLink} disableTypography primary={buttonTarget} />
