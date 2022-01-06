@@ -187,7 +187,7 @@ export default function Page() {
 
   return (
     <>
-      <Header title={generalSettings.title} />
+      <Header />
 
       <Head>
         <title>{generalSettings.title}</title>

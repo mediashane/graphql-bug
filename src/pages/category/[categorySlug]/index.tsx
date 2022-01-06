@@ -24,7 +24,7 @@ export default function Page() {
 
   return (
     <>
-      <Header title={generalSettings.title} />
+      <Header />
 
       <Head>
         <title>Posts - {generalSettings?.title}</title>

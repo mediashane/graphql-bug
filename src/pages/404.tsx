@@ -11,7 +11,7 @@ export default function Page(): JSX.Element {
   return (
     <>
       <main className="content content-page">
-        <Header title={generalSettings.title} />
+        <Header />
         <Head>
           <title>{generalSettings.title}</title>
         </Head>

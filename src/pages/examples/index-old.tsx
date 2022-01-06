@@ -23,7 +23,7 @@ export default function Page() {
 
   return (
     <>
-      <Header title={generalSettings.title} />
+      <Header />
       <Head>
         <title>Rugs - {generalSettings.title}</title>
       </Head>

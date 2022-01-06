@@ -15,7 +15,7 @@ export function PostComponent({ post }: PostProps) {
 
   return (
     <>
-      <Header title={generalSettings.title} />
+      <Header />
 
       <Head>
         <title>
