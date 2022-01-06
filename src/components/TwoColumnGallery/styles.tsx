@@ -20,7 +20,7 @@ const styles = {
     },
     height: '100%',
     width: '100%',
-    paddingBottom: '60px',
+    // paddingBottom: '60px',
   },
   imageSliderContainer: {
     display: 'flex',
@@ -280,9 +280,38 @@ const styles = {
     backgroundColor: colorBrandBlue,
     borderRadius: '50%',
   },
+  captionWrapperMobile: {
+    width: '100%',
+    display: {
+      xs: 'flex',
+      sm: 'flex',
+      md: 'none',
+    },
+  },
+  captionWrapperDesktop: {
+    display: {
+      xs: 'none',
+      sm: 'none',
+      md: 'flex',
+    },
+  },
+  captionContainerMobile: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '50px',
+    backgroundColor: colorLightGrey,
+  },
+  captionContainerDesktop: {
+    width: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '50px',
+    backgroundColor: colorLightGrey,
+  },
   captionText: {
-    position: 'absolute' as const,
-    top: '45px',
     fontSize: '20px',
     color: colorDarkGrey,
     fontFamily: proximaNova,

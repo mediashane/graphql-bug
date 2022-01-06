@@ -210,6 +210,13 @@ function TwoColumnGallery({
             <IconButtons />
           </Box>
         </Box>
+        <Box sx={styles.captionWrapperMobile}>
+          <Box sx={styles.captionContainerMobile}>
+            {images[imageIndex]?.caption && (
+              <Typography sx={styles.captionText}>{images[imageIndex].caption}</Typography>
+            )}
+          </Box>
+        </Box>
         <Box sx={{ ...styles.imageSliderContainer, backgroundImage: `url(${images[imageIndex].image.mediaItemUrl})` }}>
           {Object.values(images).length > 1 && (
             <Box sx={styles.controlsContainer}>
@@ -251,10 +258,13 @@ function TwoColumnGallery({
                 })}
               </Box>
             )}
-            {images[imageIndex]?.caption && (
-              <Typography sx={styles.captionText}>{images[imageIndex].caption}</Typography>
-            )}
           </Box>
+        </Box>
+      </Box>
+      <Box sx={styles.captionWrapperDesktop}>
+        <Box sx={styles.captionContainerDesktop} />
+        <Box sx={styles.captionContainerDesktop}>
+          {images[imageIndex]?.caption && <Typography sx={styles.captionText}>{images[imageIndex].caption}</Typography>}
         </Box>
       </Box>
     </>
