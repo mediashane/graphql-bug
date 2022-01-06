@@ -40,7 +40,7 @@ const styles = {
     backgroundPosition: {
       xs: 'center center',
       sm: 'center center',
-      md: 'top center',
+      md: 'center center',
     },
   },
   textContainer: {
