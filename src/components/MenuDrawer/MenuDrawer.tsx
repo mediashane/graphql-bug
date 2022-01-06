@@ -81,7 +81,14 @@ export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
       <List component="div" disablePadding>
         {drawerMenu.map((sublink, subindex) => {
           if (sublink.parentId === link.id) {
-            return <SubmenuItem buttonTarget={sublink.label} key={subindex} url={sublink.url} />;
+            return (
+              <SubmenuItem
+                buttonTarget={sublink.label}
+                key={subindex}
+                url={sublink.url}
+                setMenuDrawer={setMenuDrawer}
+              />
+            );
           }
         })}
       </List>
@@ -143,7 +150,7 @@ export default function MenuDrawer({ menuDrawer, setMenuDrawer }: Props) {
                   key={index}
                   index={index}
                   url={link.url}
-                  toggleDrawer={toggleDrawer}
+                  setMenuDrawer={setMenuDrawer}
                 />
               );
           })}

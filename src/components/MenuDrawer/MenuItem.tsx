@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import getRouteSlug from 'helpers/getRouteSlug';
 import NextLink from 'next/link';
 
@@ -14,16 +14,16 @@ type LinkTarget = {
   buttonTarget: string;
   index: number;
   url: string;
-  toggleDrawer: () => void;
+  setMenuDrawer: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function MenuItem({ buttonTarget, url, index, toggleDrawer }: LinkTarget) {
+export default function MenuItem({ buttonTarget, url, index, setMenuDrawer }: LinkTarget) {
   return (
     <>
       <List sx={styles.linkUnderlineLeft}>
         <NextLink href={getRouteSlug(url)} passHref key={index}>
           <MUILink underline="none">
-            <ListItem key={index} onClick={() => toggleDrawer()} onKeyDown={() => toggleDrawer()}>
+            <ListItem key={index} onClick={() => setMenuDrawer(false)} onKeyDown={() => setMenuDrawer(false)}>
               <ListItemText sx={styles.drawerLink} disableTypography primary={buttonTarget} />
             </ListItem>
           </MUILink>
