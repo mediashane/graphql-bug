@@ -5,6 +5,8 @@ import 'normalize.css/normalize.css';
 import React, { useEffect } from 'react';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
+import NextNProgress from 'nextjs-progressbar';
+import { colorBrandBlue } from 'style';
 import theme from 'style/theme';
 
 import { FaustProvider } from '@faustjs/next';
@@ -24,10 +26,13 @@ export default function KoaApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <FaustProvider client={client} pageProps={pageProps}>
-        <Component {...pageProps} />
-      </FaustProvider>
-    </ThemeProvider>
+    <>
+      <NextNProgress color={colorBrandBlue} />
+      <ThemeProvider theme={theme}>
+        <FaustProvider client={client} pageProps={pageProps}>
+          <Component {...pageProps} />
+        </FaustProvider>
+      </ThemeProvider>
+    </>
   );
 }

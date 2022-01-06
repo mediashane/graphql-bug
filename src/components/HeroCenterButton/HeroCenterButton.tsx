@@ -23,7 +23,7 @@ function HeroCenterButton({
   textColor = '',
   hoverTextColor = '',
   buttonLabel = '',
-  media = '',
+  media = 'images/rugsCollection.jpg',
 }: Props): JSX.Element {
   return (
     <>

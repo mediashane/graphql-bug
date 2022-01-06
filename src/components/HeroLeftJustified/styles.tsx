@@ -1,4 +1,4 @@
-import { colorWhite, freightDispMedium, freightDispSemibold } from '../../style';
+import { colorLightGrey, colorWhite, freightDispMedium, freightDispSemibold } from '../../style';
 
 const styles = {
   heroContainer: {
@@ -13,7 +13,7 @@ const styles = {
     height: '50vw',
     minHeight: '620px',
     maxHeight: '830px',
-    backgroundColor: '#dedede',
+    backgroundColor: colorLightGrey,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '80% top',
