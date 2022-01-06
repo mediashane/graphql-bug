@@ -50,7 +50,7 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
         })
     : page?.pageBuilder?.modules;
 
-  console.log('PAGE COMPONENT ', modules);
+  // console.log('PAGE COMPONENT ', modules);
 
   const headerSection = (
     <>

@@ -135,7 +135,7 @@ function FeatureTagIcons({
             </Box>
           </Box>
         </Box>
-        <Box sx={styles.fourCardsCards}>
+        <Box sx={{ ...styles.fourCardsCards, alignItems: flexDirection === 'row' ? 'flex-end' : 'flex-start' }}>
           <FourCard
             image={imageOne}
             title={titleOne}

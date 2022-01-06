@@ -9,12 +9,6 @@ const styles = {
       md: 'center',
     },
     justifyContent: 'center',
-    margin: {
-      xs: '0 0 0 0',
-      sm: '0 0 0 0',
-      md: '60px 0 0 0',
-      lg: '80px 0 60px 0',
-    },
     width: '100%',
     height: {
       xs: '100%',
