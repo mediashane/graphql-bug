@@ -28,6 +28,7 @@ const styles = {
     height: '100%',
   },
   threeImageButtonsTitle: {
+    paddingLeft: '40px',
     color: colorBrandBlue,
     fontSize: '2.5rem',
     fontStyle: 'italic' as const,
