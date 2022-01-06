@@ -135,7 +135,7 @@ const styles = {
     paddingTop: '30px',
     color: colorDarkGrey,
     fontFamily: freightDispSemibold,
-    fontSize: '22px',
+    fontSize: '24px',
   },
   categoryCardDescription: {
     paddingTop: '20px',

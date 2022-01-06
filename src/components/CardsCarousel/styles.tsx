@@ -150,7 +150,7 @@ const styles = {
     maxWidth: '280px',
   },
   carouselCardTitle: {
-    fontSize: '20px',
+    fontSize: '24px',
     fontFamily: proximaNova,
   },
   carouselCardSubtitle: {
