@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NextLink from 'next/link';
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -95,9 +96,11 @@ function Footer({
               <Typography sx={styles.footerBodyText}>{locationDescription}</Typography>
             </Box>
             <Box sx={styles.footerMailingButtonWrapper}>
-              <Button variant="outlined" size="large" sx={styles.footerButton}>
-                {locationButtonLabel}
-              </Button>
+              <NextLink href={'/contact-us'} passHref prefetch={false}>
+                <Button variant="outlined" size="large" sx={styles.footerButton}>
+                  {locationButtonLabel}
+                </Button>
+              </NextLink>
             </Box>
             <Typography sx={styles.footerTitle}>{socialTitle}</Typography>
             <Box sx={styles.footerBodyTextContainer}>
