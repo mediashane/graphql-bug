@@ -77,13 +77,13 @@ function Header(): JSX.Element {
         <Slide direction="down" in={!trigger}>
           <AppBar position="static" sx={{ backgroundColor: '#ffffff' }} elevation={0}>
             <Toolbar>
-              <Typography variant="h6" sx={styles.headerTitle}>
+              <Box sx={styles.headerTitle}>
                 <NextLink href="/" prefetch={false} passHref>
-                  <MUILink color="inherit" variant="inherit" underline="none">
-                    <SvgLogo />
-                  </MUILink>
+                  {/* <MUILink color="inherit" variant="inherit" underline="none"> */}
+                  <SvgLogo />
+                  {/* </MUILink> */}
                 </NextLink>
-              </Typography>
+              </Box>
               <HeaderLinks />
               <IconButton
                 onClick={() => setMenuDrawer(!menuDrawer)}

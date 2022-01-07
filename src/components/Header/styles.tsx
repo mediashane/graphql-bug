@@ -1,4 +1,4 @@
-import { colorBrandBrown, colorDarkGrey, frizQuadrata, proximaNova } from '../../style';
+import { colorBrandBrown, colorDarkGrey, proximaNova } from '../../style';
 
 const styles = {
   headerContainer: {
@@ -11,11 +11,9 @@ const styles = {
     transition: 'all 1s ease',
   },
   headerTitle: {
+    paddingTop: '5px',
     flexGrow: 1,
-    color: colorBrandBrown,
-    fontFamily: frizQuadrata,
-    textTransform: 'uppercase' as const,
-    letterSpacing: '3px',
+    cursor: 'pointer',
   },
   headerLinksBox: {
     typography: 'body1',
