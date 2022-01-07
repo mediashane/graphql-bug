@@ -80,7 +80,9 @@ function Header(): JSX.Element {
               <Box sx={styles.headerTitle}>
                 <NextLink href="/" prefetch={false} passHref>
                   {/* <MUILink color="inherit" variant="inherit" underline="none"> */}
-                  <SvgLogo />
+                  <Box sx={styles.logoWrapper}>
+                    <SvgLogo />
+                  </Box>
                   {/* </MUILink> */}
                 </NextLink>
               </Box>

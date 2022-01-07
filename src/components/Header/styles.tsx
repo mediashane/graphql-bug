@@ -14,6 +14,10 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     flexGrow: 1,
+  },
+  logoWrapper: {
+    display: 'flex',
+    alignItems: 'center',
     cursor: 'pointer',
   },
   headerLinksBox: {
