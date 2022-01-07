@@ -20,7 +20,6 @@ const styles = {
     },
     height: '100%',
     width: '100%',
-    // paddingBottom: '60px',
   },
   imageSliderContainer: {
     display: 'flex',
@@ -51,18 +50,13 @@ const styles = {
       md: '50%',
     },
     minHeight: '620px',
-    maxHeight: {
-      xs: 'none',
-      sm: 'none',
-      md: '836px',
-    },
   },
   textWrapper: {
     padding: {
       xs: '40px',
       sm: '40px',
-      md: '20px',
-      lg: '40px',
+      md: '20px 20px 0 20px',
+      lg: '40px 40px 0 40px',
     },
   },
   textOverline: {
@@ -76,7 +70,8 @@ const styles = {
       xs: '48px',
       sm: '64px',
       md: '48px',
-      lg: '64px',
+      lg: '48px',
+      xl: '64px',
     },
     fontFamily: freightDispMediumItalic,
   },
