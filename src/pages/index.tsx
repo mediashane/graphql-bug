@@ -18,7 +18,7 @@ export interface PageProps {
 export default function Page({ koaThemeOptions }: PageProps) {
   const generalSettings = useQuery().generalSettings;
   const pageData = useQuery().page({
-    id: '/',
+    id: '/home',
     idType: PageIdType.URI,
   });
 

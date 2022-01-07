@@ -106,7 +106,26 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 export function getStaticPaths() {
   return {
-    paths: [],
+    paths: [
+      '/rugs',
+      '/our-story',
+      '/from-the-farm',
+      '/contact-us',
+      '/belden',
+      '/cotton',
+      '/elizabeths-cloth',
+      '/fabric',
+      '/grasscloth',
+      '/hagga',
+      '/hand-tufted',
+      '/home',
+      '/master-series-classic',
+      '/master-series-linen-wool',
+      '/master-series-private-reserve',
+      '/new-arrivals',
+      '/teff',
+      '/woven-textures',
+    ],
     fallback: 'blocking',
   };
 }

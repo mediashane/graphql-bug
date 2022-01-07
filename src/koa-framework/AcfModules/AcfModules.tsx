@@ -10,6 +10,7 @@ export default function AcfModules({ modules }: Props) {
   return (
     <>
       {modules.map((module, index) => {
+        console.log('[KOA]', 'Rendering', module?.__typename);
         const componentName = module?.__typename?.split('_')?.pop() ?? module?.[0]?.__typename?.split('_')?.pop();
         if (!componentName) {
           console.error('[KOA]', 'AcfModules', 'Component name is empty');
