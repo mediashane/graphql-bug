@@ -11,7 +11,8 @@ const styles = {
     transition: 'all 1s ease',
   },
   headerTitle: {
-    paddingTop: '5px',
+    display: 'flex',
+    alignItems: 'center',
     flexGrow: 1,
     cursor: 'pointer',
   },
