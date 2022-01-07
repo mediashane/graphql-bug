@@ -44,6 +44,36 @@ const styles = {
   dialogContainer: {
     borderRadius: '0px',
   },
+  closeContainer: {
+    position: 'absolute' as const,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    width: {
+      xs: '92.5%',
+      sm: '90%',
+      md: '90%',
+      lg: '41%',
+      xl: '41%',
+    },
+    height: {
+      xs: '35px',
+      sm: '20px',
+    },
+  },
+  close: {
+    alignSelf: 'flex-end',
+    padding: '5px 5px 0 0',
+    width: '50px',
+    height: '50px',
+    opacity: '0.7',
+    transition: 'all 0.2s ease',
+    cursor: 'pointer',
+    zIndex: '2',
+
+    '&:hover': {
+      opacity: '1',
+    },
+  },
   dialogTitle: {
     padding: '0 0 0 20px',
     fontFamily: freightDispBook,

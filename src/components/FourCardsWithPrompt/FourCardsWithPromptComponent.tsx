@@ -1,4 +1,5 @@
 import React from 'react';
+import toggleDialog from 'helpers/toggleDialog';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -106,7 +107,12 @@ function FeatureTagIcons({
     if (withButton) {
       return (
         <Box sx={styles.fourCardsPromptButtonWrapper}>
-          <Button variant="outlined" size="large" sx={{ ...styles.fourCardsPromptButton, color: buttonLabelColor }}>
+          <Button
+            variant="outlined"
+            size="large"
+            sx={{ ...styles.fourCardsPromptButton, color: buttonLabelColor }}
+            onClick={() => toggleDialog('appointment')}
+          >
             {buttonLabel}
           </Button>
         </Box>

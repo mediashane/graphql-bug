@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { KoaThemeOptions } from 'client';
 import Email from 'helpers/smtp';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import {
@@ -16,7 +17,10 @@ import {
   Select,
   Typography,
 } from '@mui/material';
+import ButtonBase from '@mui/material/ButtonBase';
+import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
+import FormGroup from '@mui/material/FormGroup';
 import Input from '@mui/material/Input';
 
 import styles from './styles';
@@ -32,13 +36,18 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
   const [selectedAppointmentType, setSelectedAppointmentType] = useState(
     koaThemeOptions?.bookAnAppointment?.appointmentType?.split(',')[0] ?? '',
   );
-  const [selectedAppointmentTopic, setSelectedAppointmentTopic] = useState(
-    koaThemeOptions?.bookAnAppointment?.appointmentTopics?.split(',')[0] ?? '',
-  );
+  const [selectedAppointmentTopic, setSelectedAppointmentTopic] = useState({});
   const [isProfessional, setIsProfessional] = useState('no');
   const [nearestLocation, setNearestLocation] = useState('');
   const [anythingElse, setAnythingElse] = useState('');
   const router = useRouter();
+
+  const handleTopicChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedAppointmentTopic({
+      ...selectedAppointmentTopic,
+      [event.target.name]: event.target.checked,
+    });
+  };
 
   const handleSubmit = () => {
     Email.send({
@@ -92,6 +101,11 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
           }}
         />
         <Box sx={styles.formContainer}>
+          <Box sx={styles.closeContainer}>
+            <ButtonBase onClick={() => handleClose()} aria-label="menu" sx={styles.close}>
+              <Image src="/images/closeDark.svg" alt="close-icon" width={30} height={30} />
+            </ButtonBase>
+          </Box>
           <DialogTitle sx={styles.dialogTitle}>Book an Appointment</DialogTitle>
           <DialogContent>
             <Box sx={styles.formInputRow}>
@@ -194,31 +208,29 @@ function AppointmentDialog({ koaThemeOptions }: Props): JSX.Element {
             </Box>
             <Box sx={styles.formInputWrapper}>
               <Typography sx={styles.formInputLabel}>{koaThemeOptions?.bookAnAppointment?.topicsPrompt}</Typography>
-              <RadioGroup
-                row
-                aria-label="appointment-topics"
-                name="row-radio-buttons-group"
-                value={selectedAppointmentTopic}
-                onChange={(event) => setSelectedAppointmentTopic(event.target.value)}
-              >
-                {koaThemeOptions?.bookAnAppointment?.appointmentTopics.split(',').map((topic, index) => (
-                  <FormControlLabel
-                    key={index}
-                    value={topic}
-                    control={
-                      <Radio
-                        sx={{
-                          color: '#333333',
-                          '&.Mui-checked': {
+              <FormControl component="fieldset" variant="standard" required aria-label="appointment-topics">
+                <FormGroup row>
+                  {koaThemeOptions?.bookAnAppointment?.appointmentTopics.split(',').map((topic, index) => (
+                    <FormControlLabel
+                      key={index}
+                      value={selectedAppointmentTopic[topic]}
+                      control={
+                        <Checkbox
+                          onChange={handleTopicChange}
+                          name={topic}
+                          sx={{
                             color: '#333333',
-                          },
-                        }}
-                      />
-                    }
-                    label={topic}
-                  />
-                ))}
-              </RadioGroup>
+                            '&.Mui-checked': {
+                              color: '#333333',
+                            },
+                          }}
+                        />
+                      }
+                      label={topic}
+                    />
+                  ))}
+                </FormGroup>
+              </FormControl>
             </Box>
             <Box sx={styles.formInputWrapper}>
               <Typography sx={styles.formInputLabel}>
