@@ -3,6 +3,7 @@ import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
+import getRugsCustomPosts from 'helpers/ssr/getRugsCustomPosts';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -104,28 +105,34 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   });
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const rugs = await getRugsCustomPosts();
+
+  const paths = [
+    '/rugs',
+    '/our-story',
+    '/from-the-farm',
+    '/contact-us',
+    '/belden',
+    '/cotton',
+    '/elizabeths-cloth',
+    '/fabric',
+    '/grasscloth',
+    '/hagga',
+    '/hand-tufted',
+    '/home',
+    '/master-series-classic',
+    '/master-series-linen-wool',
+    '/master-series-private-reserve',
+    '/new-arrivals',
+    '/teff',
+    '/woven-textures',
+  ];
+
+  await rugs.map((rug) => paths.push(`/rug/${rug.slug}`));
+
   return {
-    paths: [
-      '/rugs',
-      '/our-story',
-      '/from-the-farm',
-      '/contact-us',
-      '/belden',
-      '/cotton',
-      '/elizabeths-cloth',
-      '/fabric',
-      '/grasscloth',
-      '/hagga',
-      '/hand-tufted',
-      '/home',
-      '/master-series-classic',
-      '/master-series-linen-wool',
-      '/master-series-private-reserve',
-      '/new-arrivals',
-      '/teff',
-      '/woven-textures',
-    ],
+    paths: paths,
     fallback: 'blocking',
   };
 }
