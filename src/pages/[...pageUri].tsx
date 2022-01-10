@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-// import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
-import { client, KoaThemeOptions, RugIdType } from 'client';
+import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
@@ -16,7 +15,7 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 const { useQuery } = client;
 
 export interface PageProps {
-  // page: PageType | PageType['preview']['node'] | null | undefined;
+  page: PageType | PageType['preview']['node'] | null | undefined;
   pageModules?: Array<any>;
   pageUri?: string[];
   koaThemeOptions?: KoaThemeOptions;
@@ -55,6 +54,8 @@ export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PagePro
     : // : page?.pageBuilder?.modules;
       pageModules;
 
+  // console.log('PAGE COMPONENT ', modules);
+
   const headerSection = (
     <>
       <Header />
@@ -88,11 +89,11 @@ export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PagePro
   );
 }
 
-export default function Page({ pageUri, koaThemeOptions, pageModules }) {
+export default function Page({ pageUri, koaThemeOptions, page, pageModules }) {
   // const { usePage } = client;
   // const page = usePage();
 
-  return <PageComponent pageUri={pageUri} koaThemeOptions={koaThemeOptions} pageModules={pageModules} />;
+  return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} pageModules={pageModules} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
@@ -100,8 +101,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
 
   const pageData = await getPageModules(context.params.pageUri);
-  const serializedDataModules = JSON.parse(JSON.stringify(pageData));
-  const pageModules = serializedDataModules.map((module) => {
+  const serializedPageData = JSON.parse(JSON.stringify(pageData));
+  const pageModules = serializedPageData.map((module) => {
     return module.$on[module.__typename];
   });
 
@@ -113,6 +114,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       pageUri: context.params.pageUri,
       koaThemeOptions: serializedKoaThemeOptions,
       pageModules: pageModules,
+      page: serializedPageData,
     },
   });
 }
