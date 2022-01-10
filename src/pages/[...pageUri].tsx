@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
+// import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
+import { client, KoaThemeOptions, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
+import getPageModules from 'helpers/ssr/getPageModules';
 import getRugsCustomPosts from 'helpers/ssr/getRugsCustomPosts';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -14,12 +16,13 @@ import ComponentsPage from '../koa-framework/ComponentsPage/ComponentsPage';
 const { useQuery } = client;
 
 export interface PageProps {
-  page: PageType | PageType['preview']['node'] | null | undefined;
+  // page: PageType | PageType['preview']['node'] | null | undefined;
+  pageModules?: Array<any>;
   pageUri?: string[];
   koaThemeOptions?: KoaThemeOptions;
 }
 
-export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
+export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PageProps) {
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
   const rugDetails = useQuery().rug({
@@ -49,9 +52,8 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
         .sort((a, b) => {
           return a.order - b.order;
         })
-    : page?.pageBuilder?.modules;
-
-  // console.log('PAGE COMPONENT ', modules);
+    : // : page?.pageBuilder?.modules;
+      pageModules;
 
   const headerSection = (
     <>
@@ -86,22 +88,32 @@ export function PageComponent({ page, pageUri, koaThemeOptions }: PageProps) {
   );
 }
 
-export default function Page({ pageUri, koaThemeOptions }) {
-  const { usePage } = client;
-  const page = usePage();
+export default function Page({ pageUri, koaThemeOptions, pageModules }) {
+  // const { usePage } = client;
+  // const page = usePage();
 
-  return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} />;
+  return <PageComponent pageUri={pageUri} koaThemeOptions={koaThemeOptions} pageModules={pageModules} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const koaThemeOptions = await getKoaThemeOptions();
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
 
+  const pageData = await getPageModules(context.params.pageUri);
+  const serializedDataModules = JSON.parse(JSON.stringify(pageData));
+  const pageModules = serializedDataModules.map((module) => {
+    return module.$on[module.__typename];
+  });
+
   return getNextStaticProps(context, {
     Page,
     client,
     notFound: await is404(context, { client }),
-    props: { pageUri: context.params.pageUri, koaThemeOptions: serializedKoaThemeOptions },
+    props: {
+      pageUri: context.params.pageUri,
+      koaThemeOptions: serializedKoaThemeOptions,
+      pageModules: pageModules,
+    },
   });
 }
 
