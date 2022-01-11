@@ -25,7 +25,7 @@ export interface PageProps {
 
 export function PageComponent({ pageUri, koaThemeOptions, ssrPageModules, clientPageModules }: PageProps) {
   const [pageModules, setPageModules] = useState(ssrPageModules);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const queryState = useQuery().$state;
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
