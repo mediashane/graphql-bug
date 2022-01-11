@@ -5904,6 +5904,7 @@ export const generatedSchema = {
     preview: { __type: 'PageToPreviewConnectionEdge' },
     previewRevisionDatabaseId: { __type: 'Int' },
     previewRevisionId: { __type: 'ID' },
+    productCategory: { __type: 'Page_Productcategory' },
     revisionOf: { __type: 'NodeWithRevisionsToContentNodeConnectionEdge' },
     revisions: {
       __type: 'PageToRevisionConnection',
@@ -6634,6 +6635,11 @@ export const generatedSchema = {
     phoneNumber: { __type: 'String' },
   },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
+  Page_Productcategory: {
+    __typename: { __type: 'String!' },
+    categoryName: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+  },
   PageToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -6935,6 +6941,7 @@ export const generatedSchema = {
     preview: { __type: 'RugToPreviewConnectionEdge' },
     previewRevisionDatabaseId: { __type: 'Int' },
     previewRevisionId: { __type: 'ID' },
+    productCategory: { __type: 'Rug_Productcategory' },
     rug: { __type: 'Rug_Rug' },
     rugAttribute: { __type: 'Rug_Rugattribute' },
     rugDescription: { __type: 'Rug_Rugdescription' },
@@ -6958,6 +6965,11 @@ export const generatedSchema = {
   },
   Rug_Ctatext: { __typename: { __type: 'String!' }, cta: { __type: 'String' }, fieldGroupName: { __type: 'String' } },
   RugToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Rug' } },
+  Rug_Productcategory: {
+    __typename: { __type: 'String!' },
+    categoryName: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+  },
   Rug_Rug: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
@@ -7416,6 +7428,7 @@ export const generatedSchema = {
     preview: { __type: 'PostToPreviewConnectionEdge' },
     previewRevisionDatabaseId: { __type: 'Int' },
     previewRevisionId: { __type: 'ID' },
+    productCategory: { __type: 'Post_Productcategory' },
     revisionOf: { __type: 'NodeWithRevisionsToContentNodeConnectionEdge' },
     revisions: {
       __type: 'PostToRevisionConnection',
@@ -7891,6 +7904,11 @@ export const generatedSchema = {
   },
   PostFormatToTaxonomyConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Taxonomy' } },
   PostToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Post' } },
+  Post_Productcategory: {
+    __typename: { __type: 'String!' },
+    categoryName: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+  },
   PostToRevisionConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -9952,6 +9970,7 @@ export const generatedSchema = {
   DefaultTemplate: {
     __typename: { __type: 'String!' },
     features: { __type: 'DefaultTemplate_Features' },
+    productCategory: { __type: 'DefaultTemplate_Productcategory' },
     rug: { __type: 'DefaultTemplate_Rug' },
     rugAttribute: { __type: 'DefaultTemplate_Rugattribute' },
     rug_collection: { __type: 'DefaultTemplate_RugCollection' },
@@ -9966,6 +9985,11 @@ export const generatedSchema = {
     image: { __type: 'MediaItem' },
     label: { __type: 'String' },
     textColor: { __type: 'String' },
+  },
+  DefaultTemplate_Productcategory: {
+    __typename: { __type: 'String!' },
+    categoryName: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
   },
   DefaultTemplate_Rug: {
     __typename: { __type: 'String!' },
@@ -10331,6 +10355,7 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_ContactBanner',
       'Page_Pagebuilder_Modules_ContactList',
       'Page_Pagebuilder_Modules_ContactList_cards',
+      'Page_Productcategory',
       'Page_Rug',
       'Page_Rug_Modules',
       'Page_Rug_Modules_CardsCarousel',
@@ -10340,6 +10365,7 @@ export const generatedSchema = {
       'Rug_collection_RugCollection_Images',
       'Rug_collection_RugCollection_listItems',
       'Rug_Ctatext',
+      'Rug_Productcategory',
       'Rug_Rug',
       'Rug_Rug_Modules',
       'Rug_Rug_Modules_CardsCarousel',
@@ -10357,9 +10383,11 @@ export const generatedSchema = {
       'Page_Rug_Modules_TwoColumnGallery',
       'Page_Rug_Modules_TwoColumnGallery_images',
       'Page_Rug_Modules_TwoColumnGallery_listItems',
+      'Post_Productcategory',
       'KoaThemeOptions_Bookanappointment',
       'KoaThemeOptions_Themeoptions',
       'DefaultTemplate_Features',
+      'DefaultTemplate_Productcategory',
       'DefaultTemplate_Rug',
       'DefaultTemplate_Rug_Modules',
       'DefaultTemplate_Rug_Modules_CardsCarousel',
@@ -14237,6 +14265,10 @@ export interface Page {
    */
   previewRevisionId?: Maybe<ScalarsEnums['ID']>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Product Category&quot; was set to Show in GraphQL.
+   */
+  productCategory?: Maybe<Page_Productcategory>;
+  /**
    * If the current node is a revision, this field exposes the node this is a revision of. Returns null if the node is not a revision of another node.
    */
   revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>;
@@ -14614,6 +14646,7 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_ContactBanner'
     | 'Page_Pagebuilder_Modules_ContactList'
     | 'Page_Pagebuilder_Modules_ContactList_cards'
+    | 'Page_Productcategory'
     | 'Page_Rug'
     | 'Page_Rug_Modules'
     | 'Page_Rug_Modules_CardsCarousel'
@@ -14623,6 +14656,7 @@ export interface AcfFieldGroup {
     | 'Rug_collection_RugCollection_Images'
     | 'Rug_collection_RugCollection_listItems'
     | 'Rug_Ctatext'
+    | 'Rug_Productcategory'
     | 'Rug_Rug'
     | 'Rug_Rug_Modules'
     | 'Rug_Rug_Modules_CardsCarousel'
@@ -14640,9 +14674,11 @@ export interface AcfFieldGroup {
     | 'Page_Rug_Modules_TwoColumnGallery'
     | 'Page_Rug_Modules_TwoColumnGallery_images'
     | 'Page_Rug_Modules_TwoColumnGallery_listItems'
+    | 'Post_Productcategory'
     | 'KoaThemeOptions_Bookanappointment'
     | 'KoaThemeOptions_Themeoptions'
     | 'DefaultTemplate_Features'
+    | 'DefaultTemplate_Productcategory'
     | 'DefaultTemplate_Rug'
     | 'DefaultTemplate_Rug_Modules'
     | 'DefaultTemplate_Rug_Modules_CardsCarousel'
@@ -16275,6 +16311,18 @@ export interface PageToPreviewConnectionEdge {
 }
 
 /**
+ * Field Group
+ */
+export interface Page_Productcategory {
+  __typename?: 'Page_Productcategory';
+  categoryName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
  * Connection between the page type and the page type
  */
 export interface PageToRevisionConnection {
@@ -17141,6 +17189,10 @@ export interface Rug {
    */
   previewRevisionId?: Maybe<ScalarsEnums['ID']>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Product Category&quot; was set to Show in GraphQL.
+   */
+  productCategory?: Maybe<Rug_Productcategory>;
+  /**
    * Added to the GraphQL Schema because the ACF Field Group &quot;Rug&quot; was set to Show in GraphQL.
    */
   rug?: Maybe<Rug_Rug>;
@@ -17231,6 +17283,18 @@ export interface RugToPreviewConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<Rug>;
+}
+
+/**
+ * Field Group
+ */
+export interface Rug_Productcategory {
+  __typename?: 'Rug_Productcategory';
+  categoryName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -18263,6 +18327,10 @@ export interface Post {
    */
   previewRevisionId?: Maybe<ScalarsEnums['ID']>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Product Category&quot; was set to Show in GraphQL.
+   */
+  productCategory?: Maybe<Post_Productcategory>;
+  /**
    * If the current node is a revision, this field exposes the node this is a revision of. Returns null if the node is not a revision of another node.
    */
   revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>;
@@ -19173,6 +19241,18 @@ export interface PostToPreviewConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<Post>;
+}
+
+/**
+ * Field Group
+ */
+export interface Post_Productcategory {
+  __typename?: 'Post_Productcategory';
+  categoryName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -22152,6 +22232,10 @@ export interface DefaultTemplate {
    */
   features?: Maybe<DefaultTemplate_Features>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Product Category&quot; was set to Show in GraphQL.
+   */
+  productCategory?: Maybe<DefaultTemplate_Productcategory>;
+  /**
    * Added to the GraphQL Schema because the ACF Field Group &quot;Rug&quot; was set to Show in GraphQL.
    */
   rug?: Maybe<DefaultTemplate_Rug>;
@@ -22190,6 +22274,18 @@ export interface DefaultTemplate_Features {
   image?: Maybe<MediaItem>;
   label?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Field Group
+ */
+export interface DefaultTemplate_Productcategory {
+  __typename?: 'DefaultTemplate_Productcategory';
+  categoryName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -22660,6 +22756,7 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_ContactList: Page_Pagebuilder_Modules_ContactList;
   Page_Pagebuilder_Modules_ContactList_cards: Page_Pagebuilder_Modules_ContactList_cards;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
+  Page_Productcategory: Page_Productcategory;
   PageToRevisionConnection: PageToRevisionConnection;
   PageToRevisionConnectionEdge: PageToRevisionConnectionEdge;
   Page_Rug: Page_Rug;
@@ -22677,6 +22774,7 @@ export interface SchemaObjectTypes {
   Rug: Rug;
   Rug_Ctatext: Rug_Ctatext;
   RugToPreviewConnectionEdge: RugToPreviewConnectionEdge;
+  Rug_Productcategory: Rug_Productcategory;
   Rug_Rug: Rug_Rug;
   Rug_Rug_Modules: Rug_Rug_Modules;
   Rug_Rug_Modules_CardsCarousel: Rug_Rug_Modules_CardsCarousel;
@@ -22725,6 +22823,7 @@ export interface SchemaObjectTypes {
   PostFormatToPostConnectionEdge: PostFormatToPostConnectionEdge;
   PostFormatToTaxonomyConnectionEdge: PostFormatToTaxonomyConnectionEdge;
   PostToPreviewConnectionEdge: PostToPreviewConnectionEdge;
+  Post_Productcategory: Post_Productcategory;
   PostToRevisionConnection: PostToRevisionConnection;
   PostToRevisionConnectionEdge: PostToRevisionConnectionEdge;
   PostToTagConnection: PostToTagConnection;
@@ -22878,6 +22977,7 @@ export interface SchemaObjectTypes {
   CommentAuthor: CommentAuthor;
   DefaultTemplate: DefaultTemplate;
   DefaultTemplate_Features: DefaultTemplate_Features;
+  DefaultTemplate_Productcategory: DefaultTemplate_Productcategory;
   DefaultTemplate_Rug: DefaultTemplate_Rug;
   DefaultTemplate_Rug_Modules: DefaultTemplate_Rug_Modules;
   DefaultTemplate_Rug_Modules_CardsCarousel: DefaultTemplate_Rug_Modules_CardsCarousel;
@@ -22999,6 +23099,7 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_ContactList'
   | 'Page_Pagebuilder_Modules_ContactList_cards'
   | 'PageToPreviewConnectionEdge'
+  | 'Page_Productcategory'
   | 'PageToRevisionConnection'
   | 'PageToRevisionConnectionEdge'
   | 'Page_Rug'
@@ -23016,6 +23117,7 @@ export type SchemaObjectTypesNames =
   | 'Rug'
   | 'Rug_Ctatext'
   | 'RugToPreviewConnectionEdge'
+  | 'Rug_Productcategory'
   | 'Rug_Rug'
   | 'Rug_Rug_Modules'
   | 'Rug_Rug_Modules_CardsCarousel'
@@ -23064,6 +23166,7 @@ export type SchemaObjectTypesNames =
   | 'PostFormatToPostConnectionEdge'
   | 'PostFormatToTaxonomyConnectionEdge'
   | 'PostToPreviewConnectionEdge'
+  | 'Post_Productcategory'
   | 'PostToRevisionConnection'
   | 'PostToRevisionConnectionEdge'
   | 'PostToTagConnection'
@@ -23217,6 +23320,7 @@ export type SchemaObjectTypesNames =
   | 'CommentAuthor'
   | 'DefaultTemplate'
   | 'DefaultTemplate_Features'
+  | 'DefaultTemplate_Productcategory'
   | 'DefaultTemplate_Rug'
   | 'DefaultTemplate_Rug_Modules'
   | 'DefaultTemplate_Rug_Modules_CardsCarousel'
@@ -23445,6 +23549,7 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_ContactBanner?: Page_Pagebuilder_Modules_ContactBanner;
   Page_Pagebuilder_Modules_ContactList?: Page_Pagebuilder_Modules_ContactList;
   Page_Pagebuilder_Modules_ContactList_cards?: Page_Pagebuilder_Modules_ContactList_cards;
+  Page_Productcategory?: Page_Productcategory;
   Page_Rug?: Page_Rug;
   Page_Rug_Modules?: Page_Rug_Modules;
   Page_Rug_Modules_CardsCarousel?: Page_Rug_Modules_CardsCarousel;
@@ -23454,6 +23559,7 @@ export interface $AcfFieldGroup {
   Rug_collection_RugCollection_Images?: Rug_collection_RugCollection_Images;
   Rug_collection_RugCollection_listItems?: Rug_collection_RugCollection_listItems;
   Rug_Ctatext?: Rug_Ctatext;
+  Rug_Productcategory?: Rug_Productcategory;
   Rug_Rug?: Rug_Rug;
   Rug_Rug_Modules?: Rug_Rug_Modules;
   Rug_Rug_Modules_CardsCarousel?: Rug_Rug_Modules_CardsCarousel;
@@ -23471,9 +23577,11 @@ export interface $AcfFieldGroup {
   Page_Rug_Modules_TwoColumnGallery?: Page_Rug_Modules_TwoColumnGallery;
   Page_Rug_Modules_TwoColumnGallery_images?: Page_Rug_Modules_TwoColumnGallery_images;
   Page_Rug_Modules_TwoColumnGallery_listItems?: Page_Rug_Modules_TwoColumnGallery_listItems;
+  Post_Productcategory?: Post_Productcategory;
   KoaThemeOptions_Bookanappointment?: KoaThemeOptions_Bookanappointment;
   KoaThemeOptions_Themeoptions?: KoaThemeOptions_Themeoptions;
   DefaultTemplate_Features?: DefaultTemplate_Features;
+  DefaultTemplate_Productcategory?: DefaultTemplate_Productcategory;
   DefaultTemplate_Rug?: DefaultTemplate_Rug;
   DefaultTemplate_Rug_Modules?: DefaultTemplate_Rug_Modules;
   DefaultTemplate_Rug_Modules_CardsCarousel?: DefaultTemplate_Rug_Modules_CardsCarousel;

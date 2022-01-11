@@ -22,7 +22,7 @@ export interface Config extends Record<string, unknown> {
    * @returns {JSX.Element}
    * @memberof Config
    */
-  renderComponent: (componentName: string, componentData: any, index: number) => JSX.Element;
+  renderComponent: (componentName: string, componentData: any, index: number, isLoading: boolean) => JSX.Element;
 
   headerConfig: HeaderConfig;
 }

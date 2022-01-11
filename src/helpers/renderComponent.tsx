@@ -20,9 +20,7 @@ import {
   TwoColumnGallery,
 } from 'components';
 
-// let currentCollection = '';
-
-export default function acfRenderComponent(componentName, componentData, index): JSX.Element {
+export default function acfRenderComponent(componentName, componentData, index, isLoading): JSX.Element {
   if (componentName) {
     // console.log('[KOA]', 'Rendering', componentName, componentData);
     switch (componentName) {
@@ -85,27 +83,27 @@ export default function acfRenderComponent(componentName, componentData, index):
             promptOverline={promptOverline}
             promptTopline={promptTopline}
             promptParagraph={promptParagraph}
-            promptImage={promptImage?.srcSet()?.split(' ')?.[0] ?? ''}
+            promptImage={isLoading ? '' : promptImage?.srcSet()?.split(' ')?.[0] ?? ''}
             paragraphTextColor={textColor}
-            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageOne={isLoading ? '' : imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
             linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageTwo={isLoading ? '' : imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
             linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageThree={isLoading ? '' : imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
             linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageFour={isLoading ? '' : imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
             linkFour={linkFour?.url ?? '/'}
@@ -147,25 +145,25 @@ export default function acfRenderComponent(componentName, componentData, index):
           <FourCardsRow
             key={`${componentName}_${index}`}
             textColor={textColor}
-            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageOne={isLoading ? '' : imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
             linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageTwo={isLoading ? '' : imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
             linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageThree={isLoading ? '' : imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
             linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageFour={isLoading ? '' : imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
             linkFour={linkFour?.url ?? '/'}
@@ -237,7 +235,7 @@ export default function acfRenderComponent(componentName, componentData, index):
             textHeadline={textHeadline}
             // collection={currentCollection}
             color={color}
-            productCategory={productCategory?.[0]?.$on.Product_category.title()}
+            productCategory={isLoading ? '' : productCategory?.[0]?.$on?.Product_category?.title()}
             textParagraph={rugDescription ? rugDescription?.[0]?.$on?.Rug_description.rugDescription?.description : ''}
             backgroundColor={backgroundColor}
             textColorPrimary={textColorPrimary}

@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
+import getPageData from 'helpers/ssr/getPageData';
 import getPageModules from 'helpers/ssr/getPageModules';
 import getRugsCustomPosts from 'helpers/ssr/getRugsCustomPosts';
 import { GetStaticPropsContext } from 'next';
@@ -16,12 +17,16 @@ const { useQuery } = client;
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
-  pageModules?: Array<any>;
+  ssrPageModules?: Array<any>;
+  clientPageModules?: Array<any>;
   pageUri?: string[];
   koaThemeOptions?: KoaThemeOptions;
 }
 
-export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PageProps) {
+export function PageComponent({ pageUri, koaThemeOptions, ssrPageModules, clientPageModules }: PageProps) {
+  const [pageModules, setPageModules] = useState(ssrPageModules);
+  const [isLoading, setIsLoading] = useState(true);
+  const queryState = useQuery().$state;
   const router = useRouter();
   const generalSettings = useQuery().generalSettings;
   const rugDetails = useQuery().rug({
@@ -43,6 +48,11 @@ export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PagePro
     }
   }, [rugDetails]);
 
+  useEffect(() => {
+    setPageModules(clientPageModules);
+    setIsLoading(false);
+  }, [clientPageModules, queryState.isLoading]);
+
   // if query contains custom post type 'rug', use the Rug ACF modules
   // otherwise use the Page Builder ACF modules
   const modules = pageUri.includes('rug')
@@ -51,10 +61,7 @@ export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PagePro
         .sort((a, b) => {
           return a.order - b.order;
         })
-    : // : page?.pageBuilder?.modules;
-      pageModules;
-
-  // console.log('PAGE COMPONENT ', modules);
+    : pageModules;
 
   const headerSection = (
     <>
@@ -85,36 +92,48 @@ export function PageComponent({ pageUri, koaThemeOptions, pageModules }: PagePro
   );
 
   return (
-    <ComponentsPage header={headerSection} modules={modules} footer={footerSection} koaThemeOptions={koaThemeOptions} />
+    <ComponentsPage
+      header={headerSection}
+      modules={modules}
+      footer={footerSection}
+      koaThemeOptions={koaThemeOptions}
+      isLoading={isLoading}
+    />
   );
 }
 
-export default function Page({ pageUri, koaThemeOptions, page, pageModules }) {
-  // const { usePage } = client;
-  // const page = usePage();
+export default function Page({ pageUri, koaThemeOptions, page, ssrPageModules }) {
+  const { usePage } = client;
+  const clientSidePage = usePage();
 
-  return <PageComponent page={page} pageUri={pageUri} koaThemeOptions={koaThemeOptions} pageModules={pageModules} />;
+  return (
+    <PageComponent
+      page={page}
+      pageUri={pageUri}
+      koaThemeOptions={koaThemeOptions}
+      ssrPageModules={ssrPageModules}
+      clientPageModules={clientSidePage?.pageBuilder?.modules}
+    />
+  );
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+  const pageUri = context.params.pageUri;
   const koaThemeOptions = await getKoaThemeOptions();
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
 
   const pageData = await getPageModules(context.params.pageUri);
-  const serializedPageData = JSON.parse(JSON.stringify(pageData));
-  const pageModules = serializedPageData.map((module) => {
-    return module.$on[module.__typename];
-  });
+  const page = await getPageData(context.params.pageUri);
 
   return getNextStaticProps(context, {
     Page,
     client,
     notFound: await is404(context, { client }),
     props: {
-      pageUri: context.params.pageUri,
+      pageUri: pageUri,
       koaThemeOptions: serializedKoaThemeOptions,
-      pageModules: pageModules,
-      page: serializedPageData,
+      ssrPageModules: pageData,
+      page: page,
     },
   });
 }

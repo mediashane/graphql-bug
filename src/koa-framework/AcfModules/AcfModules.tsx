@@ -4,8 +4,9 @@ import { config } from '../config/config';
 
 export interface Props {
   modules?: Array<any>;
+  isLoading: boolean;
 }
-export default function AcfModules({ modules }: Props) {
+export default function AcfModules({ modules, isLoading }: Props) {
   const { renderComponent } = config();
   return (
     <>
@@ -19,7 +20,7 @@ export default function AcfModules({ modules }: Props) {
         // if modules are ACF Flexible Content, access properties using $on
         // otherwise return module properties directly
         const moduleData = module.$on ? module?.$on[module?.__typename] : module;
-        return renderComponent(componentName, moduleData, index);
+        return renderComponent(componentName, moduleData, index, isLoading);
       })}
     </>
   );

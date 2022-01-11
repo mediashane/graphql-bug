@@ -15,8 +15,9 @@ interface Props {
   modules: Array<any>;
   footer: JSX.Element;
   koaThemeOptions?: KoaThemeOptions;
+  isLoading: boolean;
 }
-export default function ComponentsPage({ header, modules, footer, koaThemeOptions }: Props) {
+export default function ComponentsPage({ header, modules, footer, koaThemeOptions, isLoading }: Props) {
   const _config = config();
   const styles = useStyles(_config);
 
@@ -26,7 +27,7 @@ export default function ComponentsPage({ header, modules, footer, koaThemeOption
       <FloatingActionButton />
       <AppointmentDialog koaThemeOptions={koaThemeOptions} />
       <Box sx={styles.componentsContainer}>
-        <AcfModules modules={modules} />
+        <AcfModules modules={modules} isLoading={isLoading} />
       </Box>
       {footer ? footer : null}
     </Box>
