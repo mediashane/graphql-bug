@@ -15,9 +15,9 @@ interface Props {
   modules: Array<any>;
   footer: JSX.Element;
   koaThemeOptions?: KoaThemeOptions;
-  isLoading: boolean;
+  isLoading?: boolean;
 }
-export default function ComponentsPage({ header, modules, footer, koaThemeOptions, isLoading }: Props) {
+export default function ComponentsPage({ header, modules, footer, koaThemeOptions, isLoading = false }: Props) {
   const _config = config();
   const styles = useStyles(_config);
 
