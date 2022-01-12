@@ -78,6 +78,8 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   FEATURE = 'FEATURE',
   /** The Type of Content object */
+  LOCATIONS = 'LOCATIONS',
+  /** The Type of Content object */
   PAGE = 'PAGE',
   /** The Type of Content object */
   POST = 'POST',
@@ -2228,6 +2230,54 @@ export interface RootQueryToFeatureConnectionWhereArgs {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum LocationIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = 'DATABASE_ID',
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = 'ID',
+  /** Identify a resource by the URI. */
+  URI = 'URI',
+}
+
+/** Arguments for filtering the RootQueryToLocationConnection connection */
+export interface RootQueryToLocationConnectionWhereArgs {
+  /** Filter the connection based on dates */
+  dateQuery?: Maybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: Maybe<Scalars['Boolean']>;
+  /** Specific ID of the object */
+  id?: Maybe<Scalars['Int']>;
+  /** Array of IDs for the objects to retrieve */
+  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: Maybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: Maybe<Scalars['String']>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: Maybe<Array<Maybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: Maybe<Scalars['ID']>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  /** Show posts with a specific password. */
+  password?: Maybe<Scalars['String']>;
+  /** Show Posts based on a keyword search */
+  search?: Maybe<Scalars['String']>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: Maybe<Array<Maybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: Maybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: Maybe<Scalars['String']>;
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
 export enum MediaItemIdType {
   /** Identify a resource by the Database ID. */
   DATABASE_ID = 'DATABASE_ID',
@@ -3213,6 +3263,26 @@ export interface CreateFeatureInput {
   title?: Maybe<Scalars['String']>;
 }
 
+/** Input for the createLocation mutation */
+export interface CreateLocationInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: Maybe<Scalars['String']>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: Maybe<Scalars['Int']>;
+  /** The ID of the parent object */
+  parentId?: Maybe<Scalars['ID']>;
+  /** The password used to protect the content of the object */
+  password?: Maybe<Scalars['String']>;
+  /** The slug of the object */
+  slug?: Maybe<Scalars['String']>;
+  /** The status of the object */
+  status?: Maybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: Maybe<Scalars['String']>;
+}
+
 /** Input for the createMediaItem mutation */
 export interface CreateMediaItemInput {
   /** Alternative text to display when mediaItem is not displayed */
@@ -3617,6 +3687,16 @@ export interface DeleteFeatureInput {
   id: Scalars['ID'];
 }
 
+/** Input for the deleteLocation mutation */
+export interface DeleteLocationInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: Maybe<Scalars['Boolean']>;
+  /** The ID of the location to delete */
+  id: Scalars['ID'];
+}
+
 /** Input for the deleteMediaItem mutation */
 export interface DeleteMediaItemInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -3906,6 +3986,28 @@ export interface UpdateFeatureInput {
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: Maybe<Scalars['String']>;
   /** The ID of the feature object */
+  id: Scalars['ID'];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: Maybe<Scalars['Int']>;
+  /** The ID of the parent object */
+  parentId?: Maybe<Scalars['ID']>;
+  /** The password used to protect the content of the object */
+  password?: Maybe<Scalars['String']>;
+  /** The slug of the object */
+  slug?: Maybe<Scalars['String']>;
+  /** The status of the object */
+  status?: Maybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: Maybe<Scalars['String']>;
+}
+
+/** Input for the updateLocation mutation */
+export interface UpdateLocationInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: Maybe<Scalars['String']>;
+  /** The ID of the location object */
   id: Scalars['ID'];
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
   menuOrder?: Maybe<Scalars['Int']>;
@@ -4291,6 +4393,7 @@ export const scalarsEnumsHash: import('gqty').ScalarsEnumsHash = {
   ContentTypeIdTypeEnum: true,
   CtaIdType: true,
   FeatureIdType: true,
+  LocationIdType: true,
   MediaItemIdType: true,
   MenuNodeIdTypeEnum: true,
   MenuLocationEnum: true,
@@ -4397,6 +4500,18 @@ export const generatedSchema = {
     },
     generalSettings: { __type: 'GeneralSettings' },
     koaThemeOptions: { __type: 'KoaThemeOptions' },
+    location: { __type: 'Location', __args: { id: 'ID!', idType: 'LocationIdType', asPreview: 'Boolean' } },
+    locationBy: { __type: 'Location', __args: { id: 'ID', locationId: 'Int', uri: 'String' } },
+    locations: {
+      __type: 'RootQueryToLocationConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'RootQueryToLocationConnectionWhereArgs',
+      },
+    },
     mediaItem: { __type: 'MediaItem', __args: { id: 'ID!', idType: 'MediaItemIdType', asPreview: 'Boolean' } },
     mediaItemBy: { __type: 'MediaItem', __args: { id: 'ID', mediaItemId: 'Int', uri: 'String', slug: 'String' } },
     mediaItems: {
@@ -4634,6 +4749,7 @@ export const generatedSchema = {
     createComment: { __type: 'CreateCommentPayload', __args: { input: 'CreateCommentInput!' } },
     createCta: { __type: 'CreateCtaPayload', __args: { input: 'CreateCtaInput!' } },
     createFeature: { __type: 'CreateFeaturePayload', __args: { input: 'CreateFeatureInput!' } },
+    createLocation: { __type: 'CreateLocationPayload', __args: { input: 'CreateLocationInput!' } },
     createMediaItem: { __type: 'CreateMediaItemPayload', __args: { input: 'CreateMediaItemInput!' } },
     createPage: { __type: 'CreatePagePayload', __args: { input: 'CreatePageInput!' } },
     createPost: { __type: 'CreatePostPayload', __args: { input: 'CreatePostInput!' } },
@@ -4654,6 +4770,7 @@ export const generatedSchema = {
     deleteComment: { __type: 'DeleteCommentPayload', __args: { input: 'DeleteCommentInput!' } },
     deleteCta: { __type: 'DeleteCtaPayload', __args: { input: 'DeleteCtaInput!' } },
     deleteFeature: { __type: 'DeleteFeaturePayload', __args: { input: 'DeleteFeatureInput!' } },
+    deleteLocation: { __type: 'DeleteLocationPayload', __args: { input: 'DeleteLocationInput!' } },
     deleteMediaItem: { __type: 'DeleteMediaItemPayload', __args: { input: 'DeleteMediaItemInput!' } },
     deletePage: { __type: 'DeletePagePayload', __args: { input: 'DeletePageInput!' } },
     deletePost: { __type: 'DeletePostPayload', __args: { input: 'DeletePostInput!' } },
@@ -4686,6 +4803,7 @@ export const generatedSchema = {
     updateComment: { __type: 'UpdateCommentPayload', __args: { input: 'UpdateCommentInput!' } },
     updateCta: { __type: 'UpdateCtaPayload', __args: { input: 'UpdateCtaInput!' } },
     updateFeature: { __type: 'UpdateFeaturePayload', __args: { input: 'UpdateFeatureInput!' } },
+    updateLocation: { __type: 'UpdateLocationPayload', __args: { input: 'UpdateLocationInput!' } },
     updateMediaItem: { __type: 'UpdateMediaItemPayload', __args: { input: 'UpdateMediaItemInput!' } },
     updatePage: { __type: 'UpdatePagePayload', __args: { input: 'UpdatePageInput!' } },
     updatePost: { __type: 'UpdatePostPayload', __args: { input: 'UpdatePostInput!' } },
@@ -8441,6 +8559,99 @@ export const generatedSchema = {
     twitterLink: { __type: 'String' },
     youtubeLink: { __type: 'String' },
   },
+  Location: {
+    __typename: { __type: 'String!' },
+    ancestors: {
+      __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs',
+      },
+    },
+    children: {
+      __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
+      },
+    },
+    conditionalTags: { __type: 'ConditionalTags' },
+    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    databaseId: { __type: 'Int!' },
+    date: { __type: 'String' },
+    dateGmt: { __type: 'String' },
+    desiredSlug: { __type: 'String' },
+    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
+    enclosure: { __type: 'String' },
+    enqueuedScripts: {
+      __type: 'ContentNodeToEnqueuedScriptConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    enqueuedStylesheets: {
+      __type: 'ContentNodeToEnqueuedStylesheetConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    guid: { __type: 'String' },
+    id: { __type: 'ID!' },
+    isContentNode: { __type: 'Boolean!' },
+    isPreview: { __type: 'Boolean' },
+    isRestricted: { __type: 'Boolean' },
+    isTermNode: { __type: 'Boolean!' },
+    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
+    link: { __type: 'String' },
+    locationId: { __type: 'Int!' },
+    modified: { __type: 'String' },
+    modifiedGmt: { __type: 'String' },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
+    parentDatabaseId: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    preview: { __type: 'LocationToPreviewConnectionEdge' },
+    previewRevisionDatabaseId: { __type: 'Int' },
+    previewRevisionId: { __type: 'ID' },
+    slug: { __type: 'String' },
+    status: { __type: 'String' },
+    template: { __type: 'ContentTemplate' },
+    templates: { __type: '[String]' },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
+    uri: { __type: 'String' },
+  },
+  LocationToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Location' } },
+  RootQueryToLocationConnectionWhereArgs: {
+    dateQuery: { __type: 'DateQueryInput' },
+    hasPassword: { __type: 'Boolean' },
+    id: { __type: 'Int' },
+    in: { __type: '[ID]' },
+    mimeType: { __type: 'MimeTypeEnum' },
+    name: { __type: 'String' },
+    nameIn: { __type: '[String]' },
+    notIn: { __type: '[ID]' },
+    orderby: { __type: '[PostObjectsConnectionOrderbyInput]' },
+    parent: { __type: 'ID' },
+    parentIn: { __type: '[ID]' },
+    parentNotIn: { __type: '[ID]' },
+    password: { __type: 'String' },
+    search: { __type: 'String' },
+    stati: { __type: '[PostStatusEnum]' },
+    status: { __type: 'PostStatusEnum' },
+    title: { __type: 'String' },
+  },
+  RootQueryToLocationConnection: {
+    __typename: { __type: 'String!' },
+    edges: { __type: '[RootQueryToLocationConnectionEdge]' },
+    nodes: { __type: '[Location]' },
+    pageInfo: { __type: 'WPPageInfo' },
+  },
+  RootQueryToLocationConnectionEdge: {
+    __typename: { __type: 'String!' },
+    cursor: { __type: 'String' },
+    node: { __type: 'Location' },
+  },
   RootQueryToMediaItemConnectionWhereArgs: {
     author: { __type: 'Int' },
     authorIn: { __type: '[ID]' },
@@ -9191,6 +9402,21 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     feature: { __type: 'Feature' },
   },
+  CreateLocationInput: {
+    clientMutationId: { __type: 'String' },
+    date: { __type: 'String' },
+    menuOrder: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    password: { __type: 'String' },
+    slug: { __type: 'String' },
+    status: { __type: 'PostStatusEnum' },
+    title: { __type: 'String' },
+  },
+  CreateLocationPayload: {
+    __typename: { __type: 'String!' },
+    clientMutationId: { __type: 'String' },
+    location: { __type: 'Location' },
+  },
   CreateMediaItemInput: {
     altText: { __type: 'String' },
     authorId: { __type: 'ID' },
@@ -9461,6 +9687,17 @@ export const generatedSchema = {
     deletedId: { __type: 'ID' },
     feature: { __type: 'Feature' },
   },
+  DeleteLocationInput: {
+    clientMutationId: { __type: 'String' },
+    forceDelete: { __type: 'Boolean' },
+    id: { __type: 'ID!' },
+  },
+  DeleteLocationPayload: {
+    __typename: { __type: 'String!' },
+    clientMutationId: { __type: 'String' },
+    deletedId: { __type: 'ID' },
+    location: { __type: 'Location' },
+  },
   DeleteMediaItemInput: {
     clientMutationId: { __type: 'String' },
     forceDelete: { __type: 'Boolean' },
@@ -9717,6 +9954,22 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     clientMutationId: { __type: 'String' },
     feature: { __type: 'Feature' },
+  },
+  UpdateLocationInput: {
+    clientMutationId: { __type: 'String' },
+    date: { __type: 'String' },
+    id: { __type: 'ID!' },
+    menuOrder: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    password: { __type: 'String' },
+    slug: { __type: 'String' },
+    status: { __type: 'PostStatusEnum' },
+    title: { __type: 'String' },
+  },
+  UpdateLocationPayload: {
+    __typename: { __type: 'String!' },
+    clientMutationId: { __type: 'String' },
+    location: { __type: 'Location' },
   },
   UpdateMediaItemInput: {
     altText: { __type: 'String' },
@@ -10204,6 +10457,7 @@ export const generatedSchema = {
       'PostFormat',
       'Tag',
       'UserRole',
+      'Location',
       'Menu',
       'MenuItem',
       'Plugin',
@@ -10223,6 +10477,7 @@ export const generatedSchema = {
       'Rug',
       'Value',
       'Post',
+      'Location',
     ],
     UniformResourceIdentifiable: [
       'Carousel',
@@ -10242,6 +10497,7 @@ export const generatedSchema = {
       'Category',
       'PostFormat',
       'Tag',
+      'Location',
     ],
     DatabaseIdentifier: [
       'Carousel',
@@ -10261,6 +10517,7 @@ export const generatedSchema = {
       'Category',
       'PostFormat',
       'Tag',
+      'Location',
       'Menu',
       'MenuItem',
     ],
@@ -10277,6 +10534,7 @@ export const generatedSchema = {
       'Rug',
       'Value',
       'Post',
+      'Location',
     ],
     NodeWithTitle: [
       'Carousel',
@@ -10291,6 +10549,7 @@ export const generatedSchema = {
       'Rug',
       'Value',
       'Post',
+      'Location',
     ],
     HierarchicalContentNode: [
       'Carousel',
@@ -10304,6 +10563,7 @@ export const generatedSchema = {
       'Feature',
       'Rug',
       'Value',
+      'Location',
     ],
     MenuItemLinkable: [
       'Carousel',
@@ -10319,6 +10579,7 @@ export const generatedSchema = {
       'Post',
       'Category',
       'Tag',
+      'Location',
     ],
     Commenter: ['User', 'CommentAuthor'],
     EnqueuedAsset: ['EnqueuedScript', 'EnqueuedStylesheet'],
@@ -10457,6 +10718,7 @@ export const generatedSchema = {
       'Carousel',
       'Cta',
       'Feature',
+      'Location',
       'Product_category',
       'Rug',
       'Rug_attribute',
@@ -10568,6 +10830,23 @@ export interface Query {
   }) => Maybe<RootQueryToFeatureConnection>;
   generalSettings?: Maybe<GeneralSettings>;
   koaThemeOptions?: Maybe<KoaThemeOptions>;
+  location: (args: {
+    id: Scalars['ID'];
+    idType?: Maybe<LocationIdType>;
+    asPreview?: Maybe<Scalars['Boolean']>;
+  }) => Maybe<Location>;
+  locationBy: (args?: {
+    id?: Maybe<Scalars['ID']>;
+    locationId?: Maybe<Scalars['Int']>;
+    uri?: Maybe<Scalars['String']>;
+  }) => Maybe<Location>;
+  locations: (args?: {
+    first?: Maybe<Scalars['Int']>;
+    last?: Maybe<Scalars['Int']>;
+    after?: Maybe<Scalars['String']>;
+    before?: Maybe<Scalars['String']>;
+    where?: Maybe<RootQueryToLocationConnectionWhereArgs>;
+  }) => Maybe<RootQueryToLocationConnection>;
   mediaItem: (args: {
     id: Scalars['ID'];
     idType?: Maybe<MediaItemIdType>;
@@ -10824,6 +11103,7 @@ export interface Mutation {
   createComment: (args: { input: CreateCommentInput }) => Maybe<CreateCommentPayload>;
   createCta: (args: { input: CreateCtaInput }) => Maybe<CreateCtaPayload>;
   createFeature: (args: { input: CreateFeatureInput }) => Maybe<CreateFeaturePayload>;
+  createLocation: (args: { input: CreateLocationInput }) => Maybe<CreateLocationPayload>;
   createMediaItem: (args: { input: CreateMediaItemInput }) => Maybe<CreateMediaItemPayload>;
   createPage: (args: { input: CreatePageInput }) => Maybe<CreatePagePayload>;
   createPost: (args: { input: CreatePostInput }) => Maybe<CreatePostPayload>;
@@ -10841,6 +11121,7 @@ export interface Mutation {
   deleteComment: (args: { input: DeleteCommentInput }) => Maybe<DeleteCommentPayload>;
   deleteCta: (args: { input: DeleteCtaInput }) => Maybe<DeleteCtaPayload>;
   deleteFeature: (args: { input: DeleteFeatureInput }) => Maybe<DeleteFeaturePayload>;
+  deleteLocation: (args: { input: DeleteLocationInput }) => Maybe<DeleteLocationPayload>;
   deleteMediaItem: (args: { input: DeleteMediaItemInput }) => Maybe<DeleteMediaItemPayload>;
   deletePage: (args: { input: DeletePageInput }) => Maybe<DeletePagePayload>;
   deletePost: (args: { input: DeletePostInput }) => Maybe<DeletePostPayload>;
@@ -10866,6 +11147,7 @@ export interface Mutation {
   updateComment: (args: { input: UpdateCommentInput }) => Maybe<UpdateCommentPayload>;
   updateCta: (args: { input: UpdateCtaInput }) => Maybe<UpdateCtaPayload>;
   updateFeature: (args: { input: UpdateFeatureInput }) => Maybe<UpdateFeaturePayload>;
+  updateLocation: (args: { input: UpdateLocationInput }) => Maybe<UpdateLocationPayload>;
   updateMediaItem: (args: { input: UpdateMediaItemInput }) => Maybe<UpdateMediaItemPayload>;
   updatePage: (args: { input: UpdatePageInput }) => Maybe<UpdatePagePayload>;
   updatePost: (args: { input: UpdatePostInput }) => Maybe<UpdatePostPayload>;
@@ -11202,6 +11484,7 @@ export interface Node {
     | 'PostFormat'
     | 'Tag'
     | 'UserRole'
+    | 'Location'
     | 'Menu'
     | 'MenuItem'
     | 'Plugin'
@@ -11230,7 +11513,8 @@ export interface ContentNode {
     | 'Feature'
     | 'Rug'
     | 'Value'
-    | 'Post';
+    | 'Post'
+    | 'Location';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * Connection between the ContentNode type and the ContentType type
@@ -11391,7 +11675,8 @@ export interface UniformResourceIdentifiable {
     | 'Post'
     | 'Category'
     | 'PostFormat'
-    | 'Tag';
+    | 'Tag'
+    | 'Location';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * The unique resource identifier path
@@ -12403,6 +12688,7 @@ export interface DatabaseIdentifier {
     | 'Category'
     | 'PostFormat'
     | 'Tag'
+    | 'Location'
     | 'Menu'
     | 'MenuItem';
   /**
@@ -13262,7 +13548,8 @@ export interface NodeWithTemplate {
     | 'Feature'
     | 'Rug'
     | 'Value'
-    | 'Post';
+    | 'Post'
+    | 'Location';
   /**
    * The template assigned to the node
    */
@@ -13298,7 +13585,8 @@ export interface NodeWithTitle {
     | 'Feature'
     | 'Rug'
     | 'Value'
-    | 'Post';
+    | 'Post'
+    | 'Location';
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
@@ -13373,7 +13661,8 @@ export interface HierarchicalContentNode {
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
-    | 'Value';
+    | 'Value'
+    | 'Location';
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -14552,7 +14841,8 @@ export interface MenuItemLinkable {
     | 'Value'
     | 'Post'
     | 'Category'
-    | 'Tag';
+    | 'Tag'
+    | 'Location';
   /**
    * The unique resource identifier path
    */
@@ -16061,9 +16351,21 @@ export interface Page_Pagebuilder_Modules_FourCardsRow {
   imageOne?: Maybe<MediaItem>;
   imageThree?: Maybe<MediaItem>;
   imageTwo?: Maybe<MediaItem>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkFour?: Maybe<AcfLink>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkOne?: Maybe<AcfLink>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkThree?: Maybe<AcfLink>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkTwo?: Maybe<AcfLink>;
   /**
    * If true, show sticker in upper right hand corner of image
@@ -16115,9 +16417,21 @@ export interface Page_Pagebuilder_Modules_FourCardsWithPrompt {
   imageOne?: Maybe<MediaItem>;
   imageThree?: Maybe<MediaItem>;
   imageTwo?: Maybe<MediaItem>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkFour?: Maybe<AcfLink>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkOne?: Maybe<AcfLink>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkThree?: Maybe<AcfLink>;
+  /**
+   * Example of how to enter link: /rug/amarillo-stripe-mushroom-silver-natural
+   */
   linkTwo?: Maybe<AcfLink>;
   overlineTextColor?: Maybe<ScalarsEnums['String']>;
   paragraphTextColor?: Maybe<ScalarsEnums['String']>;
@@ -20079,6 +20393,274 @@ export interface KoaThemeOptions_Themeoptions {
 }
 
 /**
+ * The location type
+ */
+export interface Location {
+  __typename?: 'Location';
+  /**
+   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
+   */
+  ancestors: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
+  /**
+   * Connection between the HierarchicalContentNode type and the ContentNode type
+   */
+  children: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums['Int'];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The globally unique identifier of the locations object.
+   */
+  id: ScalarsEnums['ID'];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums['Boolean'];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums['Boolean'];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  locationId: ScalarsEnums['Int'];
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The parent of the node. The parent object can be of various types
+   */
+  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
+  /**
+   * Database id of the parent node
+   */
+  parentDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * The globally unique identifier of the parent node.
+   */
+  parentId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * Connection between the location type and the location type
+   */
+  preview?: Maybe<LocationToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The template assigned to the node
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums['String']>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Connection between the location type and the location type
+ */
+export interface LocationToPreviewConnectionEdge {
+  __typename?: 'LocationToPreviewConnectionEdge';
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Location>;
+}
+
+/**
+ * Connection between the RootQuery type and the location type
+ */
+export interface RootQueryToLocationConnection {
+  __typename?: 'RootQueryToLocationConnection';
+  /**
+   * Edges for the RootQueryToLocationConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToLocationConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<Location>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToLocationConnectionEdge {
+  __typename?: 'RootQueryToLocationConnectionEdge';
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<Location>;
+}
+
+/**
  * Connection between the RootQuery type and the mediaItem type
  */
 export interface RootQueryToMediaItemConnection {
@@ -20376,6 +20958,7 @@ export interface MenuItemObjectUnion {
     | 'Carousel'
     | 'Cta'
     | 'Feature'
+    | 'Location'
     | 'Product_category'
     | 'Rug'
     | 'Rug_attribute'
@@ -21316,6 +21899,21 @@ export interface CreateFeaturePayload {
 }
 
 /**
+ * The payload for the createLocation mutation
+ */
+export interface CreateLocationPayload {
+  __typename?: 'CreateLocationPayload';
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The Post object mutation type.
+   */
+  location?: Maybe<Location>;
+}
+
+/**
  * The payload for the createMediaItem mutation
  */
 export interface CreateMediaItemPayload {
@@ -21588,6 +22186,25 @@ export interface DeleteFeaturePayload {
    * The object before it was deleted
    */
   feature?: Maybe<Feature>;
+}
+
+/**
+ * The payload for the deleteLocation mutation
+ */
+export interface DeleteLocationPayload {
+  __typename?: 'DeleteLocationPayload';
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * The object before it was deleted
+   */
+  location?: Maybe<Location>;
 }
 
 /**
@@ -21978,6 +22595,21 @@ export interface UpdateFeaturePayload {
    * The Post object mutation type.
    */
   feature?: Maybe<Feature>;
+}
+
+/**
+ * The payload for the updateLocation mutation
+ */
+export interface UpdateLocationPayload {
+  __typename?: 'UpdateLocationPayload';
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The Post object mutation type.
+   */
+  location?: Maybe<Location>;
 }
 
 /**
@@ -22861,6 +23493,10 @@ export interface SchemaObjectTypes {
   KoaThemeOptions: KoaThemeOptions;
   KoaThemeOptions_Bookanappointment: KoaThemeOptions_Bookanappointment;
   KoaThemeOptions_Themeoptions: KoaThemeOptions_Themeoptions;
+  Location: Location;
+  LocationToPreviewConnectionEdge: LocationToPreviewConnectionEdge;
+  RootQueryToLocationConnection: RootQueryToLocationConnection;
+  RootQueryToLocationConnectionEdge: RootQueryToLocationConnectionEdge;
   RootQueryToMediaItemConnection: RootQueryToMediaItemConnection;
   RootQueryToMediaItemConnectionEdge: RootQueryToMediaItemConnectionEdge;
   Menu: Menu;
@@ -22922,6 +23558,7 @@ export interface SchemaObjectTypes {
   CreateCommentPayload: CreateCommentPayload;
   CreateCtaPayload: CreateCtaPayload;
   CreateFeaturePayload: CreateFeaturePayload;
+  CreateLocationPayload: CreateLocationPayload;
   CreateMediaItemPayload: CreateMediaItemPayload;
   CreatePagePayload: CreatePagePayload;
   CreatePostPayload: CreatePostPayload;
@@ -22939,6 +23576,7 @@ export interface SchemaObjectTypes {
   DeleteCommentPayload: DeleteCommentPayload;
   DeleteCtaPayload: DeleteCtaPayload;
   DeleteFeaturePayload: DeleteFeaturePayload;
+  DeleteLocationPayload: DeleteLocationPayload;
   DeleteMediaItemPayload: DeleteMediaItemPayload;
   DeletePagePayload: DeletePagePayload;
   DeletePostPayload: DeletePostPayload;
@@ -22961,6 +23599,7 @@ export interface SchemaObjectTypes {
   UpdateCommentPayload: UpdateCommentPayload;
   UpdateCtaPayload: UpdateCtaPayload;
   UpdateFeaturePayload: UpdateFeaturePayload;
+  UpdateLocationPayload: UpdateLocationPayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
   UpdatePagePayload: UpdatePagePayload;
   UpdatePostPayload: UpdatePostPayload;
@@ -23204,6 +23843,10 @@ export type SchemaObjectTypesNames =
   | 'KoaThemeOptions'
   | 'KoaThemeOptions_Bookanappointment'
   | 'KoaThemeOptions_Themeoptions'
+  | 'Location'
+  | 'LocationToPreviewConnectionEdge'
+  | 'RootQueryToLocationConnection'
+  | 'RootQueryToLocationConnectionEdge'
   | 'RootQueryToMediaItemConnection'
   | 'RootQueryToMediaItemConnectionEdge'
   | 'Menu'
@@ -23265,6 +23908,7 @@ export type SchemaObjectTypesNames =
   | 'CreateCommentPayload'
   | 'CreateCtaPayload'
   | 'CreateFeaturePayload'
+  | 'CreateLocationPayload'
   | 'CreateMediaItemPayload'
   | 'CreatePagePayload'
   | 'CreatePostPayload'
@@ -23282,6 +23926,7 @@ export type SchemaObjectTypesNames =
   | 'DeleteCommentPayload'
   | 'DeleteCtaPayload'
   | 'DeleteFeaturePayload'
+  | 'DeleteLocationPayload'
   | 'DeleteMediaItemPayload'
   | 'DeletePagePayload'
   | 'DeletePostPayload'
@@ -23304,6 +23949,7 @@ export type SchemaObjectTypesNames =
   | 'UpdateCommentPayload'
   | 'UpdateCtaPayload'
   | 'UpdateFeaturePayload'
+  | 'UpdateLocationPayload'
   | 'UpdateMediaItemPayload'
   | 'UpdatePagePayload'
   | 'UpdatePostPayload'
@@ -23361,6 +24007,7 @@ export interface $Node {
   PostFormat?: PostFormat;
   Tag?: Tag;
   UserRole?: UserRole;
+  Location?: Location;
   Menu?: Menu;
   MenuItem?: MenuItem;
   Plugin?: Plugin;
@@ -23381,6 +24028,7 @@ export interface $ContentNode {
   Rug?: Rug;
   Value?: Value;
   Post?: Post;
+  Location?: Location;
 }
 
 export interface $UniformResourceIdentifiable {
@@ -23401,6 +24049,7 @@ export interface $UniformResourceIdentifiable {
   Category?: Category;
   PostFormat?: PostFormat;
   Tag?: Tag;
+  Location?: Location;
 }
 
 export interface $DatabaseIdentifier {
@@ -23421,6 +24070,7 @@ export interface $DatabaseIdentifier {
   Category?: Category;
   PostFormat?: PostFormat;
   Tag?: Tag;
+  Location?: Location;
   Menu?: Menu;
   MenuItem?: MenuItem;
 }
@@ -23438,6 +24088,7 @@ export interface $NodeWithTemplate {
   Rug?: Rug;
   Value?: Value;
   Post?: Post;
+  Location?: Location;
 }
 
 export interface $NodeWithTitle {
@@ -23453,6 +24104,7 @@ export interface $NodeWithTitle {
   Rug?: Rug;
   Value?: Value;
   Post?: Post;
+  Location?: Location;
 }
 
 export interface $HierarchicalContentNode {
@@ -23467,6 +24119,7 @@ export interface $HierarchicalContentNode {
   Feature?: Feature;
   Rug?: Rug;
   Value?: Value;
+  Location?: Location;
 }
 
 export interface $MenuItemLinkable {
@@ -23483,6 +24136,7 @@ export interface $MenuItemLinkable {
   Post?: Post;
   Category?: Category;
   Tag?: Tag;
+  Location?: Location;
 }
 
 export interface $Commenter {
@@ -23734,6 +24388,7 @@ export interface $MenuItemObjectUnion {
   Carousel?: Carousel;
   Cta?: Cta;
   Feature?: Feature;
+  Location?: Location;
   Product_category?: Product_category;
   Rug?: Rug;
   Rug_attribute?: Rug_attribute;
@@ -23818,6 +24473,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   ContentTypeIdTypeEnum: ContentTypeIdTypeEnum | undefined;
   CtaIdType: CtaIdType | undefined;
   FeatureIdType: FeatureIdType | undefined;
+  LocationIdType: LocationIdType | undefined;
   MediaItemIdType: MediaItemIdType | undefined;
   MenuNodeIdTypeEnum: MenuNodeIdTypeEnum | undefined;
   MenuLocationEnum: MenuLocationEnum | undefined;

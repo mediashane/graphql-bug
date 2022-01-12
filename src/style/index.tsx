@@ -12,6 +12,9 @@ export const colorBrandBlue = '#587DA9',
   frizQuadrata = 'FrizQuadrata',
   proximaNova = 'ProximaNovaRegular',
   proximaNovaThin = 'ProximaNovaThin',
+  proximaNovaBlack = 'ProximaNovaBlack',
+  proximaNovaSemiBold = 'ProximaNovaSemiBold',
+  proximaNovaBold = 'ProximaNovaBold ',
   freightDispBlack = 'FreightDispBlack',
   freightDispBlackItalic = 'FreightDispBlackItalic',
   freightDispBold = 'FreightDispBold',
@@ -25,7 +28,7 @@ export const colorBrandBlue = '#587DA9',
   paddingMobile = '40px',
   siteMaxWidth = '400px';
 
-// Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+// Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin, ProximaNovaBlack, ProximaNovaSemiBold, ProximaNovaBold
 
 export const breakpoints = {
   xs: 0,

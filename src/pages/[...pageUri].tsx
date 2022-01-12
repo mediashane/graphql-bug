@@ -3,8 +3,8 @@ import { client, KoaThemeOptions, Page as PageType, RugIdType } from 'client';
 import { Footer, Header } from 'components';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
-import getPageData from 'helpers/ssr/getPageData';
-import getPageModules from 'helpers/ssr/getPageModules';
+// import getPageData from 'helpers/ssr/getPageData';
+// import getPageModules from 'helpers/ssr/getPageModules';
 import getRugsCustomPosts from 'helpers/ssr/getRugsCustomPosts';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -17,14 +17,14 @@ const { useQuery } = client;
 
 export interface PageProps {
   page: PageType | PageType['preview']['node'] | null | undefined;
-  ssrPageModules?: Array<any>;
+  // ssrPageModules?: Array<any>;
   clientPageModules?: Array<any>;
   pageUri?: string[];
   koaThemeOptions?: KoaThemeOptions;
 }
 
-export function PageComponent({ pageUri, koaThemeOptions, ssrPageModules, clientPageModules }: PageProps) {
-  const [pageModules, setPageModules] = useState(ssrPageModules);
+export function PageComponent({ pageUri, koaThemeOptions, clientPageModules }: PageProps) {
+  // const [pageModules, setPageModules] = useState(ssrPageModules);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const queryState = useQuery().$state;
   const router = useRouter();
@@ -49,7 +49,7 @@ export function PageComponent({ pageUri, koaThemeOptions, ssrPageModules, client
   }, [rugDetails]);
 
   useEffect(() => {
-    setPageModules(clientPageModules);
+    // setPageModules(clientPageModules);
     setIsLoading(false);
   }, [clientPageModules, queryState.isLoading]);
 
@@ -61,7 +61,7 @@ export function PageComponent({ pageUri, koaThemeOptions, ssrPageModules, client
         .sort((a, b) => {
           return a.order - b.order;
         })
-    : pageModules;
+    : clientPageModules;
 
   const headerSection = (
     <>
@@ -102,16 +102,16 @@ export function PageComponent({ pageUri, koaThemeOptions, ssrPageModules, client
   );
 }
 
-export default function Page({ pageUri, koaThemeOptions, page, ssrPageModules }) {
+export default function Page({ pageUri, koaThemeOptions }) {
   const { usePage } = client;
   const clientSidePage = usePage();
 
   return (
     <PageComponent
-      page={page}
+      page={clientSidePage}
       pageUri={pageUri}
       koaThemeOptions={koaThemeOptions}
-      ssrPageModules={ssrPageModules}
+      // ssrPageModules={ssrPageModules}
       clientPageModules={clientSidePage?.pageBuilder?.modules}
     />
   );
@@ -122,8 +122,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const koaThemeOptions = await getKoaThemeOptions();
   const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
 
-  const pageData = await getPageModules(context.params.pageUri);
-  const page = await getPageData(context.params.pageUri);
+  // const pageData = await getPageModules(context.params.pageUri);
+  // const page = await getPageData(context.params.pageUri);
 
   return getNextStaticProps(context, {
     Page,
@@ -132,8 +132,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       pageUri: pageUri,
       koaThemeOptions: serializedKoaThemeOptions,
-      ssrPageModules: pageData,
-      page: page,
+      // ssrPageModules: pageData,
+      // page: page,
     },
   });
 }

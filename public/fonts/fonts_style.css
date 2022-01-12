@@ -6,6 +6,27 @@
 }
 
 @font-face {
+    font-family: 'ProximaNovaSemiBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./ProximaNova/ProximaNovaSemiBold.otf');
+}
+
+@font-face {
+    font-family: 'ProximaNovaBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./ProximaNova/ProximaNovaBold.otf');
+}
+
+@font-face {
+    font-family: 'ProximaNovaBlack';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./ProximaNova/ProximaNovaBlack.otf');
+}
+
+@font-face {
     font-family: 'ProximaNovaRegular';
     font-style: normal;
     font-weight: 400;

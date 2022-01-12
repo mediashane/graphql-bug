@@ -74,6 +74,8 @@ export default function acfRenderComponent(componentName, componentData, index, 
           stickerTextFour,
         } = componentData;
 
+        if (isLoading) return null;
+
         return (
           <FourCardsWithPrompt
             key={`${componentName}_${index}`}
@@ -83,27 +85,27 @@ export default function acfRenderComponent(componentName, componentData, index, 
             promptOverline={promptOverline}
             promptTopline={promptTopline}
             promptParagraph={promptParagraph}
-            promptImage={isLoading ? '' : promptImage?.srcSet()?.split(' ')?.[0] ?? ''}
+            promptImage={promptImage?.srcSet()?.split(' ')?.[0] ?? ''}
             paragraphTextColor={textColor}
-            imageOne={isLoading ? '' : imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
             linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={isLoading ? '' : imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
             linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={isLoading ? '' : imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
             linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={isLoading ? '' : imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
             linkFour={linkFour?.url ?? '/'}
@@ -141,29 +143,31 @@ export default function acfRenderComponent(componentName, componentData, index, 
           stickerTextFour,
         } = componentData;
 
+        if (isLoading) return null;
+
         return (
           <FourCardsRow
             key={`${componentName}_${index}`}
             textColor={textColor}
-            imageOne={isLoading ? '' : imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
             titleOne={titleOne}
             subtitleOne={subtitleOne}
             linkOne={linkOne?.url ?? '/'}
             showStickerOne={showStickerOne}
             stickerTextOne={stickerTextOne}
-            imageTwo={isLoading ? '' : imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
             titleTwo={titleTwo}
             subtitleTwo={subtitleTwo}
             linkTwo={linkTwo?.url ?? '/'}
             showStickerTwo={showStickerTwo}
             stickerTextTwo={stickerTextTwo}
-            imageThree={isLoading ? '' : imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
             titleThree={titleThree}
             subtitleThree={subtitleThree}
             linkThree={linkThree?.url ?? '/'}
             showStickerThree={showStickerThree}
             stickerTextThree={stickerTextThree}
-            imageFour={isLoading ? '' : imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
+            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
             titleFour={titleFour}
             subtitleFour={subtitleFour}
             linkFour={linkFour?.url ?? '/'}
