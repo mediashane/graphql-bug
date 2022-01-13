@@ -11,6 +11,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column' as const,
     width: {
       xs: '80%',
       sm: '80%',
@@ -19,6 +20,9 @@ const styles = {
       xl: '90%',
     },
     textAlign: 'center' as const,
+  },
+  paragraphTextContainer: {
+    paddingTop: '30px',
   },
 };
 

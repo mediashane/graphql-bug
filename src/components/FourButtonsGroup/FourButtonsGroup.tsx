@@ -15,6 +15,7 @@ interface Props {
   labelThree: string;
   labelFour: string;
   email: string;
+  backgroundColor?: string;
 }
 
 function FourButtonsGroup({
@@ -23,6 +24,7 @@ function FourButtonsGroup({
   labelThree = '',
   labelFour = '',
   email = 'sale@elizabetheakins.com',
+  backgroundColor = '#F7F7F7',
 }: Props): JSX.Element {
   const mailTo = (emailAddress) => {
     window.location.assign(`mailto:${emailAddress}`);
@@ -37,8 +39,8 @@ function FourButtonsGroup({
   };
 
   return (
-    <Container maxWidth="xl">
-      <Box sx={styles.fourButtonsGroupContainer}>
+    <Box sx={{ ...styles.fourButtonsGroupContainer, backgroundColor: backgroundColor }}>
+      <Container maxWidth="xl">
         <Box sx={styles.fourButtonsGroupContent}>
           <Box sx={styles.fourButtonsGroupCards}>
             <ActionButton label={labelOne} action={() => scrollTo('details')} />
@@ -51,8 +53,8 @@ function FourButtonsGroup({
 
           <ActionButton label={labelFour} email={email} action={() => mailTo(email)} />
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }
 

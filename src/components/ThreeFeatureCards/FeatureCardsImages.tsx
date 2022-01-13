@@ -13,13 +13,13 @@ interface Props {
   labelColor?: string;
   imageOne: string;
   labelOne: string;
-  descriptionOne: string;
+  descriptionOne?: string;
   imageTwo: string;
   labelTwo: string;
-  descriptionTwo: string;
+  descriptionTwo?: string;
   imageThree: string;
   labelThree: string;
-  descriptionThree: string;
+  descriptionThree?: string;
 }
 
 function FeatureCardImages({

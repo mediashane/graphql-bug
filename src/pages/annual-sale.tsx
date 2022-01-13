@@ -1,5 +1,5 @@
 import { client } from 'client';
-import { Header } from 'components';
+import { CenteredText, Header, ThreeFeatureCards } from 'components';
 import FourButtonsGroup from 'components/FourButtonsGroup/FourButtonsGroup';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import HeroCenter from 'components/HeroCenter/HeroCenter';
@@ -23,7 +23,7 @@ export default function Page() {
         textOverlineTop="THE ANNUAL"
         textOverlineBottom="ELIZABETH EAKINS FALL SALE"
         textHeadline="Bring Joy In"
-        textBodyline="SEPTEMBER 20TH – OCTOBER 15TH"
+        textBodyline="SEPTEMBER 20TH - OCTOBER 15TH"
         textSublineTop="At the Elizabeth Eakins Studio"
         textSublineBottom="5 Taft Street, South Norwalk, CT 06854"
         textPostline="BY APPOINTMENT ONLY"
@@ -36,6 +36,23 @@ export default function Page() {
         labelThree="Book an Appointment"
         labelFour="Email us at"
         email="sale@elizabetheakins.com"
+        backgroundColor="#F7F7F7"
+      />
+      <CenteredText
+        text="Every rug is handmade and customized from color to size.  Also, don’t for get to explore our inventory, we have many options ready for delivery."
+        backgroundColor="#F7F7F7"
+        textSize="32"
+        paragraphText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada hendrerit sodales."
+      />
+      <ThreeFeatureCards
+        iconLayout={false}
+        textColor="#333333"
+        imageOne="images/explore.png"
+        labelOne="Rugs made ready to ship or customize"
+        imageTwo="images/emailSubscribe.png"
+        labelTwo="Mountains of pillows"
+        imageThree="images/fabricBraids.jpg"
+        labelThree="Find one of a kind fabric and have our team help trim it for you"
       />
     </>
   );

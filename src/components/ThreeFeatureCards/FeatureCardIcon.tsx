@@ -9,7 +9,7 @@ interface Props {
   iconLayout: boolean;
   image: string;
   label: string;
-  description: string;
+  description?: string;
   textColor: string;
 }
 
@@ -32,7 +32,7 @@ function ImageCard({ iconLayout, image, label, description, textColor }: Props):
     <Box sx={styles.threeFeatureCardsCardContainer}>
       <CardImage />
       <Typography sx={{ ...styles.threeFeatureCardsCardLabel, color: textColor }}>{label}</Typography>
-      <Typography sx={styles.threeFeatureCardsCardDescription}>{description}</Typography>
+      {description && <Typography sx={styles.threeFeatureCardsCardDescription}>{description}</Typography>}
     </Box>
   );
 }

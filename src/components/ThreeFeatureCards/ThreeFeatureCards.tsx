@@ -10,13 +10,13 @@ interface Props {
   labelTextColor?: string;
   imageOne: string;
   labelOne: string;
-  descriptionOne: string;
+  descriptionOne?: string;
   imageTwo: string;
   labelTwo: string;
-  descriptionTwo: string;
+  descriptionTwo?: string;
   imageThree: string;
   labelThree: string;
-  descriptionThree: string;
+  descriptionThree?: string;
 }
 
 function ThreeFeatureCards({ iconLayout = false, ...props }: Props): JSX.Element {

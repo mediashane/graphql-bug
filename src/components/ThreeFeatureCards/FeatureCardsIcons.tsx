@@ -14,13 +14,13 @@ interface Props {
   labelTextColor?: string;
   imageOne: string;
   labelOne: string;
-  descriptionOne: string;
+  descriptionOne?: string;
   imageTwo: string;
   labelTwo: string;
-  descriptionTwo: string;
+  descriptionTwo?: string;
   imageThree: string;
   labelThree: string;
-  descriptionThree: string;
+  descriptionThree?: string;
 }
 
 function FeatureCardsIcons({
@@ -42,7 +42,9 @@ function FeatureCardsIcons({
     <Container maxWidth="xl">
       <Box sx={styles.threeFeatureCardsContainer}>
         <Box sx={styles.threeFeatureCardsContent}>
-          <Typography sx={{ ...styles.threeFeatureCardsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
+          {sectionLabel && (
+            <Typography sx={{ ...styles.threeFeatureCardsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
+          )}
           <Box sx={styles.threeFeatureCardsCards}>
             <FeatureCard
               iconLayout={iconLayout}
