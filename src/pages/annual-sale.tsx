@@ -1,5 +1,6 @@
 import { client } from 'client';
 import { Header } from 'components';
+import FourButtonsGroup from 'components/FourButtonsGroup/FourButtonsGroup';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import HeroCenter from 'components/HeroCenter/HeroCenter';
 import { GetStaticPropsContext } from 'next';
@@ -28,6 +29,13 @@ export default function Page() {
         textPostline="BY APPOINTMENT ONLY"
         media="images/annualSaleHero.jpg"
         textColor="#000000"
+      />
+      <FourButtonsGroup
+        labelOne="Details"
+        labelTwo="Hours and Directions"
+        labelThree="Book an Appointment"
+        labelFour="Email us at"
+        email="sale@elizabetheakins.com"
       />
     </>
   );
