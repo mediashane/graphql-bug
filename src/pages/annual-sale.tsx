@@ -1,5 +1,5 @@
 import { client, KoaThemeOptions } from 'client';
-import { CenteredText, Footer, Header, ThreeFeatureCards } from 'components';
+import { CenteredText, Footer, Header, SaleBanner, ThreeFeatureCards } from 'components';
 import AppointmentDialog from 'components/AppointmentDialog/AppointmentDialog';
 import CenteredTextWithButton from 'components/CenteredTextWithButton/CenteredTextWithButton';
 import FourButtonsGroup from 'components/FourButtonsGroup/FourButtonsGroup';
@@ -28,6 +28,17 @@ export default function Page({ koaThemeOptions }: PageProps) {
         <title>{generalSettings.title}</title>
       </Head>
       <AppointmentDialog koaThemeOptions={koaThemeOptions} />
+      <SaleBanner
+        infoTextOne="THE ANNUAL"
+        infoTextTwo="ELIZABETH EAKINS SALE"
+        infoTextThree="SEPTEMBER 20TH - OCTOBER 15TH"
+        textColor="#ffffff"
+        backgroundColor="#4FC58C"
+        textSize="32"
+        headlineText="Bring Joy In"
+        sublineText="Shop one-of-a-kind rugs, fabrics, and pillows all up to 75% off!"
+        buttonLabel="Book an Appointment"
+      />
       <HeroCenter
         textOverlineTop="THE ANNUAL"
         textOverlineBottom="ELIZABETH EAKINS FALL SALE"

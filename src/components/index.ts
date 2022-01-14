@@ -16,6 +16,7 @@ export { default as HeroLeftJustified } from './HeroLeftJustified/HeroLeftJustif
 export { default as HeroRightJustified } from './HeroRightJustified/HeroRightJustified';
 export { default as OneColumnContent } from './OneColumnContent/OneColumnContent';
 export { default as Pagination } from './Pagination';
+export { default as SaleBanner } from './SaleBanner/SaleBanner';
 export { default as ThreeFeatureCards } from './ThreeFeatureCards/ThreeFeatureCards';
 export { default as ThreeImageButtons } from './ThreeImageButtons/ThreeImageButtons';
 export { default as TwoColumnContent } from './TwoColumnContent/TwoColumnContent';
