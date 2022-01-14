@@ -12,6 +12,7 @@ interface Props {
   iconLayout: boolean;
   textColor: string;
   labelTextColor?: string;
+  backgroundColor?: string;
   imageOne: string;
   labelOne: string;
   descriptionOne?: string;
@@ -26,6 +27,7 @@ interface Props {
 function FeatureCardsIcons({
   sectionLabel,
   iconLayout,
+  backgroundColor = '#ffffff',
   labelTextColor,
   textColor,
   imageOne,
@@ -39,8 +41,8 @@ function FeatureCardsIcons({
   descriptionThree,
 }: Props): JSX.Element {
   return (
-    <Container maxWidth="xl">
-      <Box sx={styles.threeFeatureCardsContainer}>
+    <Box sx={{ ...styles.threeFeatureCardsContainer, backgroundColor }}>
+      <Container maxWidth="xl">
         <Box sx={styles.threeFeatureCardsContent}>
           {sectionLabel && (
             <Typography sx={{ ...styles.threeFeatureCardsTitle, color: labelTextColor }}>{sectionLabel}</Typography>
@@ -69,8 +71,8 @@ function FeatureCardsIcons({
             />
           </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }
 

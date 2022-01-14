@@ -11,6 +11,8 @@ interface Props {
   iconLayout: boolean;
   textColor: string;
   labelColor?: string;
+  backgroundColor?: string;
+  roundImages?: boolean;
   imageOne: string;
   labelOne: string;
   descriptionOne?: string;
@@ -24,6 +26,8 @@ interface Props {
 
 function FeatureCardImages({
   iconLayout,
+  backgroundColor = '#ffffff',
+  roundImages = true,
   imageOne,
   labelOne,
   descriptionOne,
@@ -35,17 +39,35 @@ function FeatureCardImages({
   descriptionThree,
 }: Props): JSX.Element {
   return (
-    <Container maxWidth="xl">
-      <Box sx={styles.threeFeatureCardsContainer}>
+    <Box sx={{ ...styles.threeFeatureCardsContainer, backgroundColor }}>
+      <Container sx={styles.threeFeatureCardsWrapper} maxWidth="xl">
         <Box sx={styles.threeFeatureCardsContent}>
           <Box sx={styles.threeFeatureCardsCards}>
-            <FeatureCard iconLayout={iconLayout} image={imageOne} label={labelOne} description={descriptionOne} />
-            <FeatureCard iconLayout={iconLayout} image={imageTwo} label={labelTwo} description={descriptionTwo} />
-            <FeatureCard iconLayout={iconLayout} image={imageThree} label={labelThree} description={descriptionThree} />
+            <FeatureCard
+              iconLayout={iconLayout}
+              roundImages={roundImages}
+              image={imageOne}
+              label={labelOne}
+              description={descriptionOne}
+            />
+            <FeatureCard
+              iconLayout={iconLayout}
+              roundImages={roundImages}
+              image={imageTwo}
+              label={labelTwo}
+              description={descriptionTwo}
+            />
+            <FeatureCard
+              iconLayout={iconLayout}
+              roundImages={roundImages}
+              image={imageThree}
+              label={labelThree}
+              description={descriptionThree}
+            />
           </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }
 

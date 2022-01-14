@@ -42,7 +42,7 @@ function FourButtonsGroup({
     <Box sx={{ ...styles.fourButtonsGroupContainer, backgroundColor: backgroundColor }}>
       <Container maxWidth="xl">
         <Box sx={styles.fourButtonsGroupContent}>
-          <Box sx={styles.fourButtonsGroupCards}>
+          <Box sx={styles.fourButtonsGroupButtons}>
             <ActionButton label={labelOne} action={() => scrollTo('details')} />
             <ActionButton label={labelTwo} action={() => scrollTo('location')} />
             <ActionButton label={labelThree} action={() => toggleDialog('appointment')} />

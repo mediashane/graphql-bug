@@ -12,16 +12,20 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: {
-      xs: '40px',
-      sm: '40px',
-      md: '0',
-    },
+    flexDirection: 'column' as const,
     width: '100%',
-    height: {
+    height: '100%',
+    minHeight: {
       xs: '100%',
       sm: '100%',
       md: '600px',
+    },
+  },
+  threeFeatureCardsWrapper: {
+    marginTop: {
+      xs: '40px',
+      sm: '40px',
+      md: '80px',
     },
   },
   threeFeatureCardsContent: {
@@ -33,13 +37,12 @@ const styles = {
     height: '100%',
   },
   threeFeatureCardsTitle: {
-    marginTop: '60px',
-    marginLeft: {
-      xs: '20px',
-      sm: '20px',
-      md: '20px',
-      lg: '20px',
-      xl: 0,
+    margin: {
+      xs: '40px 0 0 20px',
+      sm: '40px 0 0 20px',
+      md: '20px 0 60px 20px',
+      lg: '20px 0 60px 20px',
+      xl: '20px 0 60px 0',
     },
     fontSize: '2.5rem',
     fontStyle: 'italic',
@@ -48,7 +51,11 @@ const styles = {
   },
   threeFeatureCardsCards: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: {
+      xs: 'center',
+      sm: 'center',
+      md: 'baseline',
+    },
     justifyContent: {
       xs: 'space-between',
       sm: 'space-between',
@@ -62,12 +69,28 @@ const styles = {
       md: 'row' as const,
     },
     margin: {
-      xs: '80px 0 0 0',
-      sm: '80px 0 0 0',
+      xs: '40px 0 0 0',
+      sm: '40px 0 0 0',
       md: '40px 0 40px 0',
     },
     width: '100%',
     height: '100%',
+  },
+  threeFeatureCardsCardImage: {
+    width: {
+      xs: '350px',
+      sm: '375px',
+      md: '275px',
+      lg: '350px',
+      xl: '375px',
+    },
+    height: {
+      xs: '350px',
+      sm: '375px',
+      md: '275px',
+      lg: '350px',
+      xl: '375px',
+    },
   },
   threeFeatureCardsCardContainer: {
     display: 'flex',
@@ -89,26 +112,15 @@ const styles = {
     },
   },
   threeFeatureCardImage: {
-    width: {
-      xs: '103px',
-      sm: '103px',
-      md: '103px',
-      lg: '103px',
-      xl: '103px',
-    },
-    height: {
-      xs: '95px',
-      sm: '95px',
-      md: '95px',
-      lg: '95px',
-      xl: '95px',
-    },
+    width: '103px',
+    height: '95px',
     backgroundColor: colorWhite,
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
   },
   threeFeatureCardsCardLabel: {
+    margin: '40px 0',
     fontSize: '2rem',
     fontFamily: freightDispSemibold,
     textAlign: 'center' as const,
@@ -123,7 +135,7 @@ const styles = {
   threeFeatureCardsCardImageLabel: {
     marginTop: '40px',
     fontFamily: freightDispBook,
-    fontSize: '2rem',
+    fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '40px',

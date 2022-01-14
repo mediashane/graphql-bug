@@ -7,7 +7,9 @@ interface Props {
   sectionLabel?: string;
   iconLayout: boolean;
   textColor: string;
+  backgroundColor?: string;
   labelTextColor?: string;
+  roundImages?: boolean;
   imageOne: string;
   labelOne: string;
   descriptionOne?: string;

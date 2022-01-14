@@ -5,7 +5,10 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    height: '60px',
+    height: {
+      xs: '56px',
+      sm: '60px',
+    },
     backgroundColor: 'transparent',
     zIndex: 2,
     transition: 'all 1s ease',

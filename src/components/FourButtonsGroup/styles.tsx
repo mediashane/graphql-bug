@@ -1,4 +1,4 @@
-import { colorBrandBlue, colorDarkGrey, colorWhite, proximaNova } from '../../style';
+import { colorBrandBlue, colorDarkGrey, colorWhite, proximaNova, proximaNovaSemiBold } from '../../style';
 
 const styles = {
   fourButtonsGroupContainer: {
@@ -7,16 +7,7 @@ const styles = {
     justifyContent: 'center',
     width: '100%',
     height: '100%',
-    paddingTop: {
-      xs: '40px',
-      sm: '40px',
-      md: '40px',
-    },
-    paddingBottom: {
-      xs: '40px',
-      sm: '40px',
-      md: '40px',
-    },
+    padding: '40px 0',
   },
   fourButtonsGroupContent: {
     display: 'flex',
@@ -34,15 +25,13 @@ const styles = {
     fontFamily: proximaNova,
     lineHeight: 1,
   },
-  fourButtonsGroupCards: {
+  fourButtonsGroupButtons: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: {
       xs: 'space-between',
       sm: 'space-between',
       md: 'space-around',
-      lg: 'space-around',
-      xl: 'space-around',
     },
     flexDirection: {
       xs: 'column' as const,
@@ -54,12 +43,11 @@ const styles = {
       sm: '10px',
       md: '20px',
       lg: '40px',
-      xl: '40px',
     },
     width: '100%',
     height: '70%',
   },
-  fourButtonsGroupCard: {
+  fourButtonsGroupButton: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -92,10 +80,9 @@ const styles = {
     },
     cursor: 'pointer',
   },
-  fourButtonsGroupCardLabel: {
-    color: 'inherit',
+  fourButtonsGroupButtonLabel: {
     fontSize: '18px',
-    fontFamily: proximaNova,
+    fontFamily: proximaNovaSemiBold,
   },
   ctaWrapper: {
     padding: '40px 0 20px 0',

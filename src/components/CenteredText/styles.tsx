@@ -22,6 +22,13 @@ const styles = {
     textAlign: 'center' as const,
   },
   paragraphTextContainer: {
+    width: {
+      xs: '80%',
+      sm: '80%',
+      md: '75%',
+      lg: '60%',
+      xl: '50%',
+    },
     paddingTop: '30px',
   },
 };

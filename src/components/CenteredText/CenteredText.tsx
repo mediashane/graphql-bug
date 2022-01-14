@@ -24,14 +24,28 @@ function CenteredText({
   backgroundColor = 'transparent',
   textSize = '32',
   paragraphTextSize = '24',
-  fontFamily = 'FreightBigProSemibold',
+  fontFamily = 'FreightDispSemibold',
   paragraphFontFamily = 'ProximaNovaRegular',
 }: Props): JSX.Element {
   return (
     <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }}>
       <Container maxWidth="xl">
         <Box sx={styles.centeredTextWrapper}>
-          <Typography sx={{ fontSize: `${textSize}px`, color: textColor, fontFamily: fontFamily }}>{text}</Typography>
+          <Typography
+            sx={{
+              fontSize: {
+                xs: '28px',
+                sm: '32px',
+                md: `${textSize}px`,
+                lg: `${textSize}px`,
+                xl: `${textSize}px`,
+              },
+              color: textColor,
+              fontFamily: fontFamily,
+            }}
+          >
+            {text}
+          </Typography>
           {paragraphText && (
             <Box sx={styles.paragraphTextContainer}>
               <Typography
