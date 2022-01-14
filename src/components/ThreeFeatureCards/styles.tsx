@@ -22,11 +22,7 @@ const styles = {
     },
   },
   threeFeatureCardsWrapper: {
-    marginTop: {
-      xs: '40px',
-      sm: '40px',
-      md: '80px',
-    },
+    margin: '40px 0',
   },
   threeFeatureCardsContent: {
     display: 'flex',
