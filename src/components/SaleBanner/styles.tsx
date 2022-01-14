@@ -5,11 +5,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // padding: {
-    //   xs: '0 0 40px 0',
-    //   sm: '0 0 40px 0',
-    //   md: '0 0 40px 0',
-    // },
     width: '100%',
     height: {
       xs: '375px',
@@ -36,7 +31,6 @@ const styles = {
     width: '100%',
     height: '100%',
     textAlign: 'left' as const,
-    // lineHeight: '32px',
   },
   columnOne: {
     display: 'flex',
@@ -98,33 +92,18 @@ const styles = {
       lg: '72px',
       xl: '96px',
     },
-    // lineHeight: 1,
   },
   sublineText: {
     fontFamily: proximaNova,
-    fontSize: {
-      xs: '16px',
-      sm: '16px',
-      md: '16px',
-      lg: '16px',
-      xl: '16px',
-    },
-    // lineHeight: 1.5,
+    fontSize: '16px',
   },
   infoText: {
     fontFamily: freightDispMedium,
-    fontSize: {
-      xs: '18px',
-      sm: '18px',
-      md: '18px',
-      lg: '18px',
-      xl: '18px',
-    },
+    fontSize: '18px',
     textAlign: 'left' as const,
   },
   button: {
     padding: '10px 50px',
-    // color: colorWhite,
     backgroundColor: 'transparent',
     fontFamily: proximaNova,
     fontWeight: '100',
@@ -132,16 +111,8 @@ const styles = {
     letterSpacing: 1,
     textTransform: 'none' as const,
     borderWidth: '1px',
-    // borderColor: colorWhite,
     borderRadius: 0,
     transition: 'all 0.25s ease',
-
-    // '&:hover': {
-    // color: colorBrandGreen,
-    // backgroundColor: colorWhite,
-    // borderWidth: '1px',
-    // borderColor: colorWhite,
-    // },
   },
   buttonWrapper: {
     display: 'flex',
@@ -151,11 +122,6 @@ const styles = {
       md: 'flex-end',
     },
     width: '100%',
-    // marginTop: {
-    //   xs: '30px',
-    //   sm: '30px',
-    //   md: '60px',
-    // },
   },
   buttonLabel: {
     fontFamily: proximaNovaSemiBold,

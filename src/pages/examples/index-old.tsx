@@ -1,6 +1,14 @@
 import React from 'react';
 import { client, PageIdType } from 'client';
-import { CallToAction, EmailSubscribe, Footer, Header, HeroLeftJustified, ThreeImageButtons } from 'components';
+import {
+  CallToAction,
+  EmailSubscribe,
+  Footer,
+  Header,
+  HeroLeftJustified,
+  SaleCta,
+  ThreeImageButtons,
+} from 'components';
 import ThreeFeatureCards from 'components/ThreeFeatureCards/ThreeFeatureCards';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
@@ -33,6 +41,18 @@ export default function Page() {
         textHeadline={textHeadline}
         textParagraph={textParagraph}
         media={mediaItemUrl}
+      />
+
+      <SaleCta
+        textOverlineTop="THE ANNUAL"
+        textOverlineBottom="ELIZABETH EAKINS FALL SALE"
+        textHeadline="Bring Joy In"
+        textBodyline="SEPTEMBER 20TH - OCTOBER 15TH"
+        textSublineTop="At the Elizabeth Eakins Studio"
+        textSublineBottom="5 Taft Street, South Norwalk, CT 06854"
+        textPostline="BY APPOINTMENT ONLY"
+        media="images/annualSaleHero.jpg"
+        textColor="#000000"
       />
 
       <CallToAction
