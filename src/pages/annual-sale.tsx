@@ -1,16 +1,22 @@
-import { client } from 'client';
+import { client, KoaThemeOptions } from 'client';
 import { CenteredText, Footer, Header, ThreeFeatureCards } from 'components';
+import AppointmentDialog from 'components/AppointmentDialog/AppointmentDialog';
 import CenteredTextWithButton from 'components/CenteredTextWithButton/CenteredTextWithButton';
 import FourButtonsGroup from 'components/FourButtonsGroup/FourButtonsGroup';
 import HeaderSpacer from 'components/HeaderSpacer/HeaderSpacer';
 import HeroCenter from 'components/HeroCenter/HeroCenter';
 import LocationBanner from 'components/LocationBanner/LocationBanner';
+import getKoaThemeOptions from 'helpers/ssr/getKoaThemeOptions';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
 import { getNextStaticProps } from '@faustjs/next';
 
-export default function Page() {
+export interface PageProps {
+  koaThemeOptions?: KoaThemeOptions;
+}
+
+export default function Page({ koaThemeOptions }: PageProps) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
@@ -21,6 +27,7 @@ export default function Page() {
       <Head>
         <title>{generalSettings.title}</title>
       </Head>
+      <AppointmentDialog koaThemeOptions={koaThemeOptions} />
       <HeroCenter
         textOverlineTop="THE ANNUAL"
         textOverlineBottom="ELIZABETH EAKINS FALL SALE"
@@ -100,8 +107,12 @@ export default function Page() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+  const koaThemeOptions = await getKoaThemeOptions();
+  const serializedKoaThemeOptions = JSON.parse(JSON.stringify(koaThemeOptions));
+
   return getNextStaticProps(context, {
     Page,
     client,
+    props: { koaThemeOptions: serializedKoaThemeOptions },
   });
 }

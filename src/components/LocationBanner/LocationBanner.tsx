@@ -31,7 +31,7 @@ function LocationBanner({
   hours = '9:00 am - 3:00 pm',
 }: Props): JSX.Element {
   return (
-    <Box sx={styles.bannerContainer}>
+    <Box sx={styles.bannerContainer} id="location">
       <Container sx={styles.bannerWrapper} maxWidth="xl">
         <Box sx={styles.bannerLeftColumn}>
           <a target="_blank" href={buttonLink} style={styles.bannerImageWrapper} rel="noopener noreferrer">

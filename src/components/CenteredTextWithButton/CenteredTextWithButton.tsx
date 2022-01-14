@@ -32,7 +32,7 @@ function CenteredTextWithButton({
   buttonEmail = 'sale@elizabetheakins.com',
 }: Props): JSX.Element {
   return (
-    <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }}>
+    <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }} id="details">
       <Container maxWidth="xl">
         <Box sx={styles.centeredTextWrapper}>
           <Box sx={styles.headerTextContainer}>
