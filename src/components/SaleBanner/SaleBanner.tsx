@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import styles from './styles';
 
 interface Props {
+  isActive: boolean;
   infoTextOne: string;
   infoTextTwo: string;
   infoTextThree: string;
@@ -24,6 +25,7 @@ interface Props {
 }
 
 function SaleBanner({
+  isActive = false,
   infoTextOne = '',
   infoTextTwo = '',
   infoTextThree = '',
@@ -34,6 +36,8 @@ function SaleBanner({
   fontFamily = 'FreightDispMedium',
   buttonLabel = 'sale@elizabetheakins.com',
 }: Props): JSX.Element {
+  if (!isActive) return null;
+
   return (
     <Box sx={{ ...styles.centeredTextContainer, backgroundColor: backgroundColor }} id="details">
       <Container sx={styles.containerWrapper} maxWidth="xl">

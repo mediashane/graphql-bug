@@ -19,6 +19,10 @@ import {
   TwoColumnContent,
   TwoColumnGallery,
 } from 'components';
+import CenteredTextWithButton from 'components/CenteredTextWithButton/CenteredTextWithButton';
+import FourButtonsGroup from 'components/FourButtonsGroup/FourButtonsGroup';
+import HeroCenter from 'components/HeroCenter/HeroCenter';
+import LocationBanner from 'components/LocationBanner/LocationBanner';
 
 export default function acfRenderComponent(componentName, componentData, index, isLoading): JSX.Element {
   if (componentName) {
@@ -271,7 +275,8 @@ export default function acfRenderComponent(componentName, componentData, index, 
         return <CardList key={`${componentName}_${index}`} cards={cards} mobileSizeWide={mobileSizeWide} />;
       }
       case 'CenteredText': {
-        const { cta, backgroundColor, textColor, textSize, fontFamily } = componentData;
+        const { cta, backgroundColor, textColor, textSize, fontFamily, paragraphText, paragraphFontFamily } =
+          componentData;
         return (
           <CenteredText
             key={`${componentName}_${index}`}
@@ -280,6 +285,42 @@ export default function acfRenderComponent(componentName, componentData, index, 
             textColor={textColor}
             textSize={textSize}
             fontFamily={fontFamily}
+            paragraphText={paragraphText}
+            paragraphFontFamily={paragraphFontFamily}
+          />
+        );
+      }
+      case 'CenteredTextWithButton': {
+        const { backgroundColor, text, headerText, headerTextColor, textSize, buttonEmail, fontFamily } = componentData;
+        return (
+          <CenteredTextWithButton
+            key={`${componentName}_${index}`}
+            text={text}
+            headerText={headerText}
+            backgroundColor={backgroundColor}
+            headerTextColor={headerTextColor}
+            textSize={textSize}
+            fontFamily={fontFamily}
+            buttonEmail={buttonEmail}
+          />
+        );
+      }
+      case 'LocationBanner': {
+        const { title, location, locationButtonLabel, dates, days, hours } = componentData;
+
+        return (
+          <LocationBanner
+            key={`${componentName}_${index}`}
+            title={title}
+            addressOne={location[0]?.$on?.Location?.locations?.addressOne}
+            addressTwo={location[0]?.$on?.Location?.locations?.addressTwo}
+            addressThree={location[0]?.$on?.Location?.locations?.addressThree}
+            locationButtonLabel={locationButtonLabel}
+            buttonLink={location[0]?.$on?.Location?.locations?.mapLink}
+            image={location[0]?.$on?.Location?.locations?.mapImage?.mediaItemUrl}
+            dates={dates}
+            days={days}
+            hours={hours}
           />
         );
       }
@@ -347,6 +388,34 @@ export default function acfRenderComponent(componentName, componentData, index, 
             mediaIcon={mediaIcon?.mediaItemUrl ?? ''}
             image={image?.mediaItemUrl ?? ''}
             textColor={textColor}
+          />
+        );
+      }
+      case 'HeroCenter': {
+        const {
+          textOverlineTop,
+          textOverlineBottom,
+          textHeadline,
+          textBodyline,
+          textSublineTop,
+          textSublineBottom,
+          textPostline,
+          media,
+          textColor,
+        } = componentData;
+
+        return (
+          <HeroCenter
+            key={`${componentName}_${index}`}
+            textOverlineTop={textOverlineTop}
+            textOverlineBottom={textOverlineBottom}
+            textHeadline={textHeadline}
+            textBodyline={textBodyline}
+            textSublineTop={textSublineTop}
+            textSublineBottom={textSublineBottom}
+            textPostline={textPostline}
+            textColor={textColor}
+            media={media?.mediaItemUrl ?? ''}
           />
         );
       }
@@ -577,6 +646,21 @@ export default function acfRenderComponent(componentName, componentData, index, 
             imageThree={valueCards[2]?.$on?.Value?.values?.image?.mediaItemUrl ?? ''}
             labelThree={valueCards[2]?.$on?.Value?.values?.label ?? ''}
             descriptionThree={valueCards[2]?.$on?.Value?.values?.description ?? ''}
+          />
+        );
+      }
+      case 'FourButtonsGroup': {
+        const { labelOne, labelTwo, labelThree, labelFour, email, backgroundColor } = componentData;
+
+        return (
+          <FourButtonsGroup
+            key={`${componentName}_${index}`}
+            labelOne={labelOne}
+            labelTwo={labelTwo}
+            labelThree={labelThree}
+            labelFour={labelFour}
+            email={email}
+            backgroundColor={backgroundColor}
           />
         );
       }

@@ -29,6 +29,7 @@ export default function Page({ koaThemeOptions }: PageProps) {
       </Head>
       <AppointmentDialog koaThemeOptions={koaThemeOptions} />
       <SaleBanner
+        isActive={false}
         infoTextOne="THE ANNUAL"
         infoTextTwo="ELIZABETH EAKINS SALE"
         infoTextThree="SEPTEMBER 20TH - OCTOBER 15TH"

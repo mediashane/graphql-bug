@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import styles from './styles';
 
 interface Props {
+  isActive: boolean;
   textOverlineTop?: string;
   textOverlineBottom?: string;
   textHeadline: string;
@@ -20,6 +21,7 @@ interface Props {
 }
 
 function SaleCta({
+  isActive = false,
   textOverlineTop = '',
   textOverlineBottom = '',
   textHeadline = '',
@@ -30,6 +32,8 @@ function SaleCta({
   textColor = '',
 }: // media = 'images/rugsCollection.jpg',
 Props): JSX.Element {
+  if (!isActive) return null;
+
   return (
     <>
       {/* <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}> */}

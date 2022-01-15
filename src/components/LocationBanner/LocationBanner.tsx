@@ -11,6 +11,7 @@ interface Props {
   title?: string;
   addressOne?: string;
   addressTwo?: string;
+  addressThree?: string;
   locationButtonLabel?: string;
   buttonLink?: string;
   image?: string;
@@ -22,7 +23,8 @@ interface Props {
 function LocationBanner({
   title = 'The Elizabeth Eakins Studio',
   addressOne = 'Elizabeth Eakins Studio',
-  addressTwo = '5 Taft Street, South Norwalk, CT 06854',
+  addressTwo = '5 Taft Street',
+  addressThree = 'South Norwalk, CT 06854',
   image = 'images/showroom.jpg',
   locationButtonLabel = 'Book an Appointment',
   buttonLink = 'wwww.google.com/maps',
@@ -48,7 +50,9 @@ function LocationBanner({
             <Typography sx={styles.bannerSubheader}>Location</Typography>
             <Typography sx={styles.bannerHeader}>{title}</Typography>
             <Typography sx={styles.bannerBodyText}>{addressOne}</Typography>
-            <Typography sx={styles.bannerBodyText}>{addressTwo}</Typography>
+            <Typography sx={styles.bannerBodyText}>
+              {addressTwo}, {addressThree}
+            </Typography>
             <a target="_blank" href={buttonLink} style={{ textDecoration: 'none' }} rel="noopener noreferrer">
               <Box sx={styles.bannerButtonWrapper}>
                 <Button variant="outlined" size="large" sx={styles.bannerButton}>

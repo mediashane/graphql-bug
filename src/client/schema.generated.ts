@@ -6011,6 +6011,7 @@ export const generatedSchema = {
     isTermNode: { __type: 'Boolean!' },
     lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
     link: { __type: 'String' },
+    locations: { __type: 'Page_Locations' },
     menuOrder: { __type: 'Int' },
     modified: { __type: 'String' },
     modifiedGmt: { __type: 'String' },
@@ -6144,15 +6145,27 @@ export const generatedSchema = {
     cursor: { __type: 'String' },
     node: { __type: 'Comment' },
   },
-  Page_Pagebuilder: {
+  Page_Locations: {
     __typename: { __type: 'String!' },
+    addressOne: { __type: 'String' },
+    addressThree: { __type: 'String' },
+    addressTwo: { __type: 'String' },
+    email: { __type: 'String' },
     fieldGroupName: { __type: 'String' },
-    modules: { __type: '[Page_Pagebuilder_Modules]' },
+    location: { __type: 'String' },
+    mapImage: { __type: 'MediaItem' },
+    mapLink: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
   },
   AcfFieldGroup: {
     __typename: { __type: 'String!' },
     fieldGroupName: { __type: 'String' },
     $on: { __type: '$AcfFieldGroup!' },
+  },
+  Page_Pagebuilder: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    modules: { __type: '[Page_Pagebuilder_Modules]' },
   },
   Page_Pagebuilder_Modules: { __typename: { __type: 'String!' }, $on: { __type: '$Page_Pagebuilder_Modules!' } },
   Page_Pagebuilder_Modules_HeroLeftJustified: {
@@ -6182,6 +6195,18 @@ export const generatedSchema = {
     textHeadline: { __type: 'String' },
     textOverline: { __type: 'String' },
     textSubline: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_HeroCenter: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    media: { __type: 'MediaItem' },
+    textBodyline: { __type: 'String' },
+    textColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textOverlineBottom: { __type: 'String' },
+    textOverlineTop: { __type: 'String' },
+    textSublineBottom: { __type: 'String' },
+    textSublineTop: { __type: 'String' },
   },
   Page_Pagebuilder_Modules_HeroCenterButton: {
     __typename: { __type: 'String!' },
@@ -6230,6 +6255,7 @@ export const generatedSchema = {
   },
   Page_Pagebuilder_Modules_ThreeFeatureCards: {
     __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
     descriptionOne: { __type: 'String' },
     descriptionThree: { __type: 'String' },
     descriptionTwo: { __type: 'String' },
@@ -6242,6 +6268,7 @@ export const generatedSchema = {
     labelTextColor: { __type: 'String' },
     labelThree: { __type: 'String' },
     labelTwo: { __type: 'String' },
+    roundImages: { __type: 'Boolean' },
     sectionLabel: { __type: 'String' },
     textColor: { __type: 'String' },
   },
@@ -6262,6 +6289,8 @@ export const generatedSchema = {
     cta: { __type: '[Page_Pagebuilder_Modules_CenteredText_Cta]' },
     fieldGroupName: { __type: 'String' },
     fontFamily: { __type: 'String' },
+    paragraphFontFamily: { __type: 'String' },
+    paragraphText: { __type: 'String' },
     textColor: { __type: 'String' },
     textSize: { __type: 'Float' },
   },
@@ -6751,6 +6780,143 @@ export const generatedSchema = {
     fieldGroupName: { __type: 'String' },
     location: { __type: 'String' },
     phoneNumber: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_FourButtonsGroup: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    email: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    labelFour: { __type: 'String' },
+    labelOne: { __type: 'String' },
+    labelThree: { __type: 'String' },
+    labelTwo: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_LocationBanner: {
+    __typename: { __type: 'String!' },
+    dates: { __type: 'String' },
+    days: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    hours: { __type: 'String' },
+    location: { __type: '[Page_Pagebuilder_Modules_LocationBanner_Location]' },
+    locationButtonLabel: { __type: 'String' },
+    title: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_LocationBanner_Location: {
+    __typename: { __type: 'String!' },
+    $on: { __type: '$Page_Pagebuilder_Modules_LocationBanner_Location!' },
+  },
+  Location: {
+    __typename: { __type: 'String!' },
+    ancestors: {
+      __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs',
+      },
+    },
+    children: {
+      __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
+      __args: {
+        first: 'Int',
+        last: 'Int',
+        after: 'String',
+        before: 'String',
+        where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
+      },
+    },
+    conditionalTags: { __type: 'ConditionalTags' },
+    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    databaseId: { __type: 'Int!' },
+    date: { __type: 'String' },
+    dateGmt: { __type: 'String' },
+    desiredSlug: { __type: 'String' },
+    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
+    enclosure: { __type: 'String' },
+    enqueuedScripts: {
+      __type: 'ContentNodeToEnqueuedScriptConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    enqueuedStylesheets: {
+      __type: 'ContentNodeToEnqueuedStylesheetConnection',
+      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
+    },
+    guid: { __type: 'String' },
+    id: { __type: 'ID!' },
+    isContentNode: { __type: 'Boolean!' },
+    isPreview: { __type: 'Boolean' },
+    isRestricted: { __type: 'Boolean' },
+    isTermNode: { __type: 'Boolean!' },
+    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
+    link: { __type: 'String' },
+    locationId: { __type: 'Int!' },
+    locations: { __type: 'Location_Locations' },
+    modified: { __type: 'String' },
+    modifiedGmt: { __type: 'String' },
+    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
+    parentDatabaseId: { __type: 'Int' },
+    parentId: { __type: 'ID' },
+    preview: { __type: 'LocationToPreviewConnectionEdge' },
+    previewRevisionDatabaseId: { __type: 'Int' },
+    previewRevisionId: { __type: 'ID' },
+    slug: { __type: 'String' },
+    status: { __type: 'String' },
+    template: { __type: 'ContentTemplate' },
+    templates: { __type: '[String]' },
+    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
+    uri: { __type: 'String' },
+  },
+  Location_Locations: {
+    __typename: { __type: 'String!' },
+    addressOne: { __type: 'String' },
+    addressThree: { __type: 'String' },
+    addressTwo: { __type: 'String' },
+    email: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    location: { __type: 'String' },
+    mapImage: { __type: 'MediaItem' },
+    mapLink: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+  },
+  LocationToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Location' } },
+  Page_Pagebuilder_Modules_CenteredTextWithButton: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    buttonEmail: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    headerText: { __type: 'String' },
+    headerTextColor: { __type: 'String' },
+    text: { __type: 'String' },
+    textSize: { __type: 'Float' },
+  },
+  Page_Pagebuilder_Modules_SaleBanner: {
+    __typename: { __type: 'String!' },
+    backgroundColor: { __type: 'String' },
+    buttonLabel: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    headlineText: { __type: 'String' },
+    infoTextOne: { __type: 'String' },
+    infoTextThree: { __type: 'String' },
+    infoTextTwo: { __type: 'String' },
+    isActive: { __type: 'Boolean' },
+    sublineText: { __type: 'String' },
+    textColor: { __type: 'String' },
+  },
+  Page_Pagebuilder_Modules_SaleCta: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    image: { __type: 'MediaItem' },
+    isActive: { __type: 'Boolean' },
+    textBodyline: { __type: 'String' },
+    textColor: { __type: 'String' },
+    textHeadline: { __type: 'String' },
+    textOverlineBottom: { __type: 'String' },
+    textOverlineTop: { __type: 'String' },
+    textPostline: { __type: 'String' },
+    textSublineBottom: { __type: 'String' },
+    textSublineTop: { __type: 'String' },
   },
   PageToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Page' } },
   Page_Productcategory: {
@@ -8559,69 +8725,6 @@ export const generatedSchema = {
     twitterLink: { __type: 'String' },
     youtubeLink: { __type: 'String' },
   },
-  Location: {
-    __typename: { __type: 'String!' },
-    ancestors: {
-      __type: 'HierarchicalContentNodeToContentNodeAncestorsConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs',
-      },
-    },
-    children: {
-      __type: 'HierarchicalContentNodeToContentNodeChildrenConnection',
-      __args: {
-        first: 'Int',
-        last: 'Int',
-        after: 'String',
-        before: 'String',
-        where: 'HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs',
-      },
-    },
-    conditionalTags: { __type: 'ConditionalTags' },
-    contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
-    databaseId: { __type: 'Int!' },
-    date: { __type: 'String' },
-    dateGmt: { __type: 'String' },
-    desiredSlug: { __type: 'String' },
-    editingLockedBy: { __type: 'ContentNodeToEditLockConnectionEdge' },
-    enclosure: { __type: 'String' },
-    enqueuedScripts: {
-      __type: 'ContentNodeToEnqueuedScriptConnection',
-      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
-    },
-    enqueuedStylesheets: {
-      __type: 'ContentNodeToEnqueuedStylesheetConnection',
-      __args: { first: 'Int', last: 'Int', after: 'String', before: 'String' },
-    },
-    guid: { __type: 'String' },
-    id: { __type: 'ID!' },
-    isContentNode: { __type: 'Boolean!' },
-    isPreview: { __type: 'Boolean' },
-    isRestricted: { __type: 'Boolean' },
-    isTermNode: { __type: 'Boolean!' },
-    lastEditedBy: { __type: 'ContentNodeToEditLastConnectionEdge' },
-    link: { __type: 'String' },
-    locationId: { __type: 'Int!' },
-    modified: { __type: 'String' },
-    modifiedGmt: { __type: 'String' },
-    parent: { __type: 'HierarchicalContentNodeToParentContentNodeConnectionEdge' },
-    parentDatabaseId: { __type: 'Int' },
-    parentId: { __type: 'ID' },
-    preview: { __type: 'LocationToPreviewConnectionEdge' },
-    previewRevisionDatabaseId: { __type: 'Int' },
-    previewRevisionId: { __type: 'ID' },
-    slug: { __type: 'String' },
-    status: { __type: 'String' },
-    template: { __type: 'ContentTemplate' },
-    templates: { __type: '[String]' },
-    title: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
-    uri: { __type: 'String' },
-  },
-  LocationToPreviewConnectionEdge: { __typename: { __type: 'String!' }, node: { __type: 'Location' } },
   RootQueryToLocationConnectionWhereArgs: {
     dateQuery: { __type: 'DateQueryInput' },
     hasPassword: { __type: 'Boolean' },
@@ -10432,7 +10535,23 @@ export const generatedSchema = {
     label: { __type: 'String' },
     textColor: { __type: 'String' },
   },
-  Template_Home: { __typename: { __type: 'String!' }, templateName: { __type: 'String' } },
+  Template_Home: {
+    __typename: { __type: 'String!' },
+    locations: { __type: 'Template_Home_Locations' },
+    templateName: { __type: 'String' },
+  },
+  Template_Home_Locations: {
+    __typename: { __type: 'String!' },
+    addressOne: { __type: 'String' },
+    addressThree: { __type: 'String' },
+    addressTwo: { __type: 'String' },
+    email: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    location: { __type: 'String' },
+    mapImage: { __type: 'MediaItem' },
+    mapLink: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+  },
   [SchemaUnionsKey]: {
     Node: [
       'Carousel',
@@ -10448,6 +10567,7 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -10457,7 +10577,6 @@ export const generatedSchema = {
       'PostFormat',
       'Tag',
       'UserRole',
-      'Location',
       'Menu',
       'MenuItem',
       'Plugin',
@@ -10472,12 +10591,12 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
       'Value',
       'Post',
-      'Location',
     ],
     UniformResourceIdentifiable: [
       'Carousel',
@@ -10489,6 +10608,7 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -10497,7 +10617,6 @@ export const generatedSchema = {
       'Category',
       'PostFormat',
       'Tag',
-      'Location',
     ],
     DatabaseIdentifier: [
       'Carousel',
@@ -10509,6 +10628,7 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -10517,7 +10637,6 @@ export const generatedSchema = {
       'Category',
       'PostFormat',
       'Tag',
-      'Location',
       'Menu',
       'MenuItem',
     ],
@@ -10529,12 +10648,12 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
       'Value',
       'Post',
-      'Location',
     ],
     NodeWithTitle: [
       'Carousel',
@@ -10544,12 +10663,12 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
       'Value',
       'Post',
-      'Location',
     ],
     HierarchicalContentNode: [
       'Carousel',
@@ -10559,11 +10678,11 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
       'Value',
-      'Location',
     ],
     MenuItemLinkable: [
       'Carousel',
@@ -10572,6 +10691,7 @@ export const generatedSchema = {
       'Product_category',
       'Rug_attribute',
       'Rug_description',
+      'Location',
       'Rug_collection',
       'Feature',
       'Rug',
@@ -10579,7 +10699,6 @@ export const generatedSchema = {
       'Post',
       'Category',
       'Tag',
-      'Location',
     ],
     Commenter: ['User', 'CommentAuthor'],
     EnqueuedAsset: ['EnqueuedScript', 'EnqueuedStylesheet'],
@@ -10589,10 +10708,12 @@ export const generatedSchema = {
     NodeWithRevisions: ['Page', 'Post'],
     NodeWithPageAttributes: ['Page'],
     AcfFieldGroup: [
+      'Page_Locations',
       'Page_Pagebuilder',
       'Page_Pagebuilder_Modules_HeroLeftJustified',
       'Page_Pagebuilder_Modules_HeroRightJustified',
       'Page_Pagebuilder_Modules_HeroCenterTop',
+      'Page_Pagebuilder_Modules_HeroCenter',
       'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
@@ -10616,6 +10737,12 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_ContactBanner',
       'Page_Pagebuilder_Modules_ContactList',
       'Page_Pagebuilder_Modules_ContactList_cards',
+      'Page_Pagebuilder_Modules_FourButtonsGroup',
+      'Page_Pagebuilder_Modules_LocationBanner',
+      'Location_Locations',
+      'Page_Pagebuilder_Modules_CenteredTextWithButton',
+      'Page_Pagebuilder_Modules_SaleBanner',
+      'Page_Pagebuilder_Modules_SaleCta',
       'Page_Productcategory',
       'Page_Rug',
       'Page_Rug_Modules',
@@ -10664,11 +10791,13 @@ export const generatedSchema = {
       'DefaultTemplate_RugCollection_listItems',
       'DefaultTemplate_Rugdescription',
       'DefaultTemplate_Values',
+      'Template_Home_Locations',
     ],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
       'Page_Pagebuilder_Modules_HeroRightJustified',
       'Page_Pagebuilder_Modules_HeroCenterTop',
+      'Page_Pagebuilder_Modules_HeroCenter',
       'Page_Pagebuilder_Modules_HeroCenterButton',
       'Page_Pagebuilder_Modules_CallToAction',
       'Page_Pagebuilder_Modules_ThreeImageButtons',
@@ -10685,11 +10814,17 @@ export const generatedSchema = {
       'Page_Pagebuilder_Modules_OneColumnContent',
       'Page_Pagebuilder_Modules_ContactBanner',
       'Page_Pagebuilder_Modules_ContactList',
+      'Page_Pagebuilder_Modules_FourButtonsGroup',
+      'Page_Pagebuilder_Modules_LocationBanner',
+      'Page_Pagebuilder_Modules_CenteredTextWithButton',
+      'Page_Pagebuilder_Modules_SaleBanner',
+      'Page_Pagebuilder_Modules_SaleCta',
     ],
     Page_Pagebuilder_Modules_CenteredText_Cta: ['Cta'],
     Page_Pagebuilder_Modules_TwoColumnGallery_ProductCategory: ['Product_category'],
     Page_Pagebuilder_Modules_TwoColumnGallery_RugAttributes: ['Rug_attribute'],
     Page_Pagebuilder_Modules_TwoColumnGallery_RugDescription: ['Rug_description'],
+    Page_Pagebuilder_Modules_LocationBanner_Location: ['Location'],
     Page_Rug_Modules_CenteredText_Cta: ['Cta'],
     Page_Rug_Modules_Collection: ['Rug_collection'],
     Rug_collection_RugCollection_Features: ['Feature'],
@@ -11475,6 +11610,7 @@ export interface Node {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
@@ -11484,7 +11620,6 @@ export interface Node {
     | 'PostFormat'
     | 'Tag'
     | 'UserRole'
-    | 'Location'
     | 'Menu'
     | 'MenuItem'
     | 'Plugin'
@@ -11509,12 +11644,12 @@ export interface ContentNode {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
     | 'Value'
-    | 'Post'
-    | 'Location';
+    | 'Post';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * Connection between the ContentNode type and the ContentType type
@@ -11668,6 +11803,7 @@ export interface UniformResourceIdentifiable {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
@@ -11675,8 +11811,7 @@ export interface UniformResourceIdentifiable {
     | 'Post'
     | 'Category'
     | 'PostFormat'
-    | 'Tag'
-    | 'Location';
+    | 'Tag';
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * The unique resource identifier path
@@ -12680,6 +12815,7 @@ export interface DatabaseIdentifier {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
@@ -12688,7 +12824,6 @@ export interface DatabaseIdentifier {
     | 'Category'
     | 'PostFormat'
     | 'Tag'
-    | 'Location'
     | 'Menu'
     | 'MenuItem';
   /**
@@ -13544,12 +13679,12 @@ export interface NodeWithTemplate {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
     | 'Value'
-    | 'Post'
-    | 'Location';
+    | 'Post';
   /**
    * The template assigned to the node
    */
@@ -13581,12 +13716,12 @@ export interface NodeWithTitle {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
     | 'Value'
-    | 'Post'
-    | 'Location';
+    | 'Post';
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
@@ -13658,11 +13793,11 @@ export interface HierarchicalContentNode {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
-    | 'Value'
-    | 'Location';
+    | 'Value';
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -14509,6 +14644,10 @@ export interface Page {
    */
   link?: Maybe<ScalarsEnums['String']>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Locations&quot; was set to Show in GraphQL.
+   */
+  locations?: Maybe<Page_Locations>;
+  /**
    * A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types.
    */
   menuOrder?: Maybe<ScalarsEnums['Int']>;
@@ -14835,14 +14974,14 @@ export interface MenuItemLinkable {
     | 'Product_category'
     | 'Rug_attribute'
     | 'Rug_description'
+    | 'Location'
     | 'Rug_collection'
     | 'Feature'
     | 'Rug'
     | 'Value'
     | 'Post'
     | 'Category'
-    | 'Tag'
-    | 'Location';
+    | 'Tag';
   /**
    * The unique resource identifier path
    */
@@ -14895,13 +15034,23 @@ export interface PageToCommentConnectionEdge {
 /**
  * Field Group
  */
-export interface Page_Pagebuilder {
-  __typename?: 'Page_Pagebuilder';
+export interface Page_Locations {
+  __typename?: 'Page_Locations';
+  addressOne?: Maybe<ScalarsEnums['String']>;
+  addressThree?: Maybe<ScalarsEnums['String']>;
+  addressTwo?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  modules?: Maybe<Array<Maybe<Page_Pagebuilder_Modules>>>;
+  location?: Maybe<ScalarsEnums['String']>;
+  mapImage?: Maybe<MediaItem>;
+  /**
+   * Copy and Paste Google Maps URL here
+   */
+  mapLink?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -14909,10 +15058,12 @@ export interface Page_Pagebuilder {
  */
 export interface AcfFieldGroup {
   __typename?:
+    | 'Page_Locations'
     | 'Page_Pagebuilder'
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
     | 'Page_Pagebuilder_Modules_HeroRightJustified'
     | 'Page_Pagebuilder_Modules_HeroCenterTop'
+    | 'Page_Pagebuilder_Modules_HeroCenter'
     | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
@@ -14936,6 +15087,12 @@ export interface AcfFieldGroup {
     | 'Page_Pagebuilder_Modules_ContactBanner'
     | 'Page_Pagebuilder_Modules_ContactList'
     | 'Page_Pagebuilder_Modules_ContactList_cards'
+    | 'Page_Pagebuilder_Modules_FourButtonsGroup'
+    | 'Page_Pagebuilder_Modules_LocationBanner'
+    | 'Location_Locations'
+    | 'Page_Pagebuilder_Modules_CenteredTextWithButton'
+    | 'Page_Pagebuilder_Modules_SaleBanner'
+    | 'Page_Pagebuilder_Modules_SaleCta'
     | 'Page_Productcategory'
     | 'Page_Rug'
     | 'Page_Rug_Modules'
@@ -14983,7 +15140,8 @@ export interface AcfFieldGroup {
     | 'DefaultTemplate_RugCollection_Images'
     | 'DefaultTemplate_RugCollection_listItems'
     | 'DefaultTemplate_Rugdescription'
-    | 'DefaultTemplate_Values';
+    | 'DefaultTemplate_Values'
+    | 'Template_Home_Locations';
   /**
    * The name of the ACF Field Group
    */
@@ -14991,11 +15149,24 @@ export interface AcfFieldGroup {
   $on: $AcfFieldGroup;
 }
 
+/**
+ * Field Group
+ */
+export interface Page_Pagebuilder {
+  __typename?: 'Page_Pagebuilder';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  modules?: Maybe<Array<Maybe<Page_Pagebuilder_Modules>>>;
+}
+
 export interface Page_Pagebuilder_Modules {
   __typename?:
     | 'Page_Pagebuilder_Modules_HeroLeftJustified'
     | 'Page_Pagebuilder_Modules_HeroRightJustified'
     | 'Page_Pagebuilder_Modules_HeroCenterTop'
+    | 'Page_Pagebuilder_Modules_HeroCenter'
     | 'Page_Pagebuilder_Modules_HeroCenterButton'
     | 'Page_Pagebuilder_Modules_CallToAction'
     | 'Page_Pagebuilder_Modules_ThreeImageButtons'
@@ -15011,7 +15182,12 @@ export interface Page_Pagebuilder_Modules {
     | 'Page_Pagebuilder_Modules_TwoColumnContent'
     | 'Page_Pagebuilder_Modules_OneColumnContent'
     | 'Page_Pagebuilder_Modules_ContactBanner'
-    | 'Page_Pagebuilder_Modules_ContactList';
+    | 'Page_Pagebuilder_Modules_ContactList'
+    | 'Page_Pagebuilder_Modules_FourButtonsGroup'
+    | 'Page_Pagebuilder_Modules_LocationBanner'
+    | 'Page_Pagebuilder_Modules_CenteredTextWithButton'
+    | 'Page_Pagebuilder_Modules_SaleBanner'
+    | 'Page_Pagebuilder_Modules_SaleCta';
   $on: $Page_Pagebuilder_Modules;
 }
 
@@ -15065,6 +15241,25 @@ export interface Page_Pagebuilder_Modules_HeroCenterTop {
   textHeadline?: Maybe<ScalarsEnums['String']>;
   textOverline?: Maybe<ScalarsEnums['String']>;
   textSubline?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_HeroCenter {
+  __typename?: 'Page_Pagebuilder_Modules_HeroCenter';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  media?: Maybe<MediaItem>;
+  textBodyline?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textOverlineBottom?: Maybe<ScalarsEnums['String']>;
+  textOverlineTop?: Maybe<ScalarsEnums['String']>;
+  textSublineBottom?: Maybe<ScalarsEnums['String']>;
+  textSublineTop?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -15151,6 +15346,7 @@ export interface Page_Pagebuilder_Modules_ThreeImageButtons {
  */
 export interface Page_Pagebuilder_Modules_ThreeFeatureCards {
   __typename?: 'Page_Pagebuilder_Modules_ThreeFeatureCards';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
   descriptionOne?: Maybe<ScalarsEnums['String']>;
   descriptionThree?: Maybe<ScalarsEnums['String']>;
   descriptionTwo?: Maybe<ScalarsEnums['String']>;
@@ -15169,6 +15365,10 @@ export interface Page_Pagebuilder_Modules_ThreeFeatureCards {
   labelTextColor?: Maybe<ScalarsEnums['String']>;
   labelThree?: Maybe<ScalarsEnums['String']>;
   labelTwo?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Set to false if you prefer square images.
+   */
+  roundImages?: Maybe<ScalarsEnums['Boolean']>;
   sectionLabel?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
 }
@@ -15206,6 +15406,11 @@ export interface Page_Pagebuilder_Modules_CenteredText {
    * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
    */
   fontFamily?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Options include: FreightDispBook, FreightDispSemibold, FreightDispBookItalic, FreightDispMediumItalic, FrizQuadrata, ProximaNovaRegular, ProximaNovaThin
+   */
+  paragraphFontFamily?: Maybe<ScalarsEnums['String']>;
+  paragraphText?: Maybe<ScalarsEnums['String']>;
   textColor?: Maybe<ScalarsEnums['String']>;
   /**
    * Enter a whole number
@@ -16611,6 +16816,387 @@ export interface Page_Pagebuilder_Modules_ContactList_cards {
   fieldGroupName?: Maybe<ScalarsEnums['String']>;
   location?: Maybe<ScalarsEnums['String']>;
   phoneNumber?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_FourButtonsGroup {
+  __typename?: 'Page_Pagebuilder_Modules_FourButtonsGroup';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The email address that will receive the email pressing this button opens
+   */
+  email?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The text label on the fourth button
+   */
+  labelFour?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The text label on the first button
+   */
+  labelOne?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The text label on the third button
+   */
+  labelThree?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The text label on the secondbutton
+   */
+  labelTwo?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_LocationBanner {
+  __typename?: 'Page_Pagebuilder_Modules_LocationBanner';
+  dates?: Maybe<ScalarsEnums['String']>;
+  days?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  hours?: Maybe<ScalarsEnums['String']>;
+  location?: Maybe<Array<Maybe<Page_Pagebuilder_Modules_LocationBanner_Location>>>;
+  locationButtonLabel?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
+}
+
+export interface Page_Pagebuilder_Modules_LocationBanner_Location {
+  __typename?: 'Location';
+  $on: $Page_Pagebuilder_Modules_LocationBanner_Location;
+}
+
+/**
+ * The location type
+ */
+export interface Location {
+  __typename?: 'Location';
+  /**
+   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
+   */
+  ancestors: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
+  /**
+   * Connection between the HierarchicalContentNode type and the ContentNode type
+   */
+  children: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>
+    /**
+     * Arguments for filtering the connection
+     */;
+    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
+  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The unique resource identifier path
+   */
+  databaseId: ScalarsEnums['Int'];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars['Int']>
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */;
+    last?: Maybe<Scalars['Int']>
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */;
+    after?: Maybe<Scalars['String']>
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */;
+    before?: Maybe<Scalars['String']>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The globally unique identifier of the locations object.
+   */
+  id: ScalarsEnums['ID'];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums['Boolean'];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums['Boolean'];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  locationId: ScalarsEnums['Int'];
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Locations&quot; was set to Show in GraphQL.
+   */
+  locations?: Maybe<Location_Locations>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The parent of the node. The parent object can be of various types
+   */
+  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
+  /**
+   * Database id of the parent node
+   */
+  parentDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * The globally unique identifier of the parent node.
+   */
+  parentId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * Connection between the location type and the location type
+   */
+  preview?: Maybe<LocationToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The template assigned to the node
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums['String']>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Field Group
+ */
+export interface Location_Locations {
+  __typename?: 'Location_Locations';
+  addressOne?: Maybe<ScalarsEnums['String']>;
+  addressThree?: Maybe<ScalarsEnums['String']>;
+  addressTwo?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  location?: Maybe<ScalarsEnums['String']>;
+  mapImage?: Maybe<MediaItem>;
+  /**
+   * Copy and Paste Google Maps URL here
+   */
+  mapLink?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Connection between the location type and the location type
+ */
+export interface LocationToPreviewConnectionEdge {
+  __typename?: 'LocationToPreviewConnectionEdge';
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<Location>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_CenteredTextWithButton {
+  __typename?: 'Page_Pagebuilder_Modules_CenteredTextWithButton';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  buttonEmail?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  headerText?: Maybe<ScalarsEnums['String']>;
+  headerTextColor?: Maybe<ScalarsEnums['String']>;
+  text?: Maybe<ScalarsEnums['String']>;
+  /**
+   * Enter a whole number
+   */
+  textSize?: Maybe<ScalarsEnums['Float']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_SaleBanner {
+  __typename?: 'Page_Pagebuilder_Modules_SaleBanner';
+  backgroundColor?: Maybe<ScalarsEnums['String']>;
+  buttonLabel?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  headlineText?: Maybe<ScalarsEnums['String']>;
+  infoTextOne?: Maybe<ScalarsEnums['String']>;
+  infoTextThree?: Maybe<ScalarsEnums['String']>;
+  infoTextTwo?: Maybe<ScalarsEnums['String']>;
+  /**
+   * If true, the Sale Banner will show. If false, the banner will hide.
+   */
+  isActive?: Maybe<ScalarsEnums['Boolean']>;
+  sublineText?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Group within the flex field
+ */
+export interface Page_Pagebuilder_Modules_SaleCta {
+  __typename?: 'Page_Pagebuilder_Modules_SaleCta';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  image?: Maybe<MediaItem>;
+  /**
+   * If true, the sale CTA show. If false, the CTA will hide.
+   */
+  isActive?: Maybe<ScalarsEnums['Boolean']>;
+  textBodyline?: Maybe<ScalarsEnums['String']>;
+  textColor?: Maybe<ScalarsEnums['String']>;
+  textHeadline?: Maybe<ScalarsEnums['String']>;
+  textOverlineBottom?: Maybe<ScalarsEnums['String']>;
+  textOverlineTop?: Maybe<ScalarsEnums['String']>;
+  textPostline?: Maybe<ScalarsEnums['String']>;
+  textSublineBottom?: Maybe<ScalarsEnums['String']>;
+  textSublineTop?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -20393,240 +20979,6 @@ export interface KoaThemeOptions_Themeoptions {
 }
 
 /**
- * The location type
- */
-export interface Location {
-  __typename?: 'Location';
-  /**
-   * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
-   */
-  ancestors: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>
-    /**
-     * Arguments for filtering the connection
-     */;
-    where?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnectionWhereArgs>;
-  }) => Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
-  /**
-   * Connection between the HierarchicalContentNode type and the ContentNode type
-   */
-  children: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>
-    /**
-     * Arguments for filtering the connection
-     */;
-    where?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>;
-  }) => Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>;
-  conditionalTags?: Maybe<ConditionalTags>;
-  /**
-   * Connection between the ContentNode type and the ContentType type
-   */
-  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
-  /**
-   * The unique resource identifier path
-   */
-  databaseId: ScalarsEnums['Int'];
-  /**
-   * Post publishing date.
-   */
-  date?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The publishing date set in GMT.
-   */
-  dateGmt?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The desired slug of the post
-   */
-  desiredSlug?: Maybe<ScalarsEnums['String']>;
-  /**
-   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
-   */
-  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
-  /**
-   * The RSS enclosure for the object
-   */
-  enclosure?: Maybe<ScalarsEnums['String']>;
-  /**
-   * Connection between the ContentNode type and the EnqueuedScript type
-   */
-  enqueuedScripts: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>;
-  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
-  /**
-   * Connection between the ContentNode type and the EnqueuedStylesheet type
-   */
-  enqueuedStylesheets: (args?: {
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */;
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */;
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */;
-    before?: Maybe<Scalars['String']>;
-  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
-  /**
-   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
-   */
-  guid?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The globally unique identifier of the locations object.
-   */
-  id: ScalarsEnums['ID'];
-  /**
-   * Whether the node is a Content Node
-   */
-  isContentNode: ScalarsEnums['Boolean'];
-  /**
-   * Whether the object is a node in the preview state
-   */
-  isPreview?: Maybe<ScalarsEnums['Boolean']>;
-  /**
-   * Whether the object is restricted from the current viewer
-   */
-  isRestricted?: Maybe<ScalarsEnums['Boolean']>;
-  /**
-   * Whether the node is a Term
-   */
-  isTermNode: ScalarsEnums['Boolean'];
-  /**
-   * The user that most recently edited the node
-   */
-  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
-  /**
-   * The permalink of the post
-   */
-  link?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The id field matches the WP_Post-&gt;ID field.
-   * @deprecated Deprecated in favor of the databaseId field
-   */
-  locationId: ScalarsEnums['Int'];
-  /**
-   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
-   */
-  modified?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
-   */
-  modifiedGmt?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The parent of the node. The parent object can be of various types
-   */
-  parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
-  /**
-   * Database id of the parent node
-   */
-  parentDatabaseId?: Maybe<ScalarsEnums['Int']>;
-  /**
-   * The globally unique identifier of the parent node.
-   */
-  parentId?: Maybe<ScalarsEnums['ID']>;
-  /**
-   * Connection between the location type and the location type
-   */
-  preview?: Maybe<LocationToPreviewConnectionEdge>;
-  /**
-   * The database id of the preview node
-   */
-  previewRevisionDatabaseId?: Maybe<ScalarsEnums['Int']>;
-  /**
-   * Whether the object is a node in the preview state
-   */
-  previewRevisionId?: Maybe<ScalarsEnums['ID']>;
-  /**
-   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
-   */
-  slug?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The current status of the object
-   */
-  status?: Maybe<ScalarsEnums['String']>;
-  /**
-   * The template assigned to the node
-   */
-  template?: Maybe<ContentTemplate>;
-  templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
-  /**
-   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
-   */
-  title: (args?: {
-    /**
-     * Format of the field output
-     */
-    format?: Maybe<PostObjectFieldFormatEnum>;
-  }) => Maybe<ScalarsEnums['String']>;
-  /**
-   * The unique resource identifier path
-   */
-  uri?: Maybe<ScalarsEnums['String']>;
-}
-
-/**
- * Connection between the location type and the location type
- */
-export interface LocationToPreviewConnectionEdge {
-  __typename?: 'LocationToPreviewConnectionEdge';
-  /**
-   * The node of the connection, without the edges
-   */
-  node?: Maybe<Location>;
-}
-
-/**
  * Connection between the RootQuery type and the location type
  */
 export interface RootQueryToLocationConnection {
@@ -23279,9 +23631,35 @@ export interface DefaultTemplate_Values {
 export interface Template_Home {
   __typename?: 'Template_Home';
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Locations&quot; was set to Show in GraphQL.
+   */
+  locations?: Maybe<Template_Home_Locations>;
+  /**
    * The name of the template
    */
   templateName?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Field Group
+ */
+export interface Template_Home_Locations {
+  __typename?: 'Template_Home_Locations';
+  addressOne?: Maybe<ScalarsEnums['String']>;
+  addressThree?: Maybe<ScalarsEnums['String']>;
+  addressTwo?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  location?: Maybe<ScalarsEnums['String']>;
+  mapImage?: Maybe<MediaItem>;
+  /**
+   * Copy and Paste Google Maps URL here
+   */
+  mapLink?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
 }
 
 export interface SchemaObjectTypes {
@@ -23351,10 +23729,12 @@ export interface SchemaObjectTypes {
   NodeWithRevisionsToContentNodeConnectionEdge: NodeWithRevisionsToContentNodeConnectionEdge;
   PageToCommentConnection: PageToCommentConnection;
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
+  Page_Locations: Page_Locations;
   Page_Pagebuilder: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified: Page_Pagebuilder_Modules_HeroLeftJustified;
   Page_Pagebuilder_Modules_HeroRightJustified: Page_Pagebuilder_Modules_HeroRightJustified;
   Page_Pagebuilder_Modules_HeroCenterTop: Page_Pagebuilder_Modules_HeroCenterTop;
+  Page_Pagebuilder_Modules_HeroCenter: Page_Pagebuilder_Modules_HeroCenter;
   Page_Pagebuilder_Modules_HeroCenterButton: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction: Page_Pagebuilder_Modules_CallToAction;
   AcfLink: AcfLink;
@@ -23387,6 +23767,14 @@ export interface SchemaObjectTypes {
   Page_Pagebuilder_Modules_ContactBanner: Page_Pagebuilder_Modules_ContactBanner;
   Page_Pagebuilder_Modules_ContactList: Page_Pagebuilder_Modules_ContactList;
   Page_Pagebuilder_Modules_ContactList_cards: Page_Pagebuilder_Modules_ContactList_cards;
+  Page_Pagebuilder_Modules_FourButtonsGroup: Page_Pagebuilder_Modules_FourButtonsGroup;
+  Page_Pagebuilder_Modules_LocationBanner: Page_Pagebuilder_Modules_LocationBanner;
+  Location: Location;
+  Location_Locations: Location_Locations;
+  LocationToPreviewConnectionEdge: LocationToPreviewConnectionEdge;
+  Page_Pagebuilder_Modules_CenteredTextWithButton: Page_Pagebuilder_Modules_CenteredTextWithButton;
+  Page_Pagebuilder_Modules_SaleBanner: Page_Pagebuilder_Modules_SaleBanner;
+  Page_Pagebuilder_Modules_SaleCta: Page_Pagebuilder_Modules_SaleCta;
   PageToPreviewConnectionEdge: PageToPreviewConnectionEdge;
   Page_Productcategory: Page_Productcategory;
   PageToRevisionConnection: PageToRevisionConnection;
@@ -23493,8 +23881,6 @@ export interface SchemaObjectTypes {
   KoaThemeOptions: KoaThemeOptions;
   KoaThemeOptions_Bookanappointment: KoaThemeOptions_Bookanappointment;
   KoaThemeOptions_Themeoptions: KoaThemeOptions_Themeoptions;
-  Location: Location;
-  LocationToPreviewConnectionEdge: LocationToPreviewConnectionEdge;
   RootQueryToLocationConnection: RootQueryToLocationConnection;
   RootQueryToLocationConnectionEdge: RootQueryToLocationConnectionEdge;
   RootQueryToMediaItemConnection: RootQueryToMediaItemConnection;
@@ -23633,6 +24019,7 @@ export interface SchemaObjectTypes {
   DefaultTemplate_Rugdescription: DefaultTemplate_Rugdescription;
   DefaultTemplate_Values: DefaultTemplate_Values;
   Template_Home: Template_Home;
+  Template_Home_Locations: Template_Home_Locations;
 }
 export type SchemaObjectTypesNames =
   | 'Query'
@@ -23701,10 +24088,12 @@ export type SchemaObjectTypesNames =
   | 'NodeWithRevisionsToContentNodeConnectionEdge'
   | 'PageToCommentConnection'
   | 'PageToCommentConnectionEdge'
+  | 'Page_Locations'
   | 'Page_Pagebuilder'
   | 'Page_Pagebuilder_Modules_HeroLeftJustified'
   | 'Page_Pagebuilder_Modules_HeroRightJustified'
   | 'Page_Pagebuilder_Modules_HeroCenterTop'
+  | 'Page_Pagebuilder_Modules_HeroCenter'
   | 'Page_Pagebuilder_Modules_HeroCenterButton'
   | 'Page_Pagebuilder_Modules_CallToAction'
   | 'AcfLink'
@@ -23737,6 +24126,14 @@ export type SchemaObjectTypesNames =
   | 'Page_Pagebuilder_Modules_ContactBanner'
   | 'Page_Pagebuilder_Modules_ContactList'
   | 'Page_Pagebuilder_Modules_ContactList_cards'
+  | 'Page_Pagebuilder_Modules_FourButtonsGroup'
+  | 'Page_Pagebuilder_Modules_LocationBanner'
+  | 'Location'
+  | 'Location_Locations'
+  | 'LocationToPreviewConnectionEdge'
+  | 'Page_Pagebuilder_Modules_CenteredTextWithButton'
+  | 'Page_Pagebuilder_Modules_SaleBanner'
+  | 'Page_Pagebuilder_Modules_SaleCta'
   | 'PageToPreviewConnectionEdge'
   | 'Page_Productcategory'
   | 'PageToRevisionConnection'
@@ -23843,8 +24240,6 @@ export type SchemaObjectTypesNames =
   | 'KoaThemeOptions'
   | 'KoaThemeOptions_Bookanappointment'
   | 'KoaThemeOptions_Themeoptions'
-  | 'Location'
-  | 'LocationToPreviewConnectionEdge'
   | 'RootQueryToLocationConnection'
   | 'RootQueryToLocationConnectionEdge'
   | 'RootQueryToMediaItemConnection'
@@ -23982,7 +24377,8 @@ export type SchemaObjectTypesNames =
   | 'DefaultTemplate_RugCollection_listItems'
   | 'DefaultTemplate_Rugdescription'
   | 'DefaultTemplate_Values'
-  | 'Template_Home';
+  | 'Template_Home'
+  | 'Template_Home_Locations';
 
 export interface $Node {
   Carousel?: Carousel;
@@ -23998,6 +24394,7 @@ export interface $Node {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -24007,7 +24404,6 @@ export interface $Node {
   PostFormat?: PostFormat;
   Tag?: Tag;
   UserRole?: UserRole;
-  Location?: Location;
   Menu?: Menu;
   MenuItem?: MenuItem;
   Plugin?: Plugin;
@@ -24023,12 +24419,12 @@ export interface $ContentNode {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
   Value?: Value;
   Post?: Post;
-  Location?: Location;
 }
 
 export interface $UniformResourceIdentifiable {
@@ -24041,6 +24437,7 @@ export interface $UniformResourceIdentifiable {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -24049,7 +24446,6 @@ export interface $UniformResourceIdentifiable {
   Category?: Category;
   PostFormat?: PostFormat;
   Tag?: Tag;
-  Location?: Location;
 }
 
 export interface $DatabaseIdentifier {
@@ -24062,6 +24458,7 @@ export interface $DatabaseIdentifier {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -24070,7 +24467,6 @@ export interface $DatabaseIdentifier {
   Category?: Category;
   PostFormat?: PostFormat;
   Tag?: Tag;
-  Location?: Location;
   Menu?: Menu;
   MenuItem?: MenuItem;
 }
@@ -24083,12 +24479,12 @@ export interface $NodeWithTemplate {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
   Value?: Value;
   Post?: Post;
-  Location?: Location;
 }
 
 export interface $NodeWithTitle {
@@ -24099,12 +24495,12 @@ export interface $NodeWithTitle {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
   Value?: Value;
   Post?: Post;
-  Location?: Location;
 }
 
 export interface $HierarchicalContentNode {
@@ -24115,11 +24511,11 @@ export interface $HierarchicalContentNode {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
   Value?: Value;
-  Location?: Location;
 }
 
 export interface $MenuItemLinkable {
@@ -24129,6 +24525,7 @@ export interface $MenuItemLinkable {
   Product_category?: Product_category;
   Rug_attribute?: Rug_attribute;
   Rug_description?: Rug_description;
+  Location?: Location;
   Rug_collection?: Rug_collection;
   Feature?: Feature;
   Rug?: Rug;
@@ -24136,7 +24533,6 @@ export interface $MenuItemLinkable {
   Post?: Post;
   Category?: Category;
   Tag?: Tag;
-  Location?: Location;
 }
 
 export interface $Commenter {
@@ -24176,10 +24572,12 @@ export interface $NodeWithPageAttributes {
 }
 
 export interface $AcfFieldGroup {
+  Page_Locations?: Page_Locations;
   Page_Pagebuilder?: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
   Page_Pagebuilder_Modules_HeroRightJustified?: Page_Pagebuilder_Modules_HeroRightJustified;
   Page_Pagebuilder_Modules_HeroCenterTop?: Page_Pagebuilder_Modules_HeroCenterTop;
+  Page_Pagebuilder_Modules_HeroCenter?: Page_Pagebuilder_Modules_HeroCenter;
   Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
@@ -24203,6 +24601,12 @@ export interface $AcfFieldGroup {
   Page_Pagebuilder_Modules_ContactBanner?: Page_Pagebuilder_Modules_ContactBanner;
   Page_Pagebuilder_Modules_ContactList?: Page_Pagebuilder_Modules_ContactList;
   Page_Pagebuilder_Modules_ContactList_cards?: Page_Pagebuilder_Modules_ContactList_cards;
+  Page_Pagebuilder_Modules_FourButtonsGroup?: Page_Pagebuilder_Modules_FourButtonsGroup;
+  Page_Pagebuilder_Modules_LocationBanner?: Page_Pagebuilder_Modules_LocationBanner;
+  Location_Locations?: Location_Locations;
+  Page_Pagebuilder_Modules_CenteredTextWithButton?: Page_Pagebuilder_Modules_CenteredTextWithButton;
+  Page_Pagebuilder_Modules_SaleBanner?: Page_Pagebuilder_Modules_SaleBanner;
+  Page_Pagebuilder_Modules_SaleCta?: Page_Pagebuilder_Modules_SaleCta;
   Page_Productcategory?: Page_Productcategory;
   Page_Rug?: Page_Rug;
   Page_Rug_Modules?: Page_Rug_Modules;
@@ -24251,12 +24655,14 @@ export interface $AcfFieldGroup {
   DefaultTemplate_RugCollection_listItems?: DefaultTemplate_RugCollection_listItems;
   DefaultTemplate_Rugdescription?: DefaultTemplate_Rugdescription;
   DefaultTemplate_Values?: DefaultTemplate_Values;
+  Template_Home_Locations?: Template_Home_Locations;
 }
 
 export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
   Page_Pagebuilder_Modules_HeroRightJustified?: Page_Pagebuilder_Modules_HeroRightJustified;
   Page_Pagebuilder_Modules_HeroCenterTop?: Page_Pagebuilder_Modules_HeroCenterTop;
+  Page_Pagebuilder_Modules_HeroCenter?: Page_Pagebuilder_Modules_HeroCenter;
   Page_Pagebuilder_Modules_HeroCenterButton?: Page_Pagebuilder_Modules_HeroCenterButton;
   Page_Pagebuilder_Modules_CallToAction?: Page_Pagebuilder_Modules_CallToAction;
   Page_Pagebuilder_Modules_ThreeImageButtons?: Page_Pagebuilder_Modules_ThreeImageButtons;
@@ -24273,6 +24679,11 @@ export interface $Page_Pagebuilder_Modules {
   Page_Pagebuilder_Modules_OneColumnContent?: Page_Pagebuilder_Modules_OneColumnContent;
   Page_Pagebuilder_Modules_ContactBanner?: Page_Pagebuilder_Modules_ContactBanner;
   Page_Pagebuilder_Modules_ContactList?: Page_Pagebuilder_Modules_ContactList;
+  Page_Pagebuilder_Modules_FourButtonsGroup?: Page_Pagebuilder_Modules_FourButtonsGroup;
+  Page_Pagebuilder_Modules_LocationBanner?: Page_Pagebuilder_Modules_LocationBanner;
+  Page_Pagebuilder_Modules_CenteredTextWithButton?: Page_Pagebuilder_Modules_CenteredTextWithButton;
+  Page_Pagebuilder_Modules_SaleBanner?: Page_Pagebuilder_Modules_SaleBanner;
+  Page_Pagebuilder_Modules_SaleCta?: Page_Pagebuilder_Modules_SaleCta;
 }
 
 export interface $Page_Pagebuilder_Modules_CenteredText_Cta {
@@ -24289,6 +24700,10 @@ export interface $Page_Pagebuilder_Modules_TwoColumnGallery_RugAttributes {
 
 export interface $Page_Pagebuilder_Modules_TwoColumnGallery_RugDescription {
   Rug_description?: Rug_description;
+}
+
+export interface $Page_Pagebuilder_Modules_LocationBanner_Location {
+  Location?: Location;
 }
 
 export interface $Page_Rug_Modules_CenteredText_Cta {

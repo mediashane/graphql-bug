@@ -44,6 +44,7 @@ export default function Page() {
       />
 
       <SaleCta
+        isActive={false}
         textOverlineTop="THE ANNUAL"
         textOverlineBottom="ELIZABETH EAKINS FALL SALE"
         textHeadline="Bring Joy In"

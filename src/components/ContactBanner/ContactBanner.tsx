@@ -43,7 +43,7 @@ function ContactBanner({
             <Typography sx={styles.bannerBodyText}>{addressOne}</Typography>
             <Typography sx={styles.bannerBodyText}>{addressTwo}</Typography>
             <Typography sx={styles.bannerBodyText}>T: {phoneNumber}</Typography>
-            <Typography sx={styles.bannerBodyText}>T: {faxNumber}</Typography>
+            <Typography sx={styles.bannerBodyText}>F: {faxNumber}</Typography>
             <Typography sx={styles.bannerBodyText}>Email: {email}</Typography>
             <Box sx={styles.bannerButtonWrapper}>
               <Button
