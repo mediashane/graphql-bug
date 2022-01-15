@@ -678,7 +678,7 @@ export default function acfRenderComponent(componentName, componentData, index, 
           sublineText,
           buttonLabel,
         } = componentData;
-        console.log('IN SALE BANNER');
+
         return (
           <SaleBanner
             key={`${componentName}_${index}`}
@@ -707,7 +707,7 @@ export default function acfRenderComponent(componentName, componentData, index, 
           textPostline,
           media,
         } = componentData;
-        console.log('IN SALE BANNER');
+
         return (
           <SaleCta
             key={`${componentName}_${index}`}
