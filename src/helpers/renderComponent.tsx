@@ -14,6 +14,7 @@ import {
   HeroLeftJustified,
   HeroRightJustified,
   OneColumnContent,
+  SaleBanner,
   ThreeFeatureCards,
   ThreeImageButtons,
   TwoColumnContent,
@@ -660,6 +661,34 @@ export default function acfRenderComponent(componentName, componentData, index, 
             labelThree={labelThree}
             labelFour={labelFour}
             email={email}
+            backgroundColor={backgroundColor}
+          />
+        );
+      }
+      case 'SaleBanner': {
+        const {
+          isActive,
+          infoTextOne,
+          infoTextTwo,
+          infoTextThree,
+          textColor,
+          backgroundColor,
+          headlineText,
+          sublineText,
+          buttonLabel,
+        } = componentData;
+        console.log('IN SALE BANNER');
+        return (
+          <SaleBanner
+            key={`${componentName}_${index}`}
+            isActive={isActive}
+            infoTextOne={infoTextOne}
+            infoTextTwo={infoTextTwo}
+            infoTextThree={infoTextThree}
+            headlineText={headlineText}
+            sublineText={sublineText}
+            textColor={textColor}
+            buttonLabel={buttonLabel}
             backgroundColor={backgroundColor}
           />
         );
