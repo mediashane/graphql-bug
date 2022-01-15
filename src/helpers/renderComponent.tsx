@@ -15,6 +15,7 @@ import {
   HeroRightJustified,
   OneColumnContent,
   SaleBanner,
+  SaleCta,
   ThreeFeatureCards,
   ThreeImageButtons,
   TwoColumnContent,
@@ -690,6 +691,36 @@ export default function acfRenderComponent(componentName, componentData, index, 
             textColor={textColor}
             buttonLabel={buttonLabel}
             backgroundColor={backgroundColor}
+          />
+        );
+      }
+      case 'SaleCta': {
+        const {
+          isActive,
+          textOverlineTop,
+          textOverlineBottom,
+          textHeadline,
+          textColor,
+          textBodyline,
+          textSublineTop,
+          textSublineBottom,
+          textPostline,
+          media,
+        } = componentData;
+        console.log('IN SALE BANNER');
+        return (
+          <SaleCta
+            key={`${componentName}_${index}`}
+            isActive={isActive}
+            textOverlineTop={textOverlineTop}
+            textOverlineBottom={textOverlineBottom}
+            textHeadline={textHeadline}
+            textSublineTop={textSublineTop}
+            textSublineBottom={textSublineBottom}
+            textColor={textColor}
+            textPostline={textPostline}
+            textBodyline={textBodyline}
+            media={media}
           />
         );
       }
