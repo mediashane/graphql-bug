@@ -23,12 +23,11 @@ function HeroCenterButton({
   textColor = '',
   hoverTextColor = '',
   buttonLabel,
-}: // media = 'images/rugsCollection.jpg',
-Props): JSX.Element {
+  media = 'images/rugsCollection.jpg',
+}: Props): JSX.Element {
   return (
     <>
-      {/* <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}> */}
-      <Box sx={{ ...styles.heroContainer, backgroundImage: `url('images/rugsCollection.jpg')` }}>
+      <Box sx={{ ...styles.heroContainer, backgroundImage: `url(${media})` }}>
         <Container sx={styles.heroWrapper} maxWidth="xl">
           <Box sx={{ ...styles.textContainer, color: textColor }}>
             <Fade delay={500}>
