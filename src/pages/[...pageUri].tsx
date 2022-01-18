@@ -111,29 +111,29 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const paths = [
-    '/rugs',
-    '/our-story',
-    '/from-the-farm',
-    '/contact-us',
-    '/belden',
-    '/cotton',
-    '/elizabeths-cloth',
-    '/fabric',
-    '/grasscloth',
-    '/hagga',
-    '/hand-tufted',
-    '/home',
-    '/master-series-classic',
-    '/master-series-linen-wool',
-    '/master-series-private-reserve',
-    '/new-arrivals',
-    '/teff',
-    '/woven-textures',
-  ];
+  // const paths = [
+  //   '/rugs',
+  //   '/our-story',
+  //   '/from-the-farm',
+  //   '/contact-us',
+  //   '/belden',
+  //   '/cotton',
+  //   '/elizabeths-cloth',
+  //   '/fabric',
+  //   '/grasscloth',
+  //   '/hagga',
+  //   '/hand-tufted',
+  //   '/home',
+  //   '/master-series-classic',
+  //   '/master-series-linen-wool',
+  //   '/master-series-private-reserve',
+  //   '/new-arrivals',
+  //   '/teff',
+  //   '/woven-textures',
+  // ];
 
   return {
-    paths: paths,
+    paths: [],
     fallback: false,
   };
 }
