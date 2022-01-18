@@ -11,19 +11,13 @@ interface Props {
   buttonImage: string;
   label: string;
   textColor: string;
-  link: {
-    url?: string;
-    target?: string;
-    title?: string;
-    __typename?: string;
-  };
 }
 
-function ImageCard({ buttonImage = '', label = '', textColor = '', link }: Props): JSX.Element {
+function ImageCard({ buttonImage = '', label = '', textColor = '' }: Props): JSX.Element {
   const [overlay, setOverlay] = useState(0.2);
 
   return (
-    <NextLink href={String(link)} passHref prefetch={false}>
+    <NextLink href={'/'} passHref prefetch={false}>
       <MUILink underline="none">
         <Box
           onMouseEnter={() => setOverlay(0.1)}

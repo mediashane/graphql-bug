@@ -14,12 +14,6 @@ interface Props {
     description?: string;
     stickerText?: string;
     showSticker?: boolean;
-    link?: {
-      url?: string;
-      target?: string;
-      title?: string;
-      __typename?: string;
-    };
   }[];
   mobileSizeWide?: boolean;
 }
@@ -29,7 +23,7 @@ function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
     <Box sx={styles.cardListContainer}>
       <Container sx={styles.cardListWrapper} maxWidth="xl">
         {cards.map((card, index) => {
-          const { image, title, description, stickerText, showSticker, link } = card;
+          const { image, title, description, stickerText, showSticker } = card;
 
           return (
             <CategoryCard
@@ -38,8 +32,7 @@ function CardList({ cards = [], mobileSizeWide = false }: Props): JSX.Element {
               description={description}
               stickerText={stickerText}
               showSticker={showSticker}
-              link={link?.url ?? '/'}
-              target={link?.target ?? '_blank'}
+              link={'/'}
               key={index}
               mobileSizeWide={mobileSizeWide}
             />

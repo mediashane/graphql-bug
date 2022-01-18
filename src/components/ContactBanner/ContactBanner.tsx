@@ -1,5 +1,4 @@
 import React from 'react';
-import toggleDialog from 'helpers/toggleDialog';
 
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -46,12 +45,7 @@ function ContactBanner({
             <Typography sx={styles.bannerBodyText}>F: {faxNumber}</Typography>
             <Typography sx={styles.bannerBodyText}>Email: {email}</Typography>
             <Box sx={styles.bannerButtonWrapper}>
-              <Button
-                variant="outlined"
-                size="large"
-                sx={styles.bannerButton}
-                onClick={() => toggleDialog('appointment')}
-              >
+              <Button variant="outlined" size="large" sx={styles.bannerButton} onClick={() => console.log('CLICK')}>
                 {locationButtonLabel}
               </Button>
             </Box>

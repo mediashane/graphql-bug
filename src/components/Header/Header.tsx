@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { client, MenuLocationEnum } from 'client';
-import MenuDrawer from 'components/MenuDrawer/MenuDrawer';
 import getRouteSlug from 'helpers/getRouteSlug';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import MUILink from '@mui/material/Link';
 import Slide from '@mui/material/Slide';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,7 +18,6 @@ import styles from './styles';
 function Header(): JSX.Element {
   const router = useRouter();
   const trigger = useScrollTrigger();
-  const [menuDrawer, setMenuDrawer] = useState(false);
   const { menuItems } = client.useQuery();
   const mainMenu = menuItems({
     first: 100,
@@ -31,23 +27,6 @@ function Header(): JSX.Element {
   // while waiting for the response from WordPress backend don't render
   if (!mainMenu[0]?.url || !mainMenu[0]?.label) {
     return null;
-    // (
-    //   <>
-    //     <Box sx={styles.headerContainer} position="fixed">
-    //       <AppBar position="static" color="transparent" elevation={0}>
-    //         <Toolbar>
-    //           <Typography variant="h6" component="div" sx={styles.headerTitle}>
-    //             <NextLink href="/" passHref>
-    //               <MUILink color="inherit" variant="inherit" underline="none">
-    //                 {title}
-    //               </MUILink>
-    //             </NextLink>
-    //           </Typography>
-    //         </Toolbar>
-    //       </AppBar>
-    //     </Box>
-    //   </>
-    // );
   }
 
   const isActive = (url) => {
@@ -87,20 +66,10 @@ function Header(): JSX.Element {
                 </NextLink>
               </Box>
               <HeaderLinks />
-              <IconButton
-                onClick={() => setMenuDrawer(!menuDrawer)}
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={styles.menuIcon}
-              >
-                <Image src="/images/hamburger.svg" alt="menu-icon" width={24} height={18} />
-              </IconButton>
             </Toolbar>
           </AppBar>
         </Slide>
       </Box>
-      <MenuDrawer menuDrawer={menuDrawer} setMenuDrawer={setMenuDrawer} />
     </>
   );
 }

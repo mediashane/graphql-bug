@@ -1,277 +1,24 @@
 import {
   CallToAction,
   CardList,
-  CardsCarousel,
   CenteredText,
   ContactBanner,
-  ContactList,
   EmailSubscribe,
-  FourCardsRow,
-  FourCardsWithPrompt,
-  FourFeatureTags,
   HeroCenterButton,
   HeroCenterTop,
   HeroLeftJustified,
   HeroRightJustified,
   OneColumnContent,
-  SaleBanner,
-  SaleCta,
   ThreeFeatureCards,
   ThreeImageButtons,
   TwoColumnContent,
-  TwoColumnGallery,
 } from 'components';
-import CenteredTextWithButton from 'components/CenteredTextWithButton/CenteredTextWithButton';
-import FourButtonsGroup from 'components/FourButtonsGroup/FourButtonsGroup';
-import HeroCenter from 'components/HeroCenter/HeroCenter';
 import LocationBanner from 'components/LocationBanner/LocationBanner';
 
-export default function acfRenderComponent(componentName, componentData, index, isLoading): JSX.Element {
+export default function acfRenderComponent(componentName, componentData, index): JSX.Element {
   if (componentName) {
     // console.log('[KOA]', 'Rendering', componentName, componentData);
     switch (componentName) {
-      case 'CardsCarousel': {
-        const { cards, labelColor, textColor, textLinkLabel, textLinkUrl, sectionLabel } = componentData;
-        return (
-          <CardsCarousel
-            key={`${componentName}_${index}`}
-            cards={cards}
-            labelColor={labelColor}
-            textColor={textColor}
-            textLinkLabel={textLinkLabel}
-            textLinkUrl={textLinkUrl?.url ?? '/'}
-            sectionLabel={sectionLabel}
-          />
-        );
-      }
-      case 'FourCardsWithPrompt': {
-        const {
-          flexDirection,
-          withButton,
-          buttonLabel,
-          promptOverline,
-          promptTopline,
-          promptParagraph,
-          promptImage,
-          textColor,
-          imageOne,
-          titleOne,
-          subtitleOne,
-          linkOne,
-          showStickerOne,
-          stickerTextOne,
-          imageTwo,
-          titleTwo,
-          subtitleTwo,
-          linkTwo,
-          showStickerTwo,
-          stickerTextTwo,
-          imageThree,
-          titleThree,
-          subtitleThree,
-          linkThree,
-          showStickerThree,
-          stickerTextThree,
-          imageFour,
-          titleFour,
-          subtitleFour,
-          linkFour,
-          showStickerFour,
-          stickerTextFour,
-        } = componentData;
-
-        if (isLoading) return null;
-
-        return (
-          <FourCardsWithPrompt
-            key={`${componentName}_${index}`}
-            flexDirection={flexDirection}
-            withButton={withButton}
-            buttonLabel={buttonLabel}
-            promptOverline={promptOverline}
-            promptTopline={promptTopline}
-            promptParagraph={promptParagraph}
-            promptImage={promptImage?.srcSet()?.split(' ')?.[0] ?? ''}
-            paragraphTextColor={textColor}
-            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleOne={titleOne}
-            subtitleOne={subtitleOne}
-            linkOne={linkOne?.url ?? '/'}
-            showStickerOne={showStickerOne}
-            stickerTextOne={stickerTextOne}
-            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleTwo={titleTwo}
-            subtitleTwo={subtitleTwo}
-            linkTwo={linkTwo?.url ?? '/'}
-            showStickerTwo={showStickerTwo}
-            stickerTextTwo={stickerTextTwo}
-            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleThree={titleThree}
-            subtitleThree={subtitleThree}
-            linkThree={linkThree?.url ?? '/'}
-            showStickerThree={showStickerThree}
-            stickerTextThree={stickerTextThree}
-            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleFour={titleFour}
-            subtitleFour={subtitleFour}
-            linkFour={linkFour?.url ?? '/'}
-            showStickerFour={showStickerFour}
-            stickerTextFour={stickerTextFour}
-          />
-        );
-      }
-      case 'FourCardsRow': {
-        const {
-          textColor,
-          imageOne,
-          titleOne,
-          subtitleOne,
-          linkOne,
-          showStickerOne,
-          stickerTextOne,
-          imageTwo,
-          titleTwo,
-          subtitleTwo,
-          linkTwo,
-          showStickerTwo,
-          stickerTextTwo,
-          imageThree,
-          titleThree,
-          subtitleThree,
-          linkThree,
-          showStickerThree,
-          stickerTextThree,
-          imageFour,
-          titleFour,
-          subtitleFour,
-          linkFour,
-          showStickerFour,
-          stickerTextFour,
-        } = componentData;
-
-        if (isLoading) return null;
-
-        return (
-          <FourCardsRow
-            key={`${componentName}_${index}`}
-            textColor={textColor}
-            imageOne={imageOne?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleOne={titleOne}
-            subtitleOne={subtitleOne}
-            linkOne={linkOne?.url ?? '/'}
-            showStickerOne={showStickerOne}
-            stickerTextOne={stickerTextOne}
-            imageTwo={imageTwo?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleTwo={titleTwo}
-            subtitleTwo={subtitleTwo}
-            linkTwo={linkTwo?.url ?? '/'}
-            showStickerTwo={showStickerTwo}
-            stickerTextTwo={stickerTextTwo}
-            imageThree={imageThree?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleThree={titleThree}
-            subtitleThree={subtitleThree}
-            linkThree={linkThree?.url ?? '/'}
-            showStickerThree={showStickerThree}
-            stickerTextThree={stickerTextThree}
-            imageFour={imageFour?.srcSet()?.split(' ')?.[0] ?? ''}
-            titleFour={titleFour}
-            subtitleFour={subtitleFour}
-            linkFour={linkFour?.url ?? '/'}
-            showStickerFour={showStickerFour}
-            stickerTextFour={stickerTextFour}
-          />
-        );
-      }
-      case 'FourFeatureTags': {
-        const { textColor, imageOne, labelOne, imageTwo, labelTwo, imageThree, labelThree, imageFour, labelFour } =
-          componentData;
-
-        return (
-          <FourFeatureTags
-            key={`${componentName}_${index}`}
-            textColor={textColor}
-            imageOne={imageOne?.mediaItemUrl ?? ''}
-            labelOne={labelOne}
-            imageTwo={imageTwo?.mediaItemUrl ?? ''}
-            labelTwo={labelTwo}
-            imageThree={imageThree?.mediaItemUrl ?? ''}
-            labelThree={labelThree}
-            imageFour={imageFour?.mediaItemUrl ?? ''}
-            labelFour={labelFour}
-          />
-        );
-      }
-      case 'TwoColumnGallery': {
-        const {
-          textHeadline,
-          color,
-          productCategory,
-          rugDescription,
-          rugAttributes,
-          backgroundColor,
-          textColorPrimary,
-          textColorSecondary,
-          textAlign,
-          withDivider,
-          images,
-          listItemsLarge,
-          withButton,
-          buttonLabel,
-          withIconButtons,
-          iconButtonsHeadline,
-          iconButtonOneImage,
-          iconButtonOneLink,
-          iconButtonOneLabel,
-          iconButtonTwoImage,
-          iconButtonTwoLink,
-          iconButtonTwoLabel,
-          iconButtonThreeImage,
-          iconButtonThreeLink,
-          iconButtonThreeLabel,
-        } = componentData;
-
-        const listItems = [];
-
-        rugAttributes.forEach((rug) => {
-          listItems.push({
-            textHeadline: rug.$on?.Rug_attribute.rugAttribute.textHeadline,
-            textParagraph: rug.$on?.Rug_attribute.rugAttribute.textParagraph,
-          });
-        });
-
-        return (
-          <TwoColumnGallery
-            key={`${componentName}_${index}`}
-            textHeadline={textHeadline}
-            // collection={currentCollection}
-            color={color}
-            productCategory={isLoading ? '' : productCategory?.[0]?.$on?.Product_category?.title()}
-            textParagraph={rugDescription ? rugDescription?.[0]?.$on?.Rug_description.rugDescription?.description : ''}
-            backgroundColor={backgroundColor}
-            textColorPrimary={textColorPrimary}
-            textColorSecondary={textColorSecondary}
-            textAlign={textAlign}
-            withDivider={withDivider}
-            images={images}
-            listItems={listItems}
-            listItemsLarge={listItemsLarge}
-            withButton={withButton}
-            buttonLabel={buttonLabel}
-            withIconButtons={withIconButtons}
-            iconButtonsHeadline={iconButtonsHeadline}
-            iconButtonOneImage={iconButtonOneImage?.mediaItemUrl ?? ''}
-            iconButtonOneLink={iconButtonOneLink?.url ?? '/'}
-            iconButtonOneLabel={iconButtonOneLabel}
-            iconButtonTwoImage={iconButtonTwoImage?.mediaItemUrl ?? ''}
-            iconButtonTwoLink={iconButtonTwoLink?.url ?? '/'}
-            iconButtonTwoLabel={iconButtonTwoLabel}
-            iconButtonThreeImage={iconButtonThreeImage?.mediaItemUrl ?? ''}
-            iconButtonThreeLink={iconButtonThreeLink?.url ?? '/'}
-            iconButtonThreeLabel={iconButtonThreeLabel}
-            // collection={collection[0]?.$on?.Rug_collection?.rug_collection?.title}
-          />
-        );
-      }
       case 'CardList': {
         const { cards, mobileSizeWide } = componentData;
         return <CardList key={`${componentName}_${index}`} cards={cards} mobileSizeWide={mobileSizeWide} />;
@@ -289,21 +36,6 @@ export default function acfRenderComponent(componentName, componentData, index, 
             fontFamily={fontFamily}
             paragraphText={paragraphText}
             paragraphFontFamily={paragraphFontFamily}
-          />
-        );
-      }
-      case 'CenteredTextWithButton': {
-        const { backgroundColor, text, headerText, headerTextColor, textSize, buttonEmail, fontFamily } = componentData;
-        return (
-          <CenteredTextWithButton
-            key={`${componentName}_${index}`}
-            text={text}
-            headerText={headerText}
-            backgroundColor={backgroundColor}
-            headerTextColor={headerTextColor}
-            textSize={textSize}
-            fontFamily={fontFamily}
-            buttonEmail={buttonEmail}
           />
         );
       }
@@ -353,17 +85,6 @@ export default function acfRenderComponent(componentName, componentData, index, 
           />
         );
       }
-      case 'ContactList': {
-        const { cards, sectionLabel, largeLabel } = componentData;
-        return (
-          <ContactList
-            key={`${componentName}_${index}`}
-            cards={cards}
-            sectionLabel={sectionLabel}
-            largeLabel={largeLabel}
-          />
-        );
-      }
       case 'HeroLeftJustified': {
         const { textOverline, textHeadline, textParagraph, media, textColor } = componentData;
 
@@ -390,34 +111,6 @@ export default function acfRenderComponent(componentName, componentData, index, 
             mediaIcon={mediaIcon?.mediaItemUrl ?? ''}
             image={image?.mediaItemUrl ?? ''}
             textColor={textColor}
-          />
-        );
-      }
-      case 'HeroCenter': {
-        const {
-          textOverlineTop,
-          textOverlineBottom,
-          textHeadline,
-          textBodyline,
-          textSublineTop,
-          textSublineBottom,
-          textPostline,
-          media,
-          textColor,
-        } = componentData;
-
-        return (
-          <HeroCenter
-            key={`${componentName}_${index}`}
-            textOverlineTop={textOverlineTop}
-            textOverlineBottom={textOverlineBottom}
-            textHeadline={textHeadline}
-            textBodyline={textBodyline}
-            textSublineTop={textSublineTop}
-            textSublineBottom={textSublineBottom}
-            textPostline={textPostline}
-            textColor={textColor}
-            media={media?.mediaItemUrl ?? ''}
           />
         );
       }
@@ -527,13 +220,10 @@ export default function acfRenderComponent(componentName, componentData, index, 
           textColor,
           buttonImageOne,
           labelOne,
-          linkOne,
           buttonImageTwo,
           labelTwo,
-          linkTwo,
           buttonImageThree,
           labelThree,
-          linkThree,
         } = componentData;
 
         return (
@@ -544,13 +234,10 @@ export default function acfRenderComponent(componentName, componentData, index, 
             textColor={textColor}
             buttonImageOne={buttonImageOne?.mediaItemUrl ?? ''}
             labelOne={labelOne}
-            linkOne={linkOne?.url ?? '/'}
             buttonImageTwo={buttonImageTwo?.mediaItemUrl ?? ''}
             labelTwo={labelTwo}
-            linkTwo={linkTwo?.url ?? '/'}
             buttonImageThree={buttonImageThree?.mediaItemUrl ?? ''}
             labelThree={labelThree}
-            linkThree={linkThree?.url ?? '/'}
           />
         );
       }
@@ -648,79 +335,6 @@ export default function acfRenderComponent(componentName, componentData, index, 
             imageThree={valueCards[2]?.$on?.Value?.values?.image?.mediaItemUrl ?? ''}
             labelThree={valueCards[2]?.$on?.Value?.values?.label ?? ''}
             descriptionThree={valueCards[2]?.$on?.Value?.values?.description ?? ''}
-          />
-        );
-      }
-      case 'FourButtonsGroup': {
-        const { labelOne, labelTwo, labelThree, labelFour, email, backgroundColor } = componentData;
-
-        return (
-          <FourButtonsGroup
-            key={`${componentName}_${index}`}
-            labelOne={labelOne}
-            labelTwo={labelTwo}
-            labelThree={labelThree}
-            labelFour={labelFour}
-            email={email}
-            backgroundColor={backgroundColor}
-          />
-        );
-      }
-      case 'SaleBanner': {
-        const {
-          isActive,
-          infoTextOne,
-          infoTextTwo,
-          infoTextThree,
-          textColor,
-          backgroundColor,
-          headlineText,
-          sublineText,
-          buttonLabel,
-        } = componentData;
-
-        return (
-          <SaleBanner
-            key={`${componentName}_${index}`}
-            isActive={isActive}
-            infoTextOne={infoTextOne}
-            infoTextTwo={infoTextTwo}
-            infoTextThree={infoTextThree}
-            headlineText={headlineText}
-            sublineText={sublineText}
-            textColor={textColor}
-            buttonLabel={buttonLabel}
-            backgroundColor={backgroundColor}
-          />
-        );
-      }
-      case 'SaleCta': {
-        const {
-          isActive,
-          textOverlineTop,
-          textOverlineBottom,
-          textHeadline,
-          textColor,
-          textBodyline,
-          textSublineTop,
-          textSublineBottom,
-          textPostline,
-          media,
-        } = componentData;
-
-        return (
-          <SaleCta
-            key={`${componentName}_${index}`}
-            isActive={isActive}
-            textOverlineTop={textOverlineTop}
-            textOverlineBottom={textOverlineBottom}
-            textHeadline={textHeadline}
-            textSublineTop={textSublineTop}
-            textSublineBottom={textSublineBottom}
-            textColor={textColor}
-            textPostline={textPostline}
-            textBodyline={textBodyline}
-            media={media}
           />
         );
       }

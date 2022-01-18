@@ -1,7 +1,6 @@
 import { client } from 'client';
 
 import { PageComponent } from './[...pageUri]';
-import { PostComponent } from './posts/[postSlug]';
 
 export default function Preview() {
   const { usePreview } = client.auth;
@@ -22,6 +21,4 @@ export default function Preview() {
   if (!result.post) {
     return <>Not Found</>;
   }
-
-  return <PostComponent post={result.post} />;
 }

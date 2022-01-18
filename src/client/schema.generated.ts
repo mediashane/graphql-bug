@@ -4865,6 +4865,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -4907,6 +4908,7 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -5550,6 +5552,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -5881,6 +5884,7 @@ export const generatedSchema = {
     link: { __type: 'String' },
     name: { __type: 'String' },
     slug: { __type: 'String' },
+    taxonomyName: { __type: 'String' },
     templates: { __type: '[String]' },
     termGroupId: { __type: 'Int' },
     termTaxonomyId: { __type: 'Int' },
@@ -5982,6 +5986,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -6047,6 +6052,7 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -6322,6 +6328,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     ctaId: { __type: 'Int!' },
     ctaText: { __type: 'Cta_Ctatext' },
     databaseId: { __type: 'Int!' },
@@ -6442,6 +6449,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -6509,6 +6517,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -6583,6 +6592,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -6829,6 +6839,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -7023,6 +7034,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -7105,6 +7117,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -7194,6 +7207,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     ctaText: { __type: 'Rug_Ctatext' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
@@ -7349,6 +7363,7 @@ export const generatedSchema = {
     },
     conditionalTags: { __type: 'ConditionalTags' },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -7666,6 +7681,7 @@ export const generatedSchema = {
     conditionalTags: { __type: 'ConditionalTags' },
     content: { __type: 'String', __args: { format: 'PostObjectFieldFormatEnum' } },
     contentType: { __type: 'ContentNodeToContentTypeConnectionEdge' },
+    contentTypeName: { __type: 'String!' },
     databaseId: { __type: 'Int!' },
     date: { __type: 'String' },
     dateGmt: { __type: 'String' },
@@ -7856,6 +7872,7 @@ export const generatedSchema = {
     },
     slug: { __type: 'String' },
     taxonomy: { __type: 'CategoryToTaxonomyConnectionEdge' },
+    taxonomyName: { __type: 'String' },
     templates: { __type: '[String]' },
     termGroupId: { __type: 'Int' },
     termTaxonomyId: { __type: 'Int' },
@@ -8106,6 +8123,7 @@ export const generatedSchema = {
     },
     slug: { __type: 'String' },
     taxonomy: { __type: 'PostFormatToTaxonomyConnectionEdge' },
+    taxonomyName: { __type: 'String' },
     templates: { __type: '[String]' },
     termGroupId: { __type: 'Int' },
     termTaxonomyId: { __type: 'Int' },
@@ -8303,6 +8321,7 @@ export const generatedSchema = {
     slug: { __type: 'String' },
     tagId: { __type: 'Int' },
     taxonomy: { __type: 'TagToTaxonomyConnectionEdge' },
+    taxonomyName: { __type: 'String' },
     templates: { __type: '[String]' },
     termGroupId: { __type: 'Int' },
     termTaxonomyId: { __type: 'Int' },
@@ -11435,6 +11454,10 @@ export interface Carousel {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The unique resource identifier path
    */
   databaseId: ScalarsEnums['Int'];
@@ -11655,6 +11678,10 @@ export interface ContentNode {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The ID of the node in the database.
    */
@@ -13423,6 +13450,10 @@ export interface MediaItem {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The unique identifier stored in the database
    */
   databaseId: ScalarsEnums['Int'];
@@ -14294,6 +14325,10 @@ export interface TermNode {
    * An alphanumeric identifier for the object unique to its type.
    */
   slug?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums['String']>;
   templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
   /**
    * The ID of the term group that this term object belongs to
@@ -14517,6 +14552,10 @@ export interface Page {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The unique resource identifier path
    */
@@ -14767,6 +14806,10 @@ export interface NodeWithFeaturedImage {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The unique identifier stored in the database
    */
@@ -15484,6 +15527,10 @@ export interface Cta {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
    */
@@ -15839,6 +15886,10 @@ export interface Product_category {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The unique resource identifier path
    */
   databaseId: ScalarsEnums['Int'];
@@ -16077,6 +16128,10 @@ export interface Rug_attribute {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The unique resource identifier path
    */
@@ -16333,6 +16388,10 @@ export interface Rug_description {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The unique resource identifier path
    */
@@ -16933,6 +16992,10 @@ export interface Location {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The unique resource identifier path
    */
   databaseId: ScalarsEnums['Int'];
@@ -17394,6 +17457,10 @@ export interface Rug_collection {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The unique resource identifier path
    */
   databaseId: ScalarsEnums['Int'];
@@ -17660,6 +17727,10 @@ export interface Feature {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The unique resource identifier path
    */
@@ -17954,6 +18025,10 @@ export interface Rug {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * Added to the GraphQL Schema because the ACF Field Group &quot;Cta&quot; was set to Show in GraphQL.
    */
@@ -18389,6 +18464,10 @@ export interface Value {
    * Connection between the ContentNode type and the ContentType type
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
   /**
    * The unique resource identifier path
    */
@@ -19042,6 +19121,10 @@ export interface Post {
    */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
   /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums['String'];
+  /**
    * The unique resource identifier path
    */
   databaseId: ScalarsEnums['Int'];
@@ -19634,6 +19717,10 @@ export interface Category {
    * Connection between the category type and the Taxonomy type
    */
   taxonomy?: Maybe<CategoryToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums['String']>;
   templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
   /**
    * The ID of the term group that this term object belongs to
@@ -20038,6 +20125,10 @@ export interface PostFormat {
    * Connection between the postFormat type and the Taxonomy type
    */
   taxonomy?: Maybe<PostFormatToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums['String']>;
   templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
   /**
    * The ID of the term group that this term object belongs to
@@ -20370,6 +20461,10 @@ export interface Tag {
    * Connection between the tag type and the Taxonomy type
    */
   taxonomy?: Maybe<TagToTaxonomyConnectionEdge>;
+  /**
+   * The name of the taxonomy that the object is associated with
+   */
+  taxonomyName?: Maybe<ScalarsEnums['String']>;
   templates?: Maybe<Array<Maybe<ScalarsEnums['String']>>>;
   /**
    * The ID of the term group that this term object belongs to
