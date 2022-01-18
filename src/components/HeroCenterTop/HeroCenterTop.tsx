@@ -18,7 +18,7 @@ function HeroCenterTop({
   textOverline = '',
   textHeadline = '',
   textSubline = '',
-  media = 'images/fromTheFarmHero.jpg',
+  media = '',
   textColor,
 }: Props): JSX.Element {
   return (

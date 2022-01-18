@@ -23,7 +23,7 @@ function HeroRightJustified({
   textMediaLabel = '',
   mediaIcon,
   textHeadline = '',
-  image = 'images/AnalogPortrait.jpg',
+  image = '',
 }: Props): JSX.Element {
   return (
     <>

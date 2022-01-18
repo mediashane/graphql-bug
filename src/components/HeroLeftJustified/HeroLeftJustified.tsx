@@ -19,7 +19,7 @@ function HeroLeftJustified({
   textOverline = '',
   textHeadline = '',
   textParagraph = '',
-  media = 'images/elizabethWeaving.jpg',
+  media = '',
   textColor = '',
 }: Props): JSX.Element {
   return (
