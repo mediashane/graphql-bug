@@ -120,7 +120,6 @@ export async function getStaticPaths() {
     '/cotton',
     '/elizabeths-cloth',
     '/fabric',
-    '/grasscloth',
     '/hagga',
     '/hand-tufted',
     '/home',
