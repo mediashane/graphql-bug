@@ -1,4 +1,4 @@
-# Elizabeth Eakins 2021
+# GRAPHQL BUG Elizabeth Eakins 2021
 
 ## Develop it locally
 
