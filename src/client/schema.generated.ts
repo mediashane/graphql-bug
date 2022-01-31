@@ -5744,8 +5744,32 @@ export const generatedSchema = {
   },
   ContentTemplate: {
     __typename: { __type: 'String!' },
+    footer: { __type: 'ContentTemplate_Footer' },
     templateName: { __type: 'String' },
     $on: { __type: '$ContentTemplate!' },
+  },
+  ContentTemplate_Footer: {
+    __typename: { __type: 'String!' },
+    address: { __type: 'String' },
+    description: { __type: 'String' },
+    email: { __type: 'String' },
+    emailPlaceholder: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    hours: { __type: 'String' },
+    igCta: { __type: 'String' },
+    igLink: { __type: 'String' },
+    locationButtonLabel: { __type: 'String' },
+    locationDescription: { __type: 'String' },
+    locationTitle: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+    socialDescription: { __type: 'String' },
+    socialTitle: { __type: 'String' },
+    title: { __type: 'String' },
+  },
+  AcfFieldGroup: {
+    __typename: { __type: 'String!' },
+    fieldGroupName: { __type: 'String' },
+    $on: { __type: '$AcfFieldGroup!' },
   },
   NodeWithTitle: {
     __typename: { __type: 'String!' },
@@ -6083,6 +6107,7 @@ export const generatedSchema = {
     featuredImage: { __type: 'NodeWithFeaturedImageToMediaItemConnectionEdge' },
     featuredImageDatabaseId: { __type: 'Int' },
     featuredImageId: { __type: 'ID' },
+    footer: { __type: 'Page_Footer' },
     guid: { __type: 'String' },
     id: { __type: 'ID!' },
     isContentNode: { __type: 'Boolean!' },
@@ -6189,11 +6214,6 @@ export const generatedSchema = {
     summary: { __type: 'String' },
     title: { __type: 'String' },
   },
-  AcfFieldGroup: {
-    __typename: { __type: 'String!' },
-    fieldGroupName: { __type: 'String' },
-    $on: { __type: '$AcfFieldGroup!' },
-  },
   PageToCommentConnectionWhereArgs: {
     authorEmail: { __type: 'String' },
     authorIn: { __type: '[ID]' },
@@ -6235,6 +6255,24 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     cursor: { __type: 'String' },
     node: { __type: 'Comment' },
+  },
+  Page_Footer: {
+    __typename: { __type: 'String!' },
+    address: { __type: 'String' },
+    description: { __type: 'String' },
+    email: { __type: 'String' },
+    emailPlaceholder: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    hours: { __type: 'String' },
+    igCta: { __type: 'String' },
+    igLink: { __type: 'String' },
+    locationButtonLabel: { __type: 'String' },
+    locationDescription: { __type: 'String' },
+    locationTitle: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+    socialDescription: { __type: 'String' },
+    socialTitle: { __type: 'String' },
+    title: { __type: 'String' },
   },
   Page_Locations: {
     __typename: { __type: 'String!' },
@@ -8625,6 +8663,7 @@ export const generatedSchema = {
   KoaThemeOptions: {
     __typename: { __type: 'String!' },
     bookAnAppointment: { __type: 'KoaThemeOptions_Bookanappointment' },
+    footer: { __type: 'KoaThemeOptions_Footer' },
     pageSlug: { __type: 'String' },
     pageTitle: { __type: 'String' },
     themeOptions: { __type: 'KoaThemeOptions_Themeoptions' },
@@ -8642,6 +8681,24 @@ export const generatedSchema = {
     professionalPrompt: { __type: 'String' },
     recipientEmail: { __type: 'String' },
     topicsPrompt: { __type: 'String' },
+  },
+  KoaThemeOptions_Footer: {
+    __typename: { __type: 'String!' },
+    address: { __type: 'String' },
+    description: { __type: 'String' },
+    email: { __type: 'String' },
+    emailPlaceholder: { __type: 'String' },
+    fieldGroupName: { __type: 'String' },
+    hours: { __type: 'String' },
+    igCta: { __type: 'String' },
+    igLink: { __type: 'String' },
+    locationButtonLabel: { __type: 'String' },
+    locationDescription: { __type: 'String' },
+    locationTitle: { __type: 'String' },
+    phoneNumber: { __type: 'String' },
+    socialDescription: { __type: 'String' },
+    socialTitle: { __type: 'String' },
+    title: { __type: 'String' },
   },
   KoaThemeOptions_Themeoptions: {
     __typename: { __type: 'String!' },
@@ -10389,6 +10446,7 @@ export const generatedSchema = {
     __typename: { __type: 'String!' },
     blogPosts: { __type: 'DefaultTemplate_Blogposts' },
     features: { __type: 'DefaultTemplate_Features' },
+    footer: { __type: 'ContentTemplate_Footer' },
     productCategory: { __type: 'DefaultTemplate_Productcategory' },
     rug: { __type: 'DefaultTemplate_Rug' },
     rugAttribute: { __type: 'DefaultTemplate_Rugattribute' },
@@ -10453,6 +10511,7 @@ export const generatedSchema = {
   },
   Template_Home: {
     __typename: { __type: 'String!' },
+    footer: { __type: 'ContentTemplate_Footer' },
     locations: { __type: 'Template_Home_Locations' },
     templateName: { __type: 'String' },
   },
@@ -10622,11 +10681,10 @@ export const generatedSchema = {
       'Value',
       'Farm',
     ],
-    NodeWithFeaturedImage: ['Page', 'Post'],
-    NodeWithRevisions: ['Page', 'Post'],
-    NodeWithPageAttributes: ['Page'],
     AcfFieldGroup: [
+      'ContentTemplate_Footer',
       'Page_Blogposts',
+      'Page_Footer',
       'Page_Locations',
       'Page_Pagebuilder',
       'Page_Pagebuilder_Modules_HeroLeftJustified',
@@ -10692,6 +10750,7 @@ export const generatedSchema = {
       'Post_Productcategory',
       'Farm_Blogposts',
       'KoaThemeOptions_Bookanappointment',
+      'KoaThemeOptions_Footer',
       'KoaThemeOptions_Themeoptions',
       'DefaultTemplate_Rug',
       'DefaultTemplate_Rug_Modules',
@@ -10711,6 +10770,9 @@ export const generatedSchema = {
       'DefaultTemplate_Values',
       'Template_Home_Locations',
     ],
+    NodeWithFeaturedImage: ['Page', 'Post'],
+    NodeWithRevisions: ['Page', 'Post'],
+    NodeWithPageAttributes: ['Page'],
     Page_Pagebuilder_Modules: [
       'Page_Pagebuilder_Modules_HeroLeftJustified',
       'Page_Pagebuilder_Modules_HeroRightJustified',
@@ -13980,10 +14042,138 @@ export interface NodeWithTemplate {
 export interface ContentTemplate {
   __typename?: 'DefaultTemplate' | 'Template_Home';
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Footer&quot; was set to Show in GraphQL.
+   */
+  footer?: Maybe<ContentTemplate_Footer>;
+  /**
    * The name of the template
    */
   templateName?: Maybe<ScalarsEnums['String']>;
   $on: $ContentTemplate;
+}
+
+/**
+ * Field Group
+ */
+export interface ContentTemplate_Footer {
+  __typename?: 'ContentTemplate_Footer';
+  address?: Maybe<ScalarsEnums['String']>;
+  description?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  emailPlaceholder?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  hours?: Maybe<ScalarsEnums['String']>;
+  igCta?: Maybe<ScalarsEnums['String']>;
+  igLink?: Maybe<ScalarsEnums['String']>;
+  locationButtonLabel?: Maybe<ScalarsEnums['String']>;
+  locationDescription?: Maybe<ScalarsEnums['String']>;
+  locationTitle?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
+  socialDescription?: Maybe<ScalarsEnums['String']>;
+  socialTitle?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * A Field Group registered by ACF
+ */
+export interface AcfFieldGroup {
+  __typename?:
+    | 'ContentTemplate_Footer'
+    | 'Page_Blogposts'
+    | 'Page_Footer'
+    | 'Page_Locations'
+    | 'Page_Pagebuilder'
+    | 'Page_Pagebuilder_Modules_HeroLeftJustified'
+    | 'Page_Pagebuilder_Modules_HeroRightJustified'
+    | 'Page_Pagebuilder_Modules_HeroCenterTop'
+    | 'Page_Pagebuilder_Modules_HeroCenter'
+    | 'Page_Pagebuilder_Modules_HeroCenterButton'
+    | 'Page_Pagebuilder_Modules_CallToAction'
+    | 'Page_Pagebuilder_Modules_ThreeImageButtons'
+    | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
+    | 'Page_Pagebuilder_Modules_EmailSubscribe'
+    | 'Page_Pagebuilder_Modules_CenteredText'
+    | 'Cta_Ctatext'
+    | 'Page_Pagebuilder_Modules_CardList'
+    | 'Page_Pagebuilder_Modules_CardList_cards'
+    | 'Page_Pagebuilder_Modules_FarmPostsList'
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery'
+    | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
+    | 'Rug_attribute_Rugattribute'
+    | 'Rug_description_Rugdescription'
+    | 'Page_Pagebuilder_Modules_FourFeatureTags'
+    | 'Page_Pagebuilder_Modules_FourCardsRow'
+    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
+    | 'Page_Pagebuilder_Modules_CardsCarousel'
+    | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
+    | 'Page_Pagebuilder_Modules_TwoColumnContent'
+    | 'Page_Pagebuilder_Modules_OneColumnContent'
+    | 'Page_Pagebuilder_Modules_ContactBanner'
+    | 'Page_Pagebuilder_Modules_ContactList'
+    | 'Page_Pagebuilder_Modules_ContactList_cards'
+    | 'Page_Pagebuilder_Modules_FourButtonsGroup'
+    | 'Page_Pagebuilder_Modules_LocationBanner'
+    | 'Location_Locations'
+    | 'Page_Pagebuilder_Modules_CenteredTextWithButton'
+    | 'Page_Pagebuilder_Modules_SaleBanner'
+    | 'Page_Pagebuilder_Modules_SaleCta'
+    | 'Page_Productcategory'
+    | 'Page_Rug'
+    | 'Page_Rug_Modules'
+    | 'Page_Rug_Modules_CardsCarousel'
+    | 'Page_Rug_Modules_CenteredText'
+    | 'Rug_collection_RugCollection'
+    | 'Rug_Ctatext'
+    | 'Rug_Productcategory'
+    | 'Rug_Rug'
+    | 'Rug_Rug_Modules'
+    | 'Rug_Rug_Modules_CardsCarousel'
+    | 'Rug_Rug_Modules_CenteredText'
+    | 'Rug_Rug_Modules_ThreeFeatureCardsFeatures'
+    | 'Feature_Features'
+    | 'Rug_Rug_Modules_ThreeFeatureCardsValues'
+    | 'Value_Values'
+    | 'Rug_Rug_Modules_TwoColumnGallery'
+    | 'Rug_Rug_Modules_TwoColumnGallery_images'
+    | 'Rug_Rug_Modules_TwoColumnGallery_listItems'
+    | 'Rug_Rugattribute'
+    | 'Rug_Rugdescription'
+    | 'Page_Rug_Modules_ThreeFeatureCardsFeatures'
+    | 'Page_Rug_Modules_ThreeFeatureCardsValues'
+    | 'Page_Rug_Modules_TwoColumnGallery'
+    | 'Page_Rug_Modules_TwoColumnGallery_images'
+    | 'Page_Rug_Modules_TwoColumnGallery_listItems'
+    | 'Post_Productcategory'
+    | 'Farm_Blogposts'
+    | 'KoaThemeOptions_Bookanappointment'
+    | 'KoaThemeOptions_Footer'
+    | 'KoaThemeOptions_Themeoptions'
+    | 'DefaultTemplate_Rug'
+    | 'DefaultTemplate_Rug_Modules'
+    | 'DefaultTemplate_Rug_Modules_CardsCarousel'
+    | 'DefaultTemplate_Rug_Modules_CenteredText'
+    | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures'
+    | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues'
+    | 'DefaultTemplate_Rug_Modules_TwoColumnGallery'
+    | 'DefaultTemplate_Rug_Modules_TwoColumnGallery_images'
+    | 'DefaultTemplate_Rug_Modules_TwoColumnGallery_listItems'
+    | 'DefaultTemplate_Blogposts'
+    | 'DefaultTemplate_Features'
+    | 'DefaultTemplate_Productcategory'
+    | 'DefaultTemplate_Rugattribute'
+    | 'DefaultTemplate_RugCollection'
+    | 'DefaultTemplate_Rugdescription'
+    | 'DefaultTemplate_Values'
+    | 'Template_Home_Locations';
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  $on: $AcfFieldGroup;
 }
 
 /**
@@ -14714,6 +14904,10 @@ export interface Page {
    */
   featuredImageId?: Maybe<ScalarsEnums['ID']>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Footer&quot; was set to Show in GraphQL.
+   */
+  footer?: Maybe<Page_Footer>;
+  /**
    * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
    */
   guid?: Maybe<ScalarsEnums['String']>;
@@ -15107,102 +15301,6 @@ export interface Page_Blogposts {
 }
 
 /**
- * A Field Group registered by ACF
- */
-export interface AcfFieldGroup {
-  __typename?:
-    | 'Page_Blogposts'
-    | 'Page_Locations'
-    | 'Page_Pagebuilder'
-    | 'Page_Pagebuilder_Modules_HeroLeftJustified'
-    | 'Page_Pagebuilder_Modules_HeroRightJustified'
-    | 'Page_Pagebuilder_Modules_HeroCenterTop'
-    | 'Page_Pagebuilder_Modules_HeroCenter'
-    | 'Page_Pagebuilder_Modules_HeroCenterButton'
-    | 'Page_Pagebuilder_Modules_CallToAction'
-    | 'Page_Pagebuilder_Modules_ThreeImageButtons'
-    | 'Page_Pagebuilder_Modules_ThreeFeatureCards'
-    | 'Page_Pagebuilder_Modules_EmailSubscribe'
-    | 'Page_Pagebuilder_Modules_CenteredText'
-    | 'Cta_Ctatext'
-    | 'Page_Pagebuilder_Modules_CardList'
-    | 'Page_Pagebuilder_Modules_CardList_cards'
-    | 'Page_Pagebuilder_Modules_FarmPostsList'
-    | 'Page_Pagebuilder_Modules_TwoColumnGallery'
-    | 'Page_Pagebuilder_Modules_TwoColumnGallery_images'
-    | 'Rug_attribute_Rugattribute'
-    | 'Rug_description_Rugdescription'
-    | 'Page_Pagebuilder_Modules_FourFeatureTags'
-    | 'Page_Pagebuilder_Modules_FourCardsRow'
-    | 'Page_Pagebuilder_Modules_FourCardsWithPrompt'
-    | 'Page_Pagebuilder_Modules_CardsCarousel'
-    | 'Page_Pagebuilder_Modules_CardsCarousel_cards'
-    | 'Page_Pagebuilder_Modules_TwoColumnContent'
-    | 'Page_Pagebuilder_Modules_OneColumnContent'
-    | 'Page_Pagebuilder_Modules_ContactBanner'
-    | 'Page_Pagebuilder_Modules_ContactList'
-    | 'Page_Pagebuilder_Modules_ContactList_cards'
-    | 'Page_Pagebuilder_Modules_FourButtonsGroup'
-    | 'Page_Pagebuilder_Modules_LocationBanner'
-    | 'Location_Locations'
-    | 'Page_Pagebuilder_Modules_CenteredTextWithButton'
-    | 'Page_Pagebuilder_Modules_SaleBanner'
-    | 'Page_Pagebuilder_Modules_SaleCta'
-    | 'Page_Productcategory'
-    | 'Page_Rug'
-    | 'Page_Rug_Modules'
-    | 'Page_Rug_Modules_CardsCarousel'
-    | 'Page_Rug_Modules_CenteredText'
-    | 'Rug_collection_RugCollection'
-    | 'Rug_Ctatext'
-    | 'Rug_Productcategory'
-    | 'Rug_Rug'
-    | 'Rug_Rug_Modules'
-    | 'Rug_Rug_Modules_CardsCarousel'
-    | 'Rug_Rug_Modules_CenteredText'
-    | 'Rug_Rug_Modules_ThreeFeatureCardsFeatures'
-    | 'Feature_Features'
-    | 'Rug_Rug_Modules_ThreeFeatureCardsValues'
-    | 'Value_Values'
-    | 'Rug_Rug_Modules_TwoColumnGallery'
-    | 'Rug_Rug_Modules_TwoColumnGallery_images'
-    | 'Rug_Rug_Modules_TwoColumnGallery_listItems'
-    | 'Rug_Rugattribute'
-    | 'Rug_Rugdescription'
-    | 'Page_Rug_Modules_ThreeFeatureCardsFeatures'
-    | 'Page_Rug_Modules_ThreeFeatureCardsValues'
-    | 'Page_Rug_Modules_TwoColumnGallery'
-    | 'Page_Rug_Modules_TwoColumnGallery_images'
-    | 'Page_Rug_Modules_TwoColumnGallery_listItems'
-    | 'Post_Productcategory'
-    | 'Farm_Blogposts'
-    | 'KoaThemeOptions_Bookanappointment'
-    | 'KoaThemeOptions_Themeoptions'
-    | 'DefaultTemplate_Rug'
-    | 'DefaultTemplate_Rug_Modules'
-    | 'DefaultTemplate_Rug_Modules_CardsCarousel'
-    | 'DefaultTemplate_Rug_Modules_CenteredText'
-    | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsFeatures'
-    | 'DefaultTemplate_Rug_Modules_ThreeFeatureCardsValues'
-    | 'DefaultTemplate_Rug_Modules_TwoColumnGallery'
-    | 'DefaultTemplate_Rug_Modules_TwoColumnGallery_images'
-    | 'DefaultTemplate_Rug_Modules_TwoColumnGallery_listItems'
-    | 'DefaultTemplate_Blogposts'
-    | 'DefaultTemplate_Features'
-    | 'DefaultTemplate_Productcategory'
-    | 'DefaultTemplate_Rugattribute'
-    | 'DefaultTemplate_RugCollection'
-    | 'DefaultTemplate_Rugdescription'
-    | 'DefaultTemplate_Values'
-    | 'Template_Home_Locations';
-  /**
-   * The name of the ACF Field Group
-   */
-  fieldGroupName?: Maybe<ScalarsEnums['String']>;
-  $on: $AcfFieldGroup;
-}
-
-/**
  * Connection between the page type and the Comment type
  */
 export interface PageToCommentConnection {
@@ -15234,6 +15332,31 @@ export interface PageToCommentConnectionEdge {
    * The item at the end of the edge
    */
   node?: Maybe<Comment>;
+}
+
+/**
+ * Field Group
+ */
+export interface Page_Footer {
+  __typename?: 'Page_Footer';
+  address?: Maybe<ScalarsEnums['String']>;
+  description?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  emailPlaceholder?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  hours?: Maybe<ScalarsEnums['String']>;
+  igCta?: Maybe<ScalarsEnums['String']>;
+  igLink?: Maybe<ScalarsEnums['String']>;
+  locationButtonLabel?: Maybe<ScalarsEnums['String']>;
+  locationDescription?: Maybe<ScalarsEnums['String']>;
+  locationTitle?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
+  socialDescription?: Maybe<ScalarsEnums['String']>;
+  socialTitle?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -20863,6 +20986,10 @@ export interface KoaThemeOptions {
    * Added to the GraphQL Schema because the ACF Field Group &quot;Book an Appointment&quot; was set to Show in GraphQL.
    */
   bookAnAppointment?: Maybe<KoaThemeOptions_Bookanappointment>;
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Footer&quot; was set to Show in GraphQL.
+   */
+  footer?: Maybe<KoaThemeOptions_Footer>;
   pageSlug?: Maybe<ScalarsEnums['String']>;
   pageTitle?: Maybe<ScalarsEnums['String']>;
   /**
@@ -20905,6 +21032,31 @@ export interface KoaThemeOptions_Bookanappointment {
    */
   recipientEmail?: Maybe<ScalarsEnums['String']>;
   topicsPrompt?: Maybe<ScalarsEnums['String']>;
+}
+
+/**
+ * Field Group
+ */
+export interface KoaThemeOptions_Footer {
+  __typename?: 'KoaThemeOptions_Footer';
+  address?: Maybe<ScalarsEnums['String']>;
+  description?: Maybe<ScalarsEnums['String']>;
+  email?: Maybe<ScalarsEnums['String']>;
+  emailPlaceholder?: Maybe<ScalarsEnums['String']>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums['String']>;
+  hours?: Maybe<ScalarsEnums['String']>;
+  igCta?: Maybe<ScalarsEnums['String']>;
+  igLink?: Maybe<ScalarsEnums['String']>;
+  locationButtonLabel?: Maybe<ScalarsEnums['String']>;
+  locationDescription?: Maybe<ScalarsEnums['String']>;
+  locationTitle?: Maybe<ScalarsEnums['String']>;
+  phoneNumber?: Maybe<ScalarsEnums['String']>;
+  socialDescription?: Maybe<ScalarsEnums['String']>;
+  socialTitle?: Maybe<ScalarsEnums['String']>;
+  title?: Maybe<ScalarsEnums['String']>;
 }
 
 /**
@@ -23409,6 +23561,10 @@ export interface DefaultTemplate {
    */
   features?: Maybe<DefaultTemplate_Features>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Footer&quot; was set to Show in GraphQL.
+   */
+  footer?: Maybe<ContentTemplate_Footer>;
+  /**
    * Added to the GraphQL Schema because the ACF Field Group &quot;Product Category&quot; was set to Show in GraphQL.
    */
   productCategory?: Maybe<DefaultTemplate_Productcategory>;
@@ -23557,6 +23713,10 @@ export interface DefaultTemplate_Values {
 export interface Template_Home {
   __typename?: 'Template_Home';
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Footer&quot; was set to Show in GraphQL.
+   */
+  footer?: Maybe<ContentTemplate_Footer>;
+  /**
    * Added to the GraphQL Schema because the ACF Field Group &quot;Locations&quot; was set to Show in GraphQL.
    */
   locations?: Maybe<Template_Home_Locations>;
@@ -23638,6 +23798,7 @@ export interface SchemaObjectTypes {
   UserToMediaItemConnection: UserToMediaItemConnection;
   UserToMediaItemConnectionEdge: UserToMediaItemConnectionEdge;
   MediaItem: MediaItem;
+  ContentTemplate_Footer: ContentTemplate_Footer;
   NodeWithAuthorToUserConnectionEdge: NodeWithAuthorToUserConnectionEdge;
   HierarchicalContentNodeToContentNodeAncestorsConnection: HierarchicalContentNodeToContentNodeAncestorsConnection;
   HierarchicalContentNodeToContentNodeAncestorsConnectionEdge: HierarchicalContentNodeToContentNodeAncestorsConnectionEdge;
@@ -23664,6 +23825,7 @@ export interface SchemaObjectTypes {
   Page_Blogposts: Page_Blogposts;
   PageToCommentConnection: PageToCommentConnection;
   PageToCommentConnectionEdge: PageToCommentConnectionEdge;
+  Page_Footer: Page_Footer;
   Page_Locations: Page_Locations;
   Page_Pagebuilder: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified: Page_Pagebuilder_Modules_HeroLeftJustified;
@@ -23805,6 +23967,7 @@ export interface SchemaObjectTypes {
   GeneralSettings: GeneralSettings;
   KoaThemeOptions: KoaThemeOptions;
   KoaThemeOptions_Bookanappointment: KoaThemeOptions_Bookanappointment;
+  KoaThemeOptions_Footer: KoaThemeOptions_Footer;
   KoaThemeOptions_Themeoptions: KoaThemeOptions_Themeoptions;
   RootQueryToLocationConnection: RootQueryToLocationConnection;
   RootQueryToLocationConnectionEdge: RootQueryToLocationConnectionEdge;
@@ -23995,6 +24158,7 @@ export type SchemaObjectTypesNames =
   | 'UserToMediaItemConnection'
   | 'UserToMediaItemConnectionEdge'
   | 'MediaItem'
+  | 'ContentTemplate_Footer'
   | 'NodeWithAuthorToUserConnectionEdge'
   | 'HierarchicalContentNodeToContentNodeAncestorsConnection'
   | 'HierarchicalContentNodeToContentNodeAncestorsConnectionEdge'
@@ -24021,6 +24185,7 @@ export type SchemaObjectTypesNames =
   | 'Page_Blogposts'
   | 'PageToCommentConnection'
   | 'PageToCommentConnectionEdge'
+  | 'Page_Footer'
   | 'Page_Locations'
   | 'Page_Pagebuilder'
   | 'Page_Pagebuilder_Modules_HeroLeftJustified'
@@ -24162,6 +24327,7 @@ export type SchemaObjectTypesNames =
   | 'GeneralSettings'
   | 'KoaThemeOptions'
   | 'KoaThemeOptions_Bookanappointment'
+  | 'KoaThemeOptions_Footer'
   | 'KoaThemeOptions_Themeoptions'
   | 'RootQueryToLocationConnection'
   | 'RootQueryToLocationConnectionEdge'
@@ -24489,22 +24655,10 @@ export interface $HierarchicalContentNode {
   Farm?: Farm;
 }
 
-export interface $NodeWithFeaturedImage {
-  Page?: Page;
-  Post?: Post;
-}
-
-export interface $NodeWithRevisions {
-  Page?: Page;
-  Post?: Post;
-}
-
-export interface $NodeWithPageAttributes {
-  Page?: Page;
-}
-
 export interface $AcfFieldGroup {
+  ContentTemplate_Footer?: ContentTemplate_Footer;
   Page_Blogposts?: Page_Blogposts;
+  Page_Footer?: Page_Footer;
   Page_Locations?: Page_Locations;
   Page_Pagebuilder?: Page_Pagebuilder;
   Page_Pagebuilder_Modules_HeroLeftJustified?: Page_Pagebuilder_Modules_HeroLeftJustified;
@@ -24570,6 +24724,7 @@ export interface $AcfFieldGroup {
   Post_Productcategory?: Post_Productcategory;
   Farm_Blogposts?: Farm_Blogposts;
   KoaThemeOptions_Bookanappointment?: KoaThemeOptions_Bookanappointment;
+  KoaThemeOptions_Footer?: KoaThemeOptions_Footer;
   KoaThemeOptions_Themeoptions?: KoaThemeOptions_Themeoptions;
   DefaultTemplate_Rug?: DefaultTemplate_Rug;
   DefaultTemplate_Rug_Modules?: DefaultTemplate_Rug_Modules;
@@ -24588,6 +24743,20 @@ export interface $AcfFieldGroup {
   DefaultTemplate_Rugdescription?: DefaultTemplate_Rugdescription;
   DefaultTemplate_Values?: DefaultTemplate_Values;
   Template_Home_Locations?: Template_Home_Locations;
+}
+
+export interface $NodeWithFeaturedImage {
+  Page?: Page;
+  Post?: Post;
+}
+
+export interface $NodeWithRevisions {
+  Page?: Page;
+  Post?: Post;
+}
+
+export interface $NodeWithPageAttributes {
+  Page?: Page;
 }
 
 export interface $Page_Pagebuilder_Modules {
